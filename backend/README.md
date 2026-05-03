@@ -85,3 +85,35 @@ celery -A config worker -l info
 ```bash
 python manage.py test
 ```
+
+## Deploying to Vercel
+
+Vercel uses the serverless Python runtime. For production, use a hosted Postgres
+database (SQLite is not persistent on Vercel).
+
+1. Ensure the repo root contains:
+   - `vercel.json`
+   - `requirements.txt` (which includes `-r backend/requirements.txt`)
+2. Add environment variables in Vercel:
+   - `SECRET_KEY`
+   - `DEBUG=False`
+   - `DATABASE_URL` (Postgres)
+   - `ALLOWED_HOSTS` (e.g. `your-project.vercel.app`)
+   - `VERCEL_URL` (e.g. `your-project.vercel.app`)
+   - `CSRF_TRUSTED_ORIGINS` (e.g. `https://your-project.vercel.app`)
+3. Set the build command in Vercel to:
+
+   ```bash
+   python backend/manage.py collectstatic --noinput
+   ```
+
+4. Run migrations against your production database locally:
+
+   ```bash
+   python backend/manage.py migrate
+   ```
+
+Notes:
+
+- Media uploads are not persistent on Vercel. Use S3/Cloudinary for uploads.
+- Stockfish requires a server binary; the app falls back to the lightweight evaluator if not set.

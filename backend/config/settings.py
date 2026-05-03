@@ -11,6 +11,7 @@ env = environ.Env(
     DEBUG=(bool, True),
     SECRET_KEY=(str, "change-me-in-production"),
     ALLOWED_HOSTS=(list, ["127.0.0.1", "localhost"]),
+    CSRF_TRUSTED_ORIGINS=(list, []),
     STOCKFISH_PATH=(str, ""),
     STRIPE_PUBLIC_KEY=(str, ""),
     STRIPE_SECRET_KEY=(str, ""),
@@ -24,6 +25,15 @@ environ.Env.read_env(BASE_DIR / ".env")
 SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG")
 ALLOWED_HOSTS = env("ALLOWED_HOSTS")
+CSRF_TRUSTED_ORIGINS = env("CSRF_TRUSTED_ORIGINS")
+VERCEL_URL = env("VERCEL_URL", default="")
+
+if VERCEL_URL:
+    if VERCEL_URL not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(VERCEL_URL)
+    trusted_origin = f"https://{VERCEL_URL}"
+    if trusted_origin not in CSRF_TRUSTED_ORIGINS:
+        CSRF_TRUSTED_ORIGINS.append(trusted_origin)
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -102,6 +112,12 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "users.User"
