@@ -100,6 +100,7 @@ database (SQLite is not persistent on Vercel).
    - `vercel.json`
    - `requirements.txt` (which includes `-r backend/requirements.txt`)
    - `api/index.py` (Vercel serverless entrypoint)
+   - `.python-version` (pins Python 3.12 for Vercel)
 2. Add environment variables in Vercel:
    - `SECRET_KEY`
    - `DEBUG=False`
