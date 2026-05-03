@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign up | Chess Learning Platform{% endblock %}
+
+{% block content %}
+<div class="auth-panel reveal">
+    <div class="card">
+        <div class="card-body p-4 form-shell">
+            <h1 class="auth-heading">Create your account</h1>
+            <p class="auth-subheading">Join as a student or instructor and start building your chess growth plan.</p>
+            <form method="post" novalidate>
+                {% csrf_token %}
+                {% include 'partials/form_fields.html' with form=form %}
+                <button class="btn btn-brand" type="submit">Sign up</button>
+            </form>
+            <p class="small mt-3 mb-0">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

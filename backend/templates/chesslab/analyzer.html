@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Analyzer | Chess Learning Platform{% endblock %}
+
+{% block content %}
+<div class="row g-4 reveal">
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-body p-4 form-shell">
+                <div class="section-head mb-2">
+                    <div>
+                        <h1 class="h4 mb-1">Position Analyzer</h1>
+                        <p class="muted-copy mb-0">Paste a FEN position and get a suggested move with evaluation feedback.</p>
+                    </div>
+                    <a class="btn btn-sm btn-brand-outline" href="{% url 'chesslab:import-games' %}">Import games</a>
+                </div>
+                <form method="post" novalidate class="mb-0">
+                    {% csrf_token %}
+                    <label class="form-label" for="fen">FEN Position</label>
+                    <textarea class="form-control code-block mb-3" id="fen" name="fen" rows="3">{{ fen }}</textarea>
+                    <button class="btn btn-brand" type="submit">Analyze</button>
+                </form>
+
+                {% if result %}
+                <hr />
+                <h2 class="h5">Result</h2>
+                <div class="lesson-meta mb-2">
+                    <strong>Best move</strong>
+                    <div class="code-block">{{ result.best_move|default:'n/a' }}</div>
+                </div>
+                <p><strong>Evaluation:</strong> {{ result.evaluation }}</p>
+                <p class="mb-0"><strong>Engine source:</strong> <span class="badge badge-soft">{{ result.source }}</span></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card reveal reveal-delay-1">
+            <div class="card-body p-4">
+                <h2 class="h5">Recent Analyses</h2>
+                <ul class="list-group list-group-flush">
+                    {% for item in history %}
+                    <li class="list-group-item px-0 py-3 border-0 border-bottom">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <strong class="code-block">{{ item.best_move|default:'n/a' }}</strong>
+                            <span class="badge badge-soft">{{ item.evaluation }}</span>
+                        </div>
+                        <div class="small text-muted">{{ item.created_at }}</div>
+                    </li>
+                    {% empty %}
+                    <li class="list-group-item px-0">No analysis history yet.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

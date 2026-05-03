@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Logged out | Chess Learning Platform{% endblock %}
+
+{% block content %}
+<div class="auth-panel reveal">
+    <div class="card text-center">
+        <div class="card-body p-5">
+            <h1 class="h3">You have been logged out.</h1>
+            <p class="muted-copy">Come back when you are ready for your next training session.</p>
+            <a class="btn btn-brand mt-2" href="{% url 'login' %}">Login again</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

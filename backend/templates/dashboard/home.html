@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | Chess Learning Platform{% endblock %}
+
+{% block content %}
+<section class="hero-grid reveal mb-4">
+    <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+            <span class="badge badge-soft mb-3">Structured Chess Growth</span>
+            <h1 class="display-6 fw-semibold">Learn Faster with Practical Lessons and Position Feedback</h1>
+            <p class="lead mb-4">Follow guided courses, test ideas in the analyzer, and track steady progress toward stronger tournament play.</p>
+            <div class="d-flex gap-2 flex-wrap">
+                <a class="btn btn-light" href="{% url 'courses:list' %}">Browse Courses</a>
+                <a class="btn btn-outline-light" href="{% url 'chesslab:play' %}">Play a game</a>
+                {% if not user.is_authenticated %}
+                <a class="btn btn-outline-light" href="{% url 'users:signup' %}">Create Account</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="hero-stats">
+                <div class="hero-pill reveal reveal-delay-1">
+                    <strong>{{ featured_courses|length }}</strong>
+                    <span>Featured tracks</span>
+                </div>
+                <div class="hero-pill reveal reveal-delay-1">
+                    <strong>100%</strong>
+                    <span>Web-based training</span>
+                </div>
+                <div class="hero-pill reveal reveal-delay-2">
+                    <strong>FEN</strong>
+                    <span>Interactive analysis support</span>
+                </div>
+                <div class="hero-pill reveal reveal-delay-2">
+                    <strong>Live</strong>
+                    <span>Progress dashboards</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="reveal reveal-delay-1">
+    <div class="section-head">
+        <div>
+            <h2 class="section-title">Featured Courses</h2>
+            <p class="muted-copy mb-0">Start with fundamentals or jump into focused improvement paths.</p>
+        </div>
+        <a class="btn btn-sm btn-brand-outline" href="{% url 'courses:list' %}">View all</a>
+    </div>
+    <div class="row g-3">
+        {% for course in featured_courses %}
+        <div class="col-md-6 col-xl-4">
+            <article class="card h-100">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-start mb-2">
+                        <h3 class="h5 mb-0">{{ course.title }}</h3>
+                        <span class="badge text-capitalize badge-soft">{{ course.difficulty }}</span>
+                    </div>
+                    <p class="muted-copy">{{ course.description|truncatechars:125 }}</p>
+                    <div class="mt-auto d-flex justify-content-between align-items-center pt-2">
+                        {% if course.is_premium %}
+                        <span class="badge price-pill">${{ course.price }}</span>
+                        {% else %}
+                        <span class="badge badge-soft">Free</span>
+                        {% endif %}
+                        <a class="btn btn-sm btn-brand" href="{% url 'courses:detail' course.slug %}">Open</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <p class="mb-0">No courses are published yet. Add your first course in admin to bring the catalog live.</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="reveal reveal-delay-2 mt-5">
+    <div class="section-head">
+        <div>
+            <h2 class="section-title">Success Stories</h2>
+            <p class="muted-copy mb-0">Real progress from players using the platform.</p>
+        </div>
+    </div>
+    <div class="row g-3">
+        {% for item in testimonials %}
+        <div class="col-md-6 col-xl-4">
+            <div class="card h-100">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <strong>{{ item.name }}</strong>
+                        <span class="badge badge-soft">{{ item.rating }}/5</span>
+                    </div>
+                    {% if item.title %}
+                    <p class="muted-copy mb-2">{{ item.title }}</p>
+                    {% endif %}
+                    <p class="mb-0">"{{ item.quote }}"</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <p class="mb-0">Add testimonials in the admin portal to show social proof here.</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

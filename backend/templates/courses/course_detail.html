@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ course.title }} | Chess Learning Platform{% endblock %}
+
+{% block content %}
+<div class="row g-4 reveal">
+    <div class="col-lg-8">
+        <div class="section-head mb-2">
+            <h1 class="section-title mb-0">{{ course.title }}</h1>
+            <span class="badge badge-soft text-capitalize">{{ course.difficulty }}</span>
+        </div>
+        <p class="muted-copy">Created by {{ course.created_by.username }}</p>
+        <p class="mb-0">{{ course.description }}</p>
+
+        <div class="card mt-3 reveal reveal-delay-1">
+            <div class="card-body p-4">
+                <h2 class="h5">Lessons</h2>
+                <ol class="mb-0 ps-3">
+                    {% for lesson in course.lessons.all %}
+                    <li class="mb-3">
+                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                            <div>
+                                <strong>{{ lesson.title }}</strong>
+                                {% if lesson.is_free_preview %}
+                                <span class="badge badge-soft ms-1">Preview</span>
+                                {% endif %}
+                            </div>
+                            {% if is_enrolled or lesson.is_free_preview %}
+                            <a class="btn btn-sm btn-brand-outline" href="{% url 'courses:lesson' course.slug lesson.id %}">Open lesson</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    {% empty %}
+                    <li>No lessons yet.</li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card reveal reveal-delay-2">
+            <div class="card-body p-4">
+                <h2 class="h5">Course Access</h2>
+                {% if course.is_premium %}
+                <p><strong>Price:</strong> <span class="badge price-pill">${{ course.price }}</span></p>
+                {% else %}
+                <p><strong>Price:</strong> <span class="badge badge-soft">Free</span></p>
+                {% endif %}
+
+                {% if is_enrolled %}
+                <span class="badge badge-soft">Enrolled</span>
+                {% elif user.is_authenticated %}
+                <form method="post" action="{% url 'courses:enroll' course.slug %}">
+                    {% csrf_token %}
+                    <button class="btn btn-brand" type="submit">Enroll now</button>
+                </form>
+                {% else %}
+                <a class="btn btn-brand" href="{% url 'login' %}">Login to enroll</a>
+                {% endif %}
+
+                {% if course.is_premium and not can_access_premium and user.is_authenticated %}
+                <p class="small mt-3 mb-0">Need premium access? <a href="{% url 'payments:plans' %}">Compare plans</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

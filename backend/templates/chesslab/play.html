@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block title %}Play | Chess Learning Platform{% endblock %}
+
+{% block content %}
+<section class="section-head reveal mb-3">
+    <div>
+        <h1 class="section-title">Play a Friendly Game</h1>
+        <p class="muted-copy mb-0">Practice openings and tactics with a clean, distraction-free board.</p>
+    </div>
+</section>
+
+<div class="row g-4 reveal reveal-delay-1">
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-body p-4">
+                <div id="board" style="width: 100%; max-width: 520px;"></div>
+                <div class="mt-3 d-flex gap-2 flex-wrap">
+                    <button class="btn btn-brand" id="resetBtn" type="button">Reset board</button>
+                    <button class="btn btn-brand-outline" id="flipBtn" type="button">Flip board</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-body p-4">
+                <h2 class="h5">Game Status</h2>
+                <p id="status" class="muted-copy">White to move.</p>
+                <div class="lesson-meta">
+                    <strong>Moves</strong>
+                    <div id="moves" class="code-block">No moves yet.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard.js/1.0.0/chessboard-1.0.0.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard.js/1.0.0/chessboard-1.0.0.min.js"></script>
+<script>
+    const game = new Chess();
+    const statusEl = document.getElementById("status");
+    const movesEl = document.getElementById("moves");
+
+    function updateStatus() {
+        let status = game.turn() === "w" ? "White to move" : "Black to move";
+        if (game.in_checkmate()) {
+            status = "Checkmate";
+        } else if (game.in_check()) {
+            status = "Check";
+        } else if (game.in_draw()) {
+            status = "Draw";
+        }
+        statusEl.textContent = status + ".";
+
+        const history = game.history();
+        movesEl.textContent = history.length ? history.join(" ") : "No moves yet.";
+    }
+
+    const board = Chessboard("board", {
+        draggable: true,
+        position: "start",
+        onDrop: function (source, target) {
+            const move = game.move({ from: source, to: target, promotion: "q" });
+            if (move === null) {
+                return "snapback";
+            }
+            updateStatus();
+        },
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+        game.reset();
+        board.start();
+        updateStatus();
+    });
+
+    document.getElementById("flipBtn").addEventListener("click", () => {
+        board.flip();
+    });
+
+    updateStatus();
+</script>
+{% endblock %}

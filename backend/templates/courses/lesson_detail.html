@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ lesson.title }} | Chess Learning Platform{% endblock %}
+
+{% block content %}
+<div class="reveal">
+    <a href="{% url 'courses:detail' course.slug %}" class="small">&larr; Back to course</a>
+    <h1 class="section-title mt-2">{{ lesson.title }}</h1>
+    <p class="muted-copy">Estimated time: {{ lesson.estimated_minutes }} minutes</p>
+</div>
+
+<div class="card mb-3 reveal reveal-delay-1">
+    <div class="card-body p-4">
+        <p style="white-space: pre-wrap;">{{ lesson.content }}</p>
+
+        <div class="row g-3 mt-2">
+            {% if lesson.video_url %}
+            <div class="col-md-6">
+                <div class="lesson-meta">
+                    <strong>Video</strong>
+                    <div><a href="{{ lesson.video_url }}" target="_blank" rel="noreferrer">Open lesson video</a></div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if lesson.fen_start %}
+            <div class="col-md-6">
+                <div class="lesson-meta">
+                    <strong>FEN Position</strong>
+                    <div class="code-block">{{ lesson.fen_start }}</div>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if lesson.pgn_example %}
+            <div class="col-12">
+                <strong>PGN Example</strong>
+                <pre class="code-block code-surface p-3 mt-2 mb-0">{{ lesson.pgn_example }}</pre>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% if progress %}
+<form method="post" class="mb-3 reveal reveal-delay-1">
+    {% csrf_token %}
+    {% if progress.is_completed %}
+    <span class="badge badge-soft">Completed</span>
+    {% else %}
+    <button class="btn btn-brand" type="submit">Mark lesson complete</button>
+    {% endif %}
+</form>
+{% endif %}
+
+<div class="d-flex justify-content-between reveal reveal-delay-2">
+    <div>
+        {% if previous_lesson %}
+        <a class="btn btn-brand-outline" href="{% url 'courses:lesson' course.slug previous_lesson.id %}">Previous</a>
+        {% endif %}
+    </div>
+    <div>
+        {% if next_lesson %}
+        <a class="btn btn-brand" href="{% url 'courses:lesson' course.slug next_lesson.id %}">Next</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

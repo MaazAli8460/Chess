@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile | Chess Learning Platform{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center reveal">
+    <div class="col-md-8 col-lg-7">
+        <div class="card">
+            <div class="card-body p-4 form-shell">
+                <h1 class="h4 mb-1">Profile</h1>
+                <p class="muted-copy mb-3">Role: {{ user.get_role_display }}</p>
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% include 'partials/form_fields.html' with form=form %}
+                    <button class="btn btn-brand" type="submit">Save changes</button>
+                </form>
+            </div>
+        </div>
+        <div class="card mt-3">
+            <div class="card-body p-4">
+                <h2 class="h5">Chess.com Link</h2>
+                {% if user.chess_com_username %}
+                <p class="muted-copy">Linked username: <strong>{{ user.chess_com_username }}</strong></p>
+                <a class="btn btn-brand-outline" href="{% url 'chesslab:import-games' %}">Import games</a>
+                {% else %}
+                <p class="muted-copy">Add your Chess.com username above to link your account and load games.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

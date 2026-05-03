@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard | Chess Learning Platform{% endblock %}
+
+{% block content %}
+<section class="section-head reveal mb-3">
+    <div>
+        <h1 class="section-title">Learning Dashboard</h1>
+        <p class="muted-copy mb-0">Monitor your study momentum and continue where you left off.</p>
+    </div>
+</section>
+
+<div class="row g-3 mb-4 reveal reveal-delay-1">
+    <div class="col-md-4">
+        <div class="card stat-card h-100">
+            <div class="card-body p-4">
+                <h2 class="h6 text-muted">Courses Enrolled</h2>
+                <p class="display-6 mb-0">{{ total_courses }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card stat-card h-100">
+            <div class="card-body p-4">
+                <h2 class="h6 text-muted">Average Progress</h2>
+                <p class="display-6 mb-0">{{ avg_progress }}%</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card stat-card h-100">
+            <div class="card-body p-4">
+                <h2 class="h6 text-muted">Subscription</h2>
+                {% if active_subscription %}
+                <p class="mb-1"><strong>{{ active_subscription.plan.name }}</strong></p>
+                <span class="badge badge-soft">Active</span>
+                {% else %}
+                <p class="mb-2">No active plan</p>
+                <a class="btn btn-sm btn-brand" href="{% url 'payments:plans' %}">View plans</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card reveal reveal-delay-2">
+    <div class="card-body p-4">
+        <h2 class="h5 mb-3">Your Courses</h2>
+        {% if enrollments %}
+        <div class="list-group list-group-flush">
+            {% for enrollment in enrollments %}
+            <div class="list-group-item px-0 py-3 border-0 border-bottom">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <strong>{{ enrollment.course.title }}</strong>
+                    <span class="badge badge-soft">{{ enrollment.completion_percent }}%</span>
+                </div>
+                <div class="progress" role="progressbar" aria-valuenow="{{ enrollment.completion_percent }}" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: {{ enrollment.completion_percent }}%"></div>
+                </div>
+                <a class="btn btn-sm btn-brand-outline mt-3" href="{% url 'courses:detail' enrollment.course.slug %}">Continue</a>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="mb-0">You have not enrolled in a course yet. Explore the catalog to start your first track.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

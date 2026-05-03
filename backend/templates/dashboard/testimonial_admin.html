@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Testimonials Admin | Chess Learning Platform{% endblock %}
+
+{% block content %}
+<section class="section-head reveal mb-3">
+    <div>
+        <h1 class="section-title">Testimonials</h1>
+        <p class="muted-copy mb-0">Add testimonials that appear on the homepage.</p>
+    </div>
+</section>
+
+<div class="row g-4 reveal reveal-delay-1">
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-body p-4 form-shell">
+                <h2 class="h5 mb-3">Add testimonial</h2>
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% include 'partials/form_fields.html' with form=form %}
+                    <button class="btn btn-brand" type="submit">Save testimonial</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <div class="card">
+            <div class="card-body p-4">
+                <h2 class="h5">Published testimonials</h2>
+                {% if testimonials %}
+                <div class="list-group list-group-flush">
+                    {% for item in testimonials %}
+                    <div class="list-group-item px-0 py-3 border-0 border-bottom">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>{{ item.name }}</strong>
+                                {% if item.title %}
+                                <span class="muted-copy">- {{ item.title }}</span>
+                                {% endif %}
+                            </div>
+                            <span class="badge badge-soft">{{ item.rating }}/5</span>
+                        </div>
+                        <p class="mb-1">"{{ item.quote }}"</p>
+                        <div class="small text-muted">Published: {{ item.is_published|yesno:"Yes,No" }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <p class="muted-copy mb-0">No testimonials yet. Add your first one on the left.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
