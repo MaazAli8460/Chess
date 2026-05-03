@@ -99,6 +99,7 @@ database (SQLite is not persistent on Vercel).
 1. Ensure the repo root contains:
    - `vercel.json`
    - `requirements.txt` (which includes `-r backend/requirements.txt`)
+   - `api/index.py` (Vercel serverless entrypoint)
 2. Add environment variables in Vercel:
    - `SECRET_KEY`
    - `DEBUG=False`
@@ -106,11 +107,9 @@ database (SQLite is not persistent on Vercel).
    - `ALLOWED_HOSTS` (e.g. `your-project.vercel.app`)
    - `VERCEL_URL` (e.g. `your-project.vercel.app`)
    - `CSRF_TRUSTED_ORIGINS` (e.g. `https://your-project.vercel.app`)
-3. Set the build command in Vercel to:
-
-   ```bash
-   python backend/manage.py collectstatic --noinput
-   ```
+3. Build and install commands are defined in `vercel.json`:
+   - Install: `pip install -r requirements.txt`
+   - Build: `python backend/manage.py collectstatic --noinput`
 
 4. Run migrations against your production database locally:
 
