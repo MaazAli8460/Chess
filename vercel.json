@@ -1,7 +1,7 @@
 {
   "version": 2,
   "outputDirectory": "output",
-  "installCommand": "uv venv && uv pip install -r requirements.txt",
+  "installCommand": "uv venv && uv pip install -r backend/requirements.txt",
   "buildCommand": "uv run python backend/manage.py collectstatic --noinput",
   "functions": {
     "api/index.py": {
