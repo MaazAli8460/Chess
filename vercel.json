@@ -1,7 +1,7 @@
 {
   "version": 2,
   "outputDirectory": "output",
-  "installCommand": "uv pip install --system -r backend/requirements.txt",
+  "installCommand": "pip install -r backend/requirements.txt",
   "buildCommand": "python backend/manage.py collectstatic --noinput",
   "functions": {
     "api/index.py": {
