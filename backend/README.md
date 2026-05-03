@@ -86,6 +86,11 @@ celery -A config worker -l info
 python manage.py test
 ```
 
+## Postgres Setup
+
+See [backend/docs/postgres.md](backend/docs/postgres.md) for Neon/Supabase steps
+and example `DATABASE_URL` values. The app uses `psycopg` for Postgres in prod.
+
 ## Deploying to Vercel
 
 Vercel uses the serverless Python runtime. For production, use a hosted Postgres
