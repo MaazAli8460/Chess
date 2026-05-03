@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "outputDirectory": ".vercel/output",
   "installCommand": "uv venv && uv pip install -r requirements.txt",
   "buildCommand": "uv run python backend/manage.py collectstatic --noinput",
   "functions": {
