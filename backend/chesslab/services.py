@@ -41,14 +41,14 @@ def _fallback_best_move(board: chess.Board) -> tuple[str, str]:
     return best_move.uci(), f"{eval_cp / 100:.2f}"
 
 
-def analyze_position(fen: str) -> dict[str, str]:
+def analyze_position(fen: str, depth: int = 12) -> dict[str, str]:
     board = chess.Board(fen)
     engine_path = settings.STOCKFISH_PATH
 
     if engine_path and Path(engine_path).exists():
         try:
             with chess.engine.SimpleEngine.popen_uci(engine_path) as engine:
-                info = engine.analyse(board, chess.engine.Limit(depth=12))
+                info = engine.analyse(board, chess.engine.Limit(depth=depth))
                 pv = info.get("pv") or []
                 best_move = pv[0].uci() if pv else ""
                 score_obj = info.get("score")

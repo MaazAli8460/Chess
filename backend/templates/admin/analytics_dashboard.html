@@ -1,0 +1,119 @@
+{% extends "admin/base_site.html" %}
+
+{% block title %}Analytics Dashboard | {{ site_title|default:"Django site admin" }}{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .kpi-card { background: var(--body-bg, #fff); border: 1px solid var(--border-color, #ddd); border-radius: 8px; padding: 20px; }
+  .kpi-value { font-size: 2rem; font-weight: 700; color: var(--link-fg, #447e9b); }
+  .kpi-label { font-size: 0.85rem; color: var(--body-quiet-color, #666); margin-top: 4px; }
+  .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  .chart-box { background: var(--body-bg, #fff); border: 1px solid var(--border-color, #ddd); border-radius: 8px; padding: 20px; }
+  .chart-box h3 { margin: 0 0 16px; font-size: 1rem; }
+  @media (max-width: 768px) { .chart-grid { grid-template-columns: 1fr; } }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>Analytics Dashboard</h1>
+
+<div class="kpi-grid">
+  <div class="kpi-card">
+    <div class="kpi-value">${{ total_revenue|floatformat:2 }}</div>
+    <div class="kpi-label">Total Revenue</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-value">{{ active_subs }}</div>
+    <div class="kpi-label">Active Subscriptions</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-value">{{ total_enrollments }}</div>
+    <div class="kpi-label">Total Enrollments</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-value">{{ total_users }}</div>
+    <div class="kpi-label">Registered Users</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-value">{{ total_courses }}</div>
+    <div class="kpi-label">Published Courses</div>
+  </div>
+</div>
+
+<div class="chart-grid">
+  <div class="chart-box">
+    <h3>Monthly Revenue (USD)</h3>
+    <canvas id="revenueChart" height="220"></canvas>
+  </div>
+  <div class="chart-box">
+    <h3>Monthly Enrollments</h3>
+    <canvas id="enrollmentChart" height="220"></canvas>
+  </div>
+</div>
+
+<div style="background:var(--body-bg,#fff);border:1px solid var(--border-color,#ddd);border-radius:8px;padding:20px;margin-bottom:24px;">
+  <h3 style="margin:0 0 16px;font-size:1rem;">Top Courses by Enrollment</h3>
+  <table style="width:100%;border-collapse:collapse;">
+    <thead>
+      <tr style="border-bottom:2px solid var(--border-color,#ddd);">
+        <th style="text-align:left;padding:8px 4px;">Course</th>
+        <th style="text-align:right;padding:8px 4px;">Enrollments</th>
+        <th style="text-align:right;padding:8px 4px;">Premium</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for course in top_courses %}
+      <tr style="border-bottom:1px solid var(--border-color,#eee);">
+        <td style="padding:8px 4px;">
+          <a href="{% url 'admin:courses_course_change' course.pk %}">{{ course.title }}</a>
+        </td>
+        <td style="text-align:right;padding:8px 4px;">{{ course.enrollment_count }}</td>
+        <td style="text-align:right;padding:8px 4px;">{% if course.is_premium %}&#10003;{% endif %}</td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="3" style="padding:12px 4px;color:#888;">No courses yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script>
+const revenueLabels = {{ revenue_labels_json|safe }};
+const revenueData = {{ revenue_data_json|safe }};
+const enrollmentLabels = {{ enrollment_labels_json|safe }};
+const enrollmentData = {{ enrollment_data_json|safe }};
+
+new Chart(document.getElementById("revenueChart"), {
+  type: "line",
+  data: {
+    labels: revenueLabels,
+    datasets: [{
+      label: "Revenue (USD)",
+      data: revenueData,
+      borderColor: "#447e9b",
+      backgroundColor: "rgba(68,126,155,0.1)",
+      fill: true,
+      tension: 0.3,
+    }],
+  },
+  options: { responsive: true, plugins: { legend: { display: false } } },
+});
+
+new Chart(document.getElementById("enrollmentChart"), {
+  type: "bar",
+  data: {
+    labels: enrollmentLabels,
+    datasets: [{
+      label: "Enrollments",
+      data: enrollmentData,
+      backgroundColor: "rgba(68,126,155,0.6)",
+      borderRadius: 4,
+    }],
+  },
+  options: { responsive: true, plugins: { legend: { display: false } } },
+});
+</script>
+{% endblock %}

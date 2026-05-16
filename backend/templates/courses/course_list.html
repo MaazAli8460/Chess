@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
-{% block title %}Courses | Chess Learning Platform{% endblock %}
+{% block page_title %}Chess Courses — ChessLearn{% endblock %}
+{% block meta_description %}Browse free and premium chess courses covering openings, tactics, middlegame strategy, and endgames for all skill levels.{% endblock %}
 
 {% block content %}
 <section class="section-head reveal mb-3">
@@ -13,6 +14,54 @@
     {% endif %}
 </section>
 
+<form method="get" class="card p-3 mb-4 reveal reveal-delay-1">
+    <div class="row g-2 align-items-end">
+        <div class="col-12 col-md-4">
+            <label class="form-label small fw-semibold mb-1" for="q">Search</label>
+            <input id="q" type="search" name="q" class="form-control form-control-sm"
+                   placeholder="Search courses…" value="{{ q }}">
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label small fw-semibold mb-1" for="difficulty">Difficulty</label>
+            <select id="difficulty" name="difficulty" class="form-select form-select-sm">
+                <option value="">All levels</option>
+                {% for value, label in difficulty_choices %}
+                <option value="{{ value }}" {% if selected_difficulty == value %}selected{% endif %}>{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label small fw-semibold mb-1" for="category">Category</label>
+            <select id="category" name="category" class="form-select form-select-sm">
+                <option value="">All categories</option>
+                {% for cat in categories %}
+                <option value="{{ cat.slug }}" {% if selected_category == cat.slug %}selected{% endif %}>{{ cat.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-6 col-md-2">
+            <label class="form-label small fw-semibold mb-1" for="price">Price</label>
+            <select id="price" name="price" class="form-select form-select-sm">
+                <option value="">All prices</option>
+                <option value="free" {% if selected_price == "free" %}selected{% endif %}>Free</option>
+                <option value="premium" {% if selected_price == "premium" %}selected{% endif %}>Premium</option>
+            </select>
+        </div>
+        <div class="col-6 col-md-2 d-flex gap-2">
+            <button type="submit" class="btn btn-brand btn-sm w-100">Filter</button>
+            {% if q or selected_difficulty or selected_category or selected_price %}
+            <a href="{% url 'courses:list' %}" class="btn btn-brand-outline btn-sm" title="Clear filters">&times;</a>
+            {% endif %}
+        </div>
+    </div>
+</form>
+
+{% if q or selected_difficulty or selected_category or selected_price %}
+<p class="text-muted small mb-3 reveal">
+    Showing {{ courses|length }} result{{ courses|length|pluralize }} {% if q %}for &ldquo;{{ q }}&rdquo;{% endif %}
+</p>
+{% endif %}
+
 <div class="row g-3 reveal reveal-delay-1">
     {% for course in courses %}
     <div class="col-md-6 col-xl-4">
@@ -22,6 +71,9 @@
                     <h2 class="h5 mb-0">{{ course.title }}</h2>
                     <span class="badge badge-soft text-capitalize">{{ course.difficulty }}</span>
                 </div>
+                {% if course.category %}
+                <p class="text-muted small mb-1">{{ course.category.name }}</p>
+                {% endif %}
                 <p class="muted-copy">{{ course.description|truncatechars:130 }}</p>
                 <div class="d-flex justify-content-between align-items-center mt-auto pt-2">
                     {% if course.is_premium %}
@@ -37,8 +89,9 @@
     {% empty %}
     <div class="col-12">
         <div class="card">
-            <div class="card-body">
-                <p class="mb-0">No published courses yet.</p>
+            <div class="card-body text-center py-5">
+                <p class="text-muted mb-2">No courses match your filters.</p>
+                <a href="{% url 'courses:list' %}" class="btn btn-brand-outline btn-sm">Clear filters</a>
             </div>
         </div>
     </div>

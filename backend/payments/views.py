@@ -1,18 +1,47 @@
 import json
+import logging
 
 import stripe
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import EmailMultiAlternatives
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 
 from .models import PaymentTransaction, SubscriptionPlan, UserSubscription
 
+logger = logging.getLogger(__name__)
 
-def _activate_subscription(user, plan: SubscriptionPlan, reference: str = "mock") -> None:
+
+def _send_payment_confirmation(request_or_none, user, plan, amount) -> None:
+	if not user.email:
+		return
+	base_url = (
+		request_or_none.build_absolute_uri("/") if request_or_none else settings.SITE_URL if hasattr(settings, "SITE_URL") else ""
+	)
+	ctx = {
+		"user": user,
+		"plan": plan,
+		"amount": amount,
+		"courses_url": f"{base_url}courses/",
+		"dashboard_url": base_url,
+	}
+	subject = f"Your {plan.name} subscription is active"
+	body_txt = render_to_string("email/payment_confirmation.txt", ctx)
+	body_html = render_to_string("email/payment_confirmation.html", ctx)
+	msg = EmailMultiAlternatives(subject, body_txt, to=[user.email])
+	msg.attach_alternative(body_html, "text/html")
+	try:
+		msg.send()
+	except Exception:
+		logger.exception("Failed to send payment confirmation to %s", user.email)
+
+
+def _activate_subscription(user, plan: SubscriptionPlan, reference: str = "mock", request=None) -> None:
 	UserSubscription.objects.filter(
 		user=user,
 		status=UserSubscription.STATUS_ACTIVE,
@@ -33,6 +62,8 @@ def _activate_subscription(user, plan: SubscriptionPlan, reference: str = "mock"
 		reference=reference,
 		metadata={"plan": plan.name},
 	)
+
+	_send_payment_confirmation(request, user, plan, plan.price_monthly)
 
 
 @login_required
@@ -57,7 +88,7 @@ def plan_list_view(request: HttpRequest) -> HttpResponse:
 @require_POST
 def subscribe_mock_view(request: HttpRequest, plan_id: int) -> HttpResponse:
 	plan = get_object_or_404(SubscriptionPlan, id=plan_id, is_active=True)
-	_activate_subscription(request.user, plan, reference="mock-subscription")
+	_activate_subscription(request.user, plan, reference="mock-subscription", request=request)
 	messages.success(request, f"You are now subscribed to the {plan.name} plan.")
 	return redirect("dashboard:student-dashboard")
 
@@ -72,7 +103,7 @@ def create_checkout_session_view(request: HttpRequest, plan_id: int) -> HttpResp
 			request,
 			"Stripe is not configured for this plan. Using local mock subscription instead.",
 		)
-		_activate_subscription(request.user, plan, reference="mock-checkout")
+		_activate_subscription(request.user, plan, reference="mock-checkout", request=request)
 		return redirect("dashboard:student-dashboard")
 
 	stripe.api_key = settings.STRIPE_SECRET_KEY

@@ -1,0 +1,12 @@
+Hi {{ user.first_name|default:user.username }},
+
+You're now enrolled in "{{ course.title }}"!
+
+{% if first_lesson %}Start your first lesson here:
+{{ lesson_url }}
+{% endif %}
+You can track your progress and resume any time from your dashboard:
+{{ dashboard_url }}
+
+Happy learning,
+The ChessLearn Team
