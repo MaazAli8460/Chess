@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<body style="margin:0;padding:0;background:#f8f9fa;font-family:Georgia,serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="padding:40px 0;">
+    <tr><td align="center">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:8px;overflow:hidden;max-width:600px;width:100%;">
+        <tr><td style="background:#1a1a2e;padding:28px 40px;">
+          <h1 style="margin:0;color:#e8c97a;font-size:22px;letter-spacing:1px;">ChessLearn</h1>
+        </td></tr>
+        <tr><td style="padding:40px;">
+          <h2 style="margin:0 0 16px;color:#1a1a2e;font-size:20px;">You're enrolled!</h2>
+          <p style="margin:0 0 24px;color:#444;line-height:1.6;">
+            Hi {{ user.first_name|default:user.username }},<br><br>
+            You've successfully enrolled in <strong>{{ course.title }}</strong>. Your learning journey starts now.
+          </p>
+          {% if first_lesson %}
+          <table cellpadding="0" cellspacing="0" style="margin:0 0 24px;">
+            <tr><td style="background:#e8c97a;border-radius:6px;padding:12px 28px;">
+              <a href="{{ lesson_url }}" style="color:#1a1a2e;font-weight:700;text-decoration:none;font-size:15px;">Start First Lesson &rarr;</a>
+            </td></tr>
+          </table>
+          {% endif %}
+          <p style="margin:0;color:#666;line-height:1.6;">
+            Track your progress and resume any time from your
+            <a href="{{ dashboard_url }}" style="color:#1a1a2e;">dashboard</a>.
+          </p>
+        </td></tr>
+        <tr><td style="background:#f8f9fa;padding:20px 40px;text-align:center;">
+          <p style="margin:0;color:#999;font-size:13px;">ChessLearn &mdash; structured chess training for all levels</p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>

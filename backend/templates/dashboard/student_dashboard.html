@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
-{% block title %}Dashboard | Chess Learning Platform{% endblock %}
+{% block page_title %}My Dashboard — ChessLearn{% endblock %}
+{% block meta_description %}Track your chess course progress and manage your learning journey.{% endblock %}
 
 {% block content %}
 <section class="section-head reveal mb-3">
@@ -43,21 +44,72 @@
     </div>
 </div>
 
-<div class="card reveal reveal-delay-2">
+<div class="row g-3 mb-4 reveal reveal-delay-2">
+    <div class="col-md-4">
+        <div class="card stat-card h-100">
+            <div class="card-body p-4">
+                <h2 class="h6 text-muted">Lessons This Week</h2>
+                <p class="display-6 mb-1">{{ lessons_this_week }}</p>
+                {% if velocity_delta > 0 %}
+                <small class="text-success">&#9650; {{ velocity_delta }} vs last week</small>
+                {% elif velocity_delta < 0 %}
+                <small class="text-danger">&#9660; {{ velocity_delta|cut:"-" }} vs last week</small>
+                {% else %}
+                <small class="text-muted">Same as last week</small>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card stat-card h-100">
+            <div class="card-body p-4">
+                <h2 class="h6 text-muted">Positions Analyzed (30d)</h2>
+                <p class="display-6 mb-1">{{ analyses_this_month }}</p>
+                <small class="text-muted"><a href="{% url 'chesslab:analyzer' %}" class="text-muted">Open Chess Lab &rarr;</a></small>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card stat-card h-100">
+            <div class="card-body p-4">
+                <h2 class="h6 text-muted">Study Tip</h2>
+                {% if avg_progress < 25 %}
+                <p class="mb-0 small">Start strong — complete at least one lesson today to build momentum.</p>
+                {% elif avg_progress < 75 %}
+                <p class="mb-0 small">You're making great progress. Keep your streak going this week!</p>
+                {% else %}
+                <p class="mb-0 small">Almost there! Finish remaining lessons to complete your courses.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card reveal reveal-delay-3">
     <div class="card-body p-4">
         <h2 class="h5 mb-3">Your Courses</h2>
-        {% if enrollments %}
+        {% if enrollment_data %}
         <div class="list-group list-group-flush">
-            {% for enrollment in enrollments %}
+            {% for item in enrollment_data %}
             <div class="list-group-item px-0 py-3 border-0 border-bottom">
                 <div class="d-flex justify-content-between align-items-center mb-2">
-                    <strong>{{ enrollment.course.title }}</strong>
-                    <span class="badge badge-soft">{{ enrollment.completion_percent }}%</span>
+                    <strong>{{ item.enrollment.course.title }}</strong>
+                    {% if item.enrollment.completion_percent == 100 %}
+                    <span class="badge badge-soft text-success">Completed</span>
+                    {% else %}
+                    <span class="badge badge-soft">{{ item.enrollment.completion_percent }}%</span>
+                    {% endif %}
                 </div>
-                <div class="progress" role="progressbar" aria-valuenow="{{ enrollment.completion_percent }}" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar" style="width: {{ enrollment.completion_percent }}%"></div>
+                <div class="progress mb-3" role="progressbar" aria-valuenow="{{ item.enrollment.completion_percent }}" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: {{ item.enrollment.completion_percent }}%"></div>
                 </div>
-                <a class="btn btn-sm btn-brand-outline mt-3" href="{% url 'courses:detail' enrollment.course.slug %}">Continue</a>
+                {% if item.enrollment.completion_percent == 100 %}
+                <a class="btn btn-sm btn-brand-outline" href="{% url 'courses:detail' item.enrollment.course.slug %}">Review</a>
+                {% elif item.next_lesson %}
+                <a class="btn btn-sm btn-brand" href="{% url 'courses:lesson' item.enrollment.course.slug item.next_lesson.id %}">Continue &rarr;</a>
+                {% else %}
+                <a class="btn btn-sm btn-brand-outline" href="{% url 'courses:detail' item.enrollment.course.slug %}">View course</a>
+                {% endif %}
             </div>
             {% endfor %}
         </div>

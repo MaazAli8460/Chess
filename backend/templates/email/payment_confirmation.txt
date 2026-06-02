@@ -1,0 +1,15 @@
+Hi {{ user.first_name|default:user.username }},
+
+Your subscription is now active!
+
+Plan: {{ plan.name }}
+Amount: ${{ amount }}
+
+You now have access to all premium courses. Explore the catalog:
+{{ courses_url }}
+
+Manage your subscription from your dashboard:
+{{ dashboard_url }}
+
+Thank you,
+The ChessLearn Team

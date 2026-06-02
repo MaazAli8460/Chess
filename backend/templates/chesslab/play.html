@@ -1,86 +1,352 @@
 {% extends 'base.html' %}
 
-{% block title %}Play | Chess Learning Platform{% endblock %}
+{% block page_title %}Play Chess — ChessLearn{% endblock %}
+{% block meta_description %}Play chess against the engine or a friend. Choose your difficulty and practice openings, tactics and endgames.{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+<style>
+    #board .square-55d63 { transition: background-color 0.15s; }
+    .piece-unicode { font-size: 1.1rem; line-height: 1; }
+    .move-list { max-height: 220px; overflow-y: auto; font-size: 0.85rem; }
+    .move-list table { width: 100%; border-collapse: collapse; }
+    .move-list td { padding: 3px 6px; }
+    .move-list tr:nth-child(even) td { background: rgba(103,192,144,0.07); }
+    .move-list td:first-child { color: var(--ink-soft); width: 2rem; }
+    .captured-row { display: flex; flex-wrap: wrap; gap: 1px; min-height: 1.5rem; font-size: 1.05rem; }
+    .engine-thinking { opacity: 0.5; pointer-events: none; }
+    #game-over-banner { display: none; }
+    .side-btn { cursor: pointer; border: 2px solid var(--border); border-radius: 10px; padding: 0.5rem 1rem; transition: all 0.15s; background: var(--surface); }
+    .side-btn.active { border-color: var(--accent); background: var(--brand-soft); }
+    .diff-btn { cursor: pointer; border: 2px solid var(--border); border-radius: 10px; padding: 0.4rem 0.9rem; font-size: 0.85rem; transition: all 0.15s; background: var(--surface); }
+    .diff-btn.active { border-color: var(--accent); background: var(--brand-soft); }
+    .status-chip { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+    .status-chip.white-turn { background: #f0f0f0; color: #222; border: 1px solid #ccc; }
+    .status-chip.black-turn { background: #333; color: #fff; border: 1px solid #555; }
+    .status-chip.check { background: rgba(239,68,68,0.15); color: #b91c1c; border: 1px solid rgba(239,68,68,0.3); }
+    .status-chip.game-over { background: var(--brand-soft); color: var(--brand); border: 1px solid var(--accent); }
+</style>
+{% endblock %}
 
 {% block content %}
 <section class="section-head reveal mb-3">
     <div>
-        <h1 class="section-title">Play a Friendly Game</h1>
-        <p class="muted-copy mb-0">Practice openings and tactics with a clean, distraction-free board.</p>
+        <h1 class="section-title">Play Chess</h1>
+        <p class="muted-copy mb-0">Challenge the engine or play locally with a friend.</p>
     </div>
 </section>
 
 <div class="row g-4 reveal reveal-delay-1">
+    <!-- Board column -->
     <div class="col-lg-7">
         <div class="card">
-            <div class="card-body p-4">
-                <div id="board" style="width: 100%; max-width: 520px;"></div>
-                <div class="mt-3 d-flex gap-2 flex-wrap">
-                    <button class="btn btn-brand" id="resetBtn" type="button">Reset board</button>
-                    <button class="btn btn-brand-outline" id="flipBtn" type="button">Flip board</button>
-                </div>
+            <div class="card-body p-3 p-md-4">
+                <div id="board" style="width:100%;max-width:520px;margin:0 auto;"></div>
+                <div id="game-over-banner" class="alert alert-success mt-3 mb-0 text-center fw-semibold"></div>
             </div>
         </div>
     </div>
-    <div class="col-lg-5">
+
+    <!-- Controls + info column -->
+    <div class="col-lg-5 d-flex flex-column gap-3">
+
+        <!-- Game setup -->
+        <div class="card" id="setup-card">
+            <div class="card-body p-4">
+                <h2 class="h6 fw-semibold mb-3">Game Setup</h2>
+
+                <!-- Mode toggle -->
+                <div class="mb-3">
+                    <p class="small fw-semibold mb-2">Mode</p>
+                    <div class="d-flex gap-2">
+                        <button class="side-btn active" id="mode-engine" onclick="setMode('engine')">vs Engine</button>
+                        <button class="side-btn" id="mode-friend" onclick="setMode('friend')">vs Friend</button>
+                    </div>
+                </div>
+
+                <!-- Side picker (engine mode only) -->
+                <div id="side-picker" class="mb-3">
+                    <p class="small fw-semibold mb-2">Play as</p>
+                    <div class="d-flex gap-2">
+                        <button class="side-btn active" id="side-white" onclick="setSide('w')">&#9816; White</button>
+                        <button class="side-btn" id="side-black" onclick="setSide('b')">&#9822; Black</button>
+                    </div>
+                </div>
+
+                <!-- Difficulty (engine mode only) -->
+                <div id="diff-picker" class="mb-4">
+                    <p class="small fw-semibold mb-2">Difficulty</p>
+                    <div class="d-flex gap-2">
+                        <button class="diff-btn" id="diff-easy" onclick="setDiff('easy')">Easy</button>
+                        <button class="diff-btn active" id="diff-medium" onclick="setDiff('medium')">Medium</button>
+                        <button class="diff-btn" id="diff-hard" onclick="setDiff('hard')">Hard</button>
+                    </div>
+                </div>
+
+                <button class="btn btn-brand w-100" id="newGameBtn" onclick="newGame()">New Game</button>
+            </div>
+        </div>
+
+        <!-- Status -->
         <div class="card">
             <div class="card-body p-4">
-                <h2 class="h5">Game Status</h2>
-                <p id="status" class="muted-copy">White to move.</p>
-                <div class="lesson-meta">
-                    <strong>Moves</strong>
-                    <div id="moves" class="code-block">No moves yet.</div>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="h6 fw-semibold mb-0">Status</h2>
+                    <span id="status-chip" class="status-chip white-turn">White to move</span>
+                </div>
+
+                <!-- Captured pieces -->
+                <div class="mb-3">
+                    <p class="small fw-semibold mb-1">&#9822; Black's captures</p>
+                    <div class="captured-row" id="captured-by-black"></div>
+                </div>
+                <div class="mb-3">
+                    <p class="small fw-semibold mb-1">&#9816; White's captures</p>
+                    <div class="captured-row" id="captured-by-white"></div>
+                </div>
+
+                <!-- Undo -->
+                <div class="d-flex gap-2">
+                    <button class="btn btn-brand-outline btn-sm" id="undoBtn" onclick="undoMove()">Undo</button>
+                    <button class="btn btn-brand-outline btn-sm" onclick="board.flip()">Flip board</button>
                 </div>
             </div>
         </div>
+
+        <!-- Move history -->
+        <div class="card flex-grow-1">
+            <div class="card-body p-4">
+                <h2 class="h6 fw-semibold mb-2">Move History</h2>
+                <div class="move-list" id="move-list">
+                    <p class="text-muted small mb-0">No moves yet.</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+{% endblock %}
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard.js/1.0.0/chessboard-1.0.0.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/1.0.0/chess.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard.js/1.0.0/chessboard-1.0.0.min.js"></script>
+{% block extra_js %}
+<script src="https://unpkg.com/chess.js@0.10.3/chess.js"></script>
+<script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 <script>
-    const game = new Chess();
-    const statusEl = document.getElementById("status");
-    const movesEl = document.getElementById("moves");
+(function () {
+    const ENGINE_MOVE_URL = "{% url 'chesslab:api-engine-move' %}";
+    const CSRF_TOKEN = "{{ csrf_token }}";
+    const IS_AUTH = {{ user.is_authenticated|yesno:"true,false" }};
 
-    function updateStatus() {
-        let status = game.turn() === "w" ? "White to move" : "Black to move";
-        if (game.in_checkmate()) {
-            status = "Checkmate";
-        } else if (game.in_check()) {
-            status = "Check";
-        } else if (game.in_draw()) {
-            status = "Draw";
-        }
-        statusEl.textContent = status + ".";
+    const PIECE_SYMBOLS = { p:'♟', r:'♜', n:'♞', b:'♝', q:'♛', k:'♚', P:'♙', R:'♖', N:'♘', B:'♗', Q:'♕', K:'♔' };
+    const DEPTH_MAP = { easy: 2, medium: 5, hard: 12 };
 
-        const history = game.history();
-        movesEl.textContent = history.length ? history.join(" ") : "No moves yet.";
+    let game = new Chess();
+    let mode = 'engine';       // 'engine' | 'friend'
+    let playerSide = 'w';
+    let difficulty = 'medium';
+    let engineThinking = false;
+    let gameOver = false;
+
+    // ── Board ────────────────────────────────────────────────────────────────
+    function onDragStart(source, piece) {
+        if (gameOver || engineThinking) return false;
+        if (game.game_over()) return false;
+        if (mode === 'engine' && piece[0] !== playerSide) return false;
+        if (game.turn() !== piece[0]) return false;
     }
 
-    const board = Chessboard("board", {
+    function onDrop(source, target) {
+        const move = game.move({ from: source, to: target, promotion: 'q' });
+        if (move === null) return 'snapback';
+
+        updateUI();
+
+        if (game.game_over()) {
+            endGame();
+            return;
+        }
+
+        if (mode === 'engine') {
+            requestEngineMove();
+        }
+    }
+
+    function onSnapEnd() {
+        board.position(game.fen());
+    }
+
+    const board = Chessboard('board', {
         draggable: true,
-        position: "start",
-        onDrop: function (source, target) {
-            const move = game.move({ from: source, to: target, promotion: "q" });
-            if (move === null) {
-                return "snapback";
-            }
-            updateStatus();
-        },
+        position: 'start',
+        onDragStart,
+        onDrop,
+        onSnapEnd,
+        pieceTheme: 'https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/img/chesspieces/wikipedia/{piece}.png',
     });
 
-    document.getElementById("resetBtn").addEventListener("click", () => {
-        game.reset();
-        board.start();
+    // ── Engine call ──────────────────────────────────────────────────────────
+    function requestEngineMove() {
+        if (!IS_AUTH) {
+            showBanner('Log in to play against the engine.', false);
+            return;
+        }
+        engineThinking = true;
+        document.getElementById('board').classList.add('engine-thinking');
+        document.getElementById('status-chip').textContent = 'Engine thinking…';
+
+        fetch(ENGINE_MOVE_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF_TOKEN },
+            body: JSON.stringify({ fen: game.fen(), depth: DEPTH_MAP[difficulty] }),
+        })
+        .then(r => r.json())
+        .then(data => {
+            engineThinking = false;
+            document.getElementById('board').classList.remove('engine-thinking');
+            if (data.error) { updateUI(); return; }
+            game.move({ from: data.move.slice(0,2), to: data.move.slice(2,4), promotion: data.move[4] || 'q' });
+            board.position(game.fen());
+            updateUI();
+            if (data.is_game_over) endGame();
+        })
+        .catch(() => {
+            engineThinking = false;
+            document.getElementById('board').classList.remove('engine-thinking');
+            updateUI();
+        });
+    }
+
+    // ── UI updates ───────────────────────────────────────────────────────────
+    function updateUI() {
         updateStatus();
-    });
+        updateCaptured();
+        updateMoveList();
+    }
 
-    document.getElementById("flipBtn").addEventListener("click", () => {
-        board.flip();
-    });
+    function updateStatus() {
+        const chip = document.getElementById('status-chip');
+        if (game.game_over()) {
+            chip.textContent = 'Game over';
+            chip.className = 'status-chip game-over';
+            return;
+        }
+        const turn = game.turn();
+        if (game.in_check()) {
+            chip.textContent = (turn === 'w' ? 'White' : 'Black') + ' in check!';
+            chip.className = 'status-chip check';
+        } else {
+            chip.textContent = (turn === 'w' ? 'White' : 'Black') + ' to move';
+            chip.className = 'status-chip ' + (turn === 'w' ? 'white-turn' : 'black-turn');
+        }
+    }
 
-    updateStatus();
+    function updateCaptured() {
+        const start = { p:8, r:2, n:2, b:2, q:1 };
+        const current = { w:{p:0,r:0,n:0,b:0,q:0}, b:{p:0,r:0,n:0,b:0,q:0} };
+        game.board().forEach(row => row.forEach(sq => {
+            if (sq) current[sq.color][sq.type] = (current[sq.color][sq.type]||0) + 1;
+        }));
+        function capturedHtml(side) {
+            let html = '';
+            ['q','r','b','n','p'].forEach(t => {
+                const lost = start[t] - (current[side][t]||0);
+                const sym = side === 'w' ? PIECE_SYMBOLS[t.toUpperCase()] : PIECE_SYMBOLS[t];
+                for (let i = 0; i < lost; i++) html += `<span class="piece-unicode">${sym}</span>`;
+            });
+            return html || '<span class="text-muted small">—</span>';
+        }
+        document.getElementById('captured-by-black').innerHTML = capturedHtml('w');
+        document.getElementById('captured-by-white').innerHTML = capturedHtml('b');
+    }
+
+    function updateMoveList() {
+        const history = game.history();
+        if (!history.length) {
+            document.getElementById('move-list').innerHTML = '<p class="text-muted small mb-0">No moves yet.</p>';
+            return;
+        }
+        let rows = '';
+        for (let i = 0; i < history.length; i += 2) {
+            const num = Math.floor(i/2) + 1;
+            const white = history[i] || '';
+            const black = history[i+1] || '';
+            rows += `<tr><td>${num}.</td><td>${white}</td><td>${black}</td></tr>`;
+        }
+        const ml = document.getElementById('move-list');
+        ml.innerHTML = `<table><tbody>${rows}</tbody></table>`;
+        ml.scrollTop = ml.scrollHeight;
+    }
+
+    function endGame() {
+        gameOver = true;
+        let msg = 'Game over';
+        if (game.in_checkmate()) {
+            const winner = game.turn() === 'w' ? 'Black' : 'White';
+            msg = `Checkmate — ${winner} wins!`;
+        } else if (game.in_stalemate()) {
+            msg = 'Stalemate — it\'s a draw.';
+        } else if (game.in_draw()) {
+            msg = 'Draw.';
+        }
+        showBanner(msg, true);
+        updateUI();
+    }
+
+    function showBanner(msg, success) {
+        const el = document.getElementById('game-over-banner');
+        el.textContent = msg;
+        el.className = 'alert mt-3 mb-0 text-center fw-semibold ' + (success ? 'alert-success' : 'alert-warning');
+        el.style.display = 'block';
+    }
+
+    // ── Controls ─────────────────────────────────────────────────────────────
+    function newGame() {
+        game = new Chess();
+        gameOver = false;
+        engineThinking = false;
+        board.start();
+        document.getElementById('game-over-banner').style.display = 'none';
+        updateUI();
+
+        // If engine mode and player chose black, engine goes first
+        if (mode === 'engine' && playerSide === 'b') {
+            if (playerSide === 'b') board.flip();
+            requestEngineMove();
+        } else if (playerSide === 'b') {
+            board.flip();
+        }
+    }
+
+    window.undoMove = function () {
+        if (engineThinking || gameOver) return;
+        game.undo();
+        if (mode === 'engine') game.undo(); // undo engine move too
+        board.position(game.fen());
+        updateUI();
+    };
+
+    window.setMode = function (m) {
+        mode = m;
+        document.getElementById('mode-engine').classList.toggle('active', m === 'engine');
+        document.getElementById('mode-friend').classList.toggle('active', m === 'friend');
+        document.getElementById('side-picker').style.display = m === 'engine' ? '' : 'none';
+        document.getElementById('diff-picker').style.display = m === 'engine' ? '' : 'none';
+    };
+
+    window.setSide = function (s) {
+        playerSide = s;
+        document.getElementById('side-white').classList.toggle('active', s === 'w');
+        document.getElementById('side-black').classList.toggle('active', s === 'b');
+    };
+
+    window.setDiff = function (d) {
+        difficulty = d;
+        ['easy','medium','hard'].forEach(x =>
+            document.getElementById('diff-' + x).classList.toggle('active', x === d)
+        );
+    };
+
+    // Init
+    updateUI();
+})();
 </script>
 {% endblock %}

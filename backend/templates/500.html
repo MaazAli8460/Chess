@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block page_title %}Server Error — ChessLearn{% endblock %}
+{% block meta_description %}Something went wrong on our end.{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-5 text-center">
+  <div class="col-md-6">
+    <p class="display-1 fw-bold" style="color:var(--brand);opacity:.25;">500</p>
+    <h1 class="h3 mb-3">Something went wrong</h1>
+    <p class="text-muted mb-4">We've logged the error and will look into it. Please try again in a moment.</p>
+    <a href="{% url 'dashboard:home' %}" class="btn btn-brand">Back to Home</a>
+  </div>
+</div>
+{% endblock %}

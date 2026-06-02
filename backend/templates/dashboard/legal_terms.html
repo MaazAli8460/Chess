@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Terms of Service — ChessLearn{% endblock %}
+{% block meta_description %}ChessLearn terms of service: your rights and responsibilities as a user of our platform.{% endblock %}
+
+{% block content %}
+<section class="section-head reveal mb-3">
+    <div>
+        <h1 class="section-title">Terms of Service</h1>
+        <p class="muted-copy mb-0">Last updated: {% now "F j, Y" %}</p>
+    </div>
+</section>
+
+<div class="card reveal reveal-delay-1">
+    <div class="card-body p-4 p-md-5" style="max-width: 720px;">
+
+        <h2 class="h5 mb-2">1. Acceptance</h2>
+        <p class="muted-copy mb-4">By creating an account or using ChessLearn, you agree to these Terms of Service. If you do not agree, do not use the platform.</p>
+
+        <h2 class="h5 mb-2">2. Account Responsibilities</h2>
+        <p class="muted-copy mb-4">You are responsible for maintaining the security of your account credentials. You must provide accurate information when registering. One person may not maintain more than one free account.</p>
+
+        <h2 class="h5 mb-2">3. Subscriptions and Payments</h2>
+        <p class="muted-copy mb-4">Premium subscriptions are billed monthly. You may cancel at any time; cancellation takes effect at the end of the current billing period. Refunds are issued at our discretion within 7 days of a charge for first-time subscribers.</p>
+
+        <h2 class="h5 mb-2">4. Acceptable Use</h2>
+        <p class="muted-copy mb-4">You may not use ChessLearn to violate any laws, infringe on intellectual property rights, distribute harmful content, or attempt to reverse-engineer or scrape the platform. We reserve the right to suspend accounts that violate these terms.</p>
+
+        <h2 class="h5 mb-2">5. Content Ownership</h2>
+        <p class="muted-copy mb-4">All course content, articles, and platform code are owned by ChessLearn. You are granted a non-transferable licence to access content for your personal, non-commercial use only.</p>
+
+        <h2 class="h5 mb-2">6. Disclaimer and Limitation of Liability</h2>
+        <p class="muted-copy mb-4">ChessLearn is provided "as is". We make no warranty that the platform will be uninterrupted or error-free. To the fullest extent permitted by law, our liability is limited to the amount you paid in the 12 months preceding the claim.</p>
+
+        <h2 class="h5 mb-2">7. Changes to These Terms</h2>
+        <p class="muted-copy mb-4">We may update these terms from time to time. Continued use of the platform after changes are posted constitutes your acceptance of the revised terms.</p>
+
+        <h2 class="h5 mb-2">8. Contact</h2>
+        <p class="muted-copy mb-0">Questions? Email <a href="mailto:legal@chesslearn.com">legal@chesslearn.com</a>.</p>
+
+    </div>
+</div>
+{% endblock %}

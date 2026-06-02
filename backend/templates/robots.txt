@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /accounts/
+Disallow: /payments/
+Allow: /
+
+Sitemap: /sitemap.xml

@@ -1,9 +1,15 @@
+import logging
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import EmailMultiAlternatives
 from django.db.models import Prefetch
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.template.loader import render_to_string
 from rest_framework import generics
+
+logger = logging.getLogger(__name__)
 
 from payments.models import UserSubscription
 
@@ -22,12 +28,43 @@ def _has_active_subscription(user) -> bool:
 
 
 def course_list_view(request: HttpRequest) -> HttpResponse:
-	courses = (
-		Course.objects.filter(is_published=True)
-		.select_related("category", "created_by")
-		.order_by("title")
+	from .models import Category
+
+	courses = Course.objects.filter(is_published=True).select_related("category", "created_by")
+
+	q = request.GET.get("q", "").strip()
+	difficulty = request.GET.get("difficulty", "")
+	category_slug = request.GET.get("category", "")
+	price_filter = request.GET.get("price", "")
+
+	if q:
+		courses = courses.filter(title__icontains=q) | courses.filter(description__icontains=q)
+		courses = courses.distinct()
+	if difficulty:
+		courses = courses.filter(difficulty=difficulty)
+	if category_slug:
+		courses = courses.filter(category__slug=category_slug)
+	if price_filter == "free":
+		courses = courses.filter(price=0)
+	elif price_filter == "premium":
+		courses = courses.filter(is_premium=True)
+
+	courses = courses.order_by("title")
+	categories = Category.objects.all()
+
+	return render(
+		request,
+		"courses/course_list.html",
+		{
+			"courses": courses,
+			"categories": categories,
+			"q": q,
+			"selected_difficulty": difficulty,
+			"selected_category": category_slug,
+			"selected_price": price_filter,
+			"difficulty_choices": Course.DIFFICULTY_CHOICES,
+		},
 	)
-	return render(request, "courses/course_list.html", {"courses": courses})
 
 
 def course_detail_view(request: HttpRequest, slug: str) -> HttpResponse:
@@ -51,6 +88,36 @@ def course_detail_view(request: HttpRequest, slug: str) -> HttpResponse:
 	return render(request, "courses/course_detail.html", context)
 
 
+def _send_enrollment_email(request: HttpRequest, user, course) -> None:
+	if not user.email:
+		return
+	first_lesson = course.lessons.order_by("order").first()
+	lesson_url = (
+		request.build_absolute_uri(
+			f"/courses/{course.slug}/lessons/{first_lesson.id}/"
+		)
+		if first_lesson
+		else ""
+	)
+	dashboard_url = request.build_absolute_uri("/")
+	ctx = {
+		"user": user,
+		"course": course,
+		"first_lesson": first_lesson,
+		"lesson_url": lesson_url,
+		"dashboard_url": dashboard_url,
+	}
+	subject = f"You're enrolled in {course.title}"
+	body_txt = render_to_string("email/enrollment_confirmation.txt", ctx)
+	body_html = render_to_string("email/enrollment_confirmation.html", ctx)
+	msg = EmailMultiAlternatives(subject, body_txt, to=[user.email])
+	msg.attach_alternative(body_html, "text/html")
+	try:
+		msg.send()
+	except Exception:
+		logger.exception("Failed to send enrollment email to %s", user.email)
+
+
 @login_required
 def enroll_course_view(request: HttpRequest, slug: str) -> HttpResponse:
 	course = get_object_or_404(Course, slug=slug, is_published=True)
@@ -64,6 +131,7 @@ def enroll_course_view(request: HttpRequest, slug: str) -> HttpResponse:
 	_, created = Enrollment.objects.get_or_create(student=request.user, course=course)
 	if created:
 		messages.success(request, "You are now enrolled in this course.")
+		_send_enrollment_email(request, request.user, course)
 	else:
 		messages.info(request, "You are already enrolled.")
 
