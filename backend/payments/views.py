@@ -1,4 +1,3 @@
-import json
 import logging
 
 import stripe
@@ -87,6 +86,8 @@ def plan_list_view(request: HttpRequest) -> HttpResponse:
 @login_required
 @require_POST
 def subscribe_mock_view(request: HttpRequest, plan_id: int) -> HttpResponse:
+	if not settings.DEBUG:
+		return HttpResponse(status=404)
 	plan = get_object_or_404(SubscriptionPlan, id=plan_id, is_active=True)
 	_activate_subscription(request.user, plan, reference="mock-subscription", request=request)
 	messages.success(request, f"You are now subscribed to the {plan.name} plan.")
@@ -99,6 +100,9 @@ def create_checkout_session_view(request: HttpRequest, plan_id: int) -> HttpResp
 	plan = get_object_or_404(SubscriptionPlan, id=plan_id, is_active=True)
 
 	if not settings.STRIPE_SECRET_KEY or not plan.stripe_price_id:
+		if not settings.DEBUG:
+			messages.error(request, "Online payments are not configured yet.")
+			return redirect("payments:plans")
 		messages.warning(
 			request,
 			"Stripe is not configured for this plan. Using local mock subscription instead.",
@@ -127,16 +131,16 @@ def payment_success_view(request: HttpRequest) -> HttpResponse:
 
 
 @csrf_exempt
+@require_POST
 def stripe_webhook_view(request: HttpRequest) -> JsonResponse:
 	payload = request.body.decode("utf-8")
 	sig_header = request.META.get("HTTP_STRIPE_SIGNATURE", "")
 	endpoint_secret = settings.STRIPE_WEBHOOK_SECRET
 
 	try:
-		if endpoint_secret:
-			event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
-		else:
-			event = json.loads(payload)
+		if not endpoint_secret:
+			return JsonResponse({"ok": False}, status=400)
+		event = stripe.Webhook.construct_event(payload, sig_header, endpoint_secret)
 	except Exception:
 		return JsonResponse({"ok": False}, status=400)
 
@@ -155,6 +159,12 @@ def stripe_webhook_view(request: HttpRequest) -> JsonResponse:
 				from users.models import User
 
 				user = User.objects.get(id=user_id)
+				if subscription_id and PaymentTransaction.objects.filter(
+					user=user,
+					reference=subscription_id,
+					status=PaymentTransaction.STATUS_SUCCESS,
+				).exists():
+					return JsonResponse({"ok": True})
 				_activate_subscription(user, plan, reference=subscription_id or "stripe")
 			except (SubscriptionPlan.DoesNotExist, User.DoesNotExist):
 				pass

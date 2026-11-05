@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-tertiary-fixed-variant":"#6e3900","primary":"#000000","secondary-fixed":"#dbe1ff","on-error":"#ffffff","on-background":"#0b1c30","surface-container-lowest":"#ffffff","primary-fixed":"#dae2fd","on-primary-fixed-variant":"#3f465c","on-primary-fixed":"#131b2e","on-tertiary-container":"#c76c00","secondary":"#0051d5","on-primary-container":"#7c839b","on-secondary":"#ffffff","surface-container-highest":"#d3e4fe","outline-variant":"#c6c6cd","inverse-primary":"#bec6e0","on-tertiary":"#ffffff","on-surface":"#0b1c30","surface-dim":"#cbdbf5","outline":"#76777d","inverse-surface":"#213145","on-tertiary-fixed":"#2f1500","surface-container":"#e5eeff","tertiary-fixed":"#ffdcc3","on-surface-variant":"#45464d","surface":"#f8f9ff","surface-tint":"#565e74","surface-bright":"#f8f9ff","primary-container":"#131b2e","on-error-container":"#93000a","tertiary-fixed-dim":"#ffb77d","on-primary":"#ffffff","surface-container-low":"#eff4ff","background":"#f8f9ff","surface-container-high":"#dce9ff","secondary-container":"#316bf3","error":"#ba1a1a","surface-variant":"#d3e4fe","on-secondary-fixed-variant":"#003ea8","inverse-on-surface":"#eaf1ff","tertiary-container":"#2f1500","tertiary":"#000000","error-container":"#ffdad6","secondary-fixed-dim":"#b4c5ff","primary-fixed-dim":"#bec6e0","on-secondary-container":"#fefcff","on-secondary-fixed":"#00174b"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-sm":"0.5rem","space-md":"1rem","space-xl":"2.5rem","space-lg":"1.5rem","gutter":"1.5rem","gutter-mobile":"1rem","space-xs":"0.25rem","margin":"2.5rem","margin-mobile":"1rem"},fontFamily:{"display-lg":["Newsreader"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Newsreader"],"display-lg-mobile":["Newsreader"],"headline-lg":["Newsreader"],"body-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Newsreader"]},fontSize:{"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.005em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"500"}],"display-lg-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"0em",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"headline-lg-mobile":["26px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"500"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(11,28,48,0.04)] border-b border-surface-container-high"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><div class="flex items-center gap-space-sm"><img alt="Chessflow Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Chessflow</span></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-label-lg text-label-lg border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="courses" href="#">Courses</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="chess-lab" href="#">Chess Lab</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="play" href="#">Play</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="blog" href="#">Blog</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="plans" href="#">Plans</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="staff-ops" href="#">Staff Ops</a></nav></div><div class="flex items-center gap-space-md"><div class="relative hidden md:block"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-64 pl-9 pr-space-md py-1.5 bg-surface-container-lowest border border-outline-variant rounded text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-all" placeholder="Search games, openings, master lectures..." type="search"/></div><button aria-label="Toggle nocturnal dark mode" class="p-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all flex items-center justify-center" id="dark-mode-toggle-btn" onclick="(function(){const isDark=document.documentElement.classList.toggle('dark');document.body.classList.toggle('dark');const icon=document.getElementById('dark-mode-toggle-icon');if(icon){icon.textContent=isDark?'light_mode':'dark_mode';}})()" title="Toggle Dark/Light Mode" type="button"><span class="material-symbols-outlined text-[20px]" id="dark-mode-toggle-icon">dark_mode</span></button><button aria-label="Notifications" class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><a class="hidden lg:inline-flex items-center gap-space-xs px-space-md py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-on-surface-variant transition-colors" data-path="analysis" href="#"><span class="material-symbols-outlined text-[18px]">neurology</span><span>Analyze Position</span></a><div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCErkvi5la-2lAqb3xAoQ_1dBnALg4G4zWw5zFfcdWu34xdLqRPy2DawIerYuX_E3AR70EUPUta5EQNVO8xejQyHarlbtqUpkKbbxLg5f_7PcYaSqOM7aqSbftLW49G9UXBCBZgGvvW4ABuAXqNurBukKm43UPlm21kwERG3AZIecAfWQWqR2KYsTlGWJkVhFuGKJ5rd-WpIKkiHqvQjG9-fvgCwM19NS6cpnyPE5lR"/><span class="absolute -bottom-1 -right-1 px-1 py-0.2 bg-secondary text-on-secondary rounded text-[9px] font-bold leading-tight uppercase tracking-wider">Pro</span></div><div class="hidden sm:flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight">Grandmaster Track</span><span class="font-label-sm text-label-sm text-on-surface-variant">1840 ELO</span></div></div></div></div></header><main class="w-full pt-16 bg-background min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<div class="w-full px-margin-mobile md:px-margin pt-space-lg pb-space-xl flex flex-col gap-space-lg">
+<!-- Breadcrumb & Catalog Header -->
+<div class="flex flex-col gap-space-xs">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant mb-space-xs">
+<span class="hover:text-on-surface cursor-pointer transition-colors">Academy</span>
+<span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span>
+<span class="text-secondary font-semibold">Course Catalog</span>
+</nav>
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md">
+<div class="max-w-3xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Mastery Curriculums &amp; Structured Repertoires</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs">Grandmaster-vetted syllabi combining interactive FEN puzzles, deep Stockfish positional annotations, and spaced repetition drills engineered for systematic ELO growth.</p>
+</div>
+<!-- Telemetry Metrics Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs bg-surface-container-low p-space-xs rounded-xl shadow-sm">
+<div class="px-space-md py-space-xs bg-surface-container-lowest rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Courses</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">48</span>
+</div>
+<div class="px-space-md py-space-xs bg-surface-container-lowest rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">GM Masters</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">12</span>
+</div>
+<div class="px-space-md py-space-xs bg-surface-container-lowest rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">In Progress</span>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">3</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+</div>
+</div>
+<div class="px-space-md py-space-xs bg-surface-container-lowest rounded-lg flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Exercises</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">1,240</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Active Resume Learning Banner (Alex Vance - 1842 ELO) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md sm:p-space-lg flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+</div>
+<div>
+<h2 class="font-label-lg text-label-lg text-on-surface font-bold uppercase tracking-wider">Resume Active Study</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Syncing position data with Stockfish Cloud Evaluator</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Enrolled as:</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary/10 text-secondary font-label-sm text-label-sm font-semibold">Alex Vance (1842 ELO)</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-md">
+<!-- Resume Card 1 -->
+<div class="bg-surface-container-low hover:bg-surface-container rounded-lg p-space-md flex flex-col sm:flex-row gap-space-md items-start sm:items-center justify-between transition-colors">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 shadow-sm bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Close-up macro study of a wooden chess rook piece against a minimalist slate gray analysis board with soft studio lighting and deep blue accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB6qpuKtpXipMH66JJZBuq2BC2BTno5v30x25WFLQBnnG1ohBXbE8st1XT6a7pZ9tnzZ-M5pGiO3VFLD025ffIGjSzRGqmNoOeObp7NbJqkOjw-tbaK_rOQ-ttOGRKoM0gxIMTePT3aDJy89LtjQHgPjwWLYcWcfZZJTJBH37yAmky-rOMPv4NnyuNHam2EhcvdfC3-BXAfgB7dB56rmxEO3GqNIVlBEIWcz9_XL3b"/>
+<div class="absolute bottom-0 inset-x-0 h-1 bg-surface-container-highest">
+<div class="h-full bg-secondary w-[68%]"></div>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest font-label-sm text-label-sm text-on-surface font-medium">Module 4 of 6</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">• 68% Complete</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate mt-0.5">Advanced Rook Endgames: The Lucena Position</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Next: Building the 4th Rank Bridge • 12m practice</p>
+</div>
+</div>
+<button class="shrink-0 px-space-md py-2 bg-primary hover:bg-on-surface-variant text-on-primary rounded font-label-md text-label-md flex items-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+<span>Resume</span>
+</button>
+</div>
+<!-- Resume Card 2 -->
+<div class="bg-surface-container-low hover:bg-surface-container rounded-lg p-space-md flex flex-col sm:flex-row gap-space-md items-start sm:items-center justify-between transition-colors">
+<div class="flex items-start gap-space-md min-w-0">
+<div class="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 shadow-sm bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Overhead dynamic angle of black and white pawns clashing in a Sicilian Defense formation, illuminated by dramatic side lighting with cool blue reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkXiAi7_SWV-KXbMYyMbCH4a8xV_1JlZEgyDMTdYNpU6tKjpAKgk-AWOZqRfAfS16LXO6-0pVF9JLA1mzvZxqPtKYlFIyokvbYmd-OjWCKaEv2R75045vAafz49XGq7FPSJnw1q6rJc7UsRfoGzlr3uOVXbLT9zz9B1UcFFv4r9GVQqT7WrqC1kIA4zkb-OIDc7_iGyjbu1hz-WjzkBo1XUx-GowymKtYsWl1GJyxG"/>
+<div class="absolute bottom-0 inset-x-0 h-1 bg-surface-container-highest">
+<div class="h-full bg-secondary w-[92%]"></div>
+</div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest font-label-sm text-label-sm text-on-surface font-medium">Module 2 of 5</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">• 92% Complete</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface truncate mt-0.5">Dynamic Pawn Breaks &amp; Levers in the Sicilian</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Next: Final Tactical Drills • Stockfish Evaluation test</p>
+</div>
+</div>
+<button class="shrink-0 px-space-md py-2 bg-secondary hover:bg-secondary-container text-on-secondary rounded font-label-md text-label-md flex items-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>Continue</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Multi-Tier Filtering, Search, & Navigation Toolbar -->
+<div class="flex flex-col gap-space-sm">
+<!-- Search row & Sort & View Mode -->
+<div class="flex flex-col lg:flex-row gap-space-sm items-stretch lg:items-center justify-between">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-space-md top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full pl-11 pr-space-md py-2.5 bg-surface-container-lowest text-on-surface placeholder:text-outline rounded-lg font-body-sm text-body-sm shadow-sm focus:outline-none focus:bg-surface-container-low transition-all" placeholder="Search openings, themes (e.g. French Defense, Lucena, Rook Endgames), instructors..." type="search"/>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap shrink-0">
+<!-- Pricing Toggle -->
+<div class="bg-surface-container-low p-1 rounded-lg flex items-center">
+<button class="px-space-md py-1.5 rounded font-label-sm text-label-sm bg-surface-container-lowest text-on-surface font-semibold shadow-sm" type="button">All Access</button>
+<button class="px-space-md py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" type="button">Included in Pro</button>
+<button class="px-space-md py-1.5 rounded font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-colors" type="button">Masterclasses</button>
+</div>
+<!-- Sort Select -->
+<div class="relative">
+<select aria-label="Sort courses by" class="appearance-none bg-surface-container-lowest pl-space-md pr-8 py-2 rounded-lg font-label-sm text-label-sm text-on-surface shadow-sm focus:outline-none cursor-pointer">
+<option>Recommended for You (1842 ELO)</option>
+<option>Highest Rated (4.9+)</option>
+<option>Newest Additions</option>
+<option>Progress: Incomplete First</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline text-[18px] pointer-events-none">expand_more</span>
+</div>
+<!-- Grid/List Switch -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg">
+<button aria-label="Grid View" class="p-1 rounded bg-surface-container-lowest text-secondary shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+</button>
+<button aria-label="List View" class="p-1 rounded text-on-surface-variant hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Rating Bracket Selector Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 scrollbar-none">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider shrink-0 mr-space-xs">Rating Tier:</span>
+<button class="px-space-md py-1 rounded-full font-label-sm text-label-sm bg-primary text-on-primary whitespace-nowrap shadow-sm" type="button">All Ratings</button>
+<button class="px-space-md py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high transition-colors whitespace-nowrap shadow-sm" type="button">Beginner (&lt;1200)</button>
+<button class="px-space-md py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high transition-colors whitespace-nowrap shadow-sm" type="button">Club Improver (1200–1600)</button>
+<button class="px-space-md py-1 rounded-full font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed-variant font-bold whitespace-nowrap shadow-sm flex items-center gap-1" type="button">
+<span>Tournament Aspirant (1600–2000)</span>
+<span class="material-symbols-outlined text-[14px]">my_location</span>
+</button>
+<button class="px-space-md py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container-high transition-colors whitespace-nowrap shadow-sm" type="button">Master Track (2000+)</button>
+</div>
+<!-- Syllabus Category Filter Chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 scrollbar-none">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider shrink-0 mr-space-xs">Domain:</span>
+<button class="px-space-md py-1 rounded-lg font-label-sm text-label-sm bg-surface-container text-on-surface font-semibold whitespace-nowrap" type="button">All Curriculums</button>
+<button class="px-space-md py-1 rounded-lg font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap shadow-sm" type="button">Endgames &amp; Conversions</button>
+<button class="px-space-md py-1 rounded-lg font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap shadow-sm" type="button">Opening Repertoires</button>
+<button class="px-space-md py-1 rounded-lg font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap shadow-sm" type="button">Calculation &amp; Tactics</button>
+<button class="px-space-md py-1 rounded-lg font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap shadow-sm" type="button">Positional Strategy</button>
+<button class="px-space-md py-1 rounded-lg font-label-sm text-label-sm bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container transition-colors whitespace-nowrap shadow-sm" type="button">Classical Heritage</button>
+</div>
+</div>
+<!-- Diagnostic Blunder Recommendation Alert Callout -->
+<div class="bg-gradient-to-r from-surface-container-lowest via-surface-container-low to-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]">smart_toy</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-sm text-label-sm text-amber-700 bg-amber-100 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider">Engine Diagnostic Match</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Analyzed from Blitz Game #8491 (Berlin Defense Move 19... Bxh2?)</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface mt-0.5">We flagged 2 tactical blind spots against Greek Gift kingside attacks in your last 10 games. Recommended course ready.</p>
+</div>
+</div>
+<button class="shrink-0 px-space-md py-2 bg-primary hover:bg-on-surface-variant text-on-primary font-label-md text-label-md rounded flex items-center gap-space-xs transition-colors shadow-sm" type="button">
+<span>View Targeted Module</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Main Course Catalog Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-lg">
+<!-- Course Card 1: Mastering Sicilian Najdorf -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+<div>
+<!-- Thumbnail & Badges -->
+<div class="relative w-full h-48 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Atmospheric dark-toned chess scene with a sharp focal point on a black knight positioned decisively on d5, modern minimalist studio lighting with indigo ambient backlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACivGbFEpkpPLQjiLxcOvYPcPbZRCWiO0nvo3qBuz4BSdT95gBefipb0wIJZWJVlOK9e5mLsIqAjbIJkKjZPgIEuEo85IFLkGUMdAxBzCGOSfo3JQYlCDCwEskv7HMKeq4rffSdByFtaNr1hDtbVUsJ9eCoSPcbkWNcLJtT2EWuKpHAISn2kp2otFswLgon1yaCTmw_UIEY9Rrdj1__VT5e8sVaQzdvOv6tjYi458s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm font-semibold">1400–1900 ELO</span>
+<span class="px-2 py-0.5 rounded bg-secondary/90 backdrop-blur-md text-on-secondary font-label-sm text-label-sm font-semibold">Pro Plan</span>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-amber-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.96</span>
+<span class="opacity-80">(1,420 students)</span>
+</span>
+<span class="bg-surface-container-lowest/20 backdrop-blur-md px-1.5 py-0.5 rounded text-white text-[11px]">Opening Theory</span>
+</div>
+</div>
+<!-- Card Body -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">menu_book</span>
+<span>28 Lessons</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>7.5 Hours</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">psychology</span>
+<span>94 Drills</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug group-hover:text-secondary transition-colors">
+              Mastering the Sicilian Defense: Najdorf Variations
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Unpack aggressive counter-attacking frameworks with 6.Bg5, 6.Be3 English Attacks, and pawn sacrifices designed to unseat White’s kingside momentum.
+            </p>
+<!-- Instructor Info -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="relative w-8 h-8 rounded-full overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Portrait photo of a grandmaster chess coach in thoughtful contemplation against an intellectual library backdrop with subtle navy lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxjHPBThEQltSMGsJ0ZyQX8cvqbu5MIJQ9RRx3DRgRiNjAeZehsRdYpYer9wNMUySa2hErsug0ytIjNodjDI_AuADz0yz7OLbaXXiHH837XSqilcKkaAAnv2PV7nnGIa98dveceZtKn597b9m2bLnKnurbVGyLzUvI64BrRPSTl49_Lb7Gil-hlQmrl2h9niTXL0XsvpAQ_9fGjhyw6H87w-ed2iwQBr-1fMQgACOL"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">GM Levon S.</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">FIDE 2750 Super GM</span>
+</div>
+</div>
+<!-- In-Progress Bar -->
+<div class="mt-space-xs p-space-sm bg-surface-container-low rounded-lg flex flex-col gap-1">
+<div class="flex justify-between items-center font-label-sm text-label-sm">
+<span class="text-on-surface-variant font-medium">Progress (Module 3)</span>
+<span class="text-secondary font-bold">35% Completed</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[35%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / CTA -->
+<div class="px-space-md pb-space-md pt-space-xs flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Access Status</span>
+<span class="font-label-md text-label-md text-secondary font-bold">Included in Pro</span>
+</div>
+<button class="px-space-md py-2 bg-primary hover:bg-on-surface-variant text-on-primary rounded font-label-md text-label-md flex items-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+<span>Resume Study</span>
+</button>
+</div>
+</div>
+<!-- Course Card 2: Defending Against the Greek Gift (AI Blunder Recommended) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300 relative ring-2 ring-amber-500/40">
+<div>
+<!-- Thumbnail & Badges -->
+<div class="relative w-full h-48 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dramatic overhead angle of a white bishop striking h7 with chess king defending, warm golden amber illumination clashing with deep navy chessboard shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbQ3Kpmca__scl4cf6Xoja6ZDn-FZjX7DvOT_Ly9L-CGNuouJj1xgSK0AHj61mu2Fx3XGD4DzJo0t24_Fmtm5anXAl0MRuLB3eWbGaCsuQRq44B9NvzBKvTgveM5uT0664IBoL74RzhiePL1aYNwCyrRAxvw8c_rDC7wVLjZOfY7M-bJSYlK0pWWLZ4dgb2dLHq5KWuHOXyLHw1bMm77lHfFhgR91ffchQUz-MDMTi"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-amber-500 text-on-primary font-label-sm text-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[13px]">verified</span>
+<span>Personalized Match</span>
+</span>
+<span class="px-2 py-0.5 rounded bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm font-semibold">1500–2000 ELO</span>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-amber-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.98</span>
+<span class="opacity-80">(890 students)</span>
+</span>
+<span class="bg-surface-container-lowest/20 backdrop-blur-md px-1.5 py-0.5 rounded text-white text-[11px]">Tactical Defense</span>
+</div>
+</div>
+<!-- Card Body -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">menu_book</span>
+<span>14 Lessons</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>4.2 Hours</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">psychology</span>
+<span>52 Drills</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug group-hover:text-secondary transition-colors">
+              Defending Against the Greek Gift &amp; Kingside Sacrifices
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Precise prophylactic defense formulas when White sacrifices on h7/h6. Learn when to accept, decline with ...Kh8, or execute counter-punches in the center.
+            </p>
+<!-- Instructor Info -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="relative w-8 h-8 rounded-full overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Portrait photo of legendary chess grandmaster Judit Polgár in a modern scholarly setting, gentle intellectual light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnwN3m3-fySepclepaEtqiJ5M9FjZ1-nMZD_vPA7wxflpNMnkOnYAhrYKiPfux3FyLRrXZaWwsLNrRy_uEvhwkAWTnWsXZ9mRMnMGKXC503_svuNpgwj-g9MDTUQHRtxC6-4euUajGzjF1PT-qiKeb0Tw8auGu2bcJruUkJ8uFzxDkQ_dM3SU_VoEkXJlt6Wl9A8mMMuh30JLmrqGmGsc0F9-HTkwD7ZX4tIiafURY"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">GM Judit Polgár</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Greatest Female Player in History</span>
+</div>
+</div>
+<!-- Personalized Diagnostic Note -->
+<div class="mt-space-xs p-space-sm bg-amber-50 rounded-lg flex items-start gap-space-xs">
+<span class="material-symbols-outlined text-amber-700 text-[18px] shrink-0 mt-0.5">warning</span>
+<p class="font-body-sm text-body-sm text-amber-900 leading-tight">
+                Curated specifically for Alex: Fixes the 19... Bxh2? vulnerability identified in your recent rapid series.
+              </p>
+</div>
+</div>
+</div>
+<!-- Footer / CTA -->
+<div class="px-space-md pb-space-md pt-space-xs flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Curriculum</span>
+<span class="font-label-md text-label-md text-amber-700 font-bold">Pro Tier Included</span>
+</div>
+<button class="px-space-md py-2 bg-secondary hover:bg-secondary-container text-on-secondary rounded font-label-md text-label-md flex items-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">add_task</span>
+<span>Enroll Course</span>
+</button>
+</div>
+</div>
+<!-- Course Card 3: Capablanca's Endgame Formula -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+<div>
+<!-- Thumbnail & Badges -->
+<div class="relative w-full h-48 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Elegant classic chess setting showing an endgame tableau with white king and single pawn approaching the eighth rank on a clean marble and dark slate chessboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWCswNeTh-NfIXCtXpQ6TzsbW_Dd2TING_DYIIHKvbKVMbWvlIy7bjzDUYKlpSHgtjiUJL-bGn0H7J0EPYIjM_NPZ_Y9OQgoRnJhk7oAj0lSYoetMkUU1cIo6XaNKSc4zR0EfUTYZeA2kvuckWEaXJ2jAA1pisfLF20620QMtqwNGo8cb6oBV-M0Occu3gAV_7GUDpdqmMhydzSztkdh4NUJ986R_69K_WdvBvNT8h"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm font-semibold">1600–2200 ELO</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-semibold">Essential</span>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-amber-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.94</span>
+<span class="opacity-80">(2,100 students)</span>
+</span>
+<span class="bg-surface-container-lowest/20 backdrop-blur-md px-1.5 py-0.5 rounded text-white text-[11px]">Pure Technique</span>
+</div>
+</div>
+<!-- Card Body -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">menu_book</span>
+<span>22 Lessons</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>6.0 Hours</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">psychology</span>
+<span>78 Exercises</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug group-hover:text-secondary transition-colors">
+              Capablanca's Endgame Formula: Pure Technique &amp; Pawn Majorities
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Learn the crystal-clear conversion mechanisms of the 3rd World Champion. Simplifying into winning king-activity layouts and creating queenside majorities.
+            </p>
+<!-- Instructor Info -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="relative w-8 h-8 rounded-full overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Portrait photo of a grandmaster chess analyst Alexander in dark turtleneck smiling warmly in an intellectual library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcl4iY4GyY6IqZcpcAvUtsISn64hTE3MB0M_e9UBesmND7QX2pBoueSuUNfvZjd18-o8TKYoPJYsDU8fSXURsvJkO9owoSSc3ckD1ZqHLrT0jwQ4knIs0OTIKDAAcUzZ_CiDJIKcoPZi9A8whhFFmsGpiulG7yFYW7C-mI_wH7tC3sYQvj0OK9Wk9Q1dsDuUHGQ87jr8m7e4YtrlZuPRbocCSjDFG4S_3sld4MWDEs"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">GM Alexander V.</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Senior FIDE Trainer</span>
+</div>
+</div>
+<!-- Syllabus Snapshot Chip -->
+<div class="mt-space-xs flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-space-sm py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-secondary">extension</span>
+<span>Includes 78 Interactive Syzygy Tablebase tests</span>
+</div>
+</div>
+</div>
+<!-- Footer / CTA -->
+<div class="px-space-md pb-space-md pt-space-xs flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pro Library</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Full Access</span>
+</div>
+<button class="px-space-md py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>Free Preview</span>
+</button>
+</div>
+</div>
+<!-- Course Card 4: Calculation Mastery -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+<div>
+<!-- Thumbnail & Badges -->
+<div class="relative w-full h-48 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Conceptual chess photograph featuring tactical geometric laser light lines dissecting a complex chessboard position with multiple candidate move paths illuminated" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgGPDFVODugUGWv7LHq4gYkrIop1bTfvXFyUxPLM-mcexMsaicTsBbjkGd-s2ve2bBCAjZTXHa3WigROtH_1KQByjyvFLYN1DZPSdtxMnEjjtBq6jczM67fuIK8Zuv8Mqpmt0Muz0YZaK-YIdHlD7m51C6rne18TGAyA9Y7k4QKJjgPGbHFe8MIAIN-FhhkbC0J8KaRdw530z6dIAuNKcuAg0HUyT4E9tUR6-7MazG"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm font-semibold">1700–2300 ELO</span>
+<span class="px-2 py-0.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold">Masterclass</span>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-amber-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.99</span>
+<span class="opacity-80">(3,400 students)</span>
+</span>
+<span class="bg-surface-container-lowest/20 backdrop-blur-md px-1.5 py-0.5 rounded text-white text-[11px]">Deep Calculation</span>
+</div>
+</div>
+<!-- Card Body -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">menu_book</span>
+<span>36 Lessons</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>11.0 Hours</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">psychology</span>
+<span>160 Tests</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug group-hover:text-secondary transition-colors">
+              Calculation Mastery: Forcing Moves &amp; Candidate Selection
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Systematic thought discipline for calculating 4+ plies deep without visualization collapse. Covers candidate move trees, intermediate checks, and quiet killers.
+            </p>
+<!-- Instructor Info -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="relative w-8 h-8 rounded-full overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Portrait photo of renowned chess author and coach Jacob Aagaard seated in front of a grandmaster tournament board, intellectual composure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfzEbZN8xvyVn5v8FpkO312lSRvVTcQTMtMqyot3Fve519LmX8bfcOXV7Zq2j7q_j1kr_GURO1-yGmR-KsPHG3rvEZe1FcOjLKWG3mWcggyUI5ryC0ens-Oibe6wPCUM8tRDBEbnBFkVDqjyhmo2kE4-KpyhElj1F1XO4fbTKuESiHy_ql36hYf4PBq1vdoHFbKOibcN_CsZ954X8DBroG4kJeUDUSkPi5BQ26100f"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">IM Jacob Aagaard</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">World-Renowned Author &amp; Trainer</span>
+</div>
+</div>
+<!-- Module Highlight -->
+<div class="mt-space-xs flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-space-sm py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-primary">fitness_center</span>
+<span>160 Timed Candidate Move Assessment Drills</span>
+</div>
+</div>
+</div>
+<!-- Footer / CTA -->
+<div class="px-space-md pb-space-md pt-space-xs flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Syllabus</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">Pro Exclusive</span>
+</div>
+<button class="px-space-md py-2 bg-primary hover:bg-on-surface-variant text-on-primary rounded font-label-md text-label-md flex items-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">list_alt</span>
+<span>View Syllabus</span>
+</button>
+</div>
+</div>
+<!-- Course Card 5: Essential Pawn Endgames (Completed) -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+<div>
+<!-- Thumbnail & Badges -->
+<div class="relative w-full h-48 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close-up photograph of solitary white and black pawns locked in opposition on d4 and d5, moody natural light casting sharp architectural shadows on a smooth board" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYSWBTFguCPUNoLi-gmtwCrNcZYfupBnqFJEO12pZtt0fpNV6ReFey-IapJUUPtNxTpXELtfYCi26QGneaa5Uk0YAkg8A8zqo970z5jslauKEov_3jYV92UgMz6Eo7aI3ig3SuSlKztvUenmqUL_URGo2VLbLYr3CAvHiJeOD6FKVUyQORN0Q2nKZN5kZMh2GGM3iI94_GM78CEhWJ6Jtz0aF61fGi7KQii-Gx3saC"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-emerald-600 text-white font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+<span>Mastered 100%</span>
+</span>
+<span class="px-2 py-0.5 rounded bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm font-semibold">1200–1600 ELO</span>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-amber-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.91</span>
+<span class="opacity-80">(1,890 students)</span>
+</span>
+<span class="bg-surface-container-lowest/20 backdrop-blur-md px-1.5 py-0.5 rounded text-white text-[11px]">Fundamentals</span>
+</div>
+</div>
+<!-- Card Body -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">menu_book</span>
+<span>16 Lessons</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>4.2 Hours</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">psychology</span>
+<span>45 Exercises</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug group-hover:text-secondary transition-colors">
+              Essential Pawn Endgames: From Opposition to Triangulation
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Master the bedrock mechanics of king opposition, the square rule, distant opposition, shouldering, and pawn breakthrough patterns that guarantee won endings.
+            </p>
+<!-- Instructor Info -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="relative w-8 h-8 rounded-full overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Portrait photo of International Master Elena Rostova holding a chess book in a sunlit Scandinavian academy room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOUIr6LZ4-k0F-JWrEiTJJfS3CZJevhr84xuFhG5O1gqjSXEXD-hzaceCpJKgMHax3mCOV6RfMvhmFdD-jxfC1tXpp2lFfbeF98qdqe_op7NltYTkWFc0Od5wHyCfJrRmIOTu714OvXO1OCf6aZJL9OfOMLOCx59p6DECKLiamC8f78m0QfnNvZU5FLSqv5SMvkuF2X7gOMAljZwK0cmrZRgF8meQbYEPOqNa8ZF-F"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">IM Elena Rostova</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Endgame Specialist &amp; Coach</span>
+</div>
+</div>
+<!-- Completed Metric Badge -->
+<div class="mt-space-xs p-space-sm bg-emerald-50 rounded-lg flex items-center justify-between text-emerald-900 font-label-sm text-label-sm">
+<span class="flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[16px] text-emerald-600">verified</span>
+<span>Completed on Oct 14</span>
+</span>
+<span class="font-bold text-emerald-700">45/45 Puzzles Solved</span>
+</div>
+</div>
+</div>
+<!-- Footer / CTA -->
+<div class="px-space-md pb-space-md pt-space-xs flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Archived In</span>
+<span class="font-label-md text-label-md text-emerald-700 font-bold">Your Vault</span>
+</div>
+<button class="px-space-md py-2 bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">replay</span>
+<span>Review Material</span>
+</button>
+</div>
+</div>
+<!-- Course Card 6: King's Indian Defense -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden flex flex-col justify-between group hover:shadow-xl transition-all duration-300">
+<div>
+<!-- Thumbnail & Badges -->
+<div class="relative w-full h-48 bg-surface-container-high overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artistic moody view of black chess fianchetto structure on g7 with dark king behind bishop fortress, deep navy slate board, cinematic side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu_p3yax6b4NR86EkvlxPHBdKAqidZ_sdtCDextRWnqYCXznkrGxW9BfHq5L36MZRpie-qCYZrnQw0wrfFge80iIx78Pr-rx50eqFrYPxk3qMT2IU8aA89TBYwhsxtIh0W6UCugiKPIy75XMNaTjtLr8gh38dED1p7fiGbRrQSEh6z-bA66TFUmVVrmt-XoPece-eYfS6H9hZYNILxY9OJInyilJG93tgPwKv2qsPe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm font-semibold">1600–2100 ELO</span>
+<span class="px-2 py-0.5 rounded bg-secondary/90 backdrop-blur-md text-on-secondary font-label-sm text-label-sm font-semibold">Pro Plan</span>
+</div>
+<div class="absolute bottom-space-sm left-space-sm right-space-sm flex items-center justify-between text-on-primary font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-amber-400" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.92</span>
+<span class="opacity-80">(1,650 students)</span>
+</span>
+<span class="bg-surface-container-lowest/20 backdrop-blur-md px-1.5 py-0.5 rounded text-white text-[11px]">Hypermodern</span>
+</div>
+</div>
+<!-- Card Body -->
+<div class="p-space-md flex flex-col gap-space-sm">
+<div class="flex items-center justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">menu_book</span>
+<span>30 Lessons</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">schedule</span>
+<span>8.5 Hours</span>
+<span>•</span>
+<span class="material-symbols-outlined text-[15px]">psychology</span>
+<span>110 Drills</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-snug group-hover:text-secondary transition-colors">
+              The King's Indian Defense: Hypermodern Dynamic Systems
+            </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Conquer 1.d4 through dynamic piece tensions, the Mar del Plata storm (...f5), and modern queen-side expansions against the Classical and Sämisch variations.
+            </p>
+<!-- Instructor Info -->
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="relative w-8 h-8 rounded-full overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Portrait photo of Czech chess grandmaster David Navara with warm scholarly expression in a quiet grandmaster tournament lounge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA97juDjf0QEyYk61IUgZF45TCYCzEY5VLCqC7CfOtsXfIX0jWA5KFg7Oe3ryTx6zVnDiLswir4H-5HaehhAMYK41MUu_V89bkCqOUUHQgCeLQRAtGKnP-ZosYp8g70GHDFVyQt4N-MKdlNJB50deuF2pmqAvi5ypTmOB8J-qkeikzjp7KTeV8yP0F4-DZkxcWhYDHJMCNLzJS0MukxDXEEHRlEkK0oEr-DWX_0aeMs"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">GM David Navara</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Multiple National Champion</span>
+</div>
+</div>
+<!-- Key Feature Chip -->
+<div class="mt-space-xs flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-space-sm py-1.5 rounded-lg">
+<span class="material-symbols-outlined text-[16px] text-secondary">bolt</span>
+<span>110 Interactive Move-by-Move Master Repertoires</span>
+</div>
+</div>
+</div>
+<!-- Footer / CTA -->
+<div class="px-space-md pb-space-md pt-space-xs flex items-center justify-between gap-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Membership</span>
+<span class="font-label-md text-label-md text-secondary font-bold">Included in Pro</span>
+</div>
+<button class="px-space-md py-2 bg-primary hover:bg-on-surface-variant text-on-primary rounded font-label-md text-label-md flex items-center gap-space-xs transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">play_circle</span>
+<span>Start Course</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Structured Grandmaster Paths Banner (Bento Highlight) -->
+<div class="bg-gradient-to-br from-primary-container via-surface-container-high/40 to-surface-container-lowest rounded-xl p-space-md lg:p-space-xl shadow-md flex flex-col xl:flex-row items-stretch xl:items-center justify-between gap-space-lg text-on-surface">
+<div class="flex flex-col gap-space-xs max-w-xl">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider">Structured Tracks</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3-Month Accelerated Programs</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface leading-tight">Structured Grandmaster Progression Tracks</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Follow a curated, step-by-step 90-day syllabus engineered for your exact rating bracket. Includes weekly automated Stockfish benchmarking.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md flex-1">
+<!-- Track 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex justify-between items-start mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Phase 1</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-semibold">1200–1500</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Club Starter</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Tactical pattern recognition, blunders eradication, core king &amp; pawn endgames.</p>
+</div>
+<a class="mt-space-md font-label-md text-label-md text-secondary hover:text-secondary-container flex items-center gap-1 font-semibold" href="#">
+<span>Explore 6 Courses</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+<!-- Track 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex justify-between items-start mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Phase 2</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-semibold">1500–1800</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Tactical Improver</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Candidate moves, rook endgames, opening repertoire fundamentals for White &amp; Black.</p>
+</div>
+<a class="mt-space-md font-label-md text-label-md text-secondary hover:text-secondary-container flex items-center gap-1 font-semibold" href="#">
+<span>Explore 8 Courses</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+<!-- Track 3 (Active Bracket) -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-md flex flex-col justify-between hover:translate-y-[-2px] transition-transform ring-2 ring-secondary">
+<div>
+<div class="flex justify-between items-start mb-space-xs">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase flex items-center gap-1">
+<span>Your Bracket</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-bold">1800–2000+</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Candidate Master Track</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Deep positional sacrifices, prophylactic calculation, grandmaster tournament psychology.</p>
+</div>
+<a class="mt-space-md font-label-md text-label-md text-secondary hover:text-secondary-container flex items-center gap-1 font-semibold" href="#">
+<span>Enrolled Track (34%)</span>
+<span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Catalog Pagination & Bottom Feedback Bar -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md pt-space-md">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span>Showing</span>
+<span class="font-bold text-on-surface">6</span>
+<span>of</span>
+<span class="font-bold text-on-surface">48</span>
+<span>courses in the master catalog</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button aria-label="Previous Page" class="p-2 bg-surface-container-lowest hover:bg-surface-container rounded-lg text-outline-variant disabled:opacity-50 transition-colors shadow-sm" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold flex items-center justify-center shadow-sm" type="button">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center shadow-sm transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center shadow-sm transition-colors" type="button">3</button>
+<span class="px-1 text-outline font-label-sm text-label-sm">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center shadow-sm transition-colors" type="button">8</button>
+<button aria-label="Next Page" class="p-2 bg-surface-container-lowest hover:bg-surface-container rounded-lg text-on-surface transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<!-- Quick Action / Syllabus Downloader -->
+<div class="flex items-center gap-space-sm">
+<button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Download PDF Syllabi</span>
+</button>
+<span class="text-outline-variant">•</span>
+<button class="text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm flex items-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">help</span>
+<span>Curriculum Advisor</span>
+</button>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-high py-space-xl"><div class="w-full px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div><div class="flex items-center gap-space-sm mb-space-md"><img alt="Chessflow Brand Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-sm text-headline-sm text-on-surface">Chessflow</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">An intellectual sanctuary engineered for grandmaster-level analytical rigor, deep tactical mastery, and modern chess scholarship.</p><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Stockfish 16.1 NNUE: Active (0.0ms ping)</span></div></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Learning Paths</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Foundations of Capablanca</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Hypermodern Pawn Structures</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Rook Endgame Diagnostics</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Sicilian Defense Repertoire</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Positional Sacrifices Lab</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Platform Resources</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">PGN / FEN Cloud Vault</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Opening Book Explorers</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Masters Tournament Archive</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">API for Chess Engines</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">System Uptime &amp; Benchmarks</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Keyboard Shortcuts</h4><ul class="space-y-space-xs"><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Next Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">→</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Previous Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">←</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Flip Board</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">F</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Toggle Engine</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">Space</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Branch Subvariation</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">B</kbd></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Engine Telemetry</h4><div class="p-space-sm bg-surface-container-low rounded border border-surface-container-high space-y-space-xs"><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Engine Depth</span><span class="text-on-surface font-semibold">38 ply</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Nodes / Sec</span><span class="text-on-surface font-semibold">14.2M nps</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Cloud Hash</span><span class="text-on-surface font-semibold">2048 MB</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Syzygy Tablebases</span><span class="text-on-surface font-semibold">7-man WDL</span></div></div></div></div><div class="pt-space-md border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 Chessflow Analytics Inc. Precision tools for grandmaster study.</div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Terms of Study</a><a class="hover:text-on-surface transition-colors" href="#">Security &amp; Fair Play</a></div></div></div></footer></body></html>

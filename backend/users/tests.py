@@ -1,10 +1,24 @@
 from django.test import TestCase
 from django.urls import reverse
 
+from .forms import SignUpForm
 from .models import User
 
 
 class UserViewsTests(TestCase):
+	def test_signup_cannot_assign_elevated_role(self):
+		form = SignUpForm(
+			{
+				"username": "new-instructor",
+				"email": "new@example.com",
+				"role": User.INSTRUCTOR,
+				"password1": "A9!secure-password",
+				"password2": "A9!secure-password",
+			}
+		)
+		self.assertTrue(form.is_valid())
+		self.assertEqual(form.save().role, User.STUDENT)
+
 	def test_signup_page_loads(self):
 		response = self.client.get(reverse("users:signup"))
 		self.assertEqual(response.status_code, 200)

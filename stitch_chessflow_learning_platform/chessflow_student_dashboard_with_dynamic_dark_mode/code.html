@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-tertiary-fixed-variant":"#6e3900","primary":"#000000","secondary-fixed":"#dbe1ff","on-error":"#ffffff","on-background":"#0b1c30","surface-container-lowest":"#ffffff","primary-fixed":"#dae2fd","on-primary-fixed-variant":"#3f465c","on-primary-fixed":"#131b2e","on-tertiary-container":"#c76c00","secondary":"#0051d5","on-primary-container":"#7c839b","on-secondary":"#ffffff","surface-container-highest":"#d3e4fe","outline-variant":"#c6c6cd","inverse-primary":"#bec6e0","on-tertiary":"#ffffff","on-surface":"#0b1c30","surface-dim":"#cbdbf5","outline":"#76777d","inverse-surface":"#213145","on-tertiary-fixed":"#2f1500","surface-container":"#e5eeff","tertiary-fixed":"#ffdcc3","on-surface-variant":"#45464d","surface":"#f8f9ff","surface-tint":"#565e74","surface-bright":"#f8f9ff","primary-container":"#131b2e","on-error-container":"#93000a","tertiary-fixed-dim":"#ffb77d","on-primary":"#ffffff","surface-container-low":"#eff4ff","background":"#f8f9ff","surface-container-high":"#dce9ff","secondary-container":"#316bf3","error":"#ba1a1a","surface-variant":"#d3e4fe","on-secondary-fixed-variant":"#003ea8","inverse-on-surface":"#eaf1ff","tertiary-container":"#2f1500","tertiary":"#000000","error-container":"#ffdad6","secondary-fixed-dim":"#b4c5ff","primary-fixed-dim":"#bec6e0","on-secondary-container":"#fefcff","on-secondary-fixed":"#00174b"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-sm":"0.5rem","space-md":"1rem","space-xl":"2.5rem","space-lg":"1.5rem","gutter":"1.5rem","gutter-mobile":"1rem","space-xs":"0.25rem","margin":"2.5rem","margin-mobile":"1rem"},fontFamily:{"display-lg":["Newsreader"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Newsreader"],"display-lg-mobile":["Newsreader"],"headline-lg":["Newsreader"],"body-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Newsreader"]},fontSize:{"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.005em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"500"}],"display-lg-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"0em",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"headline-lg-mobile":["26px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"500"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(11,28,48,0.04)] border-b border-surface-container-high"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><div class="flex items-center gap-space-sm"><img alt="Chessflow Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Chessflow</span></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-label-lg text-label-lg border-b-2 border-primary"><a aria-current="page" class="transition-colors py-space-sm text-on-surface font-label-lg text-label-lg border-b-2 border-primary" data-path="courses" href="#">Courses</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="chess-lab" href="#">Chess Lab</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="play" href="#">Play</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="blog" href="#">Blog</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="plans" href="#">Plans</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="staff-ops" href="#">Staff Ops</a></nav></div><div class="flex items-center gap-space-md"><div class="relative hidden md:block"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-64 pl-9 pr-space-md py-1.5 bg-surface-container-lowest border border-outline-variant rounded text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-all" placeholder="Search games, openings, master lectures..." type="search"/></div><button aria-label="Notifications" class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><button aria-label="Toggle dark theme" class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors flex items-center justify-center rounded cursor-pointer" id="dark-mode-toggle" onclick="(function(){const isDark=document.documentElement.classList.toggle('dark');document.body.classList.toggle('dark',isDark);const icon=document.getElementById('dark-mode-icon');if(icon){icon.textContent=isDark?'light_mode':'dark_mode';}})()" title="Toggle Dark/Light Mode" type="button"><span class="material-symbols-outlined text-[22px]" id="dark-mode-icon">dark_mode</span></button><a class="hidden lg:inline-flex items-center gap-space-xs px-space-md py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-on-surface-variant transition-colors" data-path="analysis" href="#"><span class="material-symbols-outlined text-[18px]">neurology</span><span>Analyze Position</span></a><div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCErkvi5la-2lAqb3xAoQ_1dBnALg4G4zWw5zFfcdWu34xdLqRPy2DawIerYuX_E3AR70EUPUta5EQNVO8xejQyHarlbtqUpkKbbxLg5f_7PcYaSqOM7aqSbftLW49G9UXBCBZgGvvW4ABuAXqNurBukKm43UPlm21kwERG3AZIecAfWQWqR2KYsTlGWJkVhFuGKJ5rd-WpIKkiHqvQjG9-fvgCwM19NS6cpnyPE5lR"/><span class="absolute -bottom-1 -right-1 px-1 py-0.2 bg-secondary text-on-secondary rounded text-[9px] font-bold leading-tight uppercase tracking-wider">Pro</span></div><div class="hidden sm:flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight">Grandmaster Track</span><span class="font-label-sm text-label-sm text-on-surface-variant">1840 ELO</span></div></div></div></div></header><main class="w-full pt-16 bg-background min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- Top Sub-Navigation & Breadcrumb Strip -->
+<section class="w-full px-margin py-space-sm bg-surface-container-low flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<span class="hover:text-on-surface cursor-pointer transition-colors">Academy</span>
+<span class="text-outline">/</span>
+<span class="hover:text-on-surface cursor-pointer transition-colors">Alex Vance</span>
+<span class="text-outline">/</span>
+<span class="text-secondary font-semibold">Scholar Cockpit</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>Stockfish 16.1 Cloud Sync Active</span>
+</div>
+<span class="text-outline-variant font-label-sm">|</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant">
+        FIDE ID: <span class="text-on-surface font-semibold">14209931</span>
+</div>
+</div>
+</section>
+<!-- Personalized Hero / Scholar Masthead -->
+<section class="w-full px-margin py-space-lg">
+<div class="relative overflow-hidden bg-surface-container-lowest rounded-xl shadow-md p-space-lg lg:p-space-xl">
+<!-- Decorative geometric board grid watermark -->
+<div class="absolute -right-12 -top-12 w-96 h-96 opacity-5 pointer-events-none">
+<svg class="w-full h-full" fill="currentColor" viewbox="0 0 100 100">
+<rect height="12.5" width="12.5" x="0" y="0"></rect>
+<rect height="12.5" width="12.5" x="25" y="0"></rect>
+<rect height="12.5" width="12.5" x="50" y="0"></rect>
+<rect height="12.5" width="12.5" x="75" y="0"></rect>
+<rect height="12.5" width="12.5" x="12.5" y="12.5"></rect>
+<rect height="12.5" width="12.5" x="37.5" y="12.5"></rect>
+<rect height="12.5" width="12.5" x="62.5" y="12.5"></rect>
+<rect height="12.5" width="12.5" x="87.5" y="12.5"></rect>
+<rect height="12.5" width="12.5" x="0" y="25"></rect>
+<rect height="12.5" width="12.5" x="25" y="25"></rect>
+<rect height="12.5" width="12.5" x="50" y="25"></rect>
+<rect height="12.5" width="12.5" x="75" y="25"></rect>
+</svg>
+</div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<div class="space-y-space-xs max-w-2xl">
+<div class="flex flex-wrap items-center gap-space-sm mb- space-xs">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container rounded font-label-sm text-label-sm text-secondary font-semibold">
+<span class="material-symbols-outlined text-[14px]">local_fire_department</span>
+              14-Day Study Streak
+            </span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-surface-container-high rounded font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[13px] text-secondary">workspace_premium</span>
+              Pro Member (Renews Oct 2025)
+            </span>
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary rounded font-label-sm text-label-sm">
+              Candidate Master Goal: 2000
+            </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">
+            Welcome back, Alex
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Current Rating: <strong class="text-on-surface font-semibold">1842 ELO</strong> · Peak: <span class="text-on-surface font-medium">1865 ELO</span> · Ready to convert tactical drills into tournament momentum today.
+          </p>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<div class="p-space-sm bg-surface-container-low rounded-lg text-right">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tournament Form</div>
+<div class="font-headline-sm text-headline-sm text-on-surface flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-secondary text-[20px]">trending_up</span>
+              +38 pts this month
+            </div>
+</div>
+<a class="px-space-md py-2.5 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-inverse-surface transition-all flex items-center gap-space-xs shadow-sm" href="#">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Resume Daily Drills</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Primary Cockpit Grid: Hero Course Card + Mini KPI Rack -->
+<section class="w-full px-margin pb-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Primary Action Hero: Continue Learning Card -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-md p-space-lg flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-start justify-between gap-space-md mb-space-md">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed-variant rounded font-label-sm text-label-sm font-semibold uppercase">
+                Active Masterclass
+              </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Module 4 of 6</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-1">
+              Advanced Rook Endgames: The Lucena Position &amp; Bridge Technique
+            </h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+              Construct the 4th-rank defensive umbrella, calculate king cutoff squares, and secure 100% conversion precision when pawns reach the 7th rank.
+            </p>
+</div>
+<span class="hidden sm:flex w-12 h-12 rounded-full bg-surface-container items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[26px]">castle</span>
+</span>
+</div>
+<!-- Interactive Miniature Board Mockup & Bridge Summary -->
+<div class="bg-surface-container-low rounded-lg p-space-md mb-space-lg grid grid-cols-1 sm:grid-cols-3 gap-space-md items-center">
+<div class="col-span-1 flex items-center justify-center">
+<!-- Stylized 4x4 Mini Board Preview -->
+<div class="w-28 h-28 grid grid-cols-4 grid-rows-4 rounded overflow-hidden shadow-sm">
+<div class="bg-surface-container-lowest flex items-center justify-center font-label-sm text-[16px]">♔</div>
+<div class="bg-surface-container-high flex items-center justify-center"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-label-sm text-[16px]">♙</div>
+<div class="bg-surface-container-high flex items-center justify-center"></div>
+<div class="bg-surface-container-high flex items-center justify-center"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center"></div>
+<div class="bg-surface-container-high flex items-center justify-center font-label-sm text-[16px] text-secondary">♖</div>
+<div class="bg-surface-container-lowest flex items-center justify-center"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center"></div>
+<div class="bg-surface-container-high flex items-center justify-center font-label-sm text-[16px]">♚</div>
+<div class="bg-surface-container-lowest flex items-center justify-center"></div>
+<div class="bg-surface-container-high flex items-center justify-center"></div>
+<div class="bg-surface-container-high flex items-center justify-center font-label-sm text-[16px]">♜</div>
+<div class="bg-surface-container-lowest flex items-center justify-center"></div>
+<div class="bg-surface-container-high flex items-center justify-center"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center"></div>
+</div>
+</div>
+<div class="col-span-2 space-y-space-xs">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface font-semibold">Lesson 6: Building the 4th Rank Bridge</span>
+<span class="text-secondary font-semibold">68% Complete</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full transition-all duration-500" style="width: 68%;"></div>
+</div>
+<div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant pt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">timer</span>
+                Est. ~12 min remaining
+              </span>
+<span>3 interactive engine tests left</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span> Grandmaster Daniel Naroditsky</span>
+<span>·</span>
+<span>Recorded in PGN Studio</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md rounded transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[18px]">list_alt</span>
+              Curriculum Outline
+            </button>
+<a class="px-space-md py-2 bg-secondary hover:bg-secondary-container text-on-secondary font-label-md text-label-md rounded transition-all shadow-sm flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[18px]">play_circle</span>
+              Resume Lesson 6
+            </a>
+</div>
+</div>
+</div>
+<!-- Quick KPI Strip (Stacked right column) -->
+<div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-space-md">
+<!-- KPI 1: Weekly Study Time -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Weekly Study Time</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">schedule</span>
+</div>
+<div class="flex items-baseline gap-space-xs mb-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">4.5</span>
+<span class="font-body-md text-body-md text-on-surface-variant">/ 6.0 hrs Goal</span>
+</div>
+<!-- Inline Sparkline / Progress Bar -->
+<div class="space-y-1">
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 75%;"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>75% of target met</span>
+<span class="text-secondary font-semibold">1.5 hrs to goal</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Positions Analyzed -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Positions Analyzed</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">neurology</span>
+</div>
+<div class="flex items-baseline gap-space-xs mb-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface font-semibold">142</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold inline-flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">arrow_upward</span>
+              +24% vs last week
+            </span>
+</div>
+<!-- Sparkline SVG -->
+<div class="flex items-center justify-between gap-space-sm pt-1">
+<svg class="w-24 h-6 text-secondary" fill="none" viewbox="0 0 100 24">
+<path d="M0 20 L16 17 L32 18 L48 10 L64 12 L80 4 L100 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Peak day: Thursday (38 pos)</span>
+</div>
+</div>
+<!-- KPI 3 & 4 combined row for desktop height balance -->
+<div class="grid grid-cols-2 gap-space-sm sm:col-span-2 lg:col-span-1">
+<!-- Accuracy Score -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col justify-between">
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-1">Puzzle Accuracy</div>
+<div class="font-headline-md text-headline-md text-on-surface font-semibold">84.6%</div>
+<div class="font-label-sm text-label-sm text-secondary font-medium mt-1">High Precision</div>
+</div>
+<!-- Subscription Badge -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Plan</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pro Tier</div>
+<a class="font-label-sm text-label-sm text-secondary hover:underline flex items-center gap-0.5 mt-1" href="#">
+<span>View Invoice</span>
+<span class="material-symbols-outlined text-[13px]">north_east</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Dashboard Modules: Curriculum Tracker & Weekly Drill Heatmap -->
+<section class="w-full px-margin pb-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- Left Column: Active Curriculum Progress -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl shadow-md p-space-lg space-y-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Enrolled Curriculums</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mastery paths aligned with your tournament opening repertoire</p>
+</div>
+<button class="text-secondary font-label-md text-label-md hover:underline flex items-center gap-1" type="button">
+<span>Browse Library</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+<div class="space-y-space-sm">
+<!-- Course Item 1: Rook Endgames -->
+<div class="p-space-md bg-surface-container-low hover:bg-surface-container transition-all rounded-lg flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative w-12 h-12 flex items-center justify-center shrink-0">
+<!-- SVG circular progress 68% -->
+<svg class="w-12 h-12 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="68, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="absolute font-label-sm text-label-sm font-semibold text-on-surface">68%</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Advanced Rook Endgames</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">12 of 18 lessons mastered · Philidor &amp; Lucena diagnostics</p>
+</div>
+</div>
+<a class="px-space-md py-1.5 bg-surface-container-lowest text-on-surface rounded font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors shrink-0" href="#">
+              Continue
+            </a>
+</div>
+<!-- Course Item 2: Dynamic Pawn Breaks -->
+<div class="p-space-md bg-surface-container-low hover:bg-surface-container transition-all rounded-lg flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative w-12 h-12 flex items-center justify-center shrink-0">
+<!-- SVG circular progress 92% -->
+<svg class="w-12 h-12 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="92, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="absolute font-label-sm text-label-sm font-semibold text-on-surface">92%</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Dynamic Pawn Breaks &amp; Levers</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">22 of 24 lessons mastered · Sicilian c3 / French Defense themes</p>
+</div>
+</div>
+<a class="px-space-md py-1.5 bg-surface-container-lowest text-on-surface rounded font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors shrink-0" href="#">
+              Review
+            </a>
+</div>
+<!-- Course Item 3: Positional Sacrifices Lab -->
+<div class="p-space-md bg-surface-container-low hover:bg-surface-container transition-all rounded-lg flex items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative w-12 h-12 flex items-center justify-center shrink-0">
+<!-- SVG circular progress 44% -->
+<svg class="w-12 h-12 -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"></path>
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="44, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="absolute font-label-sm text-label-sm font-semibold text-on-surface">44%</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Positional Sacrifices &amp; Imbalances</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">7 of 16 lessons mastered · Petrossian exchange sacrifices</p>
+</div>
+</div>
+<a class="px-space-md py-1.5 bg-surface-container-lowest text-on-surface rounded font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors shrink-0" href="#">
+              Resume
+            </a>
+</div>
+</div>
+</div>
+<!-- Right Column: Weekly Activity Heatmap + Recommended Targeted Drill -->
+<div class="lg:col-span-5 space-y-space-lg">
+<!-- Activity Heatmap Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Study Consistency</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Drills, puzzles, and blitz reviews (Last 14 days)</p>
+</div>
+<span class="px-2 py-1 bg-surface-container rounded font-label-sm text-label-sm text-on-surface-variant">
+              Nov 3 - Nov 16
+            </span>
+</div>
+<!-- Heatmap Dot Matrix -->
+<div class="grid grid-cols-7 gap-2 text-center pt-space-xs">
+<div class="font-label-sm text-label-sm text-on-surface-variant">Mon</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Tue</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Wed</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Thu</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Fri</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Sat</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Sun</div>
+<!-- Row 1: Week 1 -->
+<div class="h-9 rounded bg-secondary/30 flex items-center justify-center font-label-sm text-on-surface" title="Mon: 14 puzzles">14</div>
+<div class="h-9 rounded bg-secondary/50 flex items-center justify-center font-label-sm text-on-secondary font-semibold" title="Tue: 22 puzzles">22</div>
+<div class="h-9 rounded bg-secondary/20 flex items-center justify-center font-label-sm text-on-surface" title="Wed: 8 puzzles">8</div>
+<div class="h-9 rounded bg-secondary flex items-center justify-center font-label-sm text-on-secondary font-bold" title="Thu: 38 puzzles">38</div>
+<div class="h-9 rounded bg-secondary/60 flex items-center justify-center font-label-sm text-on-secondary font-semibold" title="Fri: 26 puzzles">26</div>
+<div class="h-9 rounded bg-secondary/40 flex items-center justify-center font-label-sm text-on-surface font-semibold" title="Sat: 18 puzzles">18</div>
+<div class="h-9 rounded bg-secondary/80 flex items-center justify-center font-label-sm text-on-secondary font-bold" title="Sun: 34 puzzles">34</div>
+<!-- Row 2: Week 2 (Current) -->
+<div class="h-9 rounded bg-secondary/40 flex items-center justify-center font-label-sm text-on-surface font-semibold" title="Mon: 19 puzzles">19</div>
+<div class="h-9 rounded bg-secondary/70 flex items-center justify-center font-label-sm text-on-secondary font-bold" title="Tue: 31 puzzles">31</div>
+<div class="h-9 rounded bg-secondary flex items-center justify-center font-label-sm text-on-secondary font-bold" title="Wed: 42 puzzles">42</div>
+<div class="h-9 rounded bg-secondary/50 flex items-center justify-center font-label-sm text-on-secondary font-semibold" title="Thu: 24 puzzles">24</div>
+<div class="h-9 rounded bg-secondary/30 flex items-center justify-center font-label-sm text-on-surface" title="Fri: 15 puzzles">15</div>
+<div class="h-9 rounded bg-secondary/90 flex items-center justify-center font-label-sm text-on-secondary font-bold" title="Sat: 39 puzzles">39</div>
+<div class="h-9 rounded bg-secondary flex items-center justify-center font-label-sm text-on-secondary font-bold ring-2 ring-primary ring-offset-2" title="Sun (Today): 45 puzzles">Today</div>
+</div>
+<div class="flex items-center justify-between pt-space-md text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded bg-surface-container"></span> Less
+            </span>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded bg-secondary/20"></span>
+<span class="w-2.5 h-2.5 rounded bg-secondary/50"></span>
+<span class="w-2.5 h-2.5 rounded bg-secondary/80"></span>
+<span class="w-2.5 h-2.5 rounded bg-secondary"></span>
+</div>
+<span>More Intensity</span>
+</div>
+</div>
+<!-- AI Engine Tactical Recommendation -->
+<div class="bg-surface-container-high rounded-xl p-space-md flex flex-col justify-between">
+<div class="flex items-start justify-between gap-space-sm mb-space-xs">
+<div class="space-y-0.5">
+<div class="flex items-center gap-1 text-secondary font-label-sm text-label-sm font-bold uppercase">
+<span class="material-symbols-outlined text-[15px]">auto_fix_high</span>
+                Blunder Diagnostic Engine
+              </div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Defending the Greek Gift Sacrifice</h4>
+</div>
+<span class="px-2 py-0.5 bg-surface-container-lowest text-on-surface rounded font-label-sm text-label-sm font-semibold">
+              High Priority
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+            In your last 3 rated matches as Black, Bxh7+ was played twice. Train counter-sacrifices with Kg6 and defensive knight relocations to Nf8.
+          </p>
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">psychology</span> 5 Puzzles curated
+            </span>
+<a class="px-space-md py-1.5 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-inverse-surface transition-colors flex items-center gap-1" href="#">
+<span>Start 5-Min Drill</span>
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Visual Break: Deep Dive Masters Archive Spot -->
+<section class="w-full px-margin pb-space-lg">
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg lg:p-space-xl grid grid-cols-1 md:grid-cols-12 gap-space-lg items-center">
+<div class="md:col-span-4 relative rounded-lg overflow-hidden h-52 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close up archival photograph of hand-carved Staunton wooden chess pieces arranged on an elegant tournament board, soft morning sunlight casting dramatic architectural shadows, high end academic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfD9Cy-4LsDMLfQO8jTi6oIjXd5c7_-HBwaVIQ2LElQRXFNCqNR2uq3sL360wTruK3NuysLY6s5tz_dceZ-twNL2T3bAKX1UEKtHfVU9QCF1LsGbI1U1qhR5xsKA6XNoeG2ITdx277-D7JofjMCK7r1IIHjiGMZjGqBH0jUMAKjyc2e2IxKtFihbeIGs2Srx-VYtQxUJd-MqWH4dqwxk-Fd0JdUjQNzGMepY3Ay_MO"/>
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[1px]"></div>
+<div class="absolute bottom-3 left-3 px-2.5 py-1 bg-surface-container-lowest/90 backdrop-blur rounded font-label-sm text-label-sm text-on-surface font-semibold">
+          Historical Study Case
+        </div>
+</div>
+<div class="md:col-span-8 space-y-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary rounded font-label-sm text-label-sm font-bold uppercase">Classical Heritage</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Annotated by GM Judit Polgár</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">Capablanca vs. Tartakower, New York 1924</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Analyze how the 3rd World Champion converted an apparently drawn rook endgame using relentless active king mobility and precise pawn liquidation. Complete this classical breakdown to unlock the "Master of Simplification" digital pin.
+        </p>
+<div class="pt-space-xs flex flex-wrap items-center gap-space-md">
+<a class="px-space-md py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-inverse-surface transition-colors inline-flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[18px]">menu_book</span>
+<span>Study Annotated Game</span>
+</a>
+<button class="px-space-md py-2 bg-surface-container text-on-surface rounded font-label-md text-label-md hover:bg-surface-container-high transition-colors inline-flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Download Clean PGN</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Recent Practice Engine Reviews Table -->
+<section class="w-full px-margin pb-space-xl">
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm mb-space-md">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Recent Practice Highlights</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Detailed engine post-mortems of your last 5 matches</p>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center bg-surface-container rounded p-0.5 text-on-surface-variant font-label-sm text-label-sm">
+<button class="px-3 py-1 bg-surface-container-lowest text-on-surface rounded shadow-sm font-semibold" type="button">All Modes</button>
+<button class="px-3 py-1 hover:text-on-surface transition-colors" type="button">Blitz (5+3)</button>
+<button class="px-3 py-1 hover:text-on-surface transition-colors" type="button">Rapid (15+10)</button>
+</div>
+<button class="p-2 bg-surface-container rounded text-on-surface hover:bg-surface-container-high transition-colors" title="Export PGN History" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+</div>
+</div>
+<!-- Practice Games List -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md rounded-l">Opponent &amp; Rating</th>
+<th class="py-space-sm px-space-sm">Opening Played</th>
+<th class="py-space-sm px-space-sm">Result</th>
+<th class="py-space-sm px-space-sm">Accuracy</th>
+<th class="py-space-sm px-space-sm">Moves</th>
+<th class="py-space-sm px-space-sm">Key Turning Point</th>
+<th class="py-space-sm px-space-md text-right rounded-r">Analysis</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center font-label-sm font-bold text-on-surface">
+                    DM
+                  </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Dmitri_M (1855)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">White · Rapid 15+10</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-on-surface">
+<span class="font-medium">Ruy Lopez: Berlin Defense</span>
+<div class="text-[11px] text-on-surface-variant font-mono">C65 · 1.e4 e5 2.Nf3 Nc6 3.Bb5 Nf6</div>
+</td>
+<td class="py-space-md px-space-sm">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm font-bold bg-secondary/15 text-secondary">
+                  WIN (+12)
+                </span>
+</td>
+<td class="py-space-md px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-on-surface">91.4%</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-on-surface-variant font-mono">38 moves</td>
+<td class="py-space-md px-space-sm">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-secondary bg-surface-container px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">lightbulb</span>
+                  Brilliant: 24. Nd5!!
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<a class="px-space-sm py-1 bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm inline-flex items-center gap-1 transition-colors" href="#">
+<span>Review</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center font-label-sm font-bold text-on-surface">
+                    EK
+                  </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">Elena_Kovacs (1870)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Black · Blitz 5+3</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-on-surface">
+<span class="font-medium">Sicilian: Najdorf Variation</span>
+<div class="text-[11px] text-on-surface-variant font-mono">B90 · 1.e4 c5 2.Nf3 d6 3.d4 cxd4</div>
+</td>
+<td class="py-space-md px-space-sm">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm font-bold bg-error-container text-on-error-container">
+                  LOSS (-9)
+                </span>
+</td>
+<td class="py-space-md px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-on-surface">76.2%</span>
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-on-surface-variant font-mono">44 moves</td>
+<td class="py-space-md px-space-sm">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-error bg-error-container/40 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+                  Blunder: 31... Qb6?
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<a class="px-space-sm py-1 bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm inline-flex items-center gap-1 transition-colors" href="#">
+<span>Review</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center font-label-sm font-bold text-on-surface">
+                    TL
+                  </div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-semibold">T_Larsson (1832)</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">White · Rapid 15+10</div>
+</div>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-on-surface">
+<span class="font-medium">Queen's Gambit Declined</span>
+<div class="text-[11px] text-on-surface-variant font-mono">D37 · 1.d4 d5 2.c4 e6 3.Nc3 Nf6</div>
+</td>
+<td class="py-space-md px-space-sm">
+<span class="inline-flex items-center px-2 py-0.5 rounded font-label-sm text-label-sm font-bold bg-surface-container text-on-surface-variant">
+                  DRAW (+1)
+                </span>
+</td>
+<td class="py-space-md px-space-sm">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-on-surface">88.9%</span>
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+</div>
+</td>
+<td class="py-space-md px-space-sm text-on-surface-variant font-mono">52 moves</td>
+<td class="py-space-md px-space-sm">
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface bg-surface-container px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]">balance</span>
+                  Book: Perpetual check
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<a class="px-space-sm py-1 bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-sm text-label-sm inline-flex items-center gap-1 transition-colors" href="#">
+<span>Review</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-space-md pt-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant">
+<span>Showing 3 of 84 recorded matches in current tournament cycle</span>
+<a class="text-secondary hover:underline font-semibold flex items-center gap-1" href="#">
+<span>Open Full Match Telemetry Vault</span>
+<span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Interactive Scholarship Tools & Quick Launch Floating Bar -->
+<section class="w-full px-margin pb-space-xl">
+<div class="p-space-lg bg-surface-container rounded-xl flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">terminal</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Custom FEN / PGN Scratchpad</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Paste any notation string to start an instant local Stockfish 16 analysis node</p>
+</div>
+</div>
+<div class="flex w-full md:w-auto items-center gap-space-sm">
+<input class="w-full md:w-72 px-space-sm py-2 bg-surface-container-lowest rounded text-body-sm font-mono text-on-surface focus:outline-none focus:bg-surface-container-lowest" placeholder="r1bqkb1r/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R..." type="text"/>
+<button class="px-space-md py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-inverse-surface transition-all shrink-0" type="button">
+          Load Engine
+        </button>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-high py-space-xl"><div class="w-full px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div><div class="flex items-center gap-space-sm mb-space-md"><img alt="Chessflow Brand Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-sm text-headline-sm text-on-surface">Chessflow</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">An intellectual sanctuary engineered for grandmaster-level analytical rigor, deep tactical mastery, and modern chess scholarship.</p><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Stockfish 16.1 NNUE: Active (0.0ms ping)</span></div></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Learning Paths</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Foundations of Capablanca</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Hypermodern Pawn Structures</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Rook Endgame Diagnostics</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Sicilian Defense Repertoire</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Positional Sacrifices Lab</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Platform Resources</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">PGN / FEN Cloud Vault</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Opening Book Explorers</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Masters Tournament Archive</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">API for Chess Engines</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">System Uptime &amp; Benchmarks</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Keyboard Shortcuts</h4><ul class="space-y-space-xs"><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Next Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">→</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Previous Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">←</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Flip Board</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">F</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Toggle Engine</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">Space</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Branch Subvariation</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">B</kbd></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Engine Telemetry</h4><div class="p-space-sm bg-surface-container-low rounded border border-surface-container-high space-y-space-xs"><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Engine Depth</span><span class="text-on-surface font-semibold">38 ply</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Nodes / Sec</span><span class="text-on-surface font-semibold">14.2M nps</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Cloud Hash</span><span class="text-on-surface font-semibold">2048 MB</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Syzygy Tablebases</span><span class="text-on-surface font-semibold">7-man WDL</span></div></div></div></div><div class="pt-space-md border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 Chessflow Analytics Inc. Precision tools for grandmaster study.</div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Terms of Study</a><a class="hover:text-on-surface transition-colors" href="#">Security &amp; Fair Play</a></div></div></div></footer></body></html>

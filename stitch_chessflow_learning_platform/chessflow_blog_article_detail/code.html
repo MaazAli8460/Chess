@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"primary-fixed":"#dae2fd","error":"#ba1a1a","tertiary-container":"#2f1500","surface-container-lowest":"#ffffff","on-primary-container":"#7c839b","tertiary-fixed":"#ffdcc3","on-primary-fixed-variant":"#3f465c","on-secondary-fixed":"#00174b","on-background":"#0b1c30","surface-bright":"#f8f9ff","on-surface":"#0b1c30","secondary-fixed":"#dbe1ff","tertiary-fixed-dim":"#ffb77d","on-error-container":"#93000a","inverse-surface":"#213145","on-surface-variant":"#45464d","on-tertiary-fixed":"#2f1500","inverse-on-surface":"#eaf1ff","surface-container":"#e5eeff","inverse-primary":"#bec6e0","on-primary-fixed":"#131b2e","surface":"#f8f9ff","on-error":"#ffffff","on-tertiary-container":"#c76c00","surface-tint":"#565e74","on-secondary-fixed-variant":"#003ea8","outline-variant":"#c6c6cd","outline":"#76777d","on-tertiary-fixed-variant":"#6e3900","surface-variant":"#d3e4fe","primary-container":"#131b2e","secondary-fixed-dim":"#b4c5ff","surface-container-high":"#dce9ff","on-tertiary":"#ffffff","surface-dim":"#cbdbf5","tertiary":"#000000","on-secondary-container":"#fefcff","surface-container-highest":"#d3e4fe","background":"#f8f9ff","surface-container-low":"#eff4ff","on-secondary":"#ffffff","error-container":"#ffdad6","secondary":"#0051d5","primary":"#000000","primary-fixed-dim":"#bec6e0","on-primary":"#ffffff","secondary-container":"#316bf3"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"gutter":"1.5rem","margin":"2.5rem","space-xs":"0.25rem","gutter-mobile":"1rem","space-xl":"2.5rem","space-lg":"1.5rem","margin-mobile":"1rem","space-sm":"0.5rem","space-md":"1rem"},fontFamily:{"label-sm":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Newsreader"],"display-lg":["Newsreader"],"display-lg-mobile":["Newsreader"],"body-md":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg":["Newsreader"],"headline-lg-mobile":["Newsreader"],"body-sm":["Plus Jakarta Sans"]},fontSize:{"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"500"}],"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"500"}],"display-lg-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"500"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"500"}],"headline-lg-mobile":["26px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.005em",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(11,28,48,0.04)] border-b border-surface-container-high"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><div class="flex items-center gap-space-sm"><img alt="Chessflow Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Chessflow</span></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-label-lg text-label-lg border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="courses" href="#">Courses</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="chess-lab" href="#">Chess Lab</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="play" href="#">Play</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="blog" href="#">Blog</a><a class="font-label-lg text-label-lg text-on-surface border-b-2 border-primary transition-colors py-space-sm" data-path="plans" href="#">Plans</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="staff-ops" href="#">Staff Ops</a></nav></div><div class="flex items-center gap-space-md"><div class="relative hidden md:block"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-64 pl-9 pr-space-md py-1.5 bg-surface-container-lowest border border-outline-variant rounded text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-all" placeholder="Search games, openings, master lectures..." type="search"/></div><button aria-label="Notifications" class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><a class="hidden lg:inline-flex items-center gap-space-xs px-space-md py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-on-surface-variant transition-colors" data-path="analysis" href="#"><span class="material-symbols-outlined text-[18px]">neurology</span><span>Analyze Position</span></a><div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><div class="relative"><img alt="Alex Vance - Grandmaster Track" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCErkvi5la-2lAqb3xAoQ_1dBnALg4G4zWw5zFfcdWu34xdLqRPy2DawIerYuX_E3AR70EUPUta5EQNVO8xejQyHarlbtqUpkKbbxLg5f_7PcYaSqOM7aqSbftLW49G9UXBCBZgGvvW4ABuAXqNurBukKm43UPlm21kwERG3AZIecAfWQWqR2KYsTlGWJkVhFuGKJ5rd-WpIKkiHqvQjG9-fvgCwM19NS6cpnyPE5lR"/><span class="absolute -bottom-1 -right-1 px-1 py-0.2 bg-secondary text-on-secondary rounded text-[9px] font-bold leading-tight uppercase tracking-wider">Pro</span></div><div class="hidden sm:flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight">Alex Vance</span><span class="font-label-sm text-label-sm text-on-surface-variant">Grandmaster Track · 1840 ELO</span></div></div></div></div></header><main class="w-full pt-16 bg-background min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- Progress Indicator Bar -->
+<div class="sticky top-16 z-40 w-full h-1 bg-surface-container">
+<div class="h-full bg-secondary w-1/4 transition-all duration-150" id="readingProgress"></div>
+</div>
+<!-- Editorial Top Canvas -->
+<section class="w-full px-margin py-space-xl bg-surface-container-low border-b border-surface-container-high">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<!-- Meta Navigation & Classification -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-secondary transition-colors" href="#">Editorial &amp; Research</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-secondary transition-colors" href="#">Master Deep Dives</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">The Immortal King Walk</span>
+</nav>
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2.5 py-1 bg-surface-container-lowest text-secondary font-label-sm text-label-sm uppercase tracking-wider rounded shadow-sm">Opening Theory &amp; Diagnostics</span>
+<span class="px-2.5 py-1 bg-surface-container-highest text-on-surface font-label-sm text-label-sm uppercase tracking-wider rounded">Stockfish 16.1 NNUE</span>
+<span class="px-2.5 py-1 bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm rounded shadow-sm">12 min read</span>
+<span class="px-2.5 py-1 bg-surface-container-lowest text-on-surface-variant font-label-sm text-label-sm rounded shadow-sm">Oct 24, 2025</span>
+</div>
+</div>
+<!-- Article Title Suite -->
+<div class="space-y-space-sm max-w-5xl">
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight leading-tight">
+          Deconstructing the Modern King Walk: Positional Courage from Steinitz to Carlsen
+        </h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant italic font-normal leading-relaxed">
+          Why modern neural network engines reward active monarchs in complex middlegames, and how tournament players can systematically evaluate king safety versus dynamic piece coordination.
+        </p>
+</div>
+<!-- Author Card & Action Deck -->
+<div class="pt-space-md flex flex-col lg:flex-row lg:items-center justify-between gap-space-md border-t border-surface-container-high">
+<!-- Author Profile -->
+<div class="flex items-center gap-space-md">
+<div class="relative">
+<img class="w-14 h-14 rounded-full object-cover shadow-sm" data-alt="Close-up portrait of Grandmaster Levon S. in a bespoke charcoal blazer, intensely reviewing tactical notation in an atmospheric, modernist chess laboratory with soft morning light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-cqwpA2V181ixRT-0Y_-5dvk9X80AftiQWMflwo77sxGFLTsKCl9t3X2zbFcHffz_a6cULl1ebNEmWil4gHrVV8HVW-8Vh7eUlA9VmYlE84L5udsstrlaCljg1wblAXzTcQmeeGI8PeeN6mwU312pRATRxPi4gHONqpP7ZQONuce-3YheedqJ6r9j3gh-DiR2V1vcYSInNfUzbRtlhZs3yzyzH4EVjUsRHtinXiFU"/>
+<span class="absolute -bottom-1 -right-1 bg-secondary text-on-secondary p-0.5 rounded-full flex items-center justify-center" title="FIDE Super GM Verified">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-sm text-headline-sm text-on-surface">GM Levon S.</span>
+<span class="px-1.5 py-0.5 bg-surface-container text-on-surface font-label-sm text-label-sm rounded font-bold">FIDE 2750</span>
+<span class="text-on-surface-variant font-body-sm text-body-sm hidden sm:inline">· Resident Theorist</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span>Depth: 46-ply Cloud NNUE</span>
+<span>•</span>
+<span>4 Interactive FENs</span>
+<span>•</span>
+<span class="text-emerald-700 font-semibold flex items-center gap-0.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600 inline-block"></span> Verified Analysis</span>
+</div>
+</div>
+</div>
+<!-- Action Utility Strip -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<button class="flex items-center gap-space-xs px-3 py-2 bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md rounded shadow-sm transition-all" id="audioToggleBtn" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary">play_circle</span>
+<span>Listen (11:20)</span>
+</button>
+<button class="flex items-center gap-space-xs px-3 py-2 bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md rounded shadow-sm transition-all" title="Save to Vault" type="button">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+<span class="hidden sm:inline">Save Vault</span>
+</button>
+<button class="flex items-center gap-space-xs px-3 py-2 bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md rounded shadow-sm transition-all" title="Download PGN with Subvariations" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span class="hidden sm:inline">Export PGN</span>
+</button>
+<button class="flex items-center gap-space-xs px-3 py-2 bg-primary text-on-primary hover:bg-on-surface-variant font-label-md text-label-md rounded shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">biotech</span>
+<span>Open in Lab</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Editorial Main Workspace: 68% Column + 32% Rail -->
+<div class="w-full px-margin py-space-xl">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Left Column: Rich Editorial Stream (approx 68% = 8 cols) -->
+<article class="lg:col-span-8 flex flex-col gap-space-xl min-w-0">
+<!-- Section 1: Classical Precedents -->
+<section class="space-y-space-md" id="sec-precedents">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">
+<span>01</span>
+<span class="w-8 h-px bg-secondary"></span>
+<span>The Classical Dogma vs. Neural Revolution</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">The Myth of the Perpetual Royal Sanctuary</h2>
+<div class="prose font-body-lg text-body-lg text-on-surface leading-relaxed space-y-space-md">
+<p>
+<span class="float-left text-[68px] leading-[0.8] pr-3 font-display-lg text-on-surface font-normal">F</span>or more than a century, orthodox chess pedantry preached an unbending catechism: <em class="font-headline-md italic text-on-surface">"The King is a piece of pure vulnerability in the opening and middlegame, and becomes an attacker solely when the heavy artillery has evacuated the board."</em> Wilhelm Steinitz challenged this consensus in the 1880s by boldly proclaiming the King as a fighting piece capable of self-defense. Yet, generation after generation of scholastic manuals retreated into caution, conditioning club players to view any forward king step prior to move forty as an involuntary harbinger of disaster.
+            </p>
+<p>
+              The emergence of deep-layer neural evaluation networks—spearheaded by AlphaZero and codified inside Stockfish 16.1 NNUE—has systematically dismantled this dogma. By calculating multi-piece coordinating matrices instead of crude heuristic point counts, modern engines perceive what human masters frequently miss: that an advanced king often converts into an extra defender of crucial central squares, unlocking the rooks and minor pieces to operate with lethal territorial initiative.
+            </p>
+</div>
+<!-- Pull Quote -->
+<figure class="my-space-lg p-space-lg bg-surface-container-low rounded shadow-sm border-l-4 border-secondary">
+<blockquote class="font-headline-md text-headline-md text-on-surface italic leading-relaxed">
+              "When your central files are locked and the adversary lacks a rapid light-squared battery, the monarch is not a refugee—it is your most potent infiltrator."
+            </blockquote>
+<figcaption class="mt-space-sm font-label-md text-label-md text-on-surface-variant flex items-center justify-between">
+<span>— GM Levon S., Annotations on Sinquefield Cup 2024</span>
+<span class="font-mono text-secondary">FEN: 4r3/1p3kp1/p1p2p2/3p4/...</span>
+</figcaption>
+</figure>
+</section>
+<!-- Interactive Diagram Card #1: Infiltration Demonstration -->
+<section class="p-space-lg bg-surface-container-lowest rounded-xl shadow-md space-y-space-md" id="interactive-board-1">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm border-b border-surface-container-high">
+<div>
+<span class="px-2 py-0.5 bg-surface-container text-secondary font-label-sm text-label-sm uppercase font-bold rounded">Exhibit A • Dynamic Infiltration</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Carlsen vs. Caruana, Sinquefield Masters</h3>
+</div>
+<div class="flex items-center gap-space-sm self-start sm:self-auto">
+<span class="px-2.5 py-1 bg-emerald-50 text-emerald-800 font-label-sm text-label-sm rounded font-bold border border-emerald-200">+2.14 Engine Eval</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Depth 46 ply</span>
+</div>
+</div>
+<!-- Board Workspace -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center">
+<!-- 8x8 Chessboard Representation -->
+<div class="md:col-span-7 flex flex-col items-center">
+<div class="relative w-full max-w-[340px] aspect-square bg-surface-container-lowest p-2 rounded shadow-lg">
+<!-- 8x8 Grid -->
+<div class="grid grid-cols-8 grid-rows-8 w-full h-full text-xs font-mono select-none">
+<!-- Rank 8 -->
+<div class="bg-surface-bright flex items-center justify-center relative">♜<span class="absolute top-0.5 left-0.5 text-[9px] text-outline">8</span></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center">♞</div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center">♜</div>
+<div class="bg-surface-bright flex items-center justify-center">♚</div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<!-- Rank 7 -->
+<div class="bg-surface-dim flex items-center justify-center relative">♟<span class="absolute top-0.5 left-0.5 text-[9px] text-outline">7</span></div>
+<div class="bg-surface-bright flex items-center justify-center">♟</div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center">♟</div>
+<div class="bg-surface-dim flex items-center justify-center">♟</div>
+<div class="bg-surface-bright flex items-center justify-center">♟</div>
+<!-- Rank 6 -->
+<div class="bg-surface-bright flex items-center justify-center relative"><span class="absolute top-0.5 left-0.5 text-[9px] text-outline">6</span></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center">♟</div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center">♟</div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<!-- Rank 5 -->
+<div class="bg-surface-dim flex items-center justify-center relative"><span class="absolute top-0.5 left-0.5 text-[9px] text-outline">5</span></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center">♟</div>
+<div class="bg-amber-100 flex items-center justify-center relative font-bold text-secondary text-base">
+<span class="material-symbols-outlined text-[16px] text-secondary">my_location</span>
+</div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<!-- Rank 4 -->
+<div class="bg-surface-bright flex items-center justify-center relative"><span class="absolute top-0.5 left-0.5 text-[9px] text-outline">4</span></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center">♙</div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-amber-200/80 flex items-center justify-center font-bold text-on-surface text-xl shadow-inner">♔</div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<!-- Rank 3 -->
+<div class="bg-surface-dim flex items-center justify-center relative">♙<span class="absolute top-0.5 left-0.5 text-[9px] text-outline">3</span></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center text-outline">·</div>
+<div class="bg-surface-dim flex items-center justify-center">♙</div>
+<div class="bg-surface-bright flex items-center justify-center">♙</div>
+<!-- Rank 2 -->
+<div class="bg-surface-bright flex items-center justify-center relative"><span class="absolute top-0.5 left-0.5 text-[9px] text-outline">2</span></div>
+<div class="bg-surface-dim flex items-center justify-center">♙</div>
+<div class="bg-surface-bright flex items-center justify-center">♙</div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<!-- Rank 1 -->
+<div class="bg-surface-dim flex items-center justify-center relative"><span class="absolute top-0.5 left-0.5 text-[9px] text-outline">1</span><span class="absolute bottom-0.5 left-0.5 text-[9px] text-outline">a</span></div>
+<div class="bg-surface-bright flex items-center justify-center relative">♖<span class="absolute bottom-0.5 left-0.5 text-[9px] text-outline">b</span></div>
+<div class="bg-surface-dim flex items-center justify-center relative"><span class="absolute bottom-0.5 left-0.5 text-[9px] text-outline">c</span></div>
+<div class="bg-surface-bright flex items-center justify-center relative"><span class="absolute bottom-0.5 left-0.5 text-[9px] text-outline">d</span></div>
+<div class="bg-surface-dim flex items-center justify-center relative"><span class="absolute bottom-0.5 left-0.5 text-[9px] text-outline">e</span></div>
+<div class="bg-surface-bright flex items-center justify-center relative">♖<span class="absolute bottom-0.5 left-0.5 text-[9px] text-outline">f</span></div>
+<div class="bg-surface-dim flex items-center justify-center relative"><span class="absolute bottom-0.5 left-0.5 text-[9px] text-outline">g</span></div>
+<div class="bg-surface-bright flex items-center justify-center relative"><span class="absolute bottom-0.5 left-0.5 text-[9px] text-outline">h</span></div>
+</div>
+</div>
+<div class="flex items-center gap-space-sm mt-space-sm text-on-surface-variant font-label-sm text-label-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+<span>Active Step: <strong>29. Ke4!</strong> (Monarch claims the epicenter)</span>
+</div>
+</div>
+<!-- Analysis Console & Controls -->
+<div class="md:col-span-5 flex flex-col justify-between h-full space-y-space-md">
+<div class="space-y-space-xs">
+<div class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">The Infiltration Pathway</div>
+<!-- Move Chain -->
+<div class="p-space-sm bg-surface-container-low rounded space-y-1 font-mono text-body-sm">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>28. Kf3!</span>
+<span class="text-secondary font-semibold">Unpinning g2-pawn</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-lowest px-2 py-1 rounded shadow-sm text-on-surface font-bold border-l-2 border-secondary">
+<span>29. Ke4!</span>
+<span class="text-secondary">Seizing e5 outpost</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>29... Re8</span>
+<span>Passive regroup</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span>30. Ke5!</span>
+<span class="text-emerald-700 font-semibold">Dominant outpost (+2.14)</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-space-xs">
+                  Caruana cannot afford to trade rooks because White's king easily out-tempos the black counterparts in the resulting pawn configuration.
+                </p>
+</div>
+<!-- Interactive Controls -->
+<div class="space-y-space-xs">
+<div class="grid grid-cols-4 gap-1">
+<button class="py-1.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface flex items-center justify-center" title="First Move">
+<span class="material-symbols-outlined text-[18px]">first_page</span>
+</button>
+<button class="py-1.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface flex items-center justify-center" title="Step Back">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="py-1.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface flex items-center justify-center" title="Play">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</button>
+<button class="py-1.5 bg-surface-container hover:bg-surface-container-high rounded text-on-surface flex items-center justify-center" title="Step Forward">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+<div class="flex gap-space-xs pt-1">
+<button class="flex-1 py-1.5 bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm rounded flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]">sync</span> Flip Board
+                  </button>
+<button class="flex-1 py-1.5 bg-secondary text-on-secondary font-label-sm text-label-sm rounded flex items-center justify-center gap-1 hover:bg-secondary-container">
+<span class="material-symbols-outlined text-[16px]">open_in_new</span> Lab Mode
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Neural Net Evaluation Shifts -->
+<section class="space-y-space-md" id="sec-neural">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">
+<span>02</span>
+<span class="w-8 h-px bg-secondary"></span>
+<span>Mathematical Diagnostics</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">The Three Golden Conditions for Monarch Activation</h2>
+<div class="prose font-body-lg text-body-lg text-on-surface leading-relaxed space-y-space-md">
+<p>
+              When should an ambitious tournament player press the king forward while the enemy queen or two rooks are still patrolling the board? Through analyzing 18,400 Master games cross-referenced with Stockfish 16.1 NNUE, we isolate three strictly observable prerequisites:
+            </p>
+</div>
+<!-- Bento Grid of Key Rules -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md my-space-md">
+<div class="p-space-md bg-surface-container-low rounded-xl space-y-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold font-label-lg">1</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Locking of Diagonal Channels</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                The opposing side's bishops must be locked behind fixed central chains or already traded off. A king stepping onto e4 or e5 is immune to long-range harassment only if no diagonal sniper exists.
+              </p>
+</div>
+<div class="p-space-md bg-surface-container-low rounded-xl space-y-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold font-label-lg">2</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">No Multi-File Rook Connectors</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                If the enemy rooks cannot execute double-file horizontal checks due to pawn blockades or your own counter-batteries, the king can advance behind friendly pieces without risk of perpetual checks.
+              </p>
+</div>
+<div class="p-space-md bg-surface-container-low rounded-xl space-y-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold font-label-lg">3</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Dominant King Outposts</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                The destination square (such as d6, e5, or f5) must be sheltered from pawn eviction. A king on an outpost acts as an unshakeable blockader that paralyzes enemy counter-breaks.
+              </p>
+</div>
+</div>
+</section>
+<!-- Interactive Diagram Card #2: The Blunder Autopsy -->
+<section class="p-space-lg bg-surface-container-lowest rounded-xl shadow-md space-y-space-md" id="interactive-board-2">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-sm border-b border-surface-container-high">
+<div>
+<span class="px-2 py-0.5 bg-error-container text-on-error-container font-label-sm text-label-sm uppercase font-bold rounded">Exhibit B • Cautionary Autopsy</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">The Lethal Mirage: Stepping Into the X-Ray Pin</h3>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="px-2.5 py-1 bg-error-container text-on-error-container font-label-sm text-label-sm rounded font-bold">-4.82 Evaluation Collapse</span>
+</div>
+</div>
+<!-- Evaluation Swing Graph SVG -->
+<div class="p-space-sm bg-surface-container-low rounded-lg space-y-1">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant">
+<span>Move 31: Eval Swing Overview</span>
+<span class="text-error font-semibold">-4.82 Blunder (Was +0.10 Equal)</span>
+</div>
+<div class="w-full h-8 flex items-center">
+<svg class="w-full h-8 overflow-visible" preserveaspectratio="none" viewbox="0 0 400 32">
+<path class="text-error" d="M0,16 L120,16 L180,15 L240,16 L280,30 L400,31" fill="none" stroke="currentColor" stroke-width="2.5"></path>
+<circle class="fill-error" cx="280" cy="30" r="4"></circle>
+<!-- Reference zero line -->
+<line class="text-outline-variant" stroke="currentColor" stroke-dasharray="2 2" stroke-width="1" x1="0" x2="400" y1="16" y2="16"></line>
+</svg>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md items-center">
+<!-- Mini Board -->
+<div class="md:col-span-5 flex flex-col items-center">
+<div class="relative w-full max-w-[240px] aspect-square bg-surface-container-lowest p-1.5 rounded shadow">
+<div class="grid grid-cols-8 grid-rows-8 w-full h-full text-xs font-mono select-none">
+<!-- Row 1 -->
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<!-- Row 2 -->
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-error-container/60 flex items-center justify-center font-bold text-on-surface text-base">♚</div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<!-- Row 3 -->
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<!-- Row 4 -->
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<!-- Row 5 -->
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center">♗</div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<!-- Row 6 -->
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<!-- Row 7 -->
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<!-- Row 8 -->
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+<div class="bg-surface-dim flex items-center justify-center"></div>
+<div class="bg-surface-bright flex items-center justify-center"></div>
+</div>
+</div>
+</div>
+<!-- Autopsy Notes -->
+<div class="md:col-span-7 space-y-space-xs">
+<div class="flex flex-wrap gap-1">
+<span class="px-2 py-0.5 bg-error-container text-on-error-container text-[11px] font-bold uppercase rounded">Tactical Blindspot</span>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface text-[11px] font-semibold rounded">Bishop X-Ray Skewer</span>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface text-[11px] font-semibold rounded">Geometric Motifs</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-snug">
+                In this cautionary rapid tilt, Black attempted to emulate Carlsen’s king activity by rushing <code class="bg-surface-container px-1 py-0.5 rounded font-mono text-secondary">31... Kg6??</code>. The disastrous miscalculation completely neglected the dormant bishop on c3, which instantly struck with <code class="bg-surface-container px-1 py-0.5 rounded font-mono text-secondary">32. Be5!</code> followed by a devastating rook fork.
+              </p>
+<div class="p-space-sm bg-surface-container-low rounded text-body-sm font-body-sm text-on-surface-variant">
+<strong>Key Takeaway:</strong> You can only advance the monarch when enemy long-range officers are strictly constrained. Neglecting diagonal geometry leads to immediate tactical catastrophe.
+              </div>
+</div>
+</div>
+</section>
+<!-- Section 3: Annotated PGN Scrubber -->
+<section class="space-y-space-sm" id="sec-pgn">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Annotated Master PGN Notation Tree</h3>
+<button class="flex items-center gap-1 text-secondary font-label-md text-label-md hover:underline">
+<span class="material-symbols-outlined text-[16px]">content_copy</span> Copy Raw PGN
+            </button>
+</div>
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm space-y-space-sm font-mono text-body-sm">
+<div class="text-outline text-xs">
+              [Event "Sinquefield Cup 2024"] [Round "7"] [White "Carlsen, Magnus"] [Black "Caruana, Fabiano"] [Result "1-0"] [ECO "C65"]
+            </div>
+<div class="p-space-sm bg-surface-container-low rounded leading-relaxed text-on-surface">
+<span class="text-outline">1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6 4. d3 Bc5 ... 27. Re1 f6</span>
+<span class="bg-surface-container px-1 py-0.5 rounded font-bold text-secondary">28. Kf3!</span>
+<span class="text-outline-variant">{The initialization. White frees the f-pawn and preps monarch migration.}</span> 
+              28... Kf7 
+              <span class="bg-secondary text-on-secondary px-1.5 py-0.5 rounded font-bold">29. Ke4!</span>
+<span class="text-secondary font-semibold">{Decisive. Stockfish depth 46 ply registers +2.14.}</span> 
+              29... Re8 30. Ke5! Rxe1 31. Bxe1 Ke7 32. b4! 
+              <span class="text-outline-variant">{Black is in total Zugzwang. The White king controls d6, e6, and f6.}</span>
+</div>
+</div>
+</section>
+<!-- Author Summary -->
+<section class="p-space-lg bg-surface-container rounded-xl space-y-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px]">verified_user</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tournament Cheat-Sheet: GM Levon’s Final Rules</h3>
+</div>
+<ul class="space-y-space-xs font-body-md text-body-md text-on-surface pl-space-md list-disc">
+<li><strong>Audit the Queens first:</strong> If queens are present, king walks require at minimum a totally blocked pawn formation.</li>
+<li><strong>Count the checks:</strong> Calculate all direct checking moves the opponent has for the next 3 plies. If there are fewer than two, the king walk is often positionally sound.</li>
+<li><strong>Treat the King as a +3.5 point combatant:</strong> In closed endings, your king's escort value exceeds that of a minor piece.</li>
+</ul>
+</section>
+<!-- Community Q&A / Master Discussion -->
+<section class="pt-space-lg space-y-space-md border-t border-surface-container-high" id="sec-discussion">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Master Discussion &amp; Commentary</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Engage with Grandmasters, international coaches, and verified club peers.</p>
+</div>
+<span class="px-2.5 py-1 bg-surface-container-lowest text-on-surface font-label-md text-label-md rounded shadow-sm">48 Responses</span>
+</div>
+<!-- Add Comment Input Box -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm space-y-space-sm">
+<div class="flex items-start gap-space-sm">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="User avatar thumbnail for an ambitious tournament chess player in modern aesthetic light tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Lj4uaPsD_epQ7q3taF2ST6h_gAqte1iuEnLmZIbGdPH_INRdvkcJg_AVDftqF4jyQVBDMljJxLv5tjiLPylP1UFH4uFB5NUt5W2PyO-5i_CIv9oSgI6aEtVRLg8EFR_2AAnz8V-YytnbfvpkE9Wfw3jUj3n-vdyw3yu6OcpM_L1dqwv4wcbjWgqoGsLk6qfn_Cc4bXf7hxlRJHmj9GpZKqNm9cnKRQGlZ-bihRCZ"/>
+<div class="flex-1 space-y-space-sm">
+<textarea class="w-full p-space-sm bg-surface-container-low rounded border border-transparent focus:border-secondary focus:bg-surface-container-lowest outline-none font-body-sm text-body-sm text-on-surface transition-all resize-none" placeholder="Post an analytical query or alternative FEN variation..." rows="3"></textarea>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs text-on-surface-variant">
+<button class="p-1 hover:text-on-surface" title="Attach FEN"><span class="material-symbols-outlined text-[18px]">grid_view</span></button>
+<button class="p-1 hover:text-on-surface" title="Format PGN"><span class="material-symbols-outlined text-[18px]">code</span></button>
+</div>
+<button class="px-space-md py-1.5 bg-primary text-on-primary font-label-md text-label-md rounded hover:bg-on-surface-variant transition-all">Submit Analysis</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pinned GM Reply -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm space-y-space-sm border-l-4 border-secondary">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="px-1.5 py-0.5 bg-secondary text-on-secondary font-label-sm text-label-sm font-bold uppercase rounded">Author Reply</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">GM Levon S.</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">FIDE 2750</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 hours ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+              "To respond to FM Miller’s question below regarding 29... h5: If Black attempts to soften the kingside with 29... h5, White doesn’t even blink—we follow up with 30. Kd4! shifting the monarch to the queenside to escort the b-pawn instead. The versatility of the king is that it can change theaters of war much faster than rooks tethered to back-rank defensive files."
+            </p>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<button class="flex items-center gap-1 hover:text-secondary"><span class="material-symbols-outlined text-[16px]">thumb_up</span> 142 Likes</button>
+<button class="flex items-center gap-1 hover:text-secondary"><span class="material-symbols-outlined text-[16px]">reply</span> Reply</button>
+</div>
+</div>
+<!-- Regular Comment -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Dmitri Volkov</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">FIDE 2210 (National Master)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">5 hours ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+              The comparison with Steinitz's game against Paulsen (1882) is spot on. Club coaches constantly instill terror into beginners about king exposure, which works up to 1500 ELO, but completely caps player progression when transitioning into candidate master strength. Phenomenal article!
+            </p>
+<div class="flex items-center gap-space-md text-on-surface-variant font-label-sm text-label-sm">
+<button class="flex items-center gap-1 hover:text-secondary"><span class="material-symbols-outlined text-[16px]">thumb_up</span> 38 Likes</button>
+<button class="flex items-center gap-1 hover:text-secondary"><span class="material-symbols-outlined text-[16px]">reply</span> Reply</button>
+</div>
+</div>
+</section>
+</article>
+<!-- Right Column: Sticky Master Rail & Learning Pipeline (approx 32% = 4 cols) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Table of Contents Widget (Sticky) -->
+<div class="sticky top-24 space-y-space-lg">
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs border-b border-surface-container-high">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Table of Contents</span>
+<span class="font-label-sm text-label-sm text-secondary">4 Sections</span>
+</div>
+<nav class="space-y-1 font-body-sm text-body-sm">
+<a class="block py-1.5 px-2 rounded bg-surface-container text-secondary font-semibold" href="#sec-precedents">
+                1. The Classical Precedents &amp; Dogma
+              </a>
+<a class="block py-1.5 px-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#interactive-board-1">
+                • Interactive Exhibit: Carlsen vs. Caruana
+              </a>
+<a class="block py-1.5 px-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#sec-neural">
+                2. Neural Net Evaluation Shifts
+              </a>
+<a class="block py-1.5 px-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#interactive-board-2">
+                • Blunder Autopsy: The Bishop Skewer
+              </a>
+<a class="block py-1.5 px-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#sec-pgn">
+                3. Annotated Master PGN Scrubber
+              </a>
+<a class="block py-1.5 px-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low transition-colors" href="#sec-discussion">
+                4. Master Discussion &amp; Analysis
+              </a>
+</nav>
+</div>
+<!-- Academy Course Integration Card -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-md space-y-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm uppercase font-bold rounded">Chessflow Academy</span>
+<div class="flex items-center gap-0.5 text-amber-500 font-bold text-xs">
+<span class="material-symbols-outlined text-[14px]">star</span> 4.9 (1.2k)
+              </div>
+</div>
+<div class="space-y-1">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">King Safety &amp; Dynamic King Play</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Master practical king infiltration with GM Judit Polgár.</p>
+</div>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<img class="w-12 h-12 rounded object-cover shadow-sm" data-alt="Portrait of GM Judit Polgár explaining tactical king walks on an ultra-modern digital analysis screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTMdsxWpYCB15vRhCxQa85LtI9LoUp1eY2aVKhmSr_47oQUtjbUUciuEf3J558p-9KLSV0w3DjTeU6iMTsIMV07h5IPRIAyInl0nNYpYl6tHKGHsr4UKPZsOy5K17ymn9koeHvrUIBD5IVUZXPWAljNj00lhbgP4K1x5gFaGEmoWzIqLopucdDg8PdFoqAVWHTDNLaa6KmGVkdKTK9BD8ns8Q5TVwnI9ihWAdYu6ES"/>
+<div class="font-label-sm text-label-sm text-on-surface-variant">
+<div>14 Masterclass Modules</div>
+<div class="text-on-surface font-semibold">Included in Chessflow Pro</div>
+</div>
+</div>
+<button class="w-full py-2 bg-secondary text-on-secondary font-label-md text-label-md rounded font-bold hover:bg-secondary-container transition-all flex items-center justify-center gap-1 shadow-sm">
+<span>Resume in Academy</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<!-- Interactive Mini-Puzzle Challenge Widget -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm space-y-space-sm" id="quizChallenge">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold">Interactive Challenge</span>
+<span class="px-1.5 py-0.5 bg-surface-container text-on-surface-variant font-mono text-[10px] rounded">FEN 38</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">
+              Position check: In Exhibit A, can White legally and safely play <code class="font-mono text-secondary font-bold">31. Kd6</code> next?
+            </p>
+<div class="space-y-1.5 pt-space-xs" id="quizOptions">
+<button class="w-full text-left p-2 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-all flex items-center justify-between" onclick="handleQuizAnswer(this, true)">
+<span>Yes, winning decisively (+3.2)</span>
+<span class="material-symbols-outlined text-[16px] text-outline">help_outline</span>
+</button>
+<button class="w-full text-left p-2 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-all flex items-center justify-between" onclick="handleQuizAnswer(this, false)">
+<span>No, Black has perpetual check</span>
+<span class="material-symbols-outlined text-[16px] text-outline">help_outline</span>
+</button>
+<button class="w-full text-left p-2 rounded bg-surface-container-low hover:bg-surface-container text-on-surface font-label-sm text-label-sm transition-all flex items-center justify-between" onclick="handleQuizAnswer(this, false)">
+<span>Drawish: loses the f-pawn</span>
+<span class="material-symbols-outlined text-[16px] text-outline">help_outline</span>
+</button>
+</div>
+<div class="hidden p-2 bg-emerald-50 text-emerald-800 rounded text-xs font-semibold" id="quizFeedback">
+              Correct! 31. Kd6 completely cuts off Black’s pieces and secures the promotion path for the b-pawn.
+            </div>
+</div>
+<!-- Related Research Articles -->
+<div class="p-space-md bg-surface-container-lowest rounded-xl shadow-sm space-y-space-md">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface font-bold block pb-space-xs border-b border-surface-container-high">Related Master Deep Dives</span>
+<div class="space-y-space-sm">
+<a class="group flex gap-space-sm items-start" href="#">
+<img class="w-16 h-16 rounded object-cover flex-shrink-0 group-hover:opacity-90 transition-opacity" data-alt="Architectural chessboard detail showcasing hypermodern pawn tension in high contrast light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqQPgEb5opbZJ-L4LNNmjhoDXKqlHETujAoykkuQ6M-0Cfgv0YHT9575K3oHvumT64qWuiacv4Kbr3bdJD_1uLv1X17CnMriy9mxMtW_fY9IQfOUg8EAODRxDwkFQqLrGQuu0dERQAXva0iInFWUICYOvJmUYwMG7Rn7NHBxAtlPr-1aSVmXDbNwU_9WK5hvQTivWBR5R_gNqEbziPPRbqQ6J8VT_DdrUlWDnNvIaH"/>
+<div>
+<h5 class="font-headline-sm text-body-md font-semibold text-on-surface group-hover:text-secondary transition-colors line-clamp-2">
+                    Hypermodern Outposts: Redefining the d5 Hole
+                  </h5>
+<div class="text-on-surface-variant font-label-sm text-label-sm mt-0.5">8 min read • GM Ding L.</div>
+</div>
+</a>
+<a class="group flex gap-space-sm items-start" href="#">
+<img class="w-16 h-16 rounded object-cover flex-shrink-0 group-hover:opacity-90 transition-opacity" data-alt="Stockfish NNUE evaluation bar graphic with crisp modern telemetry metrics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJwrbWIZXx7Z3KZi-357b9lbyQztVf2kg3IAusz-cfx6T_ZPrEKoOym8lhTmbKdaN6Sx_B0x4g8xmNeiUhf1GK-TK8hOTnlxD_vXn6isLxCFHip8sDHIxzK_xUekhnhOm1hCHKi7Gktj3DqggOLu1XIHszdksc-lx2XRDIcr7LSde7KvI9BMVvm3bAaMump3f1iSc39BaVEaL5CqBHH3x3ZiDrI498gPf7UMKpz5fG"/>
+<div>
+<h5 class="font-headline-sm text-body-md font-semibold text-on-surface group-hover:text-secondary transition-colors line-clamp-2">
+                    Inside Stockfish 17: How HalfKP Neural Slices Calculate
+                  </h5>
+<div class="text-on-surface-variant font-label-sm text-label-sm mt-0.5">15 min read • Engine Labs</div>
+</div>
+</a>
+</div>
+</div>
+<!-- Author Follow / Masterclass Card -->
+<div class="p-space-md bg-surface-container-low rounded-xl space-y-space-sm text-center">
+<img class="w-16 h-16 rounded-full mx-auto object-cover shadow-sm" data-alt="GM Levon S. in grandmaster studio environment analyzing chess endgame on glass board." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATzhXP5pRYRLemETi6ny-Z9wOrE3X08_iK65OsE84PDQ6qc5zb7G1ixrapTglZ4RGYnl9rZpTbOiNrzE_GjHj7wdEG-jJJuSldYkIp_qWrANJCx-FwWlcN7FBtg02ZEJSq57n5kKLLti863IFZBsZEAoy5K7pQO-MHLR_FaXp2cPFj1yBpxI61sHgJ0yM2ZYHu5I-QjUKM78Y3rQp0HjfeEDvSBatSK_969lfyb-f8"/>
+<div>
+<div class="font-headline-sm text-headline-sm text-on-surface">GM Levon S.</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">FIDE 2750 • 41 Published Research Papers</p>
+</div>
+<button class="w-full py-1.5 bg-primary text-on-primary font-label-md text-label-md rounded hover:bg-on-surface-variant transition-all">
+              Follow Master Author
+            </button>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<!-- Interactive JavaScript Behavior -->
+<script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const progEl = document.getElementById('readingProgress');
+      if (progEl) {
+        progEl.style.width = scrolled + '%';
+      }
+    });
+
+    // Audio Narration Toggle Micro-interaction
+    const audioBtn = document.getElementById('audioToggleBtn');
+    if (audioBtn) {
+      let isPlaying = false;
+      audioBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        const icon = audioBtn.querySelector('.material-symbols-outlined');
+        const text = audioBtn.querySelector('span:last-child');
+        if (isPlaying) {
+          icon.textContent = 'pause_circle';
+          icon.classList.remove('text-secondary');
+          icon.classList.add('text-error');
+          text.textContent = 'Playing (00:42 / 11:20)';
+          audioBtn.classList.add('bg-surface-container');
+        } else {
+          icon.textContent = 'play_circle';
+          icon.classList.add('text-secondary');
+          icon.classList.remove('text-error');
+          text.textContent = 'Listen (11:20)';
+          audioBtn.classList.remove('bg-surface-container');
+        }
+      });
+    }
+
+    // Mini Challenge Answer Handler
+    function handleQuizAnswer(buttonEl, isCorrect) {
+      const optionsContainer = document.getElementById('quizOptions');
+      const feedback = document.getElementById('quizFeedback');
+      
+      const buttons = optionsContainer.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        btn.classList.add('opacity-75');
+      });
+
+      if (isCorrect) {
+        buttonEl.classList.remove('bg-surface-container-low');
+        buttonEl.classList.add('bg-emerald-100', 'text-emerald-900', 'font-bold');
+        feedback.classList.remove('hidden');
+        feedback.className = 'p-2 bg-emerald-50 text-emerald-800 rounded text-xs font-semibold';
+        feedback.textContent = 'Correct! 31. Kd6 is an unstoppable march. White seals the d-file and black resigns.';
+      } else {
+        buttonEl.classList.remove('bg-surface-container-low');
+        buttonEl.classList.add('bg-rose-100', 'text-rose-900');
+        feedback.classList.remove('hidden');
+        feedback.className = 'p-2 bg-rose-50 text-rose-800 rounded text-xs font-semibold';
+        feedback.textContent = 'Incorrect. Black has zero checks due to White’s bishop placement on e1.';
+      }
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-high py-space-xl"><div class="w-full px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div><div class="flex items-center gap-space-sm mb-space-md"><img alt="Chessflow Brand Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-sm text-headline-sm text-on-surface">Chessflow</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">An intellectual sanctuary engineered for grandmaster-level analytical rigor, deep tactical mastery, and modern chess scholarship.</p><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Stockfish 16.1 NNUE: Active (0.0ms ping)</span></div></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Learning Paths</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Foundations of Capablanca</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Hypermodern Pawn Structures</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Rook Endgame Diagnostics</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Sicilian Defense Repertoire</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Positional Sacrifices Lab</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Platform Resources</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">PGN / FEN Cloud Vault</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Opening Book Explorers</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Masters Tournament Archive</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">API for Chess Engines</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">System Uptime &amp; Benchmarks</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Keyboard Shortcuts</h4><ul class="space-y-space-xs"><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Next Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">→</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Previous Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">←</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Flip Board</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">F</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Toggle Engine</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">Space</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Branch Subvariation</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">B</kbd></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Engine Telemetry</h4><div class="p-space-sm bg-surface-container-low rounded border border-surface-container-high space-y-space-xs"><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Engine Depth</span><span class="text-on-surface font-semibold">38 ply</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Nodes / Sec</span><span class="text-on-surface font-semibold">14.2M nps</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Cloud Hash</span><span class="text-on-surface font-semibold">2048 MB</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Syzygy Tablebases</span><span class="text-on-surface font-semibold">7-man WDL</span></div></div></div></div><div class="pt-space-md border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 Chessflow Analytics Inc. Precision tools for grandmaster study.</div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Terms of Study</a><a class="hover:text-on-surface transition-colors" href="#">Security &amp; Fair Play</a></div></div></div></footer></body></html>

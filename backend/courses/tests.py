@@ -5,7 +5,7 @@ from django.urls import reverse
 
 from users.models import User
 
-from .models import Course, Enrollment
+from .models import Course, Enrollment, Lesson
 
 
 class CourseFlowTests(TestCase):
@@ -35,3 +35,17 @@ class CourseFlowTests(TestCase):
 		response = self.client.post(reverse("courses:enroll", args=[self.course.slug]))
 		self.assertEqual(response.status_code, 302)
 		self.assertTrue(Enrollment.objects.filter(student=self.student, course=self.course).exists())
+
+	def test_premium_course_api_hides_lessons_from_anonymous_users(self):
+		premium_course = Course.objects.create(
+			title="Premium Tactics",
+			description="Premium test course",
+			price=Decimal("19.00"),
+			created_by=self.instructor,
+		)
+		Lesson.objects.create(course=premium_course, title="Secret lesson", content="Private content")
+
+		response = self.client.get(reverse("courses:api-detail", args=[premium_course.slug]))
+
+		self.assertEqual(response.status_code, 200)
+		self.assertEqual(response.json()["lessons"], [])

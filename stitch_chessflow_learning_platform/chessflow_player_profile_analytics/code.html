@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-tertiary-fixed-variant":"#6e3900","primary":"#000000","secondary-fixed":"#dbe1ff","on-error":"#ffffff","on-background":"#0b1c30","surface-container-lowest":"#ffffff","primary-fixed":"#dae2fd","on-primary-fixed-variant":"#3f465c","on-primary-fixed":"#131b2e","on-tertiary-container":"#c76c00","secondary":"#0051d5","on-primary-container":"#7c839b","on-secondary":"#ffffff","surface-container-highest":"#d3e4fe","outline-variant":"#c6c6cd","inverse-primary":"#bec6e0","on-tertiary":"#ffffff","on-surface":"#0b1c30","surface-dim":"#cbdbf5","outline":"#76777d","inverse-surface":"#213145","on-tertiary-fixed":"#2f1500","surface-container":"#e5eeff","tertiary-fixed":"#ffdcc3","on-surface-variant":"#45464d","surface":"#f8f9ff","surface-tint":"#565e74","surface-bright":"#f8f9ff","primary-container":"#131b2e","on-error-container":"#93000a","tertiary-fixed-dim":"#ffb77d","on-primary":"#ffffff","surface-container-low":"#eff4ff","background":"#f8f9ff","surface-container-high":"#dce9ff","secondary-container":"#316bf3","error":"#ba1a1a","surface-variant":"#d3e4fe","on-secondary-fixed-variant":"#003ea8","inverse-on-surface":"#eaf1ff","tertiary-container":"#2f1500","tertiary":"#000000","error-container":"#ffdad6","secondary-fixed-dim":"#b4c5ff","primary-fixed-dim":"#bec6e0","on-secondary-container":"#fefcff","on-secondary-fixed":"#00174b"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-sm":"0.5rem","space-md":"1rem","space-xl":"2.5rem","space-lg":"1.5rem","gutter":"1.5rem","gutter-mobile":"1rem","space-xs":"0.25rem","margin":"2.5rem","margin-mobile":"1rem"},fontFamily:{"display-lg":["Newsreader"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Newsreader"],"display-lg-mobile":["Newsreader"],"headline-lg":["Newsreader"],"body-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Newsreader"]},fontSize:{"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.005em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"500"}],"display-lg-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"0em",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"headline-lg-mobile":["26px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"500"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(11,28,48,0.04)] border-b border-surface-container-high"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><div class="flex items-center gap-space-sm"><img alt="Chessflow Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Chessflow</span></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-label-lg text-label-lg border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="courses" href="#">Courses</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="chess-lab" href="#">Chess Lab</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="play" href="#">Play</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="blog" href="#">Blog</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="plans" href="#">Plans</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="staff-ops" href="#">Staff Ops</a></nav></div><div class="flex items-center gap-space-md"><div class="relative hidden md:block"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-64 pl-9 pr-space-md py-1.5 bg-surface-container-lowest border border-outline-variant rounded text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-all" placeholder="Search games, openings, master lectures..." type="search"/></div><button aria-label="Notifications" class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><a class="hidden lg:inline-flex items-center gap-space-xs px-space-md py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-on-surface-variant transition-colors" data-path="analysis" href="#"><span class="material-symbols-outlined text-[18px]">neurology</span><span>Analyze Position</span></a><div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCErkvi5la-2lAqb3xAoQ_1dBnALg4G4zWw5zFfcdWu34xdLqRPy2DawIerYuX_E3AR70EUPUta5EQNVO8xejQyHarlbtqUpkKbbxLg5f_7PcYaSqOM7aqSbftLW49G9UXBCBZgGvvW4ABuAXqNurBukKm43UPlm21kwERG3AZIecAfWQWqR2KYsTlGWJkVhFuGKJ5rd-WpIKkiHqvQjG9-fvgCwM19NS6cpnyPE5lR"/><span class="absolute -bottom-1 -right-1 px-1 py-0.2 bg-secondary text-on-secondary rounded text-[9px] font-bold leading-tight uppercase tracking-wider">Pro</span></div><div class="hidden sm:flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight">Grandmaster Track</span><span class="font-label-sm text-label-sm text-on-surface-variant">1840 ELO</span></div></div></div></div></header><main class="w-full pt-16 bg-background min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- Subtle Analytical Canvas Glow -->
+<div class="relative w-full px-margin py-space-lg flex flex-col gap-space-xl">
+<!-- Top Meta Breadcrumb & Operational Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm font-label-md text-label-md text-on-surface-variant">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">insights</span>
+<span>Analytics Ledger</span>
+</span>
+<span>/</span>
+<span class="text-on-surface font-semibold">Alex Vance (USCF/FIDE Candidate)</span>
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary text-[11px] font-bold uppercase rounded tracking-wider">Cohort Top 9%</span>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md transition-all shadow-sm" id="btn-sync" onclick="syncData()">
+<span class="material-symbols-outlined text-[17px] text-secondary" id="sync-icon">sync</span>
+<span id="sync-text">Sync Telemetry</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-[17px]">picture_as_pdf</span>
+<span>Export PGN/PDF Dossier</span>
+</button>
+<button class="flex items-center gap-space-xs px-space-md py-1.5 bg-primary text-on-primary hover:bg-inverse-surface rounded font-label-md text-label-md transition-all shadow-md">
+<span class="material-symbols-outlined text-[17px]">tune</span>
+<span>Edit Profile &amp; Goals</span>
+</button>
+</div>
+</div>
+<!-- 1. PROFILE HEADER HERO & VITAL SIGNS -->
+<section class="w-full bg-surface-container-lowest rounded-xl shadow-md p-space-lg lg:p-space-xl flex flex-col gap-space-xl relative overflow-hidden">
+<!-- Ambient Decorative Top Accent -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-secondary-container to-primary"></div>
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-xl">
+<!-- Player Identity & Club Credentials -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-lg">
+<div class="relative shrink-0">
+<img class="w-24 h-24 sm:w-28 sm:h-28 rounded-xl object-cover shadow-md" data-alt="Intense portrait of a focused young competitive chess player named Alex Vance in a soft natural daylight analytical study room, looking determined with subtle navy sweater and sharp rim lighting, shot in editorial Hasselblad style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiCZ-po-SLfhGyzw8JM7_hmFvZJfLcxXEsbndCBcEL_iUfI9XfBhvT6ndKgwW8_6VtrxLPJQU9p8BSj6TbvpQdAJf5FcioV0jGBi3ds-_zQlKpnX8HtoLr2c1yyT9vhBO-XSf3pLUF9so7-y8isYDwb_CcSH9pURy2VzfLy8Y62sNd9dqw_vspm_1-NISGmhr3180pjwz9Afs1OyUxCH_J8VOYGTMHuSOQ_zXF85-i"/>
+<div class="absolute -bottom-2 -right-2 bg-secondary text-on-secondary px-2 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase shadow-sm flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span>Pro Master</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-sm flex-wrap">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Alex Vance</h1>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded">FIDE Candidate</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">@avance_chess</span>
+</div>
+<div class="flex items-center gap-space-md flex-wrap text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">location_on</span>
+                San Francisco, CA
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">apartment</span>
+                Mechanics' Institute Chess Club
+              </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">calendar_today</span>
+                Member since Jan 2024
+              </span>
+</div>
+<!-- Federation & Ratings Ledger Ribbons -->
+<div class="flex items-center gap-space-xs sm:gap-space-sm mt-2 flex-wrap">
+<div class="px-2.5 py-1 bg-surface-container-low rounded flex items-center gap-1.5 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Chessflow:</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">1840</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">(Peak 1872)</span>
+</div>
+<div class="px-2.5 py-1 bg-surface-container-low rounded flex items-center gap-1.5 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Chess.com:</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">1914 Rapid</span>
+</div>
+<div class="px-2.5 py-1 bg-surface-container-low rounded flex items-center gap-1.5 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Lichess:</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">2045 Classical</span>
+</div>
+<div class="px-2.5 py-1 bg-surface-container-low rounded flex items-center gap-1.5 shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">FIDE:</span>
+<span class="font-label-md text-label-md text-on-surface font-bold">1785 Standard</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Global Summary Badge Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm xl:max-w-md w-full">
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Total Games</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">1,428</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Analyzed</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Engine Accuracy</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">81.4%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">CAPS</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Study Logged</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">184</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Hours</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Avg Centipawn</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">28.4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">ACPL</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Blunder Index</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">1.4</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/ Game</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-lg flex flex-col justify-between shadow-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Memory Vault</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">89%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mastered</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Match Outcomes Ribbon Bar -->
+<div class="w-full bg-surface-container-low p-space-md rounded-lg flex flex-col md:flex-row items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-sm w-full md:w-auto">
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wider shrink-0">W/D/L Spectrum</span>
+<div class="flex items-center gap-space-xs text-body-sm font-body-sm">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-primary"></span>
+<span class="font-semibold text-on-surface">54.2% (774 W)</span>
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-outline-variant ml-2"></span>
+<span class="text-on-surface-variant">14.1% (201 D)</span>
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-error ml-2"></span>
+<span class="text-on-surface-variant">31.7% (453 L)</span>
+</div>
+</div>
+<!-- Segmented Colored Bar Visualization -->
+<div class="w-full md:max-w-md h-3 bg-surface-container rounded-full overflow-hidden flex">
+<div class="h-full bg-primary" style="width: 54.2%;" title="54.2% Wins"></div>
+<div class="h-full bg-outline-variant" style="width: 14.1%;" title="14.1% Draws"></div>
+<div class="h-full bg-error" style="width: 31.7%;" title="31.7% Losses"></div>
+</div>
+</div>
+</section>
+<!-- 2. LONGITUDINAL RATING TRAJECTORY & BENCHMARKING COCKPIT -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Main Trajectory Graph Section (8 Cols) -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-secondary">show_chart</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Rating Trajectory &amp; Form Curve</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">High-fidelity ELO telemetry with tactical inflection annotations.</p>
+</div>
+<!-- Controls: Range & Time Format Filter -->
+<div class="flex items-center gap-space-xs bg-surface-container-low p-1 rounded-lg">
+<button class="px-2.5 py-1 text-on-surface font-label-sm text-label-sm rounded bg-surface-container-lowest shadow-sm">1M</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm rounded">3M</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm rounded">6M</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm rounded">1Y</button>
+<button class="px-2.5 py-1 text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm rounded">All Time</button>
+</div>
+</div>
+<!-- Format Selector Tabs -->
+<div class="flex items-center gap-space-sm border-b border-surface-container-high pb-2 flex-wrap">
+<button class="px-3 py-1 bg-primary text-on-primary font-label-sm text-label-sm rounded shadow-sm">Rapid (15+10)</button>
+<button class="px-3 py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded">Blitz (3+2)</button>
+<button class="px-3 py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded">Classical / OTB</button>
+<button class="px-3 py-1 bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm rounded">Tactics Puzzles (2410)</button>
+</div>
+<!-- Custom SVG Longitudinal Rating Chart with Milestone Markers -->
+<div class="relative w-full h-72 mt-2 bg-gradient-to-b from-surface-container-low/40 to-transparent rounded-lg p-2 flex flex-col justify-between">
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 700 240">
+<!-- Grid Lines -->
+<line class="text-surface-container-high" stroke="currentColor" stroke-dasharray="3 3" x1="0" x2="700" y1="40" y2="40"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-dasharray="3 3" x1="0" x2="700" y1="90" y2="90"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-dasharray="3 3" x1="0" x2="700" y1="140" y2="140"></line>
+<line class="text-surface-container-high" stroke="currentColor" stroke-dasharray="3 3" x1="0" x2="700" y1="190" y2="190"></line>
+<!-- Rating Axis Marks -->
+<text class="text-[10px] fill-current text-on-surface-variant font-label-sm" x="8" y="38">1880 ELO</text>
+<text class="text-[10px] fill-current text-on-surface-variant font-label-sm" x="8" y="88">1840 ELO</text>
+<text class="text-[10px] fill-current text-on-surface-variant font-label-sm" x="8" y="138">1800 ELO</text>
+<text class="text-[10px] fill-current text-on-surface-variant font-label-sm" x="8" y="188">1760 ELO</text>
+<!-- Gradient Area Fill -->
+<defs>
+<lineargradient id="ratingGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#0051d5" stop-opacity="0.22"></stop>
+<stop offset="100%" stop-color="#0051d5" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- Area Path -->
+<path d="M 50 190 Q 120 170 190 145 T 320 155 T 450 95 T 570 115 T 660 70 L 660 220 L 50 220 Z" fill="url(#ratingGradient)"></path>
+<!-- Trajectory Stroke -->
+<path d="M 50 190 Q 120 170 190 145 T 320 155 T 450 95 T 570 115 T 660 70" stroke="#0051d5" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Milestone Points & Inflections -->
+<!-- Milestone 1: Caro-Kann -->
+<circle class="shadow" cx="190" cy="145" fill="#0051d5" r="4.5"></circle>
+<circle cx="190" cy="145" r="7" stroke="#0051d5" stroke-opacity="0.35" stroke-width="2"></circle>
+<!-- Milestone 2: Tilt Dip -->
+<circle cx="320" cy="155" fill="#ba1a1a" r="4.5"></circle>
+<!-- Milestone 3: Lucena Endgames -->
+<circle cx="450" cy="95" fill="#0051d5" r="4.5"></circle>
+<circle cx="450" cy="95" r="7" stroke="#0051d5" stroke-opacity="0.35" stroke-width="2"></circle>
+<!-- Current Peak / Active Node -->
+<circle cx="660" cy="70" fill="#000000" r="5.5"></circle>
+<circle cx="660" cy="70" r="9" stroke="#0051d5" stroke-opacity="0.4" stroke-width="2.5"></circle>
+</svg>
+<!-- Annotations positioned over the chart -->
+<div class="absolute left-24 sm:left-32 top-28 bg-surface-container-lowest/95 backdrop-blur-sm p-1.5 rounded shadow-sm text-left max-w-[130px] hidden sm:block">
+<span class="font-label-sm text-label-sm text-secondary font-bold block">+62 ELO Surge</span>
+<span class="text-[10px] text-on-surface-variant font-body-sm leading-tight block">Switched to Caro-Kann Tartakower</span>
+</div>
+<div class="absolute left-64 sm:left-72 bottom-12 bg-error-container/90 backdrop-blur-sm p-1.5 rounded shadow-sm text-left max-w-[120px] hidden sm:block">
+<span class="font-label-sm text-label-sm text-on-error-container font-bold block">-38 ELO Dip</span>
+<span class="text-[10px] text-on-surface-variant font-body-sm leading-tight block">Golden Gate Open tilt session</span>
+</div>
+<div class="absolute right-36 sm:right-48 top-12 bg-surface-container-lowest/95 backdrop-blur-sm p-1.5 rounded shadow-sm text-left max-w-[140px] hidden sm:block">
+<span class="font-label-sm text-label-sm text-secondary font-bold block">+45 ELO Jump</span>
+<span class="text-[10px] text-on-surface-variant font-body-sm leading-tight block">Lucena Endgames Drill Mastery</span>
+</div>
+<div class="absolute right-4 top-4 bg-primary text-on-primary px-2.5 py-1 rounded shadow-md text-right">
+<span class="font-label-sm text-label-sm block opacity-75">Active Form</span>
+<span class="font-label-md text-label-md font-bold block">1840 ELO</span>
+</div>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-2">
+<span>Baseline: 1720 ELO (Nov 2023)</span>
+<span class="text-secondary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>Net +120 ELO over period</span>
+</span>
+<span>Target Milestone: 1900 Candidate Master</span>
+</div>
+</div>
+<!-- Comparative Benchmarking Card (4 Cols) -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Cohort Percentile</h3>
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm rounded font-bold">1800-1900 Band</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Comparing Alex vs 14,200 peer players in North America.</p>
+</div>
+<!-- Percentile Progress Indicators -->
+<div class="space-y-space-md">
+<!-- Metric 1: Endgame -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface font-semibold">Endgame Precision</span>
+<span class="text-secondary font-bold">Top 8.2% (91.8th)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 91.8%;"></div>
+</div>
+<span class="text-[11px] text-on-surface-variant font-body-sm mt-0.5 block">Grandmaster-grade conversion of 4v3 rook pawns.</span>
+</div>
+<!-- Metric 2: Opening Depth -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface font-semibold">Opening Theory Depth</span>
+<span class="text-secondary font-bold">Top 14.0% (86th)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container" style="width: 86%;"></div>
+</div>
+<span class="text-[11px] text-on-surface-variant font-body-sm mt-0.5 block">Deep preparation up to Move 14 in Italian &amp; Caro-Kann.</span>
+</div>
+<!-- Metric 3: Time Management (Vulnerability) -->
+<div>
+<div class="flex justify-between font-label-sm text-label-sm mb-1">
+<span class="text-on-surface font-semibold">Clock Management (&lt;60s)</span>
+<span class="text-error font-bold">Bottom 42.0% (42th)</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error" style="width: 42%;"></div>
+</div>
+<span class="text-[11px] text-on-surface-variant font-body-sm mt-0.5 block">Critical bottleneck: 44% of blunders occur with &lt;1 min left.</span>
+</div>
+</div>
+<!-- Diagnostic Callout -->
+<div class="p-space-sm bg-surface-container-low rounded-lg flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary shrink-0 mt-0.5">psychology</span>
+<div class="text-[12px] font-body-sm text-on-surface">
+<span class="font-bold">Engine Verdict:</span> Positional knowledge exceeds your rating bracket by ~90 points. Addressing scramble blunders will unlock 1920+ immediate rating.
+          </div>
+</div>
+</div>
+</div>
+<!-- 3. OPENING REPERTOIRE PERFORMANCE MATRIX & HEATMAP -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">grid_view</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Repertoire Diagnostic Matrix</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Statistical effectiveness, average centipawn delta at move 15, and common tripwires.</p>
+</div>
+<button class="inline-flex items-center gap-1.5 px-space-md py-1.5 bg-surface-container hover:bg-surface-container-high text-on-surface rounded font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-[17px]">account_tree</span>
+<span>Deep Dive in Repertoire Explorer</span>
+</button>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-space-lg">
+<!-- Repertoire: White (As First Player) -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container-high">
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-3.5 rounded-sm bg-surface-container-lowest border border-outline-variant shadow-sm inline-block"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">White Repertoire (682 Games)</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">59.8% Win Rate</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Row 1: Italian Game -->
+<div class="p-space-sm bg-surface-container-low rounded-lg hover:bg-surface-container transition-all flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold">1. e4 e5 — Italian Game: Giuoco Piano</span>
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<span>294 matches</span>
+<span>•</span>
+<span class="text-secondary font-semibold">+0.48 Eval @ M15</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-bold">58% W / 18% D / 24% L</span>
+</div>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 58%;"></div>
+<div class="bg-outline-variant h-full" style="width: 18%;"></div>
+<div class="bg-error h-full" style="width: 24%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-body-sm text-on-surface-variant">
+<span>Tripwire Node: <strong class="text-error">Move 11 c3 vs ...d5 break</strong></span>
+<span class="text-secondary cursor-pointer hover:underline">12 study lines</span>
+</div>
+</div>
+<!-- Row 2: Queen's Gambit -->
+<div class="p-space-sm bg-surface-container-low rounded-lg hover:bg-surface-container transition-all flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold">1. d4 d5 — Queen's Gambit Declined</span>
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<span>218 matches</span>
+<span>•</span>
+<span class="text-secondary font-semibold">+0.62 Eval @ M15</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-bold">62% W / 21% D / 17% L</span>
+</div>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 62%;"></div>
+<div class="bg-outline-variant h-full" style="width: 21%;"></div>
+<div class="bg-error h-full" style="width: 17%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-body-sm text-on-surface-variant">
+<span>Tripwire Node: <strong class="text-on-surface">Carlsbad Pawn Minority Attack</strong></span>
+<span class="text-secondary cursor-pointer hover:underline">8 study lines</span>
+</div>
+</div>
+<!-- Row 3: Grand Prix vs Sicilian -->
+<div class="p-space-sm bg-surface-container-low rounded-lg hover:bg-surface-container transition-all flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold">1. e4 c5 — Sicilian: Grand Prix Attack</span>
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<span>170 matches</span>
+<span>•</span>
+<span class="text-on-surface-variant">+0.15 Eval @ M15</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-bold">49% W / 12% D / 39% L</span>
+</div>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 49%;"></div>
+<div class="bg-outline-variant h-full" style="width: 12%;"></div>
+<div class="bg-error h-full" style="width: 39%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-body-sm text-on-surface-variant">
+<span>Tripwire Node: <strong class="text-error">Move 9 ...d5 central counter</strong></span>
+<span class="text-secondary cursor-pointer hover:underline">15 study lines</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Repertoire: Black (As Second Player) -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-2 border-b border-surface-container-high">
+<div class="flex items-center gap-2">
+<span class="w-3.5 h-3.5 rounded-sm bg-primary shadow-sm inline-block"></span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Black Repertoire (746 Games)</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">49.1% Win Rate</span>
+</div>
+<div class="space-y-space-sm">
+<!-- Row 1: Caro-Kann Tartakower -->
+<div class="p-space-sm bg-surface-container-low rounded-lg hover:bg-surface-container transition-all flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold">vs 1. e4 — Caro-Kann (Tartakower / Classical)</span>
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<span>342 matches</span>
+<span>•</span>
+<span class="text-secondary font-semibold">-0.12 Eval @ M15</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-bold">51% W / 24% D / 25% L</span>
+</div>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 51%;"></div>
+<div class="bg-outline-variant h-full" style="width: 24%;"></div>
+<div class="bg-error h-full" style="width: 25%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-body-sm text-on-surface-variant">
+<span>Tripwire Node: <strong class="text-on-surface">Advance Variation 4. h4 h5</strong></span>
+<span class="text-secondary cursor-pointer hover:underline">19 study lines</span>
+</div>
+</div>
+<!-- Row 2: Nimzo-Indian vs 1. d4 -->
+<div class="p-space-sm bg-surface-container-low rounded-lg hover:bg-surface-container transition-all flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold">vs 1. d4 — Nimzo-Indian: Rubinstein System</span>
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<span>230 matches</span>
+<span>•</span>
+<span class="text-secondary font-semibold">+0.04 Eval @ M15</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-bold">56% W / 22% D / 22% L</span>
+</div>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 56%;"></div>
+<div class="bg-outline-variant h-full" style="width: 22%;"></div>
+<div class="bg-error h-full" style="width: 22%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-body-sm text-on-surface-variant">
+<span>Tripwire Node: <strong class="text-on-surface">Move 13 ...c5 pawn break</strong></span>
+<span class="text-secondary cursor-pointer hover:underline">9 study lines</span>
+</div>
+</div>
+<!-- Row 3: Sicilian Najdorf (Legacy) -->
+<div class="p-space-sm bg-surface-container-low rounded-lg hover:bg-surface-container transition-all flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold">vs 1. e4 — Sicilian Najdorf (Phased Out)</span>
+<div class="flex items-center gap-space-sm font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+<span>174 matches</span>
+<span>•</span>
+<span class="text-error font-semibold">-0.74 Eval @ M15</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-md text-label-md text-on-surface font-bold">44% W / 10% D / 46% L</span>
+</div>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-primary h-full" style="width: 44%;"></div>
+<div class="bg-outline-variant h-full" style="width: 10%;"></div>
+<div class="bg-error h-full" style="width: 46%;"></div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-body-sm text-on-surface-variant">
+<span>Tripwire Node: <strong class="text-error">Move 15 English Attack f3-g4 storm</strong></span>
+<span class="text-on-surface-variant">Deprecated in Jan 2024</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. DEEP PHASE DIAGNOSTIC & ACCURACY BREAKDOWN -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">timeline</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Game Phase Performance Engine</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Granular diagnostic separated by phase inflection boundaries.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg mt-2">
+<!-- Phase 1: Opening -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Phase I (Moves 1-15)</span>
+<span class="px-2 py-0.5 bg-surface-container text-secondary font-label-sm text-label-sm rounded font-bold">Elite</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Opening Precision</h3>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">91.2%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accuracy</span>
+</div>
+</div>
+<div class="space-y-space-xs text-body-sm font-body-sm text-on-surface">
+<div class="flex justify-between py-1 border-b border-surface-container-high">
+<span class="text-on-surface-variant">Avg Book Depth</span>
+<span class="font-semibold">14.8 ply</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-container-high">
+<span class="text-on-surface-variant">Theory Adherence</span>
+<span class="font-semibold text-secondary">94.3%</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Early Traps Avoided</span>
+<span class="font-semibold">98.9%</span>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container rounded-lg text-[12px] font-body-sm text-on-surface">
+<strong class="text-secondary font-semibold">Diagnosis:</strong> Grandmaster theory retention. You enter middlegames with a consistent +0.28 centipawn statistical baseline.
+          </div>
+</div>
+<!-- Phase 2: Middlegame -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Phase II (Moves 16-35)</span>
+<span class="px-2 py-0.5 bg-surface-container text-secondary font-label-sm text-label-sm rounded font-bold">Volatile</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Middlegame Dynamics</h3>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">78.4%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accuracy</span>
+</div>
+</div>
+<div class="space-y-space-xs text-body-sm font-body-sm text-on-surface">
+<div class="flex justify-between py-1 border-b border-surface-container-high">
+<span class="text-on-surface-variant">Tactical Sharpness</span>
+<span class="font-semibold text-secondary">72 / 100</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-container-high">
+<span class="text-on-surface-variant">Attacking Initiative</span>
+<span class="font-semibold">High (81%)</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Bishop Skewer Vulnerability</span>
+<span class="font-semibold text-error">Elevated</span>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container rounded-lg text-[12px] font-body-sm text-on-surface">
+<strong class="text-secondary font-semibold">Diagnosis:</strong> High attacking pressure, but defensive blindspots in unbalanced positions lead to unnecessary piece sacrifices.
+          </div>
+</div>
+<!-- Phase 3: Endgame -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Phase III (Moves 36+)</span>
+<span class="px-2 py-0.5 bg-surface-container text-secondary font-label-sm text-label-sm rounded font-bold">Strong</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Endgame Conversion</h3>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">84.6%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Accuracy</span>
+</div>
+</div>
+<div class="space-y-space-xs text-body-sm font-body-sm text-on-surface">
+<div class="flex justify-between py-1 border-b border-surface-container-high">
+<span class="text-on-surface-variant">Tablebase Conversion</span>
+<span class="font-semibold text-secondary">88.2%</span>
+</div>
+<div class="flex justify-between py-1 border-b border-surface-container-high">
+<span class="text-on-surface-variant">Lucena / Philidor Knowledge</span>
+<span class="font-semibold">100% Mastered</span>
+</div>
+<div class="flex justify-between py-1">
+<span class="text-on-surface-variant">Minor Piece Imbalances</span>
+<span class="font-semibold text-on-surface-variant">Needs Polish</span>
+</div>
+</div>
+<div class="p-2.5 bg-surface-container rounded-lg text-[12px] font-body-sm text-on-surface">
+<strong class="text-secondary font-semibold">Diagnosis:</strong> Rook endgames are club-master level. Focus next on Knight vs Bishop closed pawn fortress breakdowns.
+          </div>
+</div>
+</div>
+</section>
+<!-- 5. TACTICAL AUTOPSY & TIME MANAGEMENT DIAGNOSTICS -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+<!-- Blunder Autopsy & Root-Cause Distribution (6 Cols) -->
+<div class="lg:col-span-6 bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-error">dangerous</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tactical Autopsy: Root Cause Breakdown</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Stockfish 16.1 NNUE post-game blunder categorization across 1,428 matches.</p>
+</div>
+<!-- Donut & Bar Representation -->
+<div class="flex flex-col sm:flex-row items-center gap-space-lg">
+<!-- Inline Donut SVG -->
+<div class="relative w-36 h-36 shrink-0">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 36 36">
+<!-- Background Circle -->
+<path class="text-surface-container" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4.5"></path>
+<!-- Segment 1: Time Trouble (44%) -->
+<path class="text-error" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="44, 100" stroke-width="4.5"></path>
+<!-- Segment 2: Tactical Blindspots (38%) -->
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="38, 100" stroke-dashoffset="-44" stroke-width="4.5"></path>
+<!-- Segment 3: Fatigue (18%) -->
+<path class="text-outline" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="18, 100" stroke-dashoffset="-82" stroke-width="4.5"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface">1,999</span>
+<span class="text-[10px] font-label-sm text-on-surface-variant uppercase">Blunders</span>
+</div>
+</div>
+<!-- Legend & Metrics -->
+<div class="flex flex-col gap-space-sm w-full">
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Time Scramble (&lt;60s clock)</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">44% (879)</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Tactical Blindspots (Forks/Pins)</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">38% (760)</span>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-outline"></span>
+<span class="font-label-sm text-label-sm text-on-surface">Calculation Fatigue (Moves 40+)</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-on-surface">18% (360)</span>
+</div>
+</div>
+</div>
+<div class="text-[12px] font-body-sm text-on-surface-variant">
+          *Note: 88% of all tactical blindspots involve long-diagonal bishop moves cutting through undefended f-pawns.
+        </div>
+</div>
+<!-- Time Allocation & AI Training Prescription (6 Cols) -->
+<div class="lg:col-span-6 bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">timer</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Clock Dynamics &amp; Training Rx</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Real-time move pacing diagnostic and tailored AI drills.</p>
+</div>
+<!-- Pacing Meter -->
+<div class="space-y-space-xs">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface">Opening Tempo (Avg 8s/move)</span>
+<span class="text-secondary font-semibold">Optimal</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 25%;"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm pt-2">
+<span class="text-on-surface">Middlegame Complex Pondering (Avg 2m 14s)</span>
+<span class="text-on-surface-variant font-semibold">Deep Calculation</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary h-full" style="width: 68%;"></div>
+</div>
+</div>
+<!-- Prescribed Drills Module -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-sm shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary">prescriptions</span>
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-bold">Prescribed Spaced Repetition</span>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-2 bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">play_circle</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Rook + Pawn Conversion Under 45s</span>
+</div>
+<button class="px-2 py-0.5 bg-secondary text-on-secondary rounded font-label-sm text-label-sm hover:bg-secondary-container">Start Drill</button>
+</div>
+<div class="flex items-center justify-between p-2 bg-surface-container-lowest rounded-lg shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary">play_circle</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Queen + Knight Coordination Patterns</span>
+</div>
+<button class="px-2 py-0.5 bg-secondary text-on-secondary rounded font-label-sm text-label-sm hover:bg-secondary-container">Start Drill</button>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-body-sm text-on-surface-variant">
+<span>AI Engine: Stockfish 16.1 + Leela Chess Zero Blend</span>
+<span class="text-secondary font-semibold">Next Refresh in 14h</span>
+</div>
+</div>
+</div>
+<!-- 6. CERTIFICATIONS, COMPLETED MASTERCLASSES & NOTABLE TRIUMPHS -->
+<section class="w-full bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-lg">
+<div class="flex items-center justify-between">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">military_tech</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Scholarly Badges &amp; Notable Triumphs</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Formal curriculum achievements and notable tournament scalp victories.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+<!-- Masterclass 1: Naroditsky Endgames -->
+<div class="p-space-md bg-surface-container-low rounded-xl flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 bg-surface-container-lowest rounded-lg text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[28px]">workspace_premium</span>
+</div>
+<div>
+<span class="px-2 py-0.5 bg-secondary/10 text-secondary font-label-sm text-label-sm rounded uppercase font-bold">Certified</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">GM Daniel Naroditsky's Rook Endgames</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Completed 48 video masterclasses &amp; 120 interactive conversion trials.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container-high text-[11px] font-body-sm text-on-surface-variant">
+<span>Verified Dec 12, 2024</span>
+<span class="text-secondary font-semibold">Credential #CF-8402</span>
+</div>
+</div>
+<!-- Masterclass 2: Judit Polgar Attacking (In Progress) -->
+<div class="p-space-md bg-surface-container-low rounded-xl flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 bg-surface-container-lowest rounded-lg text-secondary-container shadow-sm">
+<span class="material-symbols-outlined text-[28px]">hourglass_top</span>
+</div>
+<div>
+<span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm rounded uppercase font-bold">72% Completed</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">GM Judit Polgár: Dynamic King Attacks</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Focusing on g-file piece clearance and king-hunt sacrifices.</p>
+</div>
+</div>
+<div class="flex flex-col gap-1 pt-2 border-t border-surface-container-high">
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full" style="width: 72%;"></div>
+</div>
+<div class="flex justify-between text-[11px] font-body-sm text-on-surface-variant">
+<span>Module 9 of 12</span>
+<span>2.4 hrs remaining</span>
+</div>
+</div>
+</div>
+<!-- Milestone Match: Victory vs NM Marcus Ross -->
+<div class="p-space-md bg-surface-container-low rounded-xl flex flex-col justify-between gap-space-md shadow-sm">
+<div class="flex items-start gap-space-sm">
+<div class="p-2 bg-surface-container-lowest rounded-lg text-primary shadow-sm">
+<span class="material-symbols-outlined text-[28px]">swords</span>
+</div>
+<div>
+<span class="px-2 py-0.5 bg-primary text-on-primary font-label-sm text-label-sm rounded uppercase font-bold">Giant Scalp</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Defeated NM Marcus Ross (2210)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">34 moves with White using Caro-Kann exchange. 94.1% CAPS accuracy.</p>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2 border-t border-surface-container-high text-[11px] font-body-sm text-on-surface-variant">
+<span>Mechanics' Memorial 2024</span>
+<a class="text-secondary font-semibold hover:underline flex items-center gap-0.5" href="#">
+<span>View PGN</span>
+<span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  function syncData() {
+    const icon = document.getElementById('sync-icon');
+    const text = document.getElementById('sync-text');
+    if (!icon || !text) return;
+    
+    icon.classList.add('animate-spin');
+    text.innerText = 'Syncing Chess.com / Lichess...';
+
+    setTimeout(() => {
+      icon.classList.remove('animate-spin');
+      text.innerText = 'Telemetry Synchronized';
+      setTimeout(() => {
+        text.innerText = 'Sync Telemetry';
+      }, 2500);
+    }, 1200);
+  }
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-high py-space-xl"><div class="w-full px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div><div class="flex items-center gap-space-sm mb-space-md"><img alt="Chessflow Brand Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-sm text-headline-sm text-on-surface">Chessflow</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">An intellectual sanctuary engineered for grandmaster-level analytical rigor, deep tactical mastery, and modern chess scholarship.</p><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Stockfish 16.1 NNUE: Active (0.0ms ping)</span></div></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Learning Paths</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Foundations of Capablanca</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Hypermodern Pawn Structures</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Rook Endgame Diagnostics</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Sicilian Defense Repertoire</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Positional Sacrifices Lab</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Platform Resources</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">PGN / FEN Cloud Vault</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Opening Book Explorers</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Masters Tournament Archive</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">API for Chess Engines</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">System Uptime &amp; Benchmarks</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Keyboard Shortcuts</h4><ul class="space-y-space-xs"><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Next Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">→</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Previous Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">←</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Flip Board</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">F</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Toggle Engine</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">Space</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Branch Subvariation</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">B</kbd></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Engine Telemetry</h4><div class="p-space-sm bg-surface-container-low rounded border border-surface-container-high space-y-space-xs"><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Engine Depth</span><span class="text-on-surface font-semibold">38 ply</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Nodes / Sec</span><span class="text-on-surface font-semibold">14.2M nps</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Cloud Hash</span><span class="text-on-surface font-semibold">2048 MB</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Syzygy Tablebases</span><span class="text-on-surface font-semibold">7-man WDL</span></div></div></div></div><div class="pt-space-md border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 Chessflow Analytics Inc. Precision tools for grandmaster study.</div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Terms of Study</a><a class="hover:text-on-surface transition-colors" href="#">Security &amp; Fair Play</a></div></div></div></footer></body></html>

@@ -67,7 +67,9 @@ Open `http://127.0.0.1:8000`.
 
 ## Stripe Notes
 
-- If Stripe keys are not set, the app falls back to mock subscription flow.
+- In development (`DEBUG=True`), missing Stripe keys use the mock subscription flow.
+- In production, Stripe keys and a webhook signing secret are required; unsigned
+   webhook payloads and mock subscriptions are rejected.
 - Add `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` to use live webhook verification.
 
 ## Background Workers

@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from django.test import TestCase
+from django.test import TestCase, override_settings
 from django.urls import reverse
 
 from users.models import User
@@ -31,3 +31,19 @@ class PaymentFlowTests(TestCase):
 				status=UserSubscription.STATUS_ACTIVE,
 			).exists()
 		)
+
+	@override_settings(DEBUG=False)
+	def test_mock_subscription_is_disabled_in_production(self):
+		self.client.force_login(self.user)
+		response = self.client.post(reverse("payments:subscribe-mock", args=[self.plan.id]))
+		self.assertEqual(response.status_code, 404)
+		self.assertFalse(UserSubscription.objects.filter(user=self.user).exists())
+
+	@override_settings(STRIPE_WEBHOOK_SECRET="")
+	def test_webhook_rejects_unsigned_payloads(self):
+		response = self.client.post(
+			reverse("payments:stripe-webhook"),
+			{"type": "checkout.session.completed"},
+			content_type="application/json",
+		)
+		self.assertEqual(response.status_code, 400)

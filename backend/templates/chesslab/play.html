@@ -11,7 +11,7 @@
     .move-list { max-height: 220px; overflow-y: auto; font-size: 0.85rem; }
     .move-list table { width: 100%; border-collapse: collapse; }
     .move-list td { padding: 3px 6px; }
-    .move-list tr:nth-child(even) td { background: rgba(103,192,144,0.07); }
+    .move-list tr:nth-child(even) td { background: rgba(37,99,235,0.07); }
     .move-list td:first-child { color: var(--ink-soft); width: 2rem; }
     .captured-row { display: flex; flex-wrap: wrap; gap: 1px; min-height: 1.5rem; font-size: 1.05rem; }
     .engine-thinking { opacity: 0.5; pointer-events: none; }
@@ -29,14 +29,15 @@
 {% endblock %}
 
 {% block content %}
-<section class="section-head reveal mb-3">
+<section class="lab-masthead reveal mb-4">
     <div>
-        <h1 class="section-title">Play Chess</h1>
-        <p class="muted-copy mb-0">Challenge the engine or play locally with a friend.</p>
+        <p class="eyebrow">Practice board</p>
+        <h1 class="display-heading">Play the idea.</h1>
+        <p class="muted-copy mb-0">Test openings, tactics, and endgames against the engine or a friend.</p>
     </div>
 </section>
 
-<div class="row g-4 reveal reveal-delay-1">
+<div class="row g-4 play-shell reveal reveal-delay-1">
     <!-- Board column -->
     <div class="col-lg-7">
         <div class="card">

@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-tertiary-fixed-variant":"#6e3900","primary":"#000000","secondary-fixed":"#dbe1ff","on-error":"#ffffff","on-background":"#0b1c30","surface-container-lowest":"#ffffff","primary-fixed":"#dae2fd","on-primary-fixed-variant":"#3f465c","on-primary-fixed":"#131b2e","on-tertiary-container":"#c76c00","secondary":"#0051d5","on-primary-container":"#7c839b","on-secondary":"#ffffff","surface-container-highest":"#d3e4fe","outline-variant":"#c6c6cd","inverse-primary":"#bec6e0","on-tertiary":"#ffffff","on-surface":"#0b1c30","surface-dim":"#cbdbf5","outline":"#76777d","inverse-surface":"#213145","on-tertiary-fixed":"#2f1500","surface-container":"#e5eeff","tertiary-fixed":"#ffdcc3","on-surface-variant":"#45464d","surface":"#f8f9ff","surface-tint":"#565e74","surface-bright":"#f8f9ff","primary-container":"#131b2e","on-error-container":"#93000a","tertiary-fixed-dim":"#ffb77d","on-primary":"#ffffff","surface-container-low":"#eff4ff","background":"#f8f9ff","surface-container-high":"#dce9ff","secondary-container":"#316bf3","error":"#ba1a1a","surface-variant":"#d3e4fe","on-secondary-fixed-variant":"#003ea8","inverse-on-surface":"#eaf1ff","tertiary-container":"#2f1500","tertiary":"#000000","error-container":"#ffdad6","secondary-fixed-dim":"#b4c5ff","primary-fixed-dim":"#bec6e0","on-secondary-container":"#fefcff","on-secondary-fixed":"#00174b"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-sm":"0.5rem","space-md":"1rem","space-xl":"2.5rem","space-lg":"1.5rem","gutter":"1.5rem","gutter-mobile":"1rem","space-xs":"0.25rem","margin":"2.5rem","margin-mobile":"1rem"},fontFamily:{"display-lg":["Newsreader"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Newsreader"],"display-lg-mobile":["Newsreader"],"headline-lg":["Newsreader"],"body-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Newsreader"]},fontSize:{"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.005em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"500"}],"display-lg-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"0em",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"headline-lg-mobile":["26px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"500"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(11,28,48,0.04)] border-b border-surface-container-high"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><div class="flex items-center gap-space-sm"><img alt="Chessflow Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Chessflow</span></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-label-lg text-label-lg border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="courses" href="#">Courses</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="chess-lab" href="#">Chess Lab</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="play" href="#">Play</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="blog" href="#">Blog</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="plans" href="#">Plans</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="staff-ops" href="#">Staff Ops</a></nav></div><div class="flex items-center gap-space-md"><div class="relative hidden md:block"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-64 pl-9 pr-space-md py-1.5 bg-surface-container-lowest border border-outline-variant rounded text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-all" placeholder="Search games, openings, master lectures..." type="search"/></div><button aria-label="Notifications" class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><a class="hidden lg:inline-flex items-center gap-space-xs px-space-md py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-on-surface-variant transition-colors" data-path="analysis" href="#"><span class="material-symbols-outlined text-[18px]">neurology</span><span>Analyze Position</span></a><div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCErkvi5la-2lAqb3xAoQ_1dBnALg4G4zWw5zFfcdWu34xdLqRPy2DawIerYuX_E3AR70EUPUta5EQNVO8xejQyHarlbtqUpkKbbxLg5f_7PcYaSqOM7aqSbftLW49G9UXBCBZgGvvW4ABuAXqNurBukKm43UPlm21kwERG3AZIecAfWQWqR2KYsTlGWJkVhFuGKJ5rd-WpIKkiHqvQjG9-fvgCwM19NS6cpnyPE5lR"/><span class="absolute -bottom-1 -right-1 px-1 py-0.2 bg-secondary text-on-secondary rounded text-[9px] font-bold leading-tight uppercase tracking-wider">Pro</span></div><div class="hidden sm:flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight">Grandmaster Track</span><span class="font-label-sm text-label-sm text-on-surface-variant">1840 ELO</span></div></div></div></div></header><main class="w-full pt-16 bg-background min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden pb-space-xl">
+<!-- Ambient Radial Glows -->
+<div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-gradient-to-b from-secondary/10 via-surface-container-high/40 to-transparent blur-3xl -z-10"></div>
+<div class="pointer-events-none absolute top-1/4 right-0 w-[450px] h-[450px] bg-secondary-container/10 blur-[100px] -z-10"></div>
+<div class="w-full px-margin pt-space-lg">
+<!-- Eyebrow Chip & Status -->
+<div class="flex flex-wrap items-center gap-space-sm mb-space-md">
+<div class="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface">Stockfish 16.1 NNUE + Syzygy 7-Man Cluster Integrated</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-secondary">FIDE Standard 2800+ Depth</span>
+</div>
+<div class="hidden sm:inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">sync</span>
+          Syncs Chess.com &amp; Lichess Vaults
+        </div>
+</div>
+<!-- Hero Heading Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-end mb-space-xl">
+<div class="lg:col-span-8">
+<h1 class="font-display-lg text-display-lg text-on-surface tracking-tight leading-[1.08] mb-space-md max-w-4xl">
+            Master the 64 Squares with <span class="italic font-display-lg text-secondary">Computational Elegance</span> &amp; Grandmaster Pedagogy.
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            Architect bulletproof opening repertoires, diagnose recurring tactical tripwires, and drill master-level endgames with algorithmic precision and zero sensory clutter.
+          </p>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-space-sm lg:items-end">
+<div class="flex flex-wrap sm:flex-nowrap gap-space-sm w-full lg:w-auto">
+<button class="w-full sm:w-auto px-space-lg py-3 rounded bg-primary text-on-primary font-label-lg text-label-lg shadow-md hover:bg-inverse-surface transition-all flex items-center justify-center gap-space-xs group" type="button">
+<span>Start 14-Day Grandmaster Trial</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="w-full sm:w-auto px-space-md py-3 rounded bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container transition-all flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-[18px] text-secondary" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span>Live Engine Demo</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-emerald-600">verified</span> No credit card required • Instant PGN / FEN import
+          </p>
+</div>
+</div>
+<!-- HERO INTERACTIVE SHOWCASE / LIVE BOARD COCKPIT -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-xl overflow-hidden mb-space-xl">
+<!-- Cockpit Header Banner -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">neurology</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Analysis Cockpit</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm">
+              Tal Memorial 1973 • Move 23...Rd1!!
+            </span>
+</div>
+<!-- Engine Status Pills -->
+<div class="flex items-center gap-space-sm">
+<div class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Stockfish 16.1 NNUE</span>
+<span class="text-outline-variant">|</span>
+<span class="text-secondary font-bold">48 Ply Depth</span>
+<span class="text-outline-variant">|</span>
+<span class="text-on-surface-variant">320.4M nps</span>
+</div>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant" id="board-flip-btn" title="Flip Board" type="button">
+<span class="material-symbols-outlined text-[18px]">swap_vert</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-high text-on-surface-variant" id="engine-eval-sound" title="Toggle Move Audio" type="button">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Cockpit Main Area (Eval Bar + 8x8 Board + Live Notation & Engine Depth) -->
+<div class="p-space-md lg:p-space-lg grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
+<!-- Column 1: Vertical Eval Bar & 8x8 Chessboard Grid -->
+<div class="lg:col-span-7 flex gap-space-sm items-stretch">
+<!-- Real-time Eval Gauge -->
+<div class="w-7 sm:w-8 flex flex-col items-center justify-between py-2 rounded bg-primary text-on-primary select-none relative overflow-hidden shadow-inner shrink-0">
+<span class="font-label-sm text-label-sm font-bold z-10 text-on-primary" id="eval-score-top">-7.42</span>
+<div class="w-full flex-1 relative my-2 bg-primary">
+<!-- White advantage block ascending/descending -->
+<div class="absolute bottom-0 left-0 right-0 bg-surface-container-lowest transition-all duration-700 ease-out" id="eval-fill" style="height: 18%;"></div>
+</div>
+<span class="font-label-sm text-label-sm font-bold z-10 text-on-surface bg-surface-container-lowest/90 px-1 rounded" id="eval-score-bot">+0.00</span>
+</div>
+<!-- 8x8 Board Representation -->
+<div class="flex-1 flex flex-col">
+<div class="relative aspect-square w-full rounded bg-surface-container-highest shadow-md overflow-hidden select-none p-1 sm:p-2 bg-gradient-to-br from-surface-container to-surface-dim">
+<div class="grid grid-cols-8 grid-rows-8 w-full h-full rounded shadow-sm overflow-hidden bg-slate-200" id="chessboard-grid">
+<!-- Row 8 (Black back rank) -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♜</span><span class="absolute top-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">8</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♞</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♝</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♛</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♚</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♝</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♜</span></div>
+<!-- Row 7 -->
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♟</span><span class="absolute top-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">7</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♟</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♟</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♟</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♟</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♟</span></div>
+<!-- Row 6 -->
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"><span class="absolute top-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">6</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♞</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♟</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<!-- Row 5 -->
+<div class="bg-surface-container-highest flex items-center justify-center select-none"><span class="absolute top-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">5</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-primary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♟</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<!-- Row 4 -->
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"><span class="absolute top-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">4</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♙</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♘</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<!-- Row 3 -->
+<div class="bg-surface-container-highest flex items-center justify-center select-none"><span class="absolute top-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">3</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♘</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♙</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<!-- Row 2 -->
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♙</span><span class="absolute top-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">2</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♙</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♙</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♗</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♙</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none"></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♙</span></div>
+<!-- Row 1 (Highlight square d1 sacrifice) -->
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none relative group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♖</span><span class="absolute bottom-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">a</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none relative"><span class="absolute bottom-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">b</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none relative group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♗</span><span class="absolute bottom-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">c</span></div>
+<!-- Square d1 (Sacrificial Rook Landing) -->
+<div class="bg-secondary-fixed flex items-center justify-center relative font-display-lg text-headline-lg text-primary select-none ring-2 ring-secondary shadow-lg animate-pulse">
+<span class="scale-110 font-bold">♜</span>
+<span class="absolute -top-1 -right-1 px-1 rounded-full bg-secondary text-on-secondary font-label-sm text-[8px] font-bold">!!</span>
+<span class="absolute bottom-0.5 left-1 font-label-sm text-[9px] text-secondary font-bold">d</span>
+</div>
+<div class="bg-surface-container-highest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none relative group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♔</span><span class="absolute bottom-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">e</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center select-none relative"><span class="absolute bottom-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">f</span></div>
+<div class="bg-surface-container-highest flex items-center justify-center select-none relative"><span class="absolute bottom-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">g</span></div>
+<div class="bg-surface-container-lowest flex items-center justify-center font-display-lg text-headline-lg text-secondary select-none relative group"><span class="cursor-pointer group-hover:scale-110 transition-transform">♖</span><span class="absolute bottom-0.5 left-1 font-label-sm text-[9px] text-outline opacity-60">h</span></div>
+</div>
+</div>
+<!-- Board Interactive Controls scrub bar -->
+<div class="mt-space-sm flex items-center justify-between gap-space-sm bg-surface-container-low px-space-md py-2 rounded">
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="First move" type="button">
+<span class="material-symbols-outlined text-[18px]">first_page</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="Previous move" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="p-1.5 rounded bg-primary text-on-primary shadow-sm hover:bg-inverse-surface transition-colors" title="Play / Pause" type="button">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="Next move" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant transition-colors" title="Current position" type="button">
+<span class="material-symbols-outlined text-[18px]">last_page</span>
+</button>
+</div>
+<div class="hidden sm:flex items-center gap-space-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Move 23 of 41</span>
+<div class="w-32 h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="w-[56%] h-full bg-secondary rounded-full"></div>
+</div>
+</div>
+<button class="text-secondary font-label-sm text-label-sm hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px]">share</span> Share PGN
+                </button>
+</div>
+</div>
+</div>
+<!-- Column 2: Live Engine Telemetry & Tactical Move Log Ledger -->
+<div class="lg:col-span-5 flex flex-col gap-space-sm">
+<!-- Real-time Candidate Move Tree Box -->
+<div class="p-space-md rounded bg-surface-container-low shadow-sm">
+<div class="flex items-center justify-between mb-space-sm">
+<span class="font-label-lg text-label-lg text-on-surface flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">account_tree</span> Top Candidate Continuations
+                </span>
+<span class="font-label-sm text-label-sm text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded font-bold">Refutation Found</span>
+</div>
+<div class="space-y-1.5 font-mono text-body-sm">
+<!-- Move 1 (Brilliant) -->
+<div class="p-2 rounded bg-surface-container-lowest shadow-sm flex items-center justify-between group cursor-pointer hover:bg-secondary-fixed/30 transition-colors">
+<div class="flex items-center gap-2">
+<span class="font-bold text-secondary text-label-md">1.</span>
+<span class="font-bold text-on-surface">23... Rd1!!</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold uppercase">Brilliant</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-error font-bold font-label-md">-7.42</span>
+<span class="font-label-sm text-outline text-[11px]">48 ply</span>
+</div>
+</div>
+<!-- Move 2 -->
+<div class="p-2 rounded bg-surface-container-lowest/60 flex items-center justify-between group cursor-pointer hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-2">
+<span class="text-outline text-label-md">2.</span>
+<span class="text-on-surface">23... Qh4</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant text-[10px]">Good</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-on-surface-variant font-label-md">-1.15</span>
+<span class="font-label-sm text-outline text-[11px]">46 ply</span>
+</div>
+</div>
+<!-- Move 3 -->
+<div class="p-2 rounded bg-surface-container-lowest/60 flex items-center justify-between group cursor-pointer hover:bg-surface-container-lowest transition-colors">
+<div class="flex items-center gap-2">
+<span class="text-outline text-label-md">3.</span>
+<span class="text-on-surface">23... Nxd4</span>
+<span class="px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 text-[10px]">Inaccuracy</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-outline font-label-md">+0.48</span>
+<span class="font-label-sm text-outline text-[11px]">44 ply</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Ledger: Move History Table -->
+<div class="p-space-md rounded bg-surface-container-lowest shadow-sm flex flex-col h-[280px]">
+<div class="flex items-center justify-between pb-space-xs mb-space-xs border-b border-surface-container">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Notation Ledger</span>
+<span class="font-label-sm text-label-sm text-secondary">ECO: B97 Sicilian Najdorf</span>
+</div>
+<div class="flex-1 overflow-y-auto pr-1 space-y-1 text-body-sm font-mono">
+<div class="grid grid-cols-12 py-1 px-1.5 rounded hover:bg-surface-container-low text-on-surface-variant">
+<span class="col-span-2 text-outline">20.</span>
+<span class="col-span-5">gxf3</span>
+<span class="col-span-5 font-semibold text-on-surface">Bxf3</span>
+</div>
+<div class="grid grid-cols-12 py-1 px-1.5 rounded hover:bg-surface-container-low text-on-surface-variant">
+<span class="col-span-2 text-outline">21.</span>
+<span class="col-span-5">Rg1</span>
+<span class="col-span-5 font-semibold text-on-surface">Kh8</span>
+</div>
+<div class="grid grid-cols-12 py-1 px-1.5 rounded hover:bg-surface-container-low text-on-surface-variant">
+<span class="col-span-2 text-outline">22.</span>
+<span class="col-span-5">h4? <span class="text-error font-bold">Blunder (+3.2)</span></span>
+<span class="col-span-5 font-semibold text-on-surface">Qe5!</span>
+</div>
+<!-- Active move highlight -->
+<div class="grid grid-cols-12 py-1 px-1.5 rounded bg-secondary-fixed/40 text-on-surface font-semibold">
+<span class="col-span-2 text-secondary font-bold">23.</span>
+<span class="col-span-5">Qd2</span>
+<span class="col-span-5 text-secondary font-bold flex items-center justify-between">
+<span>Rd1!!</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">flare</span>
+</span>
+</div>
+<div class="grid grid-cols-12 py-1 px-1.5 rounded hover:bg-surface-container-low text-on-surface-variant opacity-75">
+<span class="col-span-2 text-outline">24.</span>
+<span class="col-span-5">Qxd1</span>
+<span class="col-span-5 font-semibold text-on-surface">Qh2</span>
+</div>
+<div class="grid grid-cols-12 py-1 px-1.5 rounded hover:bg-surface-container-low text-on-surface-variant opacity-75">
+<span class="col-span-2 text-outline">25.</span>
+<span class="col-span-5">Rf1</span>
+<span class="col-span-5 font-semibold text-on-surface">Bg2#</span>
+</div>
+</div>
+<!-- Engine Diagnosis Footer -->
+<div class="pt-space-xs mt-space-xs bg-surface-container-low p-2 rounded flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[16px]">psychology</span>
+<span class="font-label-sm text-label-sm text-on-surface">Positional Diagnosis: Deflection Decoy</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">ACPL: 6.2</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Platform Stats Ribbon -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md py-space-md px-space-lg bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="flex flex-col">
+<span class="font-display-lg text-headline-lg text-on-surface tracking-tight">14,200+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Titled &amp; Competitive Players</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-lg text-headline-lg text-secondary tracking-tight">1.4M</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cloud Repertoires Analyzed</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-lg text-headline-lg text-on-surface tracking-tight">0.0<span class="text-body-md text-outline">ms</span></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Stockfish Edge Cluster Latency</span>
+</div>
+<div class="flex flex-col">
+<span class="font-display-lg text-headline-lg text-secondary tracking-tight">99.4%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Opening Theory Precision Metric</span>
+</div>
+</div>
+</div>
+</section>
+<!-- PILLARS SECTION: INTERACTIVE FEATURE ARCHITECTURE -->
+<section class="w-full py-space-xl bg-surface-container-low">
+<div class="w-full px-margin">
+<div class="max-w-3xl mb-space-xl">
+<div class="inline-flex items-center gap-1 px-space-sm py-1 rounded bg-surface-container-highest text-secondary font-label-sm text-label-sm mb-space-sm">
+<span class="material-symbols-outlined text-[15px]">architecture</span> The Analytical Trifecta
+        </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-sm">
+          Engineered for Grandmaster Rigor. Designed for Cognitive Clarity.
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Chessflow replaces chaotic puzzle feeds with structured knowledge models, automated blunder forensics, and synchronized master instruction.
+        </p>
+</div>
+<!-- Bento-style 3 Pillars Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg">
+<!-- Pillar 1: Repertoire Architect -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded bg-secondary-fixed flex items-center justify-center text-secondary mb-space-md">
+<span class="material-symbols-outlined text-[26px]">account_tree</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Pillar I</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-sm">
+              Algorithmic Repertoire Architect
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Construct adaptive opening trees with automated transposition mapping. Retain lines effortlessly through custom SuperMemo-2 spaced repetition decay algorithms.
+            </p>
+<!-- Mini Interactive Visual: Repertoire Tree Simulation -->
+<div class="p-space-sm bg-surface-container rounded mb-space-md space-y-2">
+<div class="flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface font-semibold">1. e4 c5 2. Nf3 d6</span>
+<span class="text-emerald-700 bg-emerald-100 px-1.5 rounded">98% Mastered</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 92%;"></div>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm text-outline">
+<span>Next Recall: in 4 days</span>
+<span>Tripwire Alerts: 0</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Spaced Repetition SM-2</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">arrow_right_alt</span>
+</div>
+</div>
+<!-- Pillar 2: Blunder Autopsy -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center text-on-surface mb-space-md">
+<span class="material-symbols-outlined text-[26px]">biotech</span>
+</div>
+<span class="font-label-sm text-label-sm text-error uppercase tracking-wider">Pillar II</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-sm">
+              Deep Blunder Autopsy &amp; ACPL
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Dissect loss sequences down to precise centipawns. Triage tactical breakdowns: separate time pressure scrambles (&lt;30s) from systematic conceptual blindspots.
+            </p>
+<!-- Mini Interactive Visual: Centipawn Graph -->
+<div class="p-space-sm bg-surface-container rounded mb-space-md">
+<div class="flex items-center justify-between font-label-sm text-label-sm mb-1.5">
+<span class="text-on-surface font-semibold">Average Centipawn Loss (ACPL)</span>
+<span class="text-error font-bold">14.8 ACPL</span>
+</div>
+<!-- Inline Centipawn Sparkline SVG -->
+<svg class="w-full h-14 text-secondary" fill="none" viewbox="0 0 200 40">
+<path d="M0 32 L30 30 L60 28 L90 31 L120 12 L150 10 L180 8 L200 6" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="120" cy="12" fill="#ba1a1a" r="3.5"></circle>
+<text fill="#ba1a1a" font-family="Plus Jakarta Sans" font-size="8" x="126" y="16">Move 22 Blunder</text>
+</svg>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Time &amp; Fatigue Diagnostics</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">arrow_right_alt</span>
+</div>
+</div>
+<!-- Pillar 3: Masterclass & Sandbox -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+<div>
+<div class="w-12 h-12 rounded bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed mb-space-md">
+<span class="material-symbols-outlined text-[26px]">school</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-tertiary-fixed uppercase tracking-wider">Pillar III</span>
+<h3 class="font-headline-md text-headline-md text-on-surface mt-1 mb-space-sm">
+              FIDE 2700+ Masterclass Sandbox
+            </h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+              Deconstruct historical masterpieces alongside active Super-GMs. Interactive sandboxes let you test divergent candidate moves against perfect Syzygy tablebases.
+            </p>
+<!-- Mini Interactive Visual: Grandmaster Roster snippet -->
+<div class="p-space-sm bg-surface-container rounded mb-space-md flex items-center gap-space-sm">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Close up photographic portrait of a grandmaster chess analyst in warm natural morning studio light, thoughtful expression with glasses, editorial high quality monochrome style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuFC8zor1Lxv0wJaF5SE_hXjk_3VtZ--2NS1dSfTstuWK7J81hCqs_MK9BgNx8pwKgDQVD-6Vgx0XhQlJMFh1WfHW5KPql_BYf-0IwLM8T7h4nCILYdvlyRDucJrIt2Zrnf_Fxw2WB_AREhSgxC1slYx8CzicogbNgiVfJE-9Lkz3f38lkw8SycWROhswdnlLS0F-Kr0aZId5Di2M0RneQ5tUNjfdoQ0polYtc0t1c"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">GM Levon Saghatelyan</span>
+<span class="font-label-sm text-label-sm text-secondary">FIDE 2752 • Endgame Specialist</span>
+</div>
+</div>
+</div>
+<div class="pt-space-sm border-t border-surface-container-high flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Capablanca Vault Access</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">arrow_right_alt</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- COMPARISON MATRIX: CHESSFLOW VS TRADITIONAL PLATFORMS -->
+<section class="w-full py-space-xl bg-surface-container-lowest">
+<div class="w-full px-margin">
+<div class="max-w-2xl mb-space-lg">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">The Superior Methodology</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1 mb-space-xs">
+          Engineered for Systematic Mastery, Not Passive Dopamine
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Contrast Chessflow's structured pedagogical architecture against legacy browser games and puzzle mills.
+        </p>
+</div>
+<!-- Comparison Matrix Table -->
+<div class="w-full overflow-x-auto rounded-xl shadow-md bg-surface-container-low">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high text-on-surface">
+<th class="p-space-md font-label-lg text-label-lg w-1/3">Pedagogical Dimension</th>
+<th class="p-space-md font-label-lg text-label-lg text-outline w-1/3">Legacy Platforms</th>
+<th class="p-space-md font-label-lg text-label-lg text-secondary bg-surface-container-highest w-1/3">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">verified</span> Chessflow Engine Platform
+                </span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md font-label-md text-label-md text-on-surface">
+                Opening Repertoire Management
+              </td>
+<td class="p-space-md font-body-sm text-body-sm text-on-surface-variant">
+                Static move lists, manual spreadsheets, no memory reinforcement.
+              </td>
+<td class="p-space-md font-body-sm text-body-sm text-on-surface bg-surface-container-highest/60 font-semibold">
+                SuperMemo-2 spaced repetition decay curves &amp; live ECO transposition alerts.
+              </td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md font-label-md text-label-md text-on-surface">
+                Blunder Analysis &amp; Extraction
+              </td>
+<td class="p-space-md font-body-sm text-body-sm text-on-surface-variant">
+                One-click review with superficial "good/bad" badges and generic puzzles.
+              </td>
+<td class="p-space-md font-body-sm text-body-sm text-on-surface bg-surface-container-highest/60 font-semibold">
+                Centipawn Loss (ACPL) triage differentiating clock scrambles from positional blindspots.
+              </td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md font-label-md text-label-md text-on-surface">
+                Endgame Tablebase Verification
+              </td>
+<td class="p-space-md font-body-sm text-body-sm text-on-surface-variant">
+                Standard client-side engine evaluation, prone to horizon effect.
+              </td>
+<td class="p-space-md font-body-sm text-body-sm text-on-surface bg-surface-container-highest/60 font-semibold">
+                Syzygy 7-Man tablebases instant WDL (Win-Draw-Loss) cloud calculation.
+              </td>
+</tr>
+<tr class="hover:bg-surface-container/50 transition-colors">
+<td class="p-space-md font-label-md text-label-md text-on-surface">
+                Multi-Platform Sync &amp; Ingestion
+              </td>
+<td class="p-space-md font-body-sm text-body-sm text-on-surface-variant">
+                Manual PGN copy-pasting; siloed rating histories.
+              </td>
+<td class="p-space-md font-body-sm text-body-sm text-on-surface bg-surface-container-highest/60 font-semibold">
+                Instant OAuth sync with Chess.com and Lichess game archives in real time.
+              </td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- DEEP TELEMETRY & LIVE SANDBOX EXPERIENCE -->
+<section class="w-full py-space-xl bg-surface-container-low">
+<div class="w-full px-margin">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+<!-- Left: Computational Explanation -->
+<div class="lg:col-span-5">
+<div class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm mb-space-sm">
+<span class="material-symbols-outlined text-[16px]">memory</span> Cluster Benchmarks
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-space-md">
+            Uncompromising Depth at 320 Million Nodes Per Second.
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-lg">
+            Say goodbye to weak browser-bound Stockfish implementations that throttle at 18 ply. Chessflow routes heavy calculations through a dedicated cluster with 7-man endgame tablebases pre-loaded in memory.
+          </p>
+<div class="space-y-space-sm">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">verified_user</span>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Deterministic Tablebase Lookups</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Exact distance to mate (DTM) calculations on any 7-piece terminal position.</p>
+</div>
+</div>
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">query_stats</span>
+<div>
+<h4 class="font-label-lg text-label-lg text-on-surface">Transposition Hash Mirroring</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Shared distributed memory prevents redundant recalculations across opening lines.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Telemetry Cockpit Terminal Card -->
+<div class="lg:col-span-7 bg-primary text-on-primary rounded-xl p-space-lg shadow-xl font-mono relative overflow-hidden">
+<div class="flex items-center justify-between pb-space-sm mb-space-md border-b border-on-surface-variant/30">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+<span class="text-xs text-on-primary-container pl-2">stockfish_cluster_worker_04.sh</span>
+</div>
+<span class="text-xs text-emerald-400 font-bold">STATUS: STREAMING</span>
+</div>
+<!-- Code / Metric Streams -->
+<div class="space-y-3 text-xs">
+<div class="flex justify-between text-outline-variant">
+<span>[INIT] Engine: Stockfish 16.1 NNUE (modern AVX2)</span>
+<span class="text-on-primary font-bold">OK (100%)</span>
+</div>
+<div class="flex justify-between text-outline-variant">
+<span>[HASH] Cloud Cache Allocated: 65,536 MB</span>
+<span class="text-secondary-fixed">HIT RATIO: 94.2%</span>
+</div>
+<div class="flex justify-between text-outline-variant">
+<span>[TABLE] Syzygy WDL 7-man loaded</span>
+<span class="text-emerald-300">140,291,230 Positions</span>
+</div>
+<!-- Live Progress / Ply Gauge -->
+<div class="pt-2">
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-primary font-sans font-semibold">Calculation Depth Progress</span>
+<span class="text-secondary-fixed">Depth 48 / 52 Ply</span>
+</div>
+<div class="w-full bg-surface-container-highest/20 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 92%;"></div>
+</div>
+</div>
+<!-- Terminal Output Line -->
+<div class="p-2.5 rounded bg-surface-container-highest/10 text-on-primary text-[11px] leading-relaxed">
+<span class="text-emerald-400">&gt; info depth 48 seldepth 64 multipv 1 score cp -742 nodes 320491823 nps 14210000 tbhits 89042 time 22550 pv d8d1 e2d1 e5h2 g1f1 f3g2 f1e2 g2f3 e2f1 h2h1</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- GRANDMASTER TESTIMONIALS & PROOF -->
+<section class="w-full py-space-xl bg-surface-container-lowest">
+<div class="w-full px-margin">
+<div class="text-center max-w-2xl mx-auto mb-space-xl">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Peer-Verified Progression</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1 mb-space-xs">
+          Endorsed by Grandmasters, Validated by Tournament Rating Gains
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          See how serious competitors and national federations leverage Chessflow to overhaul their tactical preparation.
+        </p>
+</div>
+<!-- Testimonials Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+<!-- Card 1 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-sm mb-space-md">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="High resolution realistic headshot of a serious female International Master chess coach in modern indoor study room, neutral tones, focused look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFkQ49P436IU7rsKAGQ8X_QfLb9WdlAsSROcmNRHOm92n8F-an9OUVedJhSf7K717PADatnVT3d159UYOw8UQMyb7BRPQ05vT--IExUTDLRSlA3a3zmn4FzHiD5ixhWvkzxq30dUSYIDNuyA8-MaLDpqFX76-e06eGYg18KuQGa3auOvFEDiOrj71tHztx9Lzzj1hi2fb4bX9g8LBRfcjtwcKjSAnKBUG5NZeP0Bcy"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface">WGM Elena Chen</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface font-label-sm text-[10px] font-bold">FIDE 2390</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">National Youth Coach, USCF</span>
+</div>
+</div>
+<p class="font-headline-md text-body-lg text-on-surface italic mb-space-md">
+              "Traditional puzzle platforms teach isolated vanity tactics. Chessflow forced my students to understand structural pawn tensions. Two of my students earned IM norms within five months."
+            </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between font-label-sm text-label-sm text-secondary font-semibold">
+<span>+194 FIDE Rating Avg Gain</span>
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-sm mb-space-md">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Modern crisp portrait photo of an analytical male chess player in black turtleneck against minimal light background with chess books on shelf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT1rACGbE1t4r71BmGfhLpwkXvJuKJuaH4-7W3c7VcewmS6BnQtGL25LscGvwecWJBndmvV2zbjV0FTIRSqne3pznb26n6LvZQ1oBZ8Jom7vc1VQiV-YXUbglBndL9gUirulXIvn28pdKB-mGFVzVhYOLDD28S6XfQTFf6e45kzo2zRLzUr_UozOLjhaIWjj2XPN-rTbq_WY87QDnmdxqiL87OI_CK_UVfcNyKx1yL"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface">Marcus Ross</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface font-label-sm text-[10px] font-bold">FIDE 2215</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mechanics' Institute Member</span>
+</div>
+</div>
+<p class="font-headline-md text-body-lg text-on-surface italic mb-space-md">
+              "The ACPL time-scramble diagnostic was a revelation. It revealed I wasn't losing games in complex endgames; I was leaking 80 centipawns in the move 15–20 transitions under clock panic."
+            </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between font-label-sm text-label-sm text-secondary font-semibold">
+<span>Diagnosed 41 Repertoire Tripwires</span>
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-lg rounded-xl bg-surface-container-low shadow-sm flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-space-sm mb-space-md">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="Distinguished senior Grandmaster chess player with thoughtful contemplative expression in well-lit private library, architectural style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGZjWtIsGqYz--P-U_vHT5z7W6_03bJlmiWwWj3wTaChTpyG-04XdQZhwcjiq9NglMZLkpR49iELQe8tBzDMVxLIWemuyKOazUB0SfIdrxr_Ml0pFREdus7qkAolk1JRzWBxdMBpr707k303p4V8O4K9yvCuRKxcpBDUT2dhG9SJICst3v0wy_uuHdT52FZ_mUMLyME2ZqiRAismJVx_GxIFF3k3fsFfKfxs41RlH1"/>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-lg text-label-lg text-on-surface">GM Levon Saghatelyan</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface font-label-sm text-[10px] font-bold">FIDE 2752</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">St. Louis Chess Club Lecturer</span>
+</div>
+</div>
+<p class="font-headline-md text-body-lg text-on-surface italic mb-space-md">
+              "The 7-man Syzygy integration combined with clean spaced repetition makes this the closest thing to an infallible digital training second. Scholarly, quiet, and formidable."
+            </p>
+</div>
+<div class="pt-space-sm border-t border-surface-container flex items-center justify-between font-label-sm text-label-sm text-secondary font-semibold">
+<span>Official Preparation Platform</span>
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PRICING & STUDY TIERS -->
+<section class="w-full py-space-xl bg-surface-container-low">
+<div class="w-full px-margin">
+<div class="text-center max-w-2xl mx-auto mb-space-xl">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Transparent Academic Plans</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1 mb-space-xs">
+          Invest in Pedagogical Precision
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Every plan includes full synchronization with Lichess and Chess.com archives. Cancel anytime with zero friction.
+        </p>
+</div>
+<!-- Pricing Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg items-stretch">
+<!-- Tier 1: Candidate -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Candidate</span>
+<div class="flex items-baseline gap-1 my-space-sm">
+<span class="font-display-lg text-headline-lg text-on-surface font-bold">$12</span>
+<span class="font-label-sm text-label-sm text-outline">/ month billed annually</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              For ambitious club competitors seeking structured opening recall and blunder triage.
+            </p>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface mb-space-lg">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Unlimited Repertoire SM-2 Spaced Recall</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Stockfish 16.1 NNUE (32-ply depth)</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Bi-directional Lichess/Chess.com Sync</li>
+<li class="flex items-center gap-2 text-outline"><span class="material-symbols-outlined text-[18px]">close</span> Syzygy 7-Man Instant Cluster</li>
+</ul>
+</div>
+<button class="w-full py-2.5 rounded bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" type="button">
+            Start Free 14-Day Trial
+          </button>
+</div>
+<!-- Tier 2: Grandmaster Track (Featured) -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-xl relative ring-2 ring-secondary flex flex-col justify-between">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-space-md py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-[11px] uppercase tracking-wider font-bold">
+            Most Popular For Tournament Players
+          </div>
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Grandmaster Track</span>
+<div class="flex items-baseline gap-1 my-space-sm">
+<span class="font-display-lg text-headline-lg text-on-surface font-bold">$24</span>
+<span class="font-label-sm text-label-sm text-outline">/ month billed annually</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Full FIDE-grade computational power with unbounded cloud tablebases and GM instruction.
+            </p>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface mb-space-lg">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Everything in Candidate Tier</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> <strong>Unbounded 48+ Ply Engine Depth</strong></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> <strong>Syzygy 7-Man Tablebase Cloud Access</strong></li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> ACPL Time-Fatigue Scramble Forensic Suite</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Live Interactive GM Masterclass Archives</li>
+</ul>
+</div>
+<button class="w-full py-2.5 rounded bg-secondary text-on-secondary font-label-lg text-label-lg hover:bg-secondary-container shadow-md transition-colors" type="button">
+            Claim Grandmaster Pass
+          </button>
+</div>
+<!-- Tier 3: Academy / Titled Coach -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Academy &amp; Coach</span>
+<div class="flex items-baseline gap-1 my-space-sm">
+<span class="font-display-lg text-headline-lg text-on-surface font-bold">$79</span>
+<span class="font-label-sm text-label-sm text-outline">/ month billed annually</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+              Architected for chess schools, club captains, and titled coaches supervising rosters.
+            </p>
+<ul class="space-y-space-sm font-body-sm text-body-sm text-on-surface mb-space-lg">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Up to 25 Synchronized Student Profiles</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Centralized Blunder Aggregation Dashboard</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Repertoire Drill Assignments &amp; Grading</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-[18px]">check</span> Dedicated REST API Engine Access</li>
+</ul>
+</div>
+<button class="w-full py-2.5 rounded bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-colors" type="button">
+            Request Academy Demo
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ SECTION ACCORDION -->
+<section class="w-full py-space-xl bg-surface-container-lowest">
+<div class="w-full px-margin max-w-4xl mx-auto">
+<div class="text-center mb-space-lg">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Platform Answers</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mt-1">Frequently Asked Questions</h2>
+</div>
+<div class="space-y-space-sm" id="faq-accordion">
+<div class="p-space-md rounded bg-surface-container-low transition-colors">
+<button class="w-full flex items-center justify-between text-left font-headline-sm text-headline-sm text-on-surface" type="button">
+<span>How does Chessflow's repertoire training differ from standard flashcards?</span>
+<span class="material-symbols-outlined text-secondary">expand_more</span>
+</button>
+<p class="mt-2 font-body-md text-body-md text-on-surface-variant">
+            Unlike static flashcards, Chessflow understands <strong>transpositions</strong>. If your opponent reaches your target pawn structure through an inverted move order (e.g., English vs Sicilian), Chessflow identifies the identical root and reinforces the same cognitive branch rather than treating it as a novel line.
+          </p>
+</div>
+<div class="p-space-md rounded bg-surface-container-low transition-colors">
+<button class="w-full flex items-center justify-between text-left font-headline-sm text-headline-sm text-on-surface" type="button">
+<span>Do I need to install any software or local chess engines?</span>
+<span class="material-symbols-outlined text-secondary">expand_more</span>
+</button>
+<p class="mt-2 font-body-md text-body-md text-on-surface-variant">
+            None. All engine telemetry, Stockfish 16.1 NNUE evaluations, and 7-man Syzygy calculations execute on our high-performance distributed cloud clusters. You experience sub-millisecond response on any desktop or tablet browser.
+          </p>
+</div>
+<div class="p-space-md rounded bg-surface-container-low transition-colors">
+<button class="w-full flex items-center justify-between text-left font-headline-sm text-headline-sm text-on-surface" type="button">
+<span>Can I import my entire games database from Chess.com or Lichess?</span>
+<span class="material-symbols-outlined text-secondary">expand_more</span>
+</button>
+<p class="mt-2 font-body-md text-body-md text-on-surface-variant">
+            Yes. Through direct read-only API sync, Chessflow ingests your full historical archive in minutes, running automated ACPL forensics across your White and Black games to highlight your top 5 recurring tactical tripwires.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- FINAL IMMERSIVE CTA -->
+<section class="w-full py-space-xl bg-surface-container">
+<div class="w-full px-margin">
+<div class="relative bg-primary text-on-primary rounded-xl p-space-lg md:p-space-xl shadow-2xl overflow-hidden">
+<!-- Abstract background geometric chess square lines -->
+<div class="pointer-events-none absolute -right-20 -bottom-20 w-96 h-96 opacity-10">
+<svg class="w-full h-full text-white" fill="currentColor" viewbox="0 0 100 100">
+<rect height="25" width="25" x="0" y="0"></rect>
+<rect height="25" width="25" x="50" y="0"></rect>
+<rect height="25" width="25" x="25" y="25"></rect>
+<rect height="25" width="25" x="75" y="25"></rect>
+<rect height="25" width="25" x="0" y="50"></rect>
+<rect height="25" width="25" x="50" y="50"></rect>
+<rect height="25" width="25" x="25" y="75"></rect>
+<rect height="25" width="25" x="75" y="75"></rect>
+</svg>
+</div>
+<div class="relative max-w-2xl">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider font-bold">Start Your Preparation Today</span>
+<h2 class="font-display-lg text-display-lg text-on-primary mt-2 mb-space-sm leading-tight">
+            Ready to eliminate your recurring tactical blindspots?
+          </h2>
+<p class="font-body-lg text-body-lg text-on-primary-container mb-space-lg">
+            Join thousands of tournament competitors who train with mathematical clarity instead of guessing. Instant account creation, zero card needed.
+          </p>
+<!-- Quick Registration Input Form -->
+<div class="flex flex-col sm:flex-row gap-space-sm mb-space-md max-w-md">
+<input class="px-space-md py-3 rounded bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary w-full" placeholder="Enter your email for instant access..." type="email"/>
+<button class="px-space-lg py-3 rounded bg-secondary text-on-secondary font-label-lg text-label-lg whitespace-nowrap hover:bg-secondary-container transition-all flex items-center justify-center gap-1 shadow-md" type="button">
+<span>Begin Free Trial</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<div class="flex items-center gap-space-md text-on-primary-container font-label-sm text-label-sm">
+<span>Or synchronize via:</span>
+<button class="hover:text-on-primary flex items-center gap-1 transition-colors underline" type="button">Chess.com OAuth</button>
+<span>•</span>
+<button class="hover:text-on-primary flex items-center gap-1 transition-colors underline" type="button">Lichess Account</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // Simple micro-interactions for the landing page showcase
+  document.addEventListener('DOMContentLoaded', () => {
+    // Board flip micro-interaction
+    const flipBtn = document.getElementById('board-flip-btn');
+    const boardGrid = document.getElementById('chessboard-grid');
+    if (flipBtn && boardGrid) {
+      flipBtn.addEventListener('click', () => {
+        boardGrid.classList.toggle('rotate-180');
+      });
+    }
+
+    // Audio toggle indicator
+    const soundBtn = document.getElementById('engine-eval-sound');
+    let soundEnabled = true;
+    if (soundBtn) {
+      soundBtn.addEventListener('click', () => {
+        soundEnabled = !soundEnabled;
+        soundBtn.innerHTML = soundEnabled 
+          ? '<span class="material-symbols-outlined text-[18px]">volume_up</span>'
+          : '<span class="material-symbols-outlined text-[18px] text-outline">volume_off</span>';
+      });
+    }
+  });
+</script></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-high py-space-xl"><div class="w-full px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div><div class="flex items-center gap-space-sm mb-space-md"><img alt="Chessflow Brand Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-sm text-headline-sm text-on-surface">Chessflow</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">An intellectual sanctuary engineered for grandmaster-level analytical rigor, deep tactical mastery, and modern chess scholarship.</p><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Stockfish 16.1 NNUE: Active (0.0ms ping)</span></div></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Learning Paths</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Foundations of Capablanca</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Hypermodern Pawn Structures</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Rook Endgame Diagnostics</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Sicilian Defense Repertoire</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Positional Sacrifices Lab</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Platform Resources</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">PGN / FEN Cloud Vault</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Opening Book Explorers</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Masters Tournament Archive</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">API for Chess Engines</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">System Uptime &amp; Benchmarks</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Keyboard Shortcuts</h4><ul class="space-y-space-xs"><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Next Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">→</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Previous Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">←</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Flip Board</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">F</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Toggle Engine</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">Space</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Branch Subvariation</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">B</kbd></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Engine Telemetry</h4><div class="p-space-sm bg-surface-container-low rounded border border-surface-container-high space-y-space-xs"><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Engine Depth</span><span class="text-on-surface font-semibold">38 ply</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Nodes / Sec</span><span class="text-on-surface font-semibold">14.2M nps</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Cloud Hash</span><span class="text-on-surface font-semibold">2048 MB</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Syzygy Tablebases</span><span class="text-on-surface font-semibold">7-man WDL</span></div></div></div></div><div class="pt-space-md border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 Chessflow Analytics Inc. Precision tools for grandmaster study.</div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Terms of Study</a><a class="hover:text-on-surface transition-colors" href="#">Security &amp; Fair Play</a></div></div></div></footer></body></html>

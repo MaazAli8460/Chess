@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+<!-- STITCH_SHADER_START:ANIMATION_31 class="fixed inset-0 w-full h-full" -->
+<div class="fixed inset-0 w-full h-full" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_31" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_31');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+
+// Chessflow subtle neural geometric matrix shader
+void main() {
+    vec2 st = (gl_FragCoord.xy - 0.5 * u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+    vec2 mouse = u_mouse / u_resolution;
+    
+    // Isometric/angled grid coordinate distortion
+    float t = u_time * 0.15;
+    vec2 p = st * 3.5;
+    p.x += cos(p.y * 0.8 + t * 0.5) * 0.2;
+    p.y += sin(p.x * 0.8 + t * 0.4) * 0.2;
+    
+    // Chessboard isometric lattice lines
+    vec2 grid = abs(fract(p - 0.5) - 0.5) / fwidth(p);
+    float line = min(grid.x, grid.y);
+    float gridPattern = 1.0 - min(line, 1.0);
+    
+    // Secondary subtle diagonal energy vectors
+    float diag = sin(p.x * 3.0 + p.y * 3.0 + t) * cos(p.x * 2.0 - p.y * 2.0 - t * 0.8);
+    float glow = smoothstep(-0.2, 1.0, diag) * 0.4;
+    
+    // Radial falloff from center / mouse influence
+    float dist = length(st - (mouse - 0.5) * 0.3);
+    float vignette = smoothstep(1.6, 0.2, dist);
+    
+    // Brand colors: Deep sapphire/navy (#091120) with glowing royal blue (#2563eb / #38bdf8) and subtle amber/gold accent (#eab308)
+    vec3 deepNavy = vec3(0.035, 0.066, 0.125);
+    vec3 royalBlue = vec3(0.145, 0.388, 0.921);
+    vec3 lightCyan = vec3(0.22, 0.74, 0.97);
+    vec3 softGold = vec3(0.92, 0.70, 0.15);
+    
+    vec3 col = deepNavy;
+    col += royalBlue * (gridPattern * 0.08 + glow * 0.12) * vignette;
+    col += lightCyan * (pow(glow, 2.0) * 0.08) * vignette;
+    col += softGold * (smoothstep(0.7, 0.9, sin(p.x * 4.0 + t * 0.5)) * 0.03) * vignette;
+
+    gl_FragColor = vec4(col, 0.92);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_31 -->
+</body>
+</html>

@@ -2,7 +2,7 @@ import json
 from decimal import Decimal
 
 from django.contrib.admin.views.decorators import staff_member_required
-from django.db.models import Count, Sum
+from django.db.models import Count, Q, Sum
 from django.db.models.functions import TruncMonth
 from django.shortcuts import render
 from django.utils import timezone
@@ -21,13 +21,11 @@ def _decimal_default(obj):
 @staff_member_required
 def analytics_dashboard(request):
     now = timezone.now()
-    twelve_months_ago = now.replace(month=now.month, day=1) if now.month == 12 else \
-        now.replace(year=now.year - 1 if now.month <= 1 else now.year,
-                    month=(now.month - 1) or 12, day=1)
+    twelve_months_ago = now.replace(year=now.year - 1, day=1)
 
     revenue_qs = (
         PaymentTransaction.objects
-        .filter(status=PaymentTransaction.STATUS_SUCCESS)
+        .filter(status=PaymentTransaction.STATUS_SUCCESS, created_at__gte=twelve_months_ago)
         .annotate(month=TruncMonth("created_at"))
         .values("month")
         .annotate(total=Sum("amount"))
@@ -36,6 +34,7 @@ def analytics_dashboard(request):
 
     enrollments_qs = (
         Enrollment.objects
+        .filter(enrolled_at__gte=twelve_months_ago)
         .annotate(month=TruncMonth("enrolled_at"))
         .values("month")
         .annotate(count=Count("id"))
@@ -47,7 +46,7 @@ def analytics_dashboard(request):
         .annotate(
             enrollment_count=Count("enrollments"),
             completed_lessons=Count("enrollments__lesson_progress",
-                                    filter=Count("enrollments__lesson_progress__is_completed")),
+                                    filter=Q(enrollments__lesson_progress__is_completed=True)),
         )
         .order_by("-enrollment_count")[:10]
     )

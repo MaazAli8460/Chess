@@ -3,6 +3,7 @@
 from pathlib import Path
 
 import environ
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +28,9 @@ DEBUG = env("DEBUG")
 ALLOWED_HOSTS = env("ALLOWED_HOSTS")
 CSRF_TRUSTED_ORIGINS = env("CSRF_TRUSTED_ORIGINS")
 VERCEL_URL = env("VERCEL_URL", default="")
+
+if not DEBUG and SECRET_KEY == "change-me-in-production":
+    raise ImproperlyConfigured("SECRET_KEY must be configured when DEBUG=False.")
 
 if VERCEL_URL:
     if VERCEL_URL not in ALLOWED_HOSTS:

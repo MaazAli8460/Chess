@@ -1,5 +1,10 @@
 from django import forms
 
+from blog.models import Article, ArticleCategory
+from courses.models import Category, Lesson
+from payments.models import SubscriptionPlan
+from users.models import User
+
 from .models import Testimonial
 
 
@@ -32,3 +37,51 @@ class TestimonialForm(forms.ModelForm):
     class Meta:
         model = Testimonial
         fields = ("name", "title", "quote", "rating", "is_published", "sort_order")
+
+
+class LessonForm(forms.ModelForm):
+    class Meta:
+        model = Lesson
+        fields = (
+            "title",
+            "order",
+            "content",
+            "video_url",
+            "fen_start",
+            "pgn_example",
+            "is_free_preview",
+            "estimated_minutes",
+        )
+        widgets = {"content": forms.Textarea(attrs={"rows": 8}), "pgn_example": forms.Textarea(attrs={"rows": 6})}
+
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ("title", "category", "author", "body", "meta_description", "is_published", "published_at")
+        widgets = {"body": forms.Textarea(attrs={"rows": 14}), "meta_description": forms.Textarea(attrs={"rows": 2})}
+
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ("name",)
+
+
+class ArticleCategoryForm(forms.ModelForm):
+    class Meta:
+        model = ArticleCategory
+        fields = ("name",)
+
+
+class SubscriptionPlanForm(forms.ModelForm):
+    class Meta:
+        model = SubscriptionPlan
+        fields = ("name", "description", "price_monthly", "stripe_price_id", "is_active")
+        widgets = {"description": forms.Textarea(attrs={"rows": 4})}
+
+
+class OperationsUserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ("first_name", "last_name", "email", "role", "is_active", "is_staff", "is_email_verified")

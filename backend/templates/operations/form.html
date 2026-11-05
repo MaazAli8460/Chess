@@ -1,0 +1,7 @@
+{% extends 'operations/layout.html' %}
+
+{% block page_title %}{{ title }} | Operations | ChessLearn{% endblock %}
+{% block operations_content %}
+<div class="operations-topbar"><div><p class="eyebrow">{{ eyebrow }}</p><h1 class="operations-title">{{ title }}</h1><p class="operations-subtitle">Make a change and keep the public experience polished.</p></div>{% if back_id %}<a class="btn btn-brand-outline" href="{% url back_url back_id %}">← Back</a>{% else %}<a class="btn btn-brand-outline" href="{% url back_url %}">← Back</a>{% endif %}</div>
+<div class="ops-form-panel form-shell"><form method="post" novalidate>{% csrf_token %}{% include 'partials/form_fields.html' with form=form %}<div class="form-actions"><button class="btn btn-brand" type="submit">Save changes</button>{% if back_id %}<a class="btn btn-brand-outline" href="{% url back_url back_id %}">Cancel</a>{% else %}<a class="btn btn-brand-outline" href="{% url back_url %}">Cancel</a>{% endif %}</div></form></div>
+{% endblock %}

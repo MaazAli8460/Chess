@@ -1,0 +1,7 @@
+{% extends 'operations/layout.html' %}
+
+{% block page_title %}Categories | Operations | ChessLearn{% endblock %}
+{% block operations_content %}
+<div class="operations-topbar"><div><p class="eyebrow">Taxonomy</p><h1 class="operations-title">{% if article_mode %}Article categories{% else %}Course categories{% endif %}</h1><p class="operations-subtitle">Keep the library easy to browse for both students and your team.</p></div></div>
+<div class="ops-grid-two"><div class="ops-form-panel form-shell"><p class="eyebrow">Create a label</p><h2>New category</h2><form method="post" novalidate>{% csrf_token %}{% include 'partials/form_fields.html' with form=form %}<button class="btn btn-brand" type="submit">Add category</button></form></div><div class="ops-panel"><div class="ops-panel-heading"><div><p class="eyebrow">Current labels</p><h2>{% if article_mode %}{{ article_categories|length }}{% else %}{{ categories|length }}{% endif %} categories</h2></div></div><div class="category-grid">{% if not article_mode %}{% for category in categories %}<div class="category-card"><strong>{{ category.name }}</strong><small>{{ category.courses.count }} courses</small></div>{% endfor %}{% else %}{% for category in article_categories %}<div class="category-card"><strong>{{ category.name }}</strong><small>{{ category.articles.count }} articles</small></div>{% endfor %}{% endif %}</div></div></div>
+{% endblock %}

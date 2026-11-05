@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chessflow - Create Account & Role Selection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            surface: '#f8f9ff',
+            'surface-dim': '#cbdbf5',
+            'surface-bright': '#f8f9ff',
+            'surface-container-lowest': '#ffffff',
+            'surface-container-low': '#eff4ff',
+            'surface-container': '#e5eeff',
+            'surface-container-high': '#dce9ff',
+            'surface-container-highest': '#d3e4fe',
+            primary: '#000000',
+            secondary: '#0051d5',
+            'secondary-container': '#316bf3',
+            'on-surface': '#0b1c30',
+            'on-surface-variant': '#45464d',
+            outline: '#76777d',
+            'outline-variant': '#c6c6cd',
+            error: '#ba1a1a',
+          },
+          fontFamily: {
+            headline: ['Newsreader', 'serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col antialiased selection:bg-secondary/15 selection:text-secondary">
+
+  <!-- TOP SHELL HEADER -->
+  <header class="fixed top-0 w-full z-40 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(11,28,48,0.04)] border-b border-surface-container-high h-16">
+    <div class="h-full max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-on-surface text-surface flex items-center justify-center font-headline font-bold text-lg shadow-sm">
+            ♔
+          </div>
+          <span class="font-headline text-2xl tracking-tight text-on-surface font-semibold">Chessflow</span>
+        </div>
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-on-surface-variant">
+          <a href="#" class="hover:text-secondary transition-colors">Courses</a>
+          <a href="#" class="hover:text-secondary transition-colors">Chess Lab</a>
+          <a href="#" class="hover:text-secondary transition-colors">Repertoire</a>
+          <a href="#" class="hover:text-secondary transition-colors">Research Blog</a>
+          <a href="#" class="hover:text-secondary transition-colors">Plans</a>
+        </nav>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span class="text-xs text-on-surface-variant hidden sm:inline-flex items-center gap-1.5 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Stockfish 16.1 NNUE Active
+        </span>
+        <div class="h-4 w-px bg-outline-variant/60 hidden sm:block"></div>
+        <span class="text-xs text-on-surface-variant">Already have an account?</span>
+        <a href="#" class="text-xs font-semibold px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-secondary border border-outline-variant/60 transition-all">
+          Sign In
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SIGNUP ONBOARDING CONTAINER -->
+  <main class="flex-1 pt-24 pb-16 px-4 md:px-8">
+    <div class="max-w-5xl mx-auto">
+
+      <!-- SECTION HEADER -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-secondary text-xs font-semibold uppercase tracking-wider mb-3">
+          <span class="material-symbols-outlined text-[15px]">flag</span>
+          Onboarding & Role Customization
+        </div>
+        <h1 class="font-headline text-3xl md:text-5xl font-semibold text-on-surface leading-tight">
+          Join Chessflow — Choose Your Path
+        </h1>
+        <p class="text-sm md:text-base text-on-surface-variant mt-3 leading-relaxed">
+          Customized training modules, engine telemetry, and repertoire architects tailored to your exact competitive goals.
+        </p>
+      </div>
+
+      <!-- STEP 1: MULTI-USER ROLE SELECTION CARDS (3 Tracks) -->
+      <div class="mb-10">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-bold uppercase tracking-wider text-on-surface flex items-center gap-1.5">
+            <span class="w-5 h-5 rounded-full bg-secondary text-white flex items-center justify-center text-[11px] font-bold">1</span>
+            Select Your Analytical Track
+          </span>
+          <span class="text-xs text-secondary font-medium">You can switch workspaces anytime</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+          <!-- ROLE 1: STUDENT / COMPETITOR (SELECTED STATE) -->
+          <div class="bg-surface-container-lowest border-2 border-secondary ring-4 ring-secondary/15 rounded-2xl p-6 shadow-md relative cursor-pointer flex flex-col justify-between transition-all">
+            <span class="absolute -top-3 right-4 px-2.5 py-0.5 rounded-full bg-secondary text-white text-[10px] font-bold tracking-wider uppercase shadow-xs">
+              Selected Track
+            </span>
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-50 text-secondary flex items-center justify-center border border-blue-200 mb-4">
+                <span class="material-symbols-outlined text-[26px]">psychology</span>
+              </div>
+              <h3 class="font-headline text-xl font-semibold text-on-surface">
+                Competitive Student & Player
+              </h3>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                Ideal for club players, adult improvers, and tournament competitors (1200–2200 ELO).
+              </p>
+
+              <!-- Feature bullets -->
+              <ul class="mt-4 space-y-2 text-xs text-slate-700">
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Automated Blunder Autopsy & ACPL loss triage</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Spaced Repetition (SM-2) Repertoire branch drills</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Chess.com & Lichess instant game sync</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Stockfish 16.1 NNUE depth 42 evaluation</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-surface-container-high">
+              <label class="block text-[11px] font-semibold text-on-surface uppercase tracking-wider mb-1">
+                Your Primary Rating Goal
+              </label>
+              <input type="text" value="Reach 2000 Candidate Master" class="w-full px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant text-xs text-on-surface font-medium focus:border-secondary outline-none"/>
+            </div>
+          </div>
+
+          <!-- ROLE 2: TITLED COACH & INSTRUCTOR -->
+          <div class="bg-surface-container-lowest border border-surface-container-high hover:border-slate-400 rounded-2xl p-6 shadow-sm cursor-pointer flex flex-col justify-between transition-all group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center border border-amber-200 mb-4 group-hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined text-[26px]">school</span>
+              </div>
+              <h3 class="font-headline text-xl font-semibold text-on-surface">
+                Titled Coach & Instructor
+              </h3>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                For CMs, FMs, IMs, GMs, and certified trainers managing private or academy students.
+              </p>
+
+              <!-- Feature bullets -->
+              <ul class="mt-4 space-y-2 text-xs text-slate-700">
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Student Cohort Telemetry & blunder matrix</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Custom PGN Curricula & drill homework dispatch</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Classroom Multi-board live evaluation sandbox</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Official Coach Profile in Directory</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-surface-container-high">
+              <label class="block text-[11px] font-semibold text-on-surface uppercase tracking-wider mb-1">
+                FIDE ID / Title Verification
+              </label>
+              <input type="text" placeholder="FIDE ID (e.g. 1503014) or title" class="w-full px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant text-xs text-on-surface font-medium focus:border-secondary outline-none"/>
+            </div>
+          </div>
+
+          <!-- ROLE 3: ACADEMY, CLUB & SCHOLARLY RESEARCHER -->
+          <div class="bg-surface-container-lowest border border-surface-container-high hover:border-slate-400 rounded-2xl p-6 shadow-sm cursor-pointer flex flex-col justify-between transition-all group">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center border border-purple-200 mb-4 group-hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined text-[26px]">account_balance</span>
+              </div>
+              <h3 class="font-headline text-xl font-semibold text-on-surface">
+                Institution & Club Lab
+              </h3>
+              <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">
+                For collegiate chess clubs, scholastic federations, and opening theorists.
+              </p>
+
+              <!-- Feature bullets -->
+              <ul class="mt-4 space-y-2 text-xs text-slate-700">
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Syzygy 7-Man Cluster API & cloud compute</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Bulk Game Import (10,000+ PGNs at once)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Team Leaderboards & multi-seat license vault</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">check_circle</span>
+                  <span>Raw Centipawn Loss CSV data exports</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-surface-container-high">
+              <label class="block text-[11px] font-semibold text-on-surface uppercase tracking-wider mb-1">
+                Organization / Team Name
+              </label>
+              <input type="text" placeholder="e.g. Berkeley Chess Club" class="w-full px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant text-xs text-on-surface font-medium focus:border-secondary outline-none"/>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STEP 2: ACCOUNT REGISTRATION DETAILS FORM -->
+      <div class="bg-surface-container-lowest border border-surface-container-high rounded-2xl shadow-lg p-8 md:p-10">
+        <div class="flex items-center justify-between mb-6 pb-4 border-b border-surface-container-high">
+          <span class="text-xs font-bold uppercase tracking-wider text-on-surface flex items-center gap-1.5">
+            <span class="w-5 h-5 rounded-full bg-secondary text-white flex items-center justify-center text-[11px] font-bold">2</span>
+            Create Your Account Credentials
+          </span>
+          <span class="text-xs text-emerald-700 font-semibold flex items-center gap-1">
+            <span class="material-symbols-outlined text-[15px]">security</span>
+            14-Day Free Grandmaster Access
+          </span>
+        </div>
+
+        <!-- 1-CLICK SOCIAL SIGNUP BUTTONS -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+          <button type="button" class="py-2.5 px-3 rounded-xl border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-800 font-medium text-xs flex items-center justify-center gap-2 shadow-xs transition-all">
+            <span class="w-5 h-5 rounded bg-emerald-600 text-white flex items-center justify-center text-[11px] font-black">♟</span>
+            <span>Link Chess.com</span>
+          </button>
+          <button type="button" class="py-2.5 px-3 rounded-xl border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-800 font-medium text-xs flex items-center justify-center gap-2 shadow-xs transition-all">
+            <span class="w-5 h-5 rounded bg-slate-900 text-white flex items-center justify-center text-[11px] font-black">♞</span>
+            <span>Link Lichess.org</span>
+          </button>
+          <button type="button" class="py-2.5 px-3 rounded-xl border border-slate-300 hover:border-slate-400 bg-white hover:bg-slate-50 text-slate-800 font-medium text-xs flex items-center justify-center gap-2 shadow-xs transition-all">
+            <span class="material-symbols-outlined text-[16px] text-blue-600">mail</span>
+            <span>Sign up with Google</span>
+          </button>
+        </div>
+
+        <!-- DIVIDER -->
+        <div class="relative flex items-center justify-center my-6">
+          <div class="w-full border-t border-surface-container-high"></div>
+          <span class="absolute bg-surface-container-lowest px-3 text-xs text-on-surface-variant font-medium">
+            or complete direct registration
+          </span>
+        </div>
+
+        <!-- FORM INPUTS (2-COLUMN GRID) -->
+        <form class="space-y-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold text-on-surface uppercase tracking-wider mb-1.5">
+                Full Name
+              </label>
+              <input type="text" placeholder="e.g. Alex Vance" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant focus:border-secondary focus:bg-surface-container-lowest outline-none text-sm text-on-surface font-medium transition-all"/>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-on-surface uppercase tracking-wider mb-1.5">
+                Email Address
+              </label>
+              <input type="email" placeholder="e.g. alex@vance-chess.org" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant focus:border-secondary focus:bg-surface-container-lowest outline-none text-sm text-on-surface font-medium transition-all"/>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-on-surface uppercase tracking-wider mb-1.5">
+                Username / Callout Handle
+              </label>
+              <div class="relative">
+                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-xs font-mono font-bold">@</span>
+                <input type="text" placeholder="avance_chess" class="w-full pl-8 pr-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant focus:border-secondary focus:bg-surface-container-lowest outline-none text-sm text-on-surface font-medium transition-all"/>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-on-surface uppercase tracking-wider mb-1.5">
+                Initial Rating Bracket
+              </label>
+              <select class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant focus:border-secondary focus:bg-surface-container-lowest outline-none text-sm text-on-surface font-medium transition-all">
+                <option>1200–1500 Club Intermediate</option>
+                <option>1500–1800 Tournament Competitor</option>
+                <option selected>1800–2000 Advanced / Candidate</option>
+                <option>2000–2200 National Master Track</option>
+                <option>2200+ FIDE Master & Grandmaster</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+            <div>
+              <label class="block text-xs font-semibold text-on-surface uppercase tracking-wider mb-1.5">
+                Create Password
+              </label>
+              <input type="password" value="Masterpiece2025#" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant focus:border-secondary focus:bg-surface-container-lowest outline-none text-sm text-on-surface font-medium transition-all"/>
+              <div class="flex items-center gap-1.5 mt-1.5">
+                <div class="flex-1 h-1 bg-emerald-500 rounded-full"></div>
+                <div class="flex-1 h-1 bg-emerald-500 rounded-full"></div>
+                <div class="flex-1 h-1 bg-emerald-500 rounded-full"></div>
+                <div class="flex-1 h-1 bg-slate-200 rounded-full"></div>
+                <span class="text-[10px] text-emerald-700 font-semibold shrink-0 ml-1">Strong Password</span>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-on-surface uppercase tracking-wider mb-1.5">
+                Confirm Password
+              </label>
+              <input type="password" value="Masterpiece2025#" class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-low border border-outline-variant focus:border-secondary focus:bg-surface-container-lowest outline-none text-sm text-on-surface font-medium transition-all"/>
+              <span class="text-[10px] text-slate-500 block mt-1.5">Must be at least 10 characters with numbers & symbols</span>
+            </div>
+          </div>
+
+          <!-- TERMS & COMPLIANCE -->
+          <div class="pt-2">
+            <label class="flex items-start gap-2.5 cursor-pointer select-none">
+              <input type="checkbox" checked class="w-4 h-4 rounded text-secondary border-outline-variant focus:ring-secondary mt-0.5"/>
+              <span class="text-xs text-on-surface-variant leading-relaxed">
+                I agree to the <a href="#" class="text-secondary hover:underline">Terms of Study</a>, <a href="#" class="text-secondary hover:underline">Engine Fair Play Ethics Policy</a>, and consent to cloud synchronization of my game archives under FIDE privacy protocols.
+              </span>
+            </label>
+          </div>
+
+          <!-- PRIMARY SUBMIT CTA -->
+          <div class="pt-4">
+            <button type="button" class="w-full py-3.5 rounded-xl bg-secondary text-white font-semibold text-sm hover:bg-secondary-container transition-all shadow-md flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+              <span>Create Account & Start 14-Day Grandmaster Trial</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- TRUST BAR -->
+        <div class="mt-8 pt-6 border-t border-surface-container-high flex flex-wrap items-center justify-between gap-4 text-xs text-on-surface-variant">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px] text-emerald-600">verified</span>
+            <span>Over 14,200 tournament competitors currently training</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <span>No credit card required for trial</span>
+            <span>•</span>
+            <span>Instant Chess.com sync</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- MINIMAL AUTH FOOTER -->
+  <footer class="py-6 border-t border-surface-container-high bg-surface-container-lowest text-xs text-on-surface-variant">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>© 2025 Chessflow Analytics Inc. Precision tools for grandmaster study.</div>
+      <div class="flex items-center gap-6">
+        <a href="#" class="hover:text-on-surface transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-on-surface transition-colors">Fair Play Ethics</a>
+        <a href="#" class="hover:text-on-surface transition-colors">FIDE Data Standards</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

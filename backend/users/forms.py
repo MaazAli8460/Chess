@@ -54,7 +54,6 @@ class SignUpForm(StyledFormMixin, UserCreationForm):
         fields = (
             "username",
             "email",
-            "role",
             "chess_com_username",
             "password1",
             "password2",

@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"outline-variant":"#c6c6cd","surface-container-low":"#eff4ff","surface":"#f8f9ff","inverse-surface":"#213145","primary":"#000000","tertiary-fixed":"#ffdcc3","error-container":"#ffdad6","on-primary-fixed-variant":"#3f465c","tertiary-container":"#2f1500","primary-fixed":"#dae2fd","primary-container":"#131b2e","on-tertiary-fixed":"#2f1500","tertiary":"#000000","inverse-on-surface":"#eaf1ff","on-secondary":"#ffffff","background":"#f8f9ff","tertiary-fixed-dim":"#ffb77d","on-surface":"#0b1c30","on-primary-container":"#7c839b","on-secondary-container":"#fefcff","on-primary-fixed":"#131b2e","on-tertiary":"#ffffff","on-error":"#ffffff","surface-container-lowest":"#ffffff","surface-tint":"#565e74","error":"#ba1a1a","surface-container":"#e5eeff","on-primary":"#ffffff","on-tertiary-fixed-variant":"#6e3900","surface-bright":"#f8f9ff","surface-dim":"#cbdbf5","on-secondary-fixed-variant":"#003ea8","secondary":"#0051d5","secondary-fixed":"#dbe1ff","surface-container-highest":"#d3e4fe","on-background":"#0b1c30","inverse-primary":"#bec6e0","secondary-container":"#316bf3","surface-container-high":"#dce9ff","on-secondary-fixed":"#00174b","on-surface-variant":"#45464d","secondary-fixed-dim":"#b4c5ff","outline":"#76777d","on-tertiary-container":"#c76c00","on-error-container":"#93000a","primary-fixed-dim":"#bec6e0","surface-variant":"#d3e4fe"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"margin-mobile":"1rem","space-xs":"0.25rem","space-xl":"2.5rem","space-md":"1rem","gutter":"1.5rem","margin":"2.5rem","gutter-mobile":"1rem","space-lg":"1.5rem","space-sm":"0.5rem"},fontFamily:{"headline-md":["Newsreader"],"label-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Newsreader"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"display-lg":["Newsreader"],"headline-sm":["Plus Jakarta Sans"],"label-sm":["Plus Jakarta Sans"],"display-lg-mobile":["Newsreader"],"headline-lg":["Newsreader"]},fontSize:{"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"500"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"0em",fontWeight:"400"}],"headline-lg-mobile":["26px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"500"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.005em",fontWeight:"400"}],"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"500"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"display-lg-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"500"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(11,28,48,0.04)] border-b border-surface-container-high"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><div class="flex items-center gap-space-sm"><img alt="Chessflow Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Chessflow</span></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-label-lg text-label-lg border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="courses" href="#">Courses</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="chess-lab" href="#">Chess Lab</a><a aria-current="page" class="transition-colors py-space-sm text-on-surface font-label-lg text-label-lg border-b-2 border-primary" data-path="opening-repertoire-builder" href="#">Repertoire</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="play" href="#">Play</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="blog" href="#">Blog</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="plans" href="#">Plans</a></nav></div><div class="flex items-center gap-space-md"><div class="relative hidden md:block"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-64 pl-9 pr-space-md py-1.5 bg-surface-container-lowest border border-outline-variant rounded text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-all" placeholder="Search games, openings, master lectures..." type="search"/></div><button aria-label="Notifications" class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><a class="hidden lg:inline-flex items-center gap-space-xs px-space-md py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-on-surface-variant transition-colors" data-path="analysis" href="#"><span class="material-symbols-outlined text-[18px]">neurology</span><span>Analyze Position</span></a><div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCErkvi5la-2lAqb3xAoQ_1dBnALg4G4zWw5zFfcdWu34xdLqRPy2DawIerYuX_E3AR70EUPUta5EQNVO8xejQyHarlbtqUpkKbbxLg5f_7PcYaSqOM7aqSbftLW49G9UXBCBZgGvvW4ABuAXqNurBukKm43UPlm21kwERG3AZIecAfWQWqR2KYsTlGWJkVhFuGKJ5rd-WpIKkiHqvQjG9-fvgCwM19NS6cpnyPE5lR"/><span class="absolute -bottom-1 -right-1 px-1 py-0.2 bg-secondary text-on-secondary rounded text-[9px] font-bold leading-tight uppercase tracking-wider">Pro</span></div><div class="hidden sm:flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight">Grandmaster Track</span><span class="font-label-sm text-label-sm text-on-surface-variant">1840 ELO</span></div></div></div></div></header><main class="w-full pt-16 bg-background min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- Subtle decorative ambient atmospheric glow -->
+<div class="relative w-full overflow-hidden bg-surface pb-space-xl">
+<div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-secondary-fixed opacity-40 blur-3xl pointer-events-none"></div>
+<div class="absolute top-48 -right-32 w-80 h-80 rounded-full bg-surface-container-highest opacity-50 blur-3xl pointer-events-none"></div>
+<!-- SECTION 1: MASTER REPERTOIRE CONTROL BAR -->
+<section class="relative z-10 w-full px-margin pt-space-lg mb-space-lg">
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg flex flex-col xl:flex-row xl:items-center xl:justify-between gap-space-lg">
+<!-- Left: Active Repertoire & Quick Switcher -->
+<div class="flex flex-col sm:flex-row sm:items-center gap-space-lg min-w-0">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[28px]">chess</span>
+</div>
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Active Repertoire</span>
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cloud Synced</span>
+</div>
+<div class="flex items-center gap-space-sm mt-0.5">
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight">White Repertoire: 1. e4 Openings</h1>
+<button class="p-1 rounded hover:bg-surface-container transition-colors text-on-surface-variant hover:text-on-surface" id="toggleRepertoireDropdown" title="Switch repertoire">
+<span class="material-symbols-outlined text-[20px]">swap_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Color Repertoire Segments -->
+<div class="inline-flex p-1 bg-surface-container rounded-lg self-start sm:self-auto">
+<button class="px-space-md py-1.5 rounded-md bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm flex items-center gap-1.5 transition-all">
+<span class="w-2.5 h-2.5 rounded-full bg-surface-container-lowest border border-outline inline-block"></span>
+<span>1. e4 (Open Games)</span>
+</button>
+<button class="px-space-md py-1.5 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md flex items-center gap-1.5 transition-all">
+<span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
+<span>Black (Caro &amp; Nimzo)</span>
+</button>
+</div>
+</div>
+<!-- Center: Quantitative Mastery Metrics -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-md py-space-xs px-space-md bg-surface-container-low rounded-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Depth Coverage</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">88.4%</span>
+<span class="font-label-sm text-label-sm text-emerald-600 font-semibold">+2.1%</span>
+</div>
+<div class="w-24 h-1.5 bg-surface-container rounded-full overflow-hidden mt-1">
+<div class="h-full bg-secondary rounded-full" style="width: 88.4%;"></div>
+</div>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Indexed Lines</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">1,240</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">nodes</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">16 ECO Codes</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">SM-2 Due Cards</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-sm text-headline-sm text-error font-bold">42</span>
+<span class="font-label-sm text-label-sm text-on-error-container font-semibold">reviews</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">14 High Urgency</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">NNUE Engine</span>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">42 ply</span>
+</div>
+<span class="font-label-sm text-label-sm text-emerald-600 flex items-center gap-1 mt-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>SF 16.1 Live
+            </span>
+</div>
+</div>
+<!-- Right: Action Hub -->
+<div class="flex items-center flex-wrap gap-space-xs">
+<button class="px-space-md py-2.5 rounded-md bg-secondary text-on-secondary font-label-md text-label-md hover:bg-secondary-container transition-all flex items-center gap-space-xs shadow-sm" title="Launch dynamic spaced-repetition training">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+<span>Drill Repertoire</span>
+</button>
+<button class="px-space-sm py-2.5 rounded-md bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors flex items-center gap-1.5" title="Audit vulnerabilities &amp; blunder tripwires">
+<span class="material-symbols-outlined text-[18px] text-error">warning</span>
+<span class="hidden sm:inline">Audit Tripwires</span>
+</button>
+<div class="flex items-center bg-surface-container rounded-md p-0.5">
+<button class="px-space-sm py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-lowest transition-all font-label-sm text-label-sm flex items-center gap-1" title="Import PGN or ChessBase repertoire">
+<span class="material-symbols-outlined text-[16px]">file_upload</span>
+<span>Import</span>
+</button>
+<button class="px-space-sm py-2 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container-lowest transition-all font-label-sm text-label-sm flex items-center gap-1" title="Export clean repertoire tree">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Export</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: 3-COLUMN CORE STUDIO WORKSPACE -->
+<section class="w-full px-margin mb-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- ================= LEFT COLUMN: LINE NAVIGATOR & TREE ================= -->
+<div class="lg:col-span-3 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col gap-space-md">
+<!-- Explorer Header & Filter Search -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">account_tree</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Line Architect</h2>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">4 Openings</span>
+</div>
+<!-- Search Field -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px]">search</span>
+<input class="w-full pl-8 pr-3 py-1.5 rounded-lg bg-surface-container-low text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest transition-all" placeholder="Search line, ECO (e.g. C50, B12)..." type="text"/>
+</div>
+<!-- Status Pill Filter -->
+<div class="flex flex-wrap gap-1.5">
+<button class="px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm">All Lines</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors flex items-center gap-1">
+<span>Due (14)</span>
+<span class="w-1.5 h-1.5 rounded-full bg-error inline-block"></span>
+</button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">
+                Tripwires (6)
+              </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm hover:bg-surface-container-high transition-colors">
+                Gaps (8)
+              </button>
+</div>
+<!-- Tree View Navigation -->
+<div class="flex flex-col gap-2 max-h-[660px] overflow-y-auto pr-1">
+<!-- Item 1: Active Branch (Italian Game) -->
+<div class="p-space-sm rounded-lg bg-secondary-fixed/30 shadow-sm flex flex-col gap-2 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">expand_more</span>
+<span class="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-wider">ECO C50 / C54</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold">96% Retained</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold leading-tight">Italian: Giuoco Piano</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 font-mono">1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d3</p>
+</div>
+<!-- Sub variations inside Italian -->
+<div class="pl-4 flex flex-col gap-1.5 bg-surface-container-lowest/70 p-2 rounded-md">
+<div class="p-1.5 rounded bg-surface-container-low flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm font-semibold text-secondary">8. Re1 Giuoco Pianissimo (Active)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">42 ply</span>
+</div>
+<div class="p-1.5 rounded hover:bg-surface-container-low flex items-center justify-between cursor-pointer transition-colors">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface">8. Nbd2 Modern Queenside</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">38 ply</span>
+</div>
+<div class="p-1.5 rounded hover:bg-surface-container-low flex items-center justify-between cursor-pointer transition-colors">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface">8. h3 Patient Restraint</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">36 ply</span>
+</div>
+<div class="p-1.5 rounded hover:bg-surface-container-low flex items-center justify-between cursor-pointer transition-colors bg-error-container/30">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] text-error">warning</span>
+<span class="font-body-sm text-body-sm text-error font-semibold">8. d4?! Nxe4 (Tripwire Node)</span>
+</div>
+<span class="font-label-sm text-label-sm text-error">-0.84</span>
+</div>
+</div>
+</div>
+<!-- Item 2: Sicilian Defense -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-1.5 cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">chevron_right</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">ECO B51 / B30</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-semibold">Needs Review (74%)</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">Sicilian: Moscow &amp; Rossolimo</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 font-mono">1. e4 c5 2. Nf3 d6 3. Bb5+ / 2...Nc6 3. Bb5</p>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span>342 moves mapped</span>
+<span class="text-error font-medium">8 reviews due</span>
+</div>
+</div>
+<!-- Item 3: Caro-Kann -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-1.5 cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">chevron_right</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">ECO B12</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-semibold">Sharp (82%)</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">Caro-Kann: Fantasy Attack</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 font-mono">1. e4 c6 2. d4 d5 3. f3 dxe4 4. fxe4 e5</p>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span>198 moves mapped</span>
+<span class="text-secondary font-medium">Tactical Focus</span>
+</div>
+</div>
+<!-- Item 4: French Defense -->
+<div class="p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex flex-col gap-1.5 cursor-pointer">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">chevron_right</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase tracking-wider">ECO C02</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold">Mastered (91%)</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold leading-tight">French: Advance Paulsen Line</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 font-mono">1. e4 e6 2. d4 d5 3. e5 c5 4. c3 Nc6 5. Nf3</p>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span>264 moves mapped</span>
+<span class="text-on-surface-variant font-medium">2 reviews due</span>
+</div>
+</div>
+</div>
+<!-- Add new branch prompt -->
+<button class="w-full py-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors font-label-md text-label-md text-on-surface flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Create New Branch / Repertoire</span>
+</button>
+</div>
+</div>
+<!-- ================= MIDDLE COLUMN: INTERACTIVE CHESSBOARD & CONTROLS ================= -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Tactical Position Header Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-space-sm">
+<div>
+<span class="font-label-sm text-label-sm text-secondary font-bold tracking-wider uppercase">Giuoco Pianissimo • Move 8</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">1. e4 e5 2. Nf3 Nc6 3. Bc4 Bc5 4. c3 Nf6 5. d3 d6 6. O-O a6 7. a4 Ba7 8. Re1</h3>
+</div>
+<div class="flex items-center gap-1 self-start sm:self-auto">
+<span class="px-2 py-1 rounded bg-surface-container font-label-sm text-label-sm text-on-surface font-semibold">FEN Stored</span>
+<button class="p-1 text-on-surface-variant hover:text-on-surface" title="Copy FEN"><span class="material-symbols-outlined text-[18px]">content_copy</span></button>
+</div>
+</div>
+<!-- CHESSBOARD CONTAINER WITH EVAL BAR -->
+<div class="relative flex items-stretch gap-2.5 my-space-xs">
+<!-- Evaluation Bar -->
+<div class="w-6 bg-primary rounded-md overflow-hidden flex flex-col justify-between shadow-inner relative" title="Engine Evaluation: +0.42 White">
+<!-- White advantageous height (e.g. 56% white) -->
+<div class="w-full bg-primary flex items-start justify-center pt-1" style="height: 44%;">
+<span class="text-[9px] font-bold text-on-primary font-mono tracking-tighter"></span>
+</div>
+<div class="w-full bg-surface-container-lowest flex items-end justify-center pb-1 shadow-sm" style="height: 56%;">
+<span class="text-[9px] font-bold text-on-surface font-mono tracking-tighter">+0.4</span>
+</div>
+</div>
+<!-- 8x8 Board Surface with Coordinates & Pieces -->
+<div class="flex-1 aspect-square bg-surface-container rounded-xl shadow-xl overflow-hidden relative select-none">
+<!-- Board Grid -->
+<div class="w-full h-full grid grid-cols-8 grid-rows-8">
+<!-- ROW 8 (Black back rank) -->
+<!-- a8: Black Rook -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-primary">
+<span class="absolute top-1 left-1.5 font-label-sm text-[10px] text-on-surface-variant/70">8</span>
+<span class="text-3xl select-none font-sans drop-shadow-sm">♜</span>
+</div>
+<!-- b8: Empty -->
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<!-- c8: Black Bishop -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♝</span>
+</div>
+<!-- d8: Black Queen -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♛</span>
+</div>
+<!-- e8: Empty (King Castled) -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- f8: Black Rook -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♜</span>
+</div>
+<!-- g8: Black King (Castled) -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♚</span>
+</div>
+<!-- h8: Empty -->
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<!-- ROW 7 -->
+<!-- a7: Black Bishop (retreat from Bc5 to Ba7) -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-primary bg-secondary-fixed/40">
+<span class="absolute top-1 left-1.5 font-label-sm text-[10px] text-on-surface-variant/70">7</span>
+<span class="text-3xl select-none drop-shadow-sm">♝</span>
+</div>
+<!-- b7: Black Pawn -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♟</span>
+</div>
+<!-- c7: Black Pawn -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♟</span>
+</div>
+<!-- d7: Empty (d6) -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- e7: Empty -->
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<!-- f7: Black Pawn -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♟</span>
+</div>
+<!-- g7: Black Pawn -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♟</span>
+</div>
+<!-- h7: Black Pawn -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♟</span>
+</div>
+<!-- ROW 6 -->
+<!-- a6: Black Pawn (played a6) -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-primary">
+<span class="absolute top-1 left-1.5 font-label-sm text-[10px] text-on-surface-variant/70">6</span>
+<span class="text-3xl select-none drop-shadow-sm">♟</span>
+</div>
+<!-- b6: Empty -->
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<!-- c6: Black Knight -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♞</span>
+</div>
+<!-- d6: Black Pawn -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♟</span>
+</div>
+<!-- e6: Empty -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- f6: Black Knight -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♞</span>
+</div>
+<!-- g6: Empty -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- h6: Empty -->
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<!-- ROW 5 -->
+<div class="bg-surface-container-high flex items-center justify-center relative">
+<span class="absolute top-1 left-1.5 font-label-sm text-[10px] text-on-surface-variant/70">5</span>
+</div>
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- e5: Black Pawn -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-primary">
+<span class="text-3xl select-none drop-shadow-sm">♟</span>
+</div>
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- ROW 4 -->
+<!-- a4: White Pawn -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface">
+<span class="absolute top-1 left-1.5 font-label-sm text-[10px] text-on-surface-variant/70">4</span>
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♙</span>
+</div>
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<!-- c4: White Bishop -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface">
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♗</span>
+</div>
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<!-- e4: White Pawn -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface">
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♙</span>
+</div>
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<!-- ROW 3 -->
+<div class="bg-surface-container-high flex items-center justify-center relative">
+<span class="absolute top-1 left-1.5 font-label-sm text-[10px] text-on-surface-variant/70">3</span>
+</div>
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- c3: White Pawn -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-on-surface">
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♙</span>
+</div>
+<!-- d3: White Pawn -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface">
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♙</span>
+</div>
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- ROW 2 -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative">
+<span class="absolute top-1 left-1.5 font-label-sm text-[10px] text-on-surface-variant/70">2</span>
+</div>
+<!-- b2: White Pawn -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-on-surface">
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♙</span>
+</div>
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<div class="bg-surface-container-high flex items-center justify-center relative"></div>
+<div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- f2: White Pawn -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-on-surface">
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♙</span>
+</div>
+<!-- g2: White Pawn -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface">
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♙</span>
+</div>
+<!-- h2: White Pawn -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-on-surface">
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♙</span>
+</div>
+<!-- ROW 1 (White back rank) -->
+<!-- a1: White Rook -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-on-surface">
+<span class="absolute top-1 left-1.5 font-label-sm text-[10px] text-on-surface-variant/70">1</span>
+<span class="absolute bottom-0.5 right-1.5 font-label-sm text-[10px] text-on-surface-variant/70">a</span>
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♖</span>
+</div>
+<!-- b1: White Knight Nbd2 candidate square -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface">
+<span class="absolute bottom-0.5 right-1.5 font-label-sm text-[10px] text-on-surface-variant/70">b</span>
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♘</span>
+</div>
+<!-- c1: White Bishop -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-on-surface">
+<span class="absolute bottom-0.5 right-1.5 font-label-sm text-[10px] text-on-surface-variant/70">c</span>
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♗</span>
+</div>
+<!-- d1: White Queen -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface">
+<span class="absolute bottom-0.5 right-1.5 font-label-sm text-[10px] text-on-surface-variant/70">d</span>
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♕</span>
+</div>
+<!-- e1: White Rook - TARGET SQUARE OF RECOMMENDED MOVE 8. Re1 -->
+<div class="bg-secondary-fixed/50 flex items-center justify-center relative text-on-surface shadow-inner">
+<span class="absolute bottom-0.5 right-1.5 font-label-sm text-[10px] text-secondary font-bold">e</span>
+<span class="text-3xl select-none drop-shadow-md text-amber-950">♖</span>
+<!-- Move target marker ring -->
+<div class="absolute inset-0 rounded border-2 border-secondary pointer-events-none opacity-80"></div>
+</div>
+<!-- f1: Empty (Rook shifted to e1 from f1) -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative bg-secondary-fixed/20">
+<span class="absolute bottom-0.5 right-1.5 font-label-sm text-[10px] text-on-surface-variant/70">f</span>
+<!-- Origin dot -->
+<div class="w-3 h-3 rounded-full bg-secondary/40"></div>
+</div>
+<!-- g1: White King (Castled) -->
+<div class="bg-surface-container-high flex items-center justify-center relative text-on-surface">
+<span class="absolute bottom-0.5 right-1.5 font-label-sm text-[10px] text-on-surface-variant/70">g</span>
+<span class="text-3xl select-none drop-shadow-sm text-amber-950">♔</span>
+</div>
+<!-- h1: Empty -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative">
+<span class="absolute bottom-0.5 right-1.5 font-label-sm text-[10px] text-on-surface-variant/70">h</span>
+</div>
+</div>
+<!-- Tactical Arrow Indicator SVG Overlay -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none z-10" viewbox="0 0 100 100">
+<!-- Curved recommendation vector from f1 (coord 68.75, 93.75) to e1 (56.25, 93.75) -->
+<defs>
+<marker id="arrow" markerheight="6" markerwidth="6" orient="auto-start-reverse" refx="5" refy="5" viewbox="0 0 10 10">
+<path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#0051d5"></path>
+</marker>
+</defs>
+<line marker-end="url(#arrow)" opacity="0.9" stroke="#0051d5" stroke-linecap="round" stroke-width="2.5" x1="68.75" x2="59" y1="93.75" y2="93.75"></line>
+</svg>
+</div>
+</div>
+<!-- GM PEDAGOGICAL RECOMMENDATION BANNER -->
+<div class="mt-space-md p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Repertoire Pick: 8. Re1</span>
+<span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">+0.42</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Carlsen, Giri, Caruana</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+                “Secures the e4-square and creates flexibility for White to orchestrate Nbd2-f1-g3 or a d3-d4 breakthrough without risking premature central collapse against Black's dark-square battery.”
+              </p>
+</div>
+<!-- BOARD PLAYBACK & ENGINE CONTROLS -->
+<div class="mt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-sm pt-space-xs">
+<!-- Playback bar -->
+<div class="flex items-center gap-1 bg-surface-container rounded-lg p-1">
+<button class="p-1.5 rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-on-surface transition-colors" title="First Move (Home)">
+<span class="material-symbols-outlined text-[18px]">first_page</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-on-surface transition-colors" title="Previous Move (Left Arrow)">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-on-surface transition-colors" title="Next Move (Right Arrow)">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-on-surface transition-colors" title="Last Move (End)">
+<span class="material-symbols-outlined text-[18px]">last_page</span>
+</button>
+<div class="w-px h-5 bg-outline-variant mx-1"></div>
+<button class="p-1.5 rounded hover:bg-surface-container-lowest text-on-surface-variant hover:text-on-surface transition-colors" title="Flip Board (F)">
+<span class="material-symbols-outlined text-[18px]">swap_vertical_circle</span>
+</button>
+</div>
+<!-- Engine & Sparring Bot Toggles -->
+<div class="flex items-center gap-2">
+<button class="px-space-sm py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary">smart_toy</span>
+<span>Play Bot From Here</span>
+</button>
+<div class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-surface-container-low">
+<span class="material-symbols-outlined text-[16px] text-emerald-600">bolt</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-surface">Eval ON</span>
+</div>
+</div>
+</div>
+<!-- MOVE NOTATION TRAIL -->
+<div class="mt-space-md pt-space-sm bg-surface-container-lowest">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Notation Ledger</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Click move to jump</span>
+</div>
+<div class="flex flex-wrap gap-1 text-body-sm font-body-sm bg-surface-container-low p-2 rounded-lg leading-relaxed">
+<span class="text-on-surface-variant font-mono font-medium">1.</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">e4</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">e5</span>
+<span class="text-on-surface-variant font-mono font-medium">2.</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">Nf3</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">Nc6</span>
+<span class="text-on-surface-variant font-mono font-medium">3.</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">Bc4</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">Bc5</span>
+<span class="text-on-surface-variant font-mono font-medium">4.</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">c3</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">Nf6</span>
+<span class="text-on-surface-variant font-mono font-medium">5.</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">d3</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">d6</span>
+<span class="text-on-surface-variant font-mono font-medium">6.</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">O-O</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">a6</span>
+<span class="text-on-surface-variant font-mono font-medium">7.</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">a4</span>
+<span class="px-1 rounded hover:bg-surface-container cursor-pointer">Ba7</span>
+<span class="text-on-surface-variant font-mono font-medium">8.</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary text-on-secondary font-bold cursor-pointer shadow-sm">Re1</span>
+<span class="px-1 text-outline cursor-default">h6...</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ================= RIGHT COLUMN: CANDIDATE MOVE EXPLORER & MASTER ARCHIVE ================= -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- REPERTOIRE CANDIDATE MOVES & MASTER FREQUENCY TABLE -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-md flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">bar_chart</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Candidate Moves</h2>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Masters DB (2600+)</span>
+</div>
+<!-- Master Game Frequency Table -->
+<div class="overflow-hidden rounded-lg bg-surface-container-low">
+<table class="w-full text-left text-body-sm font-body-sm">
+<thead>
+<tr class="bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">
+<th class="py-2 px-3">Move</th>
+<th class="py-2 px-2">Games</th>
+<th class="py-2 px-2">Win %</th>
+<th class="py-2 px-2 text-right">Eval</th>
+</tr>
+</thead>
+<tbody class="divide-none">
+<!-- Row 1: 8. Re1 (Main choice) -->
+<tr class="bg-secondary-fixed/30 hover:bg-secondary-fixed/50 cursor-pointer transition-colors font-medium">
+<td class="py-2.5 px-3 font-bold text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>8. Re1</span>
+</td>
+<td class="py-2.5 px-2 text-on-surface">4,812</td>
+<td class="py-2.5 px-2">
+<div class="flex items-center gap-1">
+<div class="w-16 h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-slate-900 h-full" style="width: 58%;" title="White 58%"></div>
+<div class="bg-slate-400 h-full" style="width: 26%;" title="Draw 26%"></div>
+<div class="bg-slate-200 h-full" style="width: 16%;" title="Black 16%"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">58%</span>
+</div>
+</td>
+<td class="py-2.5 px-2 text-right font-mono font-semibold text-secondary">+0.42</td>
+</tr>
+<!-- Row 2: 8. Nbd2 -->
+<tr class="hover:bg-surface-container cursor-pointer transition-colors">
+<td class="py-2 px-3 text-on-surface font-semibold">8. Nbd2</td>
+<td class="py-2 px-2 text-on-surface-variant">2,140</td>
+<td class="py-2 px-2">
+<div class="flex items-center gap-1">
+<div class="w-16 h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-slate-900 h-full" style="width: 55%;"></div>
+<div class="bg-slate-400 h-full" style="width: 29%;"></div>
+<div class="bg-slate-200 h-full" style="width: 16%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">55%</span>
+</div>
+</td>
+<td class="py-2 px-2 text-right font-mono text-on-surface-variant">+0.38</td>
+</tr>
+<!-- Row 3: 8. h3 -->
+<tr class="hover:bg-surface-container cursor-pointer transition-colors">
+<td class="py-2 px-3 text-on-surface font-semibold">8. h3</td>
+<td class="py-2 px-2 text-on-surface-variant">1,890</td>
+<td class="py-2 px-2">
+<div class="flex items-center gap-1">
+<div class="w-16 h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-slate-900 h-full" style="width: 54%;"></div>
+<div class="bg-slate-400 h-full" style="width: 30%;"></div>
+<div class="bg-slate-200 h-full" style="width: 16%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">54%</span>
+</div>
+</td>
+<td class="py-2 px-2 text-right font-mono text-on-surface-variant">+0.31</td>
+</tr>
+<!-- Row 4: 8. Bb3 -->
+<tr class="hover:bg-surface-container cursor-pointer transition-colors">
+<td class="py-2 px-3 text-on-surface font-semibold">8. Bb3</td>
+<td class="py-2 px-2 text-on-surface-variant">740</td>
+<td class="py-2 px-2">
+<div class="flex items-center gap-1">
+<div class="w-16 h-2 bg-surface-container rounded-full overflow-hidden flex">
+<div class="bg-slate-900 h-full" style="width: 51%;"></div>
+<div class="bg-slate-400 h-full" style="width: 32%;"></div>
+<div class="bg-slate-200 h-full" style="width: 17%;"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">51%</span>
+</div>
+</td>
+<td class="py-2 px-2 text-right font-mono text-on-surface-variant">+0.18</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- PERSONAL STATS IN THIS LINE -->
+<div class="p-space-sm rounded-lg bg-surface-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">person_check</span>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider block">Your Performance (Alex)</span>
+<span class="font-body-md text-body-md font-bold text-on-surface">64% Winrate in 8. Re1</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-emerald-200 text-emerald-900 font-bold">18-3-4</span>
+</div>
+<!-- TRIPWIRE & BLUNDER DANGER ALERT -->
+<div class="p-space-md rounded-lg bg-error-container/20 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-error text-[20px]">crisis_alert</span>
+<span class="font-label-md text-label-md font-bold text-error">Personal Tripwire Warning</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold">2 Past Losses</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">
+                Do <strong class="font-semibold text-error">not</strong> rush with <span class="font-mono bg-surface-container px-1 rounded">8. d4?!</span> here. Black answers instantly with <span class="font-mono bg-surface-container px-1 rounded">8...Nxe4 9. d5 Ne7</span> leaving White with overextended pawns and an unfavorable -0.84 swing.
+              </p>
+<div class="flex items-center gap-2 mt-1">
+<button class="px-2.5 py-1 rounded bg-error text-on-error font-label-sm text-label-sm hover:opacity-90 transition-opacity">
+                  Add To Memory Trap Drill
+                </button>
+</div>
+</div>
+<!-- PERSONAL REPERTOIRE NOTE EDITOR -->
+<div class="flex flex-col gap-1.5 pt-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-bold uppercase tracking-wider">Repertoire Study Note</label>
+<span class="font-label-sm text-label-sm text-emerald-600">Saved to Cloud</span>
+</div>
+<textarea class="w-full p-2.5 rounded-lg bg-surface-container-low text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest resize-none transition-all" rows="3">Must remember to play a4 before Ba7! If Black gets ...a5 in early, our Italian dark-square bishop loses its safe outpost.</textarea>
+<div class="flex items-center justify-between mt-1">
+<button class="text-secondary hover:text-primary font-label-sm text-label-sm flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">add_link</span>
+<span>Link Grandmaster PGN Study</span>
+</button>
+<button class="px-3 py-1.5 rounded-md bg-primary text-on-primary font-label-sm text-label-sm hover:bg-on-surface-variant transition-colors">
+                  Save Note
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: SPACED REPETITION DRILLS & RETENTION MATRIX -->
+<section class="w-full px-margin">
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-space-lg flex flex-col gap-space-lg">
+<!-- Header & Quick Launch -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm pb-space-xs">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[22px]">history_edu</span>
+<h2 class="font-headline-md text-headline-md text-on-surface tracking-tight font-bold">Scheduled Repertoire Drills</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              SuperMemo-2 (SM-2) engine algorithm calculates decay curves based on your move accuracy and hesitation latency.
+            </p>
+</div>
+<div class="flex items-center gap-space-sm self-start sm:self-auto">
+<div class="flex items-center gap-1 text-on-surface font-label-md text-label-md px-3 py-1.5 rounded-lg bg-surface-container">
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">verified</span>
+<span>Daily Goal: 28 / 42 Done</span>
+</div>
+<button class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-on-surface-variant transition-colors flex items-center gap-1.5 shadow-sm">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Start Due Session (14 Cards)</span>
+</button>
+</div>
+</div>
+<!-- 3 Scheduled Drill Bento Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1: Due Today (Urgent) -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between gap-space-md shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Due Today
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">5 Flashcards</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Italian: 11. c3 vs ...d5 Counterbreak</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Testing critical tactical refutations when Black immediately challenges the white center pawn with an aggressive pawn break.
+              </p>
+</div>
+<div class="flex flex-col gap-2 pt-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Memory Stability: 64%</span>
+<span class="text-error font-semibold">Repetition Interval #3</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 64%;"></div>
+</div>
+<button class="w-full mt-2 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-primary hover:text-on-primary transition-all font-label-md text-label-md font-semibold flex items-center justify-center gap-1 shadow-sm">
+<span>Review Line Now</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Due in 2 Days -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between gap-space-md shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                  Due in 2 Days
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">8 Flashcards</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Sicilian Rossolimo: 3...g6 4. O-O Bg7</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Fianchetto defense line. Practicing White's strategic d2-d4 vs c2-c3 plans and Kingside piece transfer sequences.
+              </p>
+</div>
+<div class="flex flex-col gap-2 pt-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Memory Stability: 82%</span>
+<span class="text-secondary font-semibold">Repetition Interval #5</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 82%;"></div>
+</div>
+<button class="w-full mt-2 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-secondary hover:text-on-secondary transition-all font-label-md text-label-md font-semibold flex items-center justify-center gap-1 shadow-sm">
+<span>Preview Flashcards</span>
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Due in 3 Days -->
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all flex flex-col justify-between gap-space-md shadow-sm">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  Due in 3 Days
+                </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">11 Flashcards</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">Caro-Kann Tartakower: 5...exf6 Endgame</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Transitioning smoothly into the 4 vs 3 Queenside pawn majority and King march techniques without allowing counterplay.
+              </p>
+</div>
+<div class="flex flex-col gap-2 pt-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Memory Stability: 94%</span>
+<span class="text-emerald-600 font-semibold">Repetition Interval #8</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-emerald-600 rounded-full" style="width: 94%;"></div>
+</div>
+<button class="w-full mt-2 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-all font-label-md text-label-md font-semibold flex items-center justify-center gap-1 shadow-sm">
+<span>View Endgame Schemas</span>
+<span class="material-symbols-outlined text-[16px]">table_chart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-high py-space-xl"><div class="w-full px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div><div class="flex items-center gap-space-sm mb-space-md"><img alt="Chessflow Brand Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-sm text-headline-sm text-on-surface">Chessflow</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">An intellectual sanctuary engineered for grandmaster-level analytical rigor, deep tactical mastery, and modern chess scholarship.</p><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Stockfish 16.1 NNUE: Active (0.0ms ping)</span></div></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Learning Paths</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Foundations of Capablanca</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Hypermodern Pawn Structures</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Rook Endgame Diagnostics</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Sicilian Defense Repertoire</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Positional Sacrifices Lab</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Platform Resources</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">PGN / FEN Cloud Vault</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Opening Book Explorers</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Masters Tournament Archive</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">API for Chess Engines</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">System Uptime &amp; Benchmarks</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Keyboard Shortcuts</h4><ul class="space-y-space-xs"><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Next Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">→</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Previous Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">←</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Flip Board</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">F</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Toggle Engine</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">Space</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Branch Subvariation</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">B</kbd></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Engine Telemetry</h4><div class="p-space-sm bg-surface-container-low rounded border border-surface-container-high space-y-space-xs"><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Engine Depth</span><span class="text-on-surface font-semibold">38 ply</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Nodes / Sec</span><span class="text-on-surface font-semibold">14.2M nps</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Cloud Hash</span><span class="text-on-surface font-semibold">2048 MB</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Syzygy Tablebases</span><span class="text-on-surface font-semibold">7-man WDL</span></div></div></div></div><div class="pt-space-md border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 Chessflow Analytics Inc. Precision tools for grandmaster study.</div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Terms of Study</a><a class="hover:text-on-surface transition-colors" href="#">Security &amp; Fair Play</a></div></div></div></footer></body></html>

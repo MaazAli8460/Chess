@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="operations-layout reveal">
+    <aside class="operations-sidebar">
+        <div class="workspace-label">Operations workspace</div>
+        <div class="workspace-title">Run Chessflow</div>
+        <p class="workspace-copy">The daily controls your team needs, in one calm place.</p>
+        <nav class="operations-nav" aria-label="Operations navigation">
+            <a class="{% if operation_section == 'overview' %}active{% endif %}" href="{% url 'dashboard:operations' %}"><span>◈</span> Overview</a>
+            <div class="operations-nav-label">Learning</div>
+            <a class="{% if operation_section == 'courses' %}active{% endif %}" href="{% url 'dashboard:operations-courses' %}"><span>♞</span> Courses</a>
+            <a href="{% url 'dashboard:operations-categories' %}"><span>⌘</span> Categories</a>
+            <div class="operations-nav-label">People</div>
+            <a class="{% if operation_section == 'users' %}active{% endif %}" href="{% url 'dashboard:operations-users' %}"><span>◎</span> Users</a>
+            <div class="operations-nav-label">Content</div>
+            <a class="{% if operation_section == 'content' %}active{% endif %}" href="{% url 'dashboard:operations-articles' %}"><span>▤</span> Articles</a>
+            <a href="{% url 'dashboard:operations-testimonials' %}"><span>✦</span> Testimonials</a>
+            <a href="{% url 'dashboard:operations-article-categories' %}"><span>⌘</span> Article categories</a>
+            <div class="operations-nav-label">Revenue</div>
+            <a class="{% if operation_section == 'billing' %}active{% endif %}" href="{% url 'dashboard:operations-plans' %}"><span>◇</span> Plans</a>
+            <a href="{% url 'dashboard:operations-payments' %}"><span>↗</span> Payments</a>
+        </nav>
+        <div class="operations-sidebar-footer">
+            <a href="{% url 'admin-analytics' %}">View analytics ↗</a>
+            <a href="{% url 'admin:index' %}">Open Django admin</a>
+        </div>
+    </aside>
+    <section class="operations-main">
+        {% block operations_content %}{% endblock %}
+    </section>
+</div>
+{% endblock %}

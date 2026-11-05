@@ -4,9 +4,18 @@
 {% block meta_description %}Analyze any chess position using FEN notation. Get engine evaluations and best-move suggestions powered by Stockfish.{% endblock %}
 
 {% block content %}
+<section class="lab-masthead reveal mb-4">
+    <div>
+        <p class="eyebrow">Chess Lab</p>
+        <h1 class="display-heading">Read the position.</h1>
+        <p class="muted-copy mb-0">Turn a FEN into a precise next move, then build your understanding around it.</p>
+    </div>
+    <a class="btn btn-brand" href="{% url 'chesslab:play' %}">Open board →</a>
+</section>
+
 <div class="row g-4 reveal">
     <div class="col-lg-7">
-        <div class="card">
+        <div class="card lab-panel">
             <div class="card-body p-4 form-shell">
                 <div class="section-head mb-2">
                     <div>
@@ -25,7 +34,7 @@
                 {% if result %}
                 <hr />
                 <h2 class="h5">Result</h2>
-                <div class="lesson-meta mb-2">
+                <div class="lesson-meta lab-result mb-2">
                     <strong>Best move</strong>
                     <div class="code-block">{{ result.best_move|default:'n/a' }}</div>
                 </div>
@@ -37,7 +46,7 @@
     </div>
 
     <div class="col-lg-5">
-        <div class="card reveal reveal-delay-1">
+        <div class="card lab-panel reveal reveal-delay-1">
             <div class="card-body p-4">
                 <h2 class="h5">Recent Analyses</h2>
                 <ul class="list-group list-group-flush">

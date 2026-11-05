@@ -1,0 +1,45 @@
+{% extends 'operations/layout.html' %}
+
+{% block page_title %}Operations workspace | ChessLearn{% endblock %}
+{% block operations_content %}
+<div class="operations-topbar">
+    <div>
+        <p class="eyebrow">Tuesday, {% now "j F Y" %}</p>
+        <h1 class="operations-title">Good morning, {{ user.first_name|default:user.username }}.</h1>
+        <p class="operations-subtitle">Here is the pulse of your learning business.</p>
+    </div>
+    <a class="btn btn-brand" href="{% url 'dashboard:operations-course-new' %}">+ New course</a>
+</div>
+
+<div class="ops-stat-grid">
+    <div class="ops-stat ops-stat-accent"><span>Published courses</span><strong>{{ counts.published_courses }}</strong><small>of {{ counts.courses }} total</small></div>
+    <div class="ops-stat"><span>Community</span><strong>{{ counts.users }}</strong><small>registered players</small></div>
+    <div class="ops-stat"><span>Enrollments</span><strong>{{ counts.enrollments }}</strong><small>learning journeys</small></div>
+    <div class="ops-stat"><span>Active plans</span><strong>{{ counts.active_subscriptions }}</strong><small>members today</small></div>
+</div>
+
+<div class="ops-grid-two">
+    <section class="ops-panel">
+        <div class="ops-panel-heading"><div><p class="eyebrow">Content rhythm</p><h2>Recent courses</h2></div><a href="{% url 'dashboard:operations-courses' %}">See all</a></div>
+        <div class="ops-list">
+            {% for course in recent_courses %}
+            <a class="ops-list-row" href="{% url 'dashboard:operations-course-edit' course.id %}"><span class="ops-avatar">{{ course.title|first|upper }}</span><span class="ops-list-main"><strong>{{ course.title }}</strong><small>{{ course.created_by.username }} · {{ course.lessons_count }} lessons</small></span><span class="status-pill {% if course.is_published %}status-live{% else %}status-muted{% endif %}">{% if course.is_published %}Live{% else %}Draft{% endif %}</span><span class="row-arrow">→</span></a>
+            {% empty %}<p class="empty-state">No courses yet. Start your first learning path.</p>{% endfor %}
+        </div>
+    </section>
+    <section class="ops-panel ops-panel-dark">
+        <div class="ops-panel-heading"><div><p class="eyebrow">Community pulse</p><h2>New players</h2></div><a href="{% url 'dashboard:operations-users' %}">Manage</a></div>
+        <div class="ops-list">
+            {% for member in recent_users %}
+            <a class="ops-list-row" href="{% url 'dashboard:operations-user-edit' member.id %}"><span class="ops-avatar ops-avatar-warm">{{ member.username|first|upper }}</span><span class="ops-list-main"><strong>{{ member.username }}</strong><small>{{ member.email|default:"No email added" }}</small></span><span class="row-arrow">→</span></a>
+            {% empty %}<p class="empty-state">No registered users yet.</p>{% endfor %}
+        </div>
+    </section>
+</div>
+
+<div class="ops-quick-grid">
+    <a href="{% url 'dashboard:operations-articles' %}" class="ops-quick-card"><span class="quick-icon">▤</span><strong>Publish an article</strong><small>Keep your audience learning between lessons.</small><span>Open editor →</span></a>
+    <a href="{% url 'dashboard:operations-plans' %}" class="ops-quick-card"><span class="quick-icon">◇</span><strong>Shape your plans</strong><small>Update pricing and Stripe product details.</small><span>Manage billing →</span></a>
+    <a href="{% url 'dashboard:operations-testimonials' %}" class="ops-quick-card"><span class="quick-icon">✦</span><strong>Curate proof</strong><small>Choose the stories that show on the homepage.</small><span>Review stories →</span></a>
+</div>
+{% endblock %}

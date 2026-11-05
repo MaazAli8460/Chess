@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"on-tertiary-fixed-variant":"#6e3900","primary":"#000000","secondary-fixed":"#dbe1ff","on-error":"#ffffff","on-background":"#0b1c30","surface-container-lowest":"#ffffff","primary-fixed":"#dae2fd","on-primary-fixed-variant":"#3f465c","on-primary-fixed":"#131b2e","on-tertiary-container":"#c76c00","secondary":"#0051d5","on-primary-container":"#7c839b","on-secondary":"#ffffff","surface-container-highest":"#d3e4fe","outline-variant":"#c6c6cd","inverse-primary":"#bec6e0","on-tertiary":"#ffffff","on-surface":"#0b1c30","surface-dim":"#cbdbf5","outline":"#76777d","inverse-surface":"#213145","on-tertiary-fixed":"#2f1500","surface-container":"#e5eeff","tertiary-fixed":"#ffdcc3","on-surface-variant":"#45464d","surface":"#f8f9ff","surface-tint":"#565e74","surface-bright":"#f8f9ff","primary-container":"#131b2e","on-error-container":"#93000a","tertiary-fixed-dim":"#ffb77d","on-primary":"#ffffff","surface-container-low":"#eff4ff","background":"#f8f9ff","surface-container-high":"#dce9ff","secondary-container":"#316bf3","error":"#ba1a1a","surface-variant":"#d3e4fe","on-secondary-fixed-variant":"#003ea8","inverse-on-surface":"#eaf1ff","tertiary-container":"#2f1500","tertiary":"#000000","error-container":"#ffdad6","secondary-fixed-dim":"#b4c5ff","primary-fixed-dim":"#bec6e0","on-secondary-container":"#fefcff","on-secondary-fixed":"#00174b"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-sm":"0.5rem","space-md":"1rem","space-xl":"2.5rem","space-lg":"1.5rem","gutter":"1.5rem","gutter-mobile":"1rem","space-xs":"0.25rem","margin":"2.5rem","margin-mobile":"1rem"},fontFamily:{"display-lg":["Newsreader"],"label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"headline-md":["Newsreader"],"display-lg-mobile":["Newsreader"],"headline-lg":["Newsreader"],"body-lg":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Newsreader"]},fontSize:{"display-lg":["48px",{lineHeight:"56px",letterSpacing:"-0.02em",fontWeight:"500"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"22px",letterSpacing:"0em",fontWeight:"400"}],"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],"body-sm":["12px",{lineHeight:"18px",letterSpacing:"0.005em",fontWeight:"400"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],"headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"500"}],"display-lg-mobile":["36px",{lineHeight:"44px",letterSpacing:"-0.01em",fontWeight:"500"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.015em",fontWeight:"500"}],"body-lg":["16px",{lineHeight:"26px",letterSpacing:"0em",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"26px",letterSpacing:"-0.005em",fontWeight:"600"}],"headline-lg-mobile":["26px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"500"}]}}}};</script></head><body class="bg-background font-body-md text-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md shadow-[0_1px_8px_rgba(11,28,48,0.04)] border-b border-surface-container-high"><div class="h-16 w-full px-margin flex items-center justify-between gap-space-lg"><div class="flex items-center gap-space-xl"><div class="flex items-center gap-space-sm"><img alt="Chessflow Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-md text-headline-md tracking-tight text-on-surface">Chessflow</span></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-on-surface font-label-lg text-label-lg border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="courses" href="#">Courses</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="chess-lab" href="#">Chess Lab</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="play" href="#">Play</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="blog" href="#">Blog</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="plans" href="#">Plans</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-sm" data-path="staff-ops" href="#">Staff Ops</a></nav></div><div class="flex items-center gap-space-md"><div class="relative hidden md:block"><span class="material-symbols-outlined absolute left-space-sm top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span><input class="w-64 pl-9 pr-space-md py-1.5 bg-surface-container-lowest border border-outline-variant rounded text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-secondary transition-all" placeholder="Search games, openings, master lectures..." type="search"/></div><button aria-label="Notifications" class="relative p-space-xs text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></button><a class="hidden lg:inline-flex items-center gap-space-xs px-space-md py-2 bg-primary text-on-primary rounded font-label-md text-label-md hover:bg-on-surface-variant transition-colors" data-path="analysis" href="#"><span class="material-symbols-outlined text-[18px]">neurology</span><span>Analyze Position</span></a><div class="flex items-center gap-space-sm pl-space-sm border-l border-outline-variant"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCErkvi5la-2lAqb3xAoQ_1dBnALg4G4zWw5zFfcdWu34xdLqRPy2DawIerYuX_E3AR70EUPUta5EQNVO8xejQyHarlbtqUpkKbbxLg5f_7PcYaSqOM7aqSbftLW49G9UXBCBZgGvvW4ABuAXqNurBukKm43UPlm21kwERG3AZIecAfWQWqR2KYsTlGWJkVhFuGKJ5rd-WpIKkiHqvQjG9-fvgCwM19NS6cpnyPE5lR"/><span class="absolute -bottom-1 -right-1 px-1 py-0.2 bg-secondary text-on-secondary rounded text-[9px] font-bold leading-tight uppercase tracking-wider">Pro</span></div><div class="hidden sm:flex flex-col"><span class="font-label-md text-label-md text-on-surface leading-tight">Grandmaster Track</span><span class="font-label-sm text-label-sm text-on-surface-variant">1840 ELO</span></div></div></div></div></header><main class="w-full pt-16 bg-background min-h-[calc(100vh-280px)]"><div class="flex flex-col w-full">
+<!-- Course Control Strip & Context Header -->
+<section class="w-full px-margin py-space-md bg-surface-container-lowest shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-space-md">
+<!-- Breadcrumbs & Badges -->
+<div class="flex flex-col gap-space-xs">
+<nav class="flex items-center gap-space-xs font-label-sm text-label-sm text-on-surface-variant">
+<a class="hover:text-secondary transition-colors" href="#">Academy</a>
+<span>/</span>
+<a class="hover:text-secondary transition-colors" href="#">Courses</a>
+<span>/</span>
+<a class="hover:text-secondary transition-colors" href="#">Endgame Mastery</a>
+<span>/</span>
+<span class="text-on-surface font-semibold">Advanced Rook Endgames</span>
+</nav>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-semibold tracking-wide">
+<span class="material-symbols-outlined text-[14px]">stars</span> MASTERCLASS 1600–2200
+          </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-secondary">memory</span> Stockfish 16.1 NNUE Live
+          </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] text-tertiary-fixed-dim">repeat</span> Spaced Drills Active
+          </span>
+</div>
+</div>
+<!-- Quick Action Navigation -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-all shadow-sm">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+<span>Previous Lesson</span>
+</button>
+<button class="inline-flex items-center gap-1 px-3.5 py-1.5 rounded bg-primary text-on-primary hover:bg-on-surface-variant font-label-md text-label-md transition-all shadow-sm">
+<span>Next Lesson</span>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-secondary text-on-secondary font-label-md text-label-md shadow-sm hover:opacity-95 transition-all" id="markCompletedBtn">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span id="markCompletedText">Mark Complete</span>
+</button>
+<button class="p-2 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Download PGN &amp; Study Guide">
+<span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="p-2 rounded bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Capablanca Vault Sync">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+</div>
+</div>
+<!-- Title, Instructor, and Progress Strip -->
+<div class="mt-space-md pt-space-sm flex flex-col xl:flex-row xl:items-end justify-between gap-space-lg">
+<div class="max-w-4xl">
+<h1 class="font-display-lg text-headline-lg xl:text-display-lg text-on-surface tracking-tight leading-tight">
+          Advanced Rook Endgames: The Lucena Position &amp; Bridge Technique
+        </h1>
+<div class="flex flex-wrap items-center gap-space-md mt-space-sm">
+<!-- Instructor Chip -->
+<div class="inline-flex items-center gap-2.5 px-3 py-1 rounded-full bg-surface-container-low shadow-sm">
+<img class="w-6 h-6 rounded-full object-cover shadow-xs" data-alt="Portrait photo of Grandmaster Daniel Naroditsky analyzing a classical chess game under focused natural daylight in a library study, looking sharp, composed, and scholarly" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1dYfum_J83gutC6vAZ-hfPBoYqjVfP_VpOftBx1wg2lPkJkVZ51sltBmLJKPIpuQ8oSZCV_FuQQYRPp4Krg3E_X8tlI0H6komLWDg4iJmiRSOrY2eCuIBMpJU-Lv77ENbAWpphKvlXBIBEF6cwRKxV2Ywgm0KkcfRTrMw-1o1sA1Hpp3lXB-cK-_foPdMSMSXx2j2hGjAYBicgkNZpOxuEqC1786ZSkWpmN-pukfR"/>
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-bold">GM Daniel Naroditsky</span>
+<span class="material-symbols-outlined text-secondary text-[15px]" title="FIDE Grandmaster Verified">verified</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">FIDE 2645</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>4h 35m total duration</span>
+<span class="text-outline-variant">•</span>
+<span class="material-symbols-outlined text-[16px]">local_library</span>
+<span>18 In-depth Modules</span>
+<span class="text-outline-variant">•</span>
+<span class="material-symbols-outlined text-[16px]">military_tech</span>
+<span>Master Certificate</span>
+</div>
+</div>
+</div>
+<!-- Course Progress Gauge -->
+<div class="w-full xl:w-80 p-space-sm bg-surface-container-low rounded-lg shadow-sm">
+<div class="flex items-center justify-between mb-1.5 font-label-sm text-label-sm">
+<span class="text-on-surface-variant font-medium">Syllabus Mastery</span>
+<span class="text-secondary font-bold">68% Completed</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 68%;"></div>
+</div>
+<div class="flex justify-between items-center mt-1.5 text-on-surface-variant font-body-sm text-body-sm">
+<span>12 of 18 lessons mastered</span>
+<span class="inline-flex items-center text-secondary font-medium text-xs">
+            +32 XP earned today
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Dual-Pane Grandmaster Analytical Workspace -->
+<main class="w-full px-margin py-space-lg">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT PANE: Video Master Lecture & Pedagogical Guide (Col 7) -->
+<div class="xl:col-span-7 flex flex-col gap-space-lg">
+<!-- 16:9 Masterclass Video Player -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-md flex flex-col">
+<!-- Video Frame Mockup -->
+<div class="relative w-full aspect-video bg-primary-container group select-none">
+<!-- Simulated Video Footage Graphic with rich Grandmaster setting -->
+<div class="absolute inset-0 bg-cover bg-center opacity-85" data-alt="High-resolution cinematography shot of a grandmaster chess seminar, soft directional stage lighting illuminating an elegant wooden tournament chessboard with rook endgame pieces, Daniel Naroditsky gesturing explaining positional tactics to a focused study hall." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBfjPEIe39t37PwL3XnSLvcB-hiL3odQi0XvPpGd-9rYVZ-FmYKyphkDy8x6J907AA4vEygOr9FslSFONQwai-_yxQLRRN_tI1NvyE2M5VH2RR4EJE8Bz-U4Wrk3O5IKe9fHb9A5Wcn9nQjhSbNr1_n0CZ-mns535Kf0BJhioDVfrVgu85FCxXJdXBTga_UwgBYH5psYWnSc51wXWIO7grYui6kSeeX_9OitXH-Cngt')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-primary/20"></div>
+<!-- Top Overlays -->
+<div class="absolute top-3 left-4 right-4 flex items-center justify-between text-on-primary z-10">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary font-label-sm text-label-sm tracking-wide font-semibold">
+                  LESSON 6
+                </span>
+<span class="font-label-md text-label-md drop-shadow text-on-primary truncate max-w-sm">
+                  Constructing the 4th-Rank Defensive Umbrella &amp; Building the Bridge
+                </span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm">
+<span class="px-2 py-0.5 rounded bg-primary/70 backdrop-blur-sm">HD 1080p</span>
+<span class="px-2 py-0.5 rounded bg-primary/70 backdrop-blur-sm cursor-pointer hover:bg-primary transition-colors">1.25x</span>
+</div>
+</div>
+<!-- Central Subtle Playback Control Overlay -->
+<div class="absolute inset-0 flex items-center justify-center">
+<button aria-label="Toggle Play Pause" class="w-14 h-14 rounded-full bg-on-primary/90 text-primary hover:bg-on-primary hover:scale-105 transition-all flex items-center justify-center shadow-xl">
+<span class="material-symbols-outlined text-[32px] translate-x-0.5">play_arrow</span>
+</button>
+</div>
+<!-- Tactical Milestone Dots and Chapters Timeline -->
+<div class="absolute bottom-12 left-4 right-4 z-10">
+<div class="relative w-full h-1.5 bg-on-primary/25 rounded-full cursor-pointer overflow-visible">
+<!-- Played portion -->
+<div class="absolute left-0 top-0 h-full bg-secondary rounded-full" style="width: 66.5%;"></div>
+<!-- Milestone dots -->
+<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-[0%] w-2.5 h-2.5 rounded-full bg-on-primary shadow" title="00:00 - Introduction"></div>
+<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-[19.4%] w-2.5 h-2.5 rounded-full bg-on-primary shadow" title="04:15 - Why 7th Rank Checks Fail"></div>
+<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-[51.9%] w-3 h-3 rounded-full bg-secondary-fixed shadow ring-2 ring-secondary" title="11:20 - The 4th Rank Rook Placement (Active Key)"></div>
+<div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-[85.4%] w-2.5 h-2.5 rounded-full bg-on-primary shadow" title="18:40 - Practical Tournament Examples"></div>
+</div>
+</div>
+<!-- Bottom Video Toolbar -->
+<div class="absolute bottom-2 left-4 right-4 flex items-center justify-between text-on-primary font-label-sm text-label-sm z-10">
+<div class="flex items-center gap-3">
+<button class="hover:text-secondary-fixed transition-colors flex items-center">
+<span class="material-symbols-outlined text-[20px]">pause</span>
+</button>
+<button class="hover:text-secondary-fixed transition-colors flex items-center">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+<span class="font-mono text-xs text-on-primary/90">14:32 / 21:50</span>
+<span class="text-on-primary/40">•</span>
+<span class="text-secondary-fixed hidden sm:inline">Milestone: The 4th Rank Rook Shield</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1 rounded hover:bg-primary/50 transition-colors" title="Toggle Captions">
+<span class="material-symbols-outlined text-[18px]">closed_caption</span>
+</button>
+<button class="p-1 rounded hover:bg-primary/50 transition-colors" title="Bookmark Timestamp">
+<span class="material-symbols-outlined text-[18px]">bookmark_add</span>
+</button>
+<button class="p-1 rounded hover:bg-primary/50 transition-colors" title="Theater Mode">
+<span class="material-symbols-outlined text-[18px]">aspect_ratio</span>
+</button>
+<button class="p-1 rounded hover:bg-primary/50 transition-colors" title="Full Screen">
+<span class="material-symbols-outlined text-[18px]">fullscreen</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Video Sync Sub-Bar -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2 text-on-surface">
+<span class="material-symbols-outlined text-secondary text-[20px]">sync</span>
+<span class="font-label-md text-label-md font-semibold">Video Synchronized with Board Position</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-mono">14:32 timestamp</span>
+</div>
+<button class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-surface-container-lowest hover:bg-surface-container text-secondary font-label-sm text-label-sm font-bold shadow-sm transition-all" id="resyncBtn">
+<span class="material-symbols-outlined text-[15px]">refresh</span>
+              Sync Board to Active Video Frame
+            </button>
+</div>
+</div>
+<!-- Pedagogical Notes & Grandmaster Guide -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<!-- Key Takeaway Banner -->
+<div class="p-space-md rounded-lg bg-surface-container-high text-on-surface">
+<div class="flex items-start gap-space-sm">
+<div class="p-1.5 rounded-full bg-secondary text-on-secondary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold uppercase tracking-wider text-secondary">The Golden Rule of Lucena</span>
+<span class="text-on-surface-variant text-xs">• Naroditsky Directive</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+                  "Build the bridge on the <strong class="font-semibold text-secondary">4th rank</strong> (specifically not the 3rd or 5th rank) so that when your king steps out to evade continuous vertical checks, your rook safely intercepts the attack on rank 4 while maintaining file control and denying Black counter-checks."
+                </p>
+</div>
+</div>
+</div>
+<!-- Tabs for PGN, FEN, and Personal Notes -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-sm bg-surface-container p-1 rounded-lg w-fit">
+<button class="px-3 py-1 rounded font-label-md text-label-md bg-surface-container-lowest text-on-surface font-semibold shadow-xs">
+                Annotated PGN
+              </button>
+<button class="px-3 py-1 rounded font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">
+                FEN Diagnostics
+              </button>
+<button class="px-3 py-1 rounded font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">
+                Personal Scratchpad (3 notes)
+              </button>
+</div>
+<!-- PGN & Annotation Display Ledger -->
+<div class="p-space-md bg-surface-container-low rounded-lg flex flex-col gap-space-sm font-mono text-body-sm">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm font-sans pb-1">
+<span class="font-semibold uppercase tracking-wider text-xs">Standard Lucena Maneuver Chain</span>
+<button class="hover:text-secondary flex items-center gap-1 text-xs" onclick="navigator.clipboard.writeText('1. Kd8 Rd2+ 2. Ke8 Re2+ 3. Re7 Rd2 4. Re4! Kd5 5. Ke7 Kd4 6. Ke6 Kd3 7. Re5!')">
+<span class="material-symbols-outlined text-[14px]">content_copy</span> Copy PGN
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-on-surface">
+<div class="p-2 rounded bg-surface-container-lowest shadow-xs flex items-center justify-between">
+<span>1. Kd8 Rd2+</span>
+<span class="text-xs font-sans text-on-surface-variant">Step King to free Pawn</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest shadow-xs flex items-center justify-between">
+<span>2. Ke8 Re2+</span>
+<span class="text-xs font-sans text-on-surface-variant">Black must check vertically</span>
+</div>
+<div class="p-2 rounded bg-secondary text-on-secondary shadow-xs flex items-center justify-between font-bold">
+<span>3. Re7 Rd2</span>
+<span class="text-xs font-sans text-on-secondary/80">Preparation complete</span>
+</div>
+<div class="p-2 rounded bg-surface-container-lowest shadow-xs flex items-center justify-between">
+<span class="text-secondary font-bold">4. Re4!</span>
+<span class="text-xs font-sans text-secondary font-medium">★ The Bridge Anchor</span>
+</div>
+</div>
+<!-- FEN Raw Box -->
+<div class="mt-space-xs pt-space-xs flex items-center justify-between bg-surface-container-lowest px-3 py-2 rounded text-xs text-on-surface-variant font-mono">
+<span class="truncate">FEN: 1K1R4/8/3k4/8/8/8/4r3/8 w - - 0 1</span>
+<span class="material-symbols-outlined text-[16px] cursor-pointer hover:text-secondary ml-2" title="Copy FEN">code</span>
+</div>
+</div>
+<!-- Student Note Scratchpad -->
+<div class="flex flex-col gap-2 pt-space-xs">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between">
+<span>Personal Study Reflection</span>
+<span class="text-on-surface-variant font-normal text-xs">Auto-saves to your Capablanca Vault</span>
+</label>
+<textarea class="w-full p-3 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md placeholder:text-outline focus:outline-none focus:bg-surface-container-low shadow-sm resize-none transition-all" placeholder="E.g., In the blitz blitz scenario, remember Black's king is restricted on the d-file, which prevents Rd4 from being harassed early..." rows="3"></textarea>
+<div class="flex justify-end">
+<button class="inline-flex items-center gap-1 px-4 py-1.5 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-on-surface-variant transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[16px]">save</span>
+                  Save Study Note
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT PANE: Interactive Analytical Chessboard & Engine Cockpit (Col 5) -->
+<div class="xl:col-span-5 flex flex-col gap-space-lg">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-md flex flex-col gap-space-md">
+<!-- Board Top Bar: Match Telemetry & Opponent Status -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-on-surface">
+                ♚
+              </div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md font-bold text-on-surface">Black (Stockfish 16.1)</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant text-[10px] font-mono">3200+</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Defense: Passive Vertical Checks</span>
+</div>
+</div>
+<!-- Material Balance and Clocks -->
+<div class="flex items-center gap-2">
+<span class="px-2 py-1 rounded bg-surface-container font-mono text-label-sm text-label-sm text-on-surface">
+                +1 Pawn advantage
+              </span>
+<div class="px-2.5 py-1 rounded bg-primary text-on-primary font-mono text-label-md text-label-md font-bold">
+                04:45
+              </div>
+</div>
+</div>
+<!-- Master Chessboard Canvas with Evaluation Bar Gauge -->
+<div class="flex items-stretch gap-2.5 justify-center">
+<!-- Real-Time Eval Bar -->
+<div class="w-5 bg-primary-container rounded-sm flex flex-col justify-between items-center py-1 select-none overflow-hidden relative shadow-xs" title="Stockfish Eval: +4.80 (White winning)">
+<!-- White portion of eval bar (Advantage White) -->
+<div class="absolute bottom-0 left-0 right-0 bg-surface-container-lowest transition-all duration-300" style="height: 82%;"></div>
+<span class="relative z-10 text-[9px] font-mono font-bold text-on-primary pt-0.5">-</span>
+<span class="relative z-10 text-[9px] font-mono font-bold text-on-surface pb-0.5 leading-none">+4.8</span>
+</div>
+<!-- 8x8 Graphical Chessboard Mockup -->
+<div class="relative aspect-square w-full max-w-[440px] bg-surface-container-lowest rounded shadow-lg overflow-hidden select-none">
+<!-- Chess Board Grid -->
+<div class="grid grid-cols-8 grid-rows-8 w-full h-full font-serif text-3xl">
+<!-- Row 8 (White King e8, Pawn e7) -->
+<!-- A8 --> <div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface"></div>
+<!-- B8 --> <div class="bg-surface-container flex items-center justify-center relative text-on-surface"></div>
+<!-- C8 --> <div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface"></div>
+<!-- D8 --> <div class="bg-surface-container flex items-center justify-center relative text-on-surface"></div>
+<!-- E8: White King -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface cursor-pointer">
+<span class="text-4xl text-on-surface drop-shadow-sm select-none">♔</span>
+<span class="absolute top-0.5 left-1 text-[9px] font-sans font-semibold text-outline">8</span>
+</div>
+<!-- F8 --> <div class="bg-surface-container flex items-center justify-center relative text-on-surface"></div>
+<!-- G8 --> <div class="bg-surface-container-lowest flex items-center justify-center relative text-on-surface"></div>
+<!-- H8 --> <div class="bg-surface-container flex items-center justify-center relative text-on-surface"></div>
+<!-- Row 7 -->
+<!-- A7 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- B7 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- C7 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- D7 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- E7: White Pawn on e7 -->
+<div class="bg-surface-container flex items-center justify-center relative text-on-surface">
+<span class="text-3xl text-on-surface drop-shadow-sm">♙</span>
+<span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+<!-- F7 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- G7 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- H7 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- Row 6 -->
+<!-- A6 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- B6 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- C6: Black King cut off on c-file / d-file -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative text-primary">
+<span class="text-4xl text-on-surface drop-shadow-sm">♚</span>
+</div>
+<!-- D6 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- E6 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- F6 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- G6 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- H6 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- Row 5 -->
+<!-- A5 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- B5 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- C5 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- D5 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- E5 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- F5 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- G5 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- H5 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- Row 4 (The Bridge Rank Highlighted) -->
+<!-- A4 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- B4 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- C4 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- D4: Key target square for White Rook bridge -->
+<div class="bg-surface-container-highest flex items-center justify-center relative ring-2 ring-inset ring-secondary">
+<!-- Tactical Bridge Marker -->
+<div class="w-3.5 h-3.5 rounded-full bg-secondary shadow-md animate-pulse"></div>
+<span class="absolute bottom-0.5 right-1 text-[9px] font-sans font-bold text-secondary">d4</span>
+</div>
+<!-- E4: Active White Bridge Target or Rook -->
+<div class="bg-surface-container-highest flex items-center justify-center relative ring-2 ring-inset ring-secondary">
+<!-- White Rook positioned or destination target -->
+<div class="w-3.5 h-3.5 rounded-full bg-secondary shadow-md animate-pulse"></div>
+<span class="absolute bottom-0.5 right-1 text-[9px] font-sans font-bold text-secondary">e4</span>
+</div>
+<!-- F4 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- G4 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- H4 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- Row 3 -->
+<!-- A3 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- B3 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- C3 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- D3 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- E3 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- F3 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- G3 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- H3 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- Row 2 -->
+<!-- A2 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- B2 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- C2 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- D2: Black checking Rook -->
+<div class="bg-surface-container flex items-center justify-center relative">
+<span class="text-4xl text-on-surface drop-shadow-sm select-none">♜</span>
+<!-- Check Ray indicator -->
+<span class="absolute -top-1 -right-1 px-1 py-0.2 rounded bg-error text-on-error font-sans text-[8px] font-bold">CHECK</span>
+</div>
+<!-- E2 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- F2 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- G2 --> <div class="bg-surface-container-lowest flex items-center justify-center relative"></div>
+<!-- H2 --> <div class="bg-surface-container flex items-center justify-center relative"></div>
+<!-- Row 1 (White Baseline) -->
+<!-- A1 --> <div class="bg-surface-container flex items-center justify-center relative">
+<span class="absolute bottom-0.5 left-1 text-[9px] font-sans font-semibold text-outline">a</span>
+</div>
+<!-- B1 --> <div class="bg-surface-container-lowest flex items-center justify-center relative">
+<span class="absolute bottom-0.5 left-1 text-[9px] font-sans font-semibold text-outline">b</span>
+</div>
+<!-- C1 --> <div class="bg-surface-container flex items-center justify-center relative">
+<span class="absolute bottom-0.5 left-1 text-[9px] font-sans font-semibold text-outline">c</span>
+</div>
+<!-- D1: White Rook initiating the 4th-rank ascent -->
+<div class="bg-surface-container-lowest flex items-center justify-center relative cursor-grab hover:bg-secondary-fixed/50 transition-colors">
+<span class="text-4xl text-on-surface drop-shadow select-none">♖</span>
+<span class="absolute bottom-0.5 left-1 text-[9px] font-sans font-semibold text-outline">d</span>
+</div>
+<!-- E1 --> <div class="bg-surface-container flex items-center justify-center relative">
+<span class="absolute bottom-0.5 left-1 text-[9px] font-sans font-semibold text-outline">e</span>
+</div>
+<!-- F1 --> <div class="bg-surface-container-lowest flex items-center justify-center relative">
+<span class="absolute bottom-0.5 left-1 text-[9px] font-sans font-semibold text-outline">f</span>
+</div>
+<!-- G1 --> <div class="bg-surface-container flex items-center justify-center relative">
+<span class="absolute bottom-0.5 left-1 text-[9px] font-sans font-semibold text-outline">g</span>
+</div>
+<!-- H1 --> <div class="bg-surface-container-lowest flex items-center justify-center relative">
+<span class="absolute bottom-0.5 left-1 text-[9px] font-sans font-semibold text-outline">h</span>
+</div>
+</div>
+<!-- Tactical Dynamic Annotation Overlay (SVG Vector Line representing Rd1 -> Rd4 bridge ascent) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" viewbox="0 0 100 100">
+<!-- Arrow from d1 (x=43.75, y=93.75) to d4 (x=43.75, y=56.25) -->
+<defs>
+<marker id="arrowhead" markerheight="6" markerwidth="6" orient="auto" refx="4" refy="3">
+<polygon fill="#0051d5" points="0 0, 6 3, 0 6"></polygon>
+</marker>
+</defs>
+<line marker-end="url(#arrowhead)" opacity="0.9" stroke="#0051d5" stroke-dasharray="3 2" stroke-linecap="round" stroke-width="2.5" x1="43.75" x2="43.75" y1="87" y2="58"></line>
+<!-- King Shield Path Ke8 -> Kd7 -> Ke6 -->
+<path d="M 56.25 12 Q 45 28 56.25 40" fill="none" opacity="0.75" stroke="#f59e0b" stroke-dasharray="2 2" stroke-width="1.8"></path>
+</svg>
+</div>
+</div>
+<!-- Board Control Toolbar -->
+<div class="flex items-center justify-between px-space-xs pt-1">
+<div class="flex items-center gap-1">
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" title="First Move">
+<span class="material-symbols-outlined text-[18px]">first_page</span>
+</button>
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" title="Step Back">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="p-2 rounded bg-secondary text-on-secondary hover:opacity-90 transition-opacity" title="Play Move Progression">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+</button>
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" title="Step Forward">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors" title="Last Move">
+<span class="material-symbols-outlined text-[18px]">last_page</span>
+</button>
+</div>
+<div class="flex items-center gap-1.5">
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Flip Board">
+<span class="material-symbols-outlined text-[18px]">swap_vert</span>
+</button>
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Reset Position to Lesson State">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+</button>
+<button class="p-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface transition-colors" title="Toggle Sound Effects">
+<span class="material-symbols-outlined text-[18px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Interactive Practice Sandbox & Turn Prompt -->
+<div class="p-space-md bg-surface-container-low rounded-lg flex flex-col gap-space-sm shadow-xs">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-emerald-500 shrink-0"></span>
+<span class="font-label-md text-label-md font-bold text-on-surface">Your Turn • White to Move</span>
+</div>
+<button class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm font-semibold transition-colors" id="toggleHintBtn">
+<span class="material-symbols-outlined text-[14px]">help</span>
+<span id="hintToggleText">Reveal Hint</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface leading-normal">
+              Execute the definitive 4th-rank rook maneuver. How do you prevent Black from checking continuously while providing your King a safe harbor?
+            </p>
+<!-- Dynamic Solution Hint Box -->
+<div class="hidden p-space-sm rounded bg-surface-container-high text-on-surface font-body-sm text-body-sm text-xs" id="hintBox">
+              💡 <strong>Pedagogical Hint:</strong> Black's rook is trapped on the vertical checking file. Placing your rook on the 4th rank (Rd4) cuts off Black's King while creating the umbrella on e4.
+            </div>
+<!-- Stockfish Engine Verification Card -->
+<div class="p-2.5 rounded bg-surface-container-lowest flex items-center justify-between shadow-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">neurology</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-on-surface">Stockfish 16.1 NNUE</span>
+<span class="font-body-sm text-body-sm text-secondary text-xs font-semibold">Optimal Move: Rd4! (or Re4!) • Depth 38 ply</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-mono font-bold">
+                +4.82
+              </span>
+</div>
+<!-- Drill Action Triggers -->
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<button class="py-2 px-3 rounded bg-secondary text-on-secondary font-label-md text-label-md font-semibold hover:opacity-95 shadow-sm transition-all flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+                Verify Move
+              </button>
+<button class="py-2 px-3 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold transition-all flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">biotech</span>
+                Analyze in Lab
+              </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Comprehensive Curriculum & Syllabus Accordion Drawer -->
+<section class="w-full px-margin py-space-xl bg-surface-container-low">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<!-- Section Header -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-2 text-secondary font-label-sm text-label-sm font-bold uppercase tracking-wider mb-1">
+<span class="material-symbols-outlined text-[16px]">menu_book</span>
+            Masterclass Syllabus Architecture
+          </div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">
+            Complete Course Modules &amp; Interactive Tactical Drills
+          </h2>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">18 Lessons • 42 Interactive Repetitions</span>
+<button class="px-3 py-1.5 rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors shadow-xs">
+            Expand All
+          </button>
+</div>
+</div>
+<!-- Module Stack -->
+<div class="flex flex-col gap-space-md">
+<!-- MODULE 1: COMPLETED -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-xs flex flex-col gap-space-sm">
+<div class="flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-space-sm">
+<span class="p-1 rounded-full bg-secondary/10 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+                  Module 1: Fundamental King Cut-offs on the File
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Mastering the separation of the defending King by 2 or more files • 3 Lessons completed
+                </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                100% Completed
+              </span>
+<span class="material-symbols-outlined text-outline text-[20px]">expand_less</span>
+</div>
+</div>
+<!-- Lessons Inside Module 1 -->
+<div class="flex flex-col gap-2 pt-2">
+<div class="p-3 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px]">done</span>
+<span class="font-label-md text-label-md text-on-surface">Lesson 1: The Principle of the Lateral Barrier</span>
+<span class="text-on-surface-variant text-xs font-mono">14m</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-[10px]">3 Drills</span>
+</div>
+<button class="text-xs font-label-sm text-secondary hover:underline font-semibold">Review Lesson</button>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px]">done</span>
+<span class="font-label-md text-label-md text-on-surface">Lesson 2: Shouldering the Enemy Monarch into the Corner</span>
+<span class="text-on-surface-variant text-xs font-mono">19m</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-[10px]">4 Drills</span>
+</div>
+<button class="text-xs font-label-sm text-secondary hover:underline font-semibold">Review Lesson</button>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[18px]">done</span>
+<span class="font-label-md text-label-md text-on-surface">Lesson 3: Tactical Exceptions: When King Penetration Overrides</span>
+<span class="text-on-surface-variant text-xs font-mono">22m</span>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-[10px]">5 Drills</span>
+</div>
+<button class="text-xs font-label-sm text-secondary hover:underline font-semibold">Review Lesson</button>
+</div>
+</div>
+</div>
+<!-- MODULE 2: COMPLETED -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-xs flex flex-col gap-space-sm">
+<div class="flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-space-sm">
+<span class="p-1 rounded-full bg-secondary/10 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">check_circle</span>
+</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+                  Module 2: The Philidor Defense &amp; Passive Rook Traps
+                </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Understanding the 3rd-rank waiting tactic and avoiding the back-rank stalemate squeeze
+                </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                100% Completed
+              </span>
+<span class="material-symbols-outlined text-outline text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- MODULE 3: ACTIVE PLAYING -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-md ring-2 ring-secondary flex flex-col gap-space-sm">
+<div class="flex items-center justify-between cursor-pointer">
+<div class="flex items-center gap-space-sm">
+<span class="p-1.5 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">play_arrow</span>
+</span>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+                    Module 3: The Lucena Position &amp; Active Bridge Building
+                  </h3>
+<span class="px-2 py-0.5 rounded bg-secondary text-on-secondary text-[11px] font-bold tracking-wider uppercase">Active Module</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  The quintessential winning technique when your pawn reaches the 7th rank with king in front
+                </p>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">
+                1 of 3 Mastered
+              </span>
+<span class="material-symbols-outlined text-secondary text-[20px]">expand_less</span>
+</div>
+</div>
+<!-- Lessons Inside Module 3 -->
+<div class="flex flex-col gap-2 pt-2">
+<!-- Lesson 6: ACTIVE PLAYING -->
+<div class="p-3.5 rounded-lg bg-surface-container-high flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-xs">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[16px]">play_arrow</span>
+</span>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface font-bold">Lesson 6: Constructing the 4th-Rank Defensive Umbrella &amp; Building the Bridge</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary text-on-secondary text-[10px] font-bold uppercase">Now Playing</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Duration: 21m 50s • 4 Interactive Board Drills</span>
+</div>
+</div>
+<div class="flex items-center gap-2 self-end sm:self-auto">
+<button class="px-3 py-1.5 rounded bg-primary text-on-primary font-label-sm text-label-sm font-semibold hover:bg-on-surface-variant transition-colors shadow-xs">
+                  Active Sandbox
+                </button>
+</div>
+</div>
+<!-- Lesson 7 -->
+<div class="p-3 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-label-sm text-label-sm font-bold">
+                  7
+                </span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Lesson 7: Dealing with Knight-Pawn Lucena Complications (g &amp; b files)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Duration: 18m 10s • 3 Drills</span>
+</div>
+</div>
+<button class="px-3 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold transition-colors">
+                Start Next
+              </button>
+</div>
+<!-- Lesson 8 -->
+<div class="p-3 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="w-7 h-7 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-label-sm text-label-sm font-bold">
+                  8
+                </span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Lesson 8: Rook Sacrifice Deflection in Deep Lucena Subvariations</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Duration: 25m 40s • 5 Drills</span>
+</div>
+</div>
+<button class="px-3 py-1 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold transition-colors">
+                Unlock
+              </button>
+</div>
+</div>
+</div>
+<!-- MODULE 4: LOCKED -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md opacity-70 shadow-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="p-1 rounded-full bg-surface-container text-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</span>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+                  Module 4: Vancura Defense &amp; Side-Checking Techniques
+                </h3>
+<span class="text-xs text-outline font-label-sm">Requires Module 3 Completion</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Lessons 9–12 • How to draw rook endgames against rook pawns through active lateral checking
+              </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</div>
+<!-- MODULE 5: LOCKED -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md opacity-70 shadow-xs flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="p-1 rounded-full bg-surface-container text-outline flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</span>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">
+                  Module 5: Modern Practical Tournament Endgames &amp; Speed Execution
+                </h3>
+<span class="text-xs text-outline font-label-sm">Requires Modules 1–4</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Lessons 13–18 • 6 Classic Master games analyzed under blitz and increment pressure
+              </p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px]">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript Behavior -->
+<script>
+    // Toggle Hint interaction
+    const toggleHintBtn = document.getElementById('toggleHintBtn');
+    const hintBox = document.getElementById('hintBox');
+    const hintToggleText = document.getElementById('hintToggleText');
+
+    if (toggleHintBtn && hintBox) {
+      toggleHintBtn.addEventListener('click', () => {
+        const isHidden = hintBox.classList.contains('hidden');
+        if (isHidden) {
+          hintBox.classList.remove('hidden');
+          hintToggleText.innerText = 'Hide Hint';
+        } else {
+          hintBox.classList.add('hidden');
+          hintToggleText.innerText = 'Reveal Hint';
+        }
+      });
+    }
+
+    // Toggle Mark Completed State
+    const markCompletedBtn = document.getElementById('markCompletedBtn');
+    const markCompletedText = document.getElementById('markCompletedText');
+    let isCompleted = false;
+
+    if (markCompletedBtn && markCompletedText) {
+      markCompletedBtn.addEventListener('click', () => {
+        isCompleted = !isCompleted;
+        if (isCompleted) {
+          markCompletedText.innerText = 'Lesson Completed!';
+          markCompletedBtn.classList.remove('bg-secondary');
+          markCompletedBtn.classList.add('bg-primary');
+        } else {
+          markCompletedText.innerText = 'Mark Complete';
+          markCompletedBtn.classList.remove('bg-primary');
+          markCompletedBtn.classList.add('bg-secondary');
+        }
+      });
+    }
+
+    // Board Video Resync Notification
+    const resyncBtn = document.getElementById('resyncBtn');
+    if (resyncBtn) {
+      resyncBtn.addEventListener('click', () => {
+        const originalText = resyncBtn.innerHTML;
+        resyncBtn.innerHTML = '<span class="material-symbols-outlined text-[15px] animate-spin">refresh</span> Synced to 14:32';
+        setTimeout(() => {
+          resyncBtn.innerHTML = originalText;
+        }, 1200);
+      });
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-surface-container-high py-space-xl"><div class="w-full px-margin"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-space-xl mb-space-xl"><div><div class="flex items-center gap-space-sm mb-space-md"><img alt="Chessflow Brand Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVnnSFeMoV6r_4ZrNz2nZZAZJd3g-uLP3RVaM3iX21Vdsg5iQoSF_Iq4TSLmxF5GoYNj_2Oj0-Il5ddxI82qKFW23KqeEIMn2VW44LQaFq68Dm-MJTQTAnRO4kDZ-yE5TUsfp-0SVVX_WOtOBXk4xsdaP8MufL7CeK6IBLaJEteztiw6wb0tcJCW0mcaTy5JJUrZ5ZjtyhU9_uvfks6noFAsrM4-9BwkKdm0_pvmV"/><span class="font-headline-sm text-headline-sm text-on-surface">Chessflow</span></div><p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">An intellectual sanctuary engineered for grandmaster-level analytical rigor, deep tactical mastery, and modern chess scholarship.</p><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span><span class="font-label-sm text-label-sm text-on-surface-variant">Stockfish 16.1 NNUE: Active (0.0ms ping)</span></div></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Learning Paths</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Foundations of Capablanca</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Hypermodern Pawn Structures</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Rook Endgame Diagnostics</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Sicilian Defense Repertoire</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Positional Sacrifices Lab</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Platform Resources</h4><ul class="space-y-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">PGN / FEN Cloud Vault</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Opening Book Explorers</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">Masters Tournament Archive</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">API for Chess Engines</li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer">System Uptime &amp; Benchmarks</li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Keyboard Shortcuts</h4><ul class="space-y-space-xs"><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Next Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">→</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Previous Move</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">←</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Flip Board</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">F</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Toggle Engine</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">Space</kbd></li><li class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant"><span class="flex items-center gap-space-xs">Branch Subvariation</span><kbd class="px-1.5 py-0.5 bg-surface-container rounded border border-outline-variant font-label-sm text-label-sm text-on-surface">B</kbd></li></ul></div><div><h4 class="font-label-lg text-label-lg text-on-surface uppercase tracking-wider mb-space-md">Engine Telemetry</h4><div class="p-space-sm bg-surface-container-low rounded border border-surface-container-high space-y-space-xs"><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Engine Depth</span><span class="text-on-surface font-semibold">38 ply</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Nodes / Sec</span><span class="text-on-surface font-semibold">14.2M nps</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Cloud Hash</span><span class="text-on-surface font-semibold">2048 MB</span></div><div class="flex justify-between font-label-sm text-label-sm text-on-surface-variant"><span>Syzygy Tablebases</span><span class="text-on-surface font-semibold">7-man WDL</span></div></div></div></div><div class="pt-space-md border-t border-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-sm text-label-sm text-on-surface-variant"><div>© 2025 Chessflow Analytics Inc. Precision tools for grandmaster study.</div><div class="flex items-center gap-space-lg"><a class="hover:text-on-surface transition-colors" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" href="#">Terms of Study</a><a class="hover:text-on-surface transition-colors" href="#">Security &amp; Fair Play</a></div></div></div></footer></body></html>

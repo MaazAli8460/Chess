@@ -1,0 +1,7 @@
+{% extends 'operations/layout.html' %}
+
+{% block page_title %}Payments | Operations | ChessLearn{% endblock %}
+{% block operations_content %}
+<div class="operations-topbar"><div><p class="eyebrow">Revenue operations</p><h1 class="operations-title">Payments</h1><p class="operations-subtitle">A clear ledger for support conversations and reconciliations.</p></div><a class="btn btn-brand-outline" href="{% url 'dashboard:operations-plans' %}">Manage plans</a></div>
+<div class="ops-table-panel"><div class="ops-table-head"><span>Latest transactions</span><span class="muted-copy">Showing the latest 100 records</span></div><div class="ops-table-wrap"><table class="ops-table"><thead><tr><th>Member</th><th>Amount</th><th>Reference</th><th>Status</th><th>Created</th></tr></thead><tbody>{% for payment in payments %}<tr><td><strong>{{ payment.user.username }}</strong><small class="table-subline">{{ payment.user.email }}</small></td><td><strong>{{ payment.currency }} {{ payment.amount }}</strong></td><td class="code-block">{{ payment.reference|default:"—" }}</td><td><span class="status-pill {% if payment.status == 'success' %}status-live{% elif payment.status == 'failed' %}status-danger{% else %}status-muted{% endif %}">{{ payment.status|title }}</span></td><td>{{ payment.created_at|date:"j M Y, H:i" }}</td></tr>{% empty %}<tr><td colspan="5"><div class="empty-state">No payment transactions yet.</div></td></tr>{% endfor %}</tbody></table></div></div>
+{% endblock %}

@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
-{% block page_title %}My Dashboard — ChessLearn{% endblock %}
+{% block page_title %}Scholar Cockpit — Chessflow{% endblock %}
 {% block meta_description %}Track your chess course progress and manage your learning journey.{% endblock %}
 
 {% block content %}
-<section class="section-head reveal mb-3">
+<section class="dashboard-masthead reveal mb-4">
     <div>
-        <h1 class="section-title">Learning Dashboard</h1>
-        <p class="muted-copy mb-0">Monitor your study momentum and continue where you left off.</p>
+        <p class="eyebrow">Scholar cockpit</p>
+        <h1 class="display-heading">Welcome back, {{ user.first_name|default:user.username }}.</h1>
+        <p class="muted-copy mb-0">Your next lesson, current form, and study momentum in one focused view.</p>
     </div>
+    <a class="btn btn-brand" href="{% url 'courses:list' %}">Browse library →</a>
 </section>
 
 <div class="row g-3 mb-4 reveal reveal-delay-1">
     <div class="col-md-4">
-        <div class="card stat-card h-100">
+        <div class="card stat-card metric-card h-100">
             <div class="card-body p-4">
                 <h2 class="h6 text-muted">Courses Enrolled</h2>
                 <p class="display-6 mb-0">{{ total_courses }}</p>
@@ -21,7 +23,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card stat-card h-100">
+        <div class="card stat-card metric-card h-100">
             <div class="card-body p-4">
                 <h2 class="h6 text-muted">Average Progress</h2>
                 <p class="display-6 mb-0">{{ avg_progress }}%</p>
@@ -29,7 +31,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card stat-card h-100">
+        <div class="card stat-card metric-card h-100">
             <div class="card-body p-4">
                 <h2 class="h6 text-muted">Subscription</h2>
                 {% if active_subscription %}
@@ -46,7 +48,7 @@
 
 <div class="row g-3 mb-4 reveal reveal-delay-2">
     <div class="col-md-4">
-        <div class="card stat-card h-100">
+        <div class="card stat-card metric-card h-100">
             <div class="card-body p-4">
                 <h2 class="h6 text-muted">Lessons This Week</h2>
                 <p class="display-6 mb-1">{{ lessons_this_week }}</p>
@@ -61,7 +63,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card stat-card h-100">
+        <div class="card stat-card metric-card h-100">
             <div class="card-body p-4">
                 <h2 class="h6 text-muted">Positions Analyzed (30d)</h2>
                 <p class="display-6 mb-1">{{ analyses_this_month }}</p>
@@ -70,7 +72,7 @@
         </div>
     </div>
     <div class="col-md-4">
-        <div class="card stat-card h-100">
+        <div class="card stat-card metric-card h-100">
             <div class="card-body p-4">
                 <h2 class="h6 text-muted">Study Tip</h2>
                 {% if avg_progress < 25 %}
@@ -85,7 +87,7 @@
     </div>
 </div>
 
-<div class="card reveal reveal-delay-3">
+<div class="card dashboard-curriculum reveal reveal-delay-3">
     <div class="card-body p-4">
         <h2 class="h5 mb-3">Your Courses</h2>
         {% if enrollment_data %}
