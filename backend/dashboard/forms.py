@@ -36,7 +36,7 @@ class TestimonialForm(forms.ModelForm):
 
     class Meta:
         model = Testimonial
-        fields = ("name", "title", "quote", "rating", "is_published", "sort_order")
+        fields = ("name", "title", "image", "quote", "rating", "is_published", "sort_order")
 
 
 class LessonForm(forms.ModelForm):

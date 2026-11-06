@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load course_extras %}
 
-{% block page_title %}{{ lesson.title }} — {{ course.title }} — ChessLearn{% endblock %}
-{% block meta_description %}{{ lesson.title }} from the {{ course.title }} course on ChessLearn.{% endblock %}
+{% block page_title %}{{ lesson.title }} — {{ course.title }} — Chessflow{% endblock %}
+{% block meta_description %}{{ lesson.title }} from the {{ course.title }} curriculum on Chessflow.{% endblock %}
 
 {% if lesson.fen_start %}
 {% block extra_head %}
@@ -11,94 +11,138 @@
 {% endif %}
 
 {% block content %}
-<div class="reveal">
-    <a href="{% url 'courses:detail' course.slug %}" class="small">&larr; Back to course</a>
-    <h1 class="section-title mt-2">{{ lesson.title }}</h1>
-    <p class="muted-copy">Estimated time: {{ lesson.estimated_minutes }} minutes</p>
+<!-- Top Breadcrumb Strip -->
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2 px-3 mb-4 rounded-3 border bg-body-tertiary shadow-sm reveal">
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <a href="{% url 'courses:list' %}" class="text-decoration-none text-muted">Academy</a>
+        <span class="text-secondary opacity-50">/</span>
+        <a href="{% url 'courses:detail' course.slug %}" class="text-decoration-none text-muted">{{ course.title }}</a>
+        <span class="text-secondary opacity-50">/</span>
+        <strong class="text-primary">{{ lesson.title }}</strong>
+    </div>
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span class="material-symbols-outlined fs-6 text-primary">schedule</span>
+        <span>Est. {{ lesson.estimated_minutes|default:"15" }} mins</span>
+    </div>
 </div>
 
-<div class="card mb-3 reveal reveal-delay-1">
-    <div class="card-body p-4">
-        <p style="white-space: pre-wrap;">{{ lesson.content }}</p>
+<div class="row g-4 reveal">
+    <!-- Main Content and Interactive Puzzle -->
+    <div class="col-lg-8">
+        <div class="dashboard-masthead-stitch p-4 p-md-5 mb-4">
+            <span class="telemetry-chip primary mb-2">Module Learning Unit</span>
+            <h1 class="display-6 fw-bold mb-3 text-dark-emphasis">{{ lesson.title }}</h1>
+            <div class="fs-6 text-muted mb-4 leading-relaxed" style="white-space: pre-wrap;">{{ lesson.content }}</div>
 
-        <div class="row g-3 mt-2">
             {% if lesson.video_url %}
             {% with embed=lesson.video_url|video_embed_url %}
-            <div class="col-12">
+            <div class="mt-4 pt-3 border-top border-light-subtle">
+                <span class="small text-uppercase fw-bold text-muted d-block mb-2">Grandmaster Video Lecture</span>
                 {% if embed %}
-                <div class="ratio ratio-16x9 mb-2" style="max-width:720px;">
+                <div class="ratio ratio-16x9 rounded-3 overflow-hidden border shadow-sm">
                     <iframe src="{{ embed }}" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" loading="lazy" title="{{ lesson.title }} video"></iframe>
                 </div>
                 {% else %}
-                <div class="lesson-meta">
-                    <strong>Video</strong>
-                    <div><a href="{{ lesson.video_url }}" target="_blank" rel="noreferrer">Open lesson video &rarr;</a></div>
-                </div>
+                <a class="btn btn-brand-outline" href="{{ lesson.video_url }}" target="_blank" rel="noreferrer">
+                    <span class="material-symbols-outlined fs-6 align-middle me-1">open_in_new</span>
+                    <span>Open External Video Lecture</span>
+                </a>
                 {% endif %}
             </div>
             {% endwith %}
             {% endif %}
 
-            {% if lesson.fen_start %}
-            <div class="col-md-6">
-                <div class="lesson-meta">
-                    <strong>FEN Position</strong>
-                    <div class="code-block">{{ lesson.fen_start }}</div>
-                </div>
-            </div>
-            {% endif %}
-
             {% if lesson.pgn_example %}
-            <div class="col-12">
-                <strong>PGN Example</strong>
-                <pre class="code-block code-surface p-3 mt-2 mb-0">{{ lesson.pgn_example }}</pre>
+            <div class="mt-4 pt-3 border-top border-light-subtle">
+                <span class="small text-uppercase fw-bold text-muted d-block mb-2">Annotated PGN Theoretical Sequence</span>
+                <pre class="p-3 rounded-3 bg-body-tertiary border font-monospace text-primary small mb-0" style="white-space: pre-wrap;">{{ lesson.pgn_example }}</pre>
             </div>
             {% endif %}
         </div>
-    </div>
-</div>
 
-{% if lesson.fen_start %}
-<div class="card mb-3 reveal reveal-delay-2" id="puzzle-card">
-    <div class="card-header fw-semibold">&#9822; Puzzle — Find the Best Move</div>
-    <div class="card-body">
-        <p class="text-muted small mb-3">Move the pieces on the board. You'll get instant feedback from the engine.</p>
-        <div class="d-flex flex-wrap gap-4 align-items-start">
-            <div id="puzzle-board" style="width:min(360px,100%);"></div>
-            <div class="flex-grow-1" style="min-width:200px;">
-                <div id="puzzle-feedback" class="alert d-none mb-3" role="alert"></div>
-                <div class="d-flex gap-2 flex-wrap">
-                    <button id="btn-hint" class="btn btn-brand-outline btn-sm">Hint</button>
-                    <button id="btn-reset" class="btn btn-brand-outline btn-sm">Reset</button>
+        {% if lesson.fen_start %}
+        <!-- Interactive Chess Puzzle Section -->
+        <div class="stat-card-stitch p-4 mb-4" id="puzzle-card">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="mini-chess-icon fs-6">♞</span>
+                    <div>
+                        <h2 class="h6 fw-bold mb-0">Interactive Position Drill</h2>
+                        <span class="small text-muted">Play your move directly on the board for real-time engine evaluation</span>
+                    </div>
                 </div>
-                <div id="puzzle-eval" class="mt-3 text-muted small"></div>
+                <span class="telemetry-chip primary">Stockfish Verified</span>
+            </div>
+
+            <div class="row g-4 align-items-center">
+                <div class="col-md-7 text-center">
+                    <div id="puzzle-board" class="mx-auto" style="width: min(380px, 100%);"></div>
+                </div>
+                <div class="col-md-5">
+                    <div id="puzzle-feedback" class="alert d-none mb-3 py-2 px-3 small fw-semibold" role="alert"></div>
+                    <div class="d-flex gap-2 flex-wrap mb-3">
+                        <button id="btn-hint" class="btn btn-brand-outline btn-sm">
+                            <span class="material-symbols-outlined fs-6 align-middle me-1">lightbulb</span>
+                            <span>Get Hint</span>
+                        </button>
+                        <button id="btn-reset" class="btn btn-brand-outline btn-sm">
+                            <span class="material-symbols-outlined fs-6 align-middle me-1">restart_alt</span>
+                            <span>Reset Board</span>
+                        </button>
+                    </div>
+                    <div id="puzzle-eval" class="small text-muted font-monospace"></div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-{% endif %}
-
-{% if progress %}
-<form method="post" class="mb-3 reveal reveal-delay-1">
-    {% csrf_token %}
-    {% if progress.is_completed %}
-    <span class="badge badge-soft">&#10003; Completed</span>
-    {% else %}
-    <button class="btn btn-brand" type="submit">Mark lesson complete</button>
-    {% endif %}
-</form>
-{% endif %}
-
-<div class="d-flex justify-content-between reveal reveal-delay-2">
-    <div>
-        {% if previous_lesson %}
-        <a class="btn btn-brand-outline" href="{% url 'courses:lesson' course.slug previous_lesson.id %}">&larr; Previous</a>
         {% endif %}
     </div>
-    <div>
-        {% if next_lesson %}
-        <a class="btn btn-brand" href="{% url 'courses:lesson' course.slug next_lesson.id %}">Next &rarr;</a>
-        {% endif %}
+
+    <!-- Right Navigation Sidebar -->
+    <div class="col-lg-4">
+        <div class="stat-card-stitch p-4 sticky-top" style="top: 80px;">
+            <h2 class="h6 fw-bold mb-3">Lesson Progress</h2>
+
+            {% if progress %}
+            <form method="post" class="mb-4">
+                {% csrf_token %}
+                {% if progress.is_completed %}
+                <div class="alert alert-success d-flex align-items-center gap-2 py-2 mb-0">
+                    <span class="material-symbols-outlined fs-5">check_circle</span>
+                    <span class="small fw-semibold">Module Completed!</span>
+                </div>
+                {% else %}
+                <button class="btn btn-brand w-100 py-2.5" type="submit">
+                    <span class="material-symbols-outlined fs-6 align-middle me-1">done</span>
+                    <span>Mark Complete</span>
+                </button>
+                {% endif %}
+            </form>
+            {% endif %}
+
+            <div class="d-flex justify-content-between align-items-center gap-2 pt-3 border-top border-light-subtle">
+                {% if previous_lesson %}
+                <a class="btn btn-brand-outline btn-sm flex-fill" href="{% url 'courses:lesson' course.slug previous_lesson.id %}">
+                    <span class="material-symbols-outlined fs-6 align-middle me-1">arrow_back</span>
+                    <span>Previous</span>
+                </a>
+                {% else %}
+                <div></div>
+                {% endif %}
+
+                {% if next_lesson %}
+                <a class="btn btn-brand btn-sm flex-fill" href="{% url 'courses:lesson' course.slug next_lesson.id %}">
+                    <span>Next</span>
+                    <span class="material-symbols-outlined fs-6 align-middle ms-1">arrow_forward</span>
+                </a>
+                {% endif %}
+            </div>
+            
+            <div class="mt-4 pt-3 border-top border-light-subtle text-center">
+                <a class="small text-decoration-none" href="{% url 'courses:detail' course.slug %}">
+                    &larr; Return to Curriculum Overview
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -119,7 +163,7 @@
     const evalEl = document.getElementById("puzzle-eval");
 
     function showFeedback(msg, type) {
-        feedbackEl.className = "alert alert-" + type;
+        feedbackEl.className = "alert alert-" + type + " mb-3 py-2 px-3 small fw-semibold";
         feedbackEl.textContent = msg;
         feedbackEl.classList.remove("d-none");
     }
@@ -170,12 +214,9 @@
         .then(r => r.json())
         .then(data => {
             if (data.best_move) {
-                const from = data.best_move.slice(0, 2);
-                const to = data.best_move.slice(2, 4);
-                showFeedback("Hint: consider moving from " + from.toUpperCase() + " to " + to.toUpperCase(), "info");
+                showFeedback("Hint: Focus on " + data.best_move, "info");
             }
-        })
-        .catch(() => showFeedback("Could not load hint.", "danger"));
+        });
     });
 })();
 </script>

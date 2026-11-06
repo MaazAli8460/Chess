@@ -1,19 +1,41 @@
 {% extends 'base.html' %}
 
-{% block title %}Sign up | Chess Learning Platform{% endblock %}
+{% block page_title %}Create Scholar Account — Chessflow{% endblock %}
+{% block meta_description %}Join Chessflow as a student or instructor to begin systematic ELO development.{% endblock %}
 
 {% block content %}
-<div class="auth-panel reveal">
-    <div class="card">
-        <div class="card-body p-4 form-shell">
-            <h1 class="auth-heading">Create your account</h1>
-            <p class="auth-subheading">Join as a student or instructor and start building your chess growth plan.</p>
-            <form method="post" novalidate>
+<div class="row justify-content-center py-4 reveal">
+    <div class="col-md-8 col-lg-6 col-xl-5">
+        <!-- Sub-header Breadcrumb Strip -->
+        <div class="d-flex align-items-center justify-content-center gap-2 small text-muted mb-4">
+            <span class="telemetry-pulse"></span>
+            <span>Registration Gateway</span>
+            <span class="text-secondary opacity-50">•</span>
+            <span class="text-primary">Grandmaster Track</span>
+        </div>
+
+        <div class="stat-card-stitch p-4 p-sm-5">
+            <div class="text-center mb-4">
+                <span class="brand-dot mx-auto mb-2 d-inline-block"></span>
+                <h1 class="h3 fw-bold mb-1">Create Scholar Account</h1>
+                <p class="small text-muted mb-0">Join as a student or instructor and build your tournament rating</p>
+            </div>
+
+            <form method="post" novalidate class="mb-3">
                 {% csrf_token %}
                 {% include 'partials/form_fields.html' with form=form %}
-                <button class="btn btn-brand" type="submit">Sign up</button>
+                <div class="d-grid mt-4">
+                    <button class="btn btn-brand py-2.5" type="submit">
+                        <span>Begin Training</span>
+                        <span class="material-symbols-outlined fs-6 align-middle ms-1">arrow_forward</span>
+                    </button>
+                </div>
             </form>
-            <p class="small mt-3 mb-0">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
+            <div class="text-center pt-3 border-top border-light-subtle small text-muted">
+                <span>Already registered?</span>
+                <a href="{% url 'login' %}" class="text-primary text-decoration-none fw-semibold ms-1">Sign in here</a>
+            </div>
         </div>
     </div>
 </div>

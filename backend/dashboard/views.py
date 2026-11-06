@@ -75,11 +75,13 @@ def student_dashboard_view(request: HttpRequest) -> HttpResponse:
 		completed_at__lt=week_start,
 	).count()
 
-	from chesslab.models import AnalysisHistory
+	from chesslab.models import AnalysisHistory, SavedGame
 	analyses_this_month = AnalysisHistory.objects.filter(
 		user=request.user,
 		created_at__gte=now - timezone.timedelta(days=30),
 	).count()
+
+	recent_saved_games = SavedGame.objects.filter(user=request.user)[:4]
 
 	velocity_delta = lessons_this_week - lessons_last_week
 
@@ -95,6 +97,7 @@ def student_dashboard_view(request: HttpRequest) -> HttpResponse:
 			"lessons_last_week": lessons_last_week,
 			"velocity_delta": velocity_delta,
 			"analyses_this_month": analyses_this_month,
+			"recent_saved_games": recent_saved_games,
 		},
 	)
 
@@ -102,7 +105,7 @@ def student_dashboard_view(request: HttpRequest) -> HttpResponse:
 @staff_member_required
 def testimonial_admin_view(request: HttpRequest) -> HttpResponse:
 	if request.method == "POST":
-		form = TestimonialForm(request.POST)
+		form = TestimonialForm(request.POST, request.FILES)
 		if form.is_valid():
 			form.save()
 			messages.success(request, "Testimonial added and ready to display.")

@@ -1,54 +1,197 @@
 {% extends 'base.html' %}
 
-{% block page_title %}Subscription Plans — ChessLearn{% endblock %}
-{% block meta_description %}Unlock premium chess courses and advanced analysis with a ChessLearn subscription.{% endblock %}
+{% block page_title %}Membership & Plans — Chessflow{% endblock %}
+{% block meta_description %}Unlock unlimited master courses, Stockfish 16.1 NNUE 60-ply evaluations, and personalized repertoire diagnostics.{% endblock %}
 
 {% block content %}
-<section class="section-head reveal mb-3">
-    <div>
-        <h1 class="section-title">Subscription Plans</h1>
-        <p class="muted-copy mb-0">Unlock premium courses and advanced tools with one monthly plan.</p>
+<!-- Top Trust & Telemetry Strip -->
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2 px-3 mb-4 rounded-pill border bg-body-tertiary shadow-sm reveal">
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span>Academy</span>
+        <span class="text-secondary opacity-50">/</span>
+        <strong class="text-primary">Membership Tiers</strong>
+    </div>
+    <div class="d-flex align-items-center gap-3 small text-muted">
+        <span class="d-inline-flex align-items-center gap-1">
+            <span class="material-symbols-outlined fs-6 text-primary">lock</span>
+            <span>256-Bit Encrypted Stripe Checkout</span>
+        </span>
+    </div>
+</div>
+
+<!-- Header Hero Banner with Trust Signals -->
+<section class="dashboard-masthead-stitch p-4 p-md-5 mb-4 text-center reveal reveal-delay-1">
+    <div class="max-w-2xl mx-auto">
+        <div class="d-inline-flex align-items-center gap-1 px-3 py-1 rounded-pill bg-body-tertiary border mb-3 small">
+            <span class="material-symbols-outlined fs-6 text-primary">verified</span>
+            <span class="fw-semibold text-dark-emphasis">FIDE Master Verified Analytical Engines</span>
+        </div>
+        <h1 class="display-4 fw-bold mb-3 tracking-tight">Invest in Your Chess Mastery</h1>
+        <p class="fs-6 text-muted mb-4 leading-relaxed">
+            Flexible memberships engineered for rapid rating gains. Switch or cancel anytime. Harness deep neural evaluations and title-grade pedagogy.
+        </p>
+
+        <!-- Trust Badges Strip -->
+        <div class="d-flex flex-wrap align-items-center justify-content-center gap-3 gap-md-4 small text-muted border-top border-light-subtle pt-3">
+            <div class="d-flex align-items-center gap-1">
+                <span class="material-symbols-outlined fs-6 text-primary">shield</span>
+                <span>7-Day Risk-Free Trial</span>
+            </div>
+            <span class="text-secondary opacity-25">•</span>
+            <div class="d-flex align-items-center gap-1">
+                <span class="material-symbols-outlined fs-6 text-primary">neurology</span>
+                <span>Stockfish 16.1 NNUE Cluster</span>
+            </div>
+            <span class="text-secondary opacity-25">•</span>
+            <div class="d-flex align-items-center gap-1">
+                <span class="material-symbols-outlined fs-6 text-primary">sync</span>
+                <span>Painless Cancellation</span>
+            </div>
+        </div>
     </div>
 </section>
 
+<!-- Active Subscription Status Banner -->
 {% if active_subscription %}
-<div class="alert alert-success reveal reveal-delay-1">
-    Active plan: <strong>{{ active_subscription.plan.name }}</strong>
+<div class="stat-card-stitch p-4 mb-4 border-primary border-opacity-25 bg-body-tertiary reveal reveal-delay-2">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-3">
+        <div class="d-flex align-items-center gap-3">
+            <div class="mini-chess-icon">
+                <span class="material-symbols-outlined text-primary fs-4">workspace_premium</span>
+            </div>
+            <div>
+                <div class="d-flex align-items-center gap-2">
+                    <h3 class="h5 fw-bold mb-0">Active Plan: {{ active_subscription.plan.name }}</h3>
+                    <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill">Active Member</span>
+                </div>
+                <div class="small text-muted mt-1">Full access enabled across courses, engine evaluations, and practice sparring.</div>
+            </div>
+        </div>
+        <a class="btn btn-brand-outline btn-sm" href="{% url 'dashboard:student-dashboard' %}">
+            <span>Go to Scholar Cockpit</span>
+            <span class="material-symbols-outlined fs-6 align-middle ms-1">arrow_forward</span>
+        </a>
+    </div>
+
+    <!-- Telemetry Quotas Strip -->
+    <div class="row g-3 pt-3 border-top border-light-subtle">
+        <div class="col-md-4">
+            <div class="p-3 rounded bg-body border">
+                <div class="d-flex justify-content-between small text-muted mb-1">
+                    <span>Cloud Analysis Quota</span>
+                    <strong class="text-dark-emphasis">Unlimited (42 Ply)</strong>
+                </div>
+                <div class="progress-stitch my-1">
+                    <div class="progress-bar-stitch" style="width: 100%;"></div>
+                </div>
+                <span class="text-muted" style="font-size: 0.72rem;">Real-time NNUE nodes unmetered</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 rounded bg-body border">
+                <div class="d-flex justify-content-between small text-muted mb-1">
+                    <span>Curriculums Unlocked</span>
+                    <strong class="text-dark-emphasis">All Tracks (100%)</strong>
+                </div>
+                <div class="progress-stitch my-1">
+                    <div class="progress-bar-stitch bg-success" style="width: 100%;"></div>
+                </div>
+                <span class="text-muted" style="font-size: 0.72rem;">Access to all present and future modules</span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 rounded bg-body border">
+                <div class="d-flex justify-content-between small text-muted mb-1">
+                    <span>Syzygy Tablebase 7-Man</span>
+                    <strong class="text-success">Active Online</strong>
+                </div>
+                <div class="progress-stitch my-1">
+                    <div class="progress-bar-stitch bg-info" style="width: 100%;"></div>
+                </div>
+                <span class="text-muted" style="font-size: 0.72rem;">DTZ &amp; WDL endgame resolution</span>
+            </div>
+        </div>
+    </div>
 </div>
 {% endif %}
 
-<div class="row g-3 reveal reveal-delay-1">
+<!-- Plans Grid -->
+<div class="row g-4 mb-5 reveal reveal-delay-2">
     {% for plan in plans %}
-    <div class="col-md-4">
-        <div class="card h-100">
-            <div class="card-body d-flex flex-column p-4">
-                <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h2 class="h5 mb-0">{{ plan.name }}</h2>
+    <div class="col-md-6 col-lg-4">
+        <div class="plan-card-stitch {% if forloop.first %}recommended{% endif %}">
+            <div>
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                        <h2 class="h4 fw-bold mb-1">{{ plan.name }}</h2>
+                        <span class="small text-muted">All-Access Repertoire Access</span>
+                    </div>
                     {% if forloop.first %}
-                    <span class="badge badge-soft">Popular</span>
+                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill font-monospace px-2.5 py-1">Recommended</span>
                     {% endif %}
                 </div>
-                <p class="display-6 fw-semibold mb-2">${{ plan.price_monthly }}<small class="fs-6">/mo</small></p>
-                <p class="muted-copy">{{ plan.description|default:'Premium access to paid courses and tools.' }}</p>
-                <div class="mt-auto d-flex gap-2">
-                    <form method="post" action="{% url 'payments:subscribe-mock' plan.id %}">
-                        {% csrf_token %}
-                        <button class="btn btn-brand" type="submit">Subscribe (Mock)</button>
-                    </form>
-                    <form method="post" action="{% url 'payments:checkout' plan.id %}">
-                        {% csrf_token %}
-                        <button class="btn btn-brand-outline" type="submit">Stripe Checkout</button>
-                    </form>
+
+                <div class="d-flex align-items-baseline gap-1 my-3">
+                    <span class="display-5 fw-bold font-monospace text-primary">${{ plan.price_monthly }}</span>
+                    <span class="text-muted small">/ month</span>
                 </div>
+
+                <p class="text-muted small mb-3">
+                    {{ plan.description|default:'Full access to all master video courses, interactive position tests, and Stockfish analysis.' }}
+                </p>
+
+                <ul class="plan-feature-list">
+                    <li>
+                        <span class="material-symbols-outlined">check_circle</span>
+                        <span>Unlimited Premium Course Syllabi</span>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">check_circle</span>
+                        <span>Deep Stockfish 16.1 NNUE Telemetry (60 Ply)</span>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">check_circle</span>
+                        <span>Spaced Repetition Opening Drills</span>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">check_circle</span>
+                        <span>Syzygy 7-Man Endgame Resolution</span>
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined">check_circle</span>
+                        <span>Chess.com &amp; Lichess Game Sync</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="d-flex flex-column gap-2 mt-4 pt-3 border-top border-light-subtle">
+                {% if user.is_authenticated %}
+                <form method="post" action="{% url 'payments:checkout' plan.id %}">
+                    {% csrf_token %}
+                    <button class="btn btn-brand w-100 py-2.5" type="submit">
+                        <span>Subscribe via Stripe</span>
+                        <span class="material-symbols-outlined fs-6 align-middle ms-1">credit_card</span>
+                    </button>
+                </form>
+                <form method="post" action="{% url 'payments:subscribe-mock' plan.id %}">
+                    {% csrf_token %}
+                    <button class="btn btn-brand-outline btn-sm w-100 py-2" type="submit">Instant Mock Activation</button>
+                </form>
+                {% else %}
+                <a class="btn btn-brand w-100 py-2.5" href="{% url 'login' %}?next={% url 'payments:plans' %}">
+                    <span>Sign In to Subscribe</span>
+                    <span class="material-symbols-outlined fs-6 align-middle ms-1">login</span>
+                </a>
+                <a class="btn btn-brand-outline btn-sm w-100 py-2" href="{% url 'users:signup' %}?next={% url 'payments:plans' %}">Create Free Account First</a>
+                {% endif %}
             </div>
         </div>
     </div>
     {% empty %}
     <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <p class="mb-0">No plans yet. Add plans from the admin panel.</p>
-            </div>
+        <div class="stat-card-stitch text-center py-5">
+            <span class="material-symbols-outlined text-muted fs-1 mb-2">payments</span>
+            <p class="text-muted mb-0">No subscription tiers configured at the moment.</p>
         </div>
     </div>
     {% endfor %}

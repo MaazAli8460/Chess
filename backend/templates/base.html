@@ -19,42 +19,57 @@
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to content</a>
-<nav class="navbar navbar-expand-lg nav-shell sticky-top navbar-light">
-    <div class="container">
-        <a class="brand-mark" href="{% url 'dashboard:home' %}">
+<nav class="navbar navbar-expand-lg nav-shell sticky-top navbar-light py-2">
+    <div class="container-fluid px-3 px-lg-4">
+        <a class="brand-mark d-flex align-items-center gap-2 me-4" href="{% url 'dashboard:home' %}">
             <span class="brand-dot"></span>
             <span>Chessflow</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
+        <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
             <span class="material-symbols-outlined">menu</span>
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 mt-2 mt-lg-0 nav-links-direct">
-                <li class="nav-item"><a class="nav-link" href="{% url 'courses:list' %}">Courses</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'chesslab:analyzer' %}">Chess Lab</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'chesslab:play' %}">Play</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'blog:list' %}">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'payments:plans' %}">Plans</a></li>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-links-direct align-items-lg-center">
+                <li class="nav-item"><a class="nav-link py-1 px-2 {% if request.resolver_match.app_name == 'courses' %}active{% endif %}" href="{% url 'courses:list' %}">Courses</a></li>
+                <li class="nav-item"><a class="nav-link py-1 px-2 {% if request.resolver_match.app_name == 'chesslab' and request.resolver_match.url_name == 'analyzer' %}active{% endif %}" href="{% url 'chesslab:analyzer' %}">Chess Lab</a></li>
+                <li class="nav-item"><a class="nav-link py-1 px-2 {% if request.resolver_match.app_name == 'chesslab' and request.resolver_match.url_name == 'play' %}active{% endif %}" href="{% url 'chesslab:play' %}">Play</a></li>
+                <li class="nav-item"><a class="nav-link py-1 px-2 {% if request.resolver_match.app_name == 'blog' %}active{% endif %}" href="{% url 'blog:list' %}">Blog</a></li>
+                <li class="nav-item"><a class="nav-link py-1 px-2 {% if request.resolver_match.app_name == 'payments' %}active{% endif %}" href="{% url 'payments:plans' %}">Plans</a></li>
                 {% if user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'dashboard:student-dashboard' %}">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link py-1 px-2 {% if request.resolver_match.url_name == 'student-dashboard' %}active{% endif %}" href="{% url 'dashboard:student-dashboard' %}">Dashboard</a></li>
                 {% if user.is_staff %}
-                <li class="nav-item"><a class="nav-link" href="{% url 'dashboard:operations' %}">Staff Ops</a></li>
+                <li class="nav-item"><a class="nav-link py-1 px-2 {% if 'operations' in request.resolver_match.url_name %}active{% endif %}" href="{% url 'dashboard:operations' %}">Staff Ops</a></li>
                 {% endif %}
                 {% endif %}
             </ul>
-            <div class="d-flex gap-2 mt-2 mt-lg-0">
-                <button type="button" class="btn btn-brand-outline btn-sm theme-toggle" id="themeToggle" aria-pressed="false">
-                    Dark mode
+            <div class="d-flex align-items-center gap-2 mt-2 mt-lg-0">
+                <button type="button" class="btn btn-icon theme-toggle rounded-circle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+                    <span class="material-symbols-outlined" id="themeIcon">dark_mode</span>
                 </button>
                 {% if user.is_authenticated %}
-                <a class="btn btn-brand-outline btn-sm" href="{% url 'users:profile' %}">Profile</a>
-                <form method="post" action="{% url 'logout' %}">
+                <a class="btn btn-brand btn-sm d-none d-md-inline-flex align-items-center gap-1 py-1 px-3" href="{% url 'chesslab:analyzer' %}">
+                    <span class="material-symbols-outlined text-sm">neurology</span>
+                    <span>Analyze</span>
+                </a>
+                <div class="user-pill d-flex align-items-center gap-2 px-2 py-1 rounded-pill">
+                    <span class="user-avatar-sm">{{ user.username|make_list|first|upper }}</span>
+                    <span class="user-pill-meta d-none d-sm-inline-flex flex-column text-start">
+                        <strong class="user-name lh-1">{{ user.first_name|default:user.username }}</strong>
+                        <small class="user-role-badge text-muted">{{ user.role|default:"Scholar"|capfirst }}</small>
+                    </span>
+                    <a class="btn btn-brand-outline btn-sm p-1 rounded-circle ms-1" href="{% url 'users:profile' %}" title="Profile" style="width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;">
+                        <span class="material-symbols-outlined" style="font-size:15px;">person</span>
+                    </a>
+                </div>
+                <form method="post" action="{% url 'logout' %}" class="d-inline mb-0">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-brand btn-sm">Logout</button>
+                    <button type="submit" class="btn btn-icon rounded-circle border-0 text-muted p-1" title="Logout">
+                        <span class="material-symbols-outlined fs-5">logout</span>
+                    </button>
                 </form>
                 {% else %}
-                <a class="btn btn-brand-outline btn-sm" href="{% url 'login' %}">Login</a>
-                <a class="btn btn-brand btn-sm" href="{% url 'users:signup' %}">Sign up</a>
+                <a class="btn btn-brand-outline btn-sm py-1 px-3" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-brand btn-sm py-1 px-3" href="{% url 'users:signup' %}">Sign up</a>
                 {% endif %}
             </div>
         </div>
@@ -109,17 +124,26 @@
 {% block extra_js %}{% endblock %}
 <script>
     const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
     const storedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
     const applyTheme = (theme) => {
         if (theme === "dark") {
             document.body.classList.add("dark");
-            themeToggle.textContent = "Light mode";
-            themeToggle.setAttribute("aria-pressed", "true");
+            document.documentElement.classList.add("dark");
+            if (themeIcon) themeIcon.textContent = "light_mode";
+            if (themeToggle) {
+                themeToggle.setAttribute("aria-pressed", "true");
+                themeToggle.setAttribute("title", "Switch to light mode");
+            }
         } else {
             document.body.classList.remove("dark");
-            themeToggle.textContent = "Dark mode";
-            themeToggle.setAttribute("aria-pressed", "false");
+            document.documentElement.classList.remove("dark");
+            if (themeIcon) themeIcon.textContent = "dark_mode";
+            if (themeToggle) {
+                themeToggle.setAttribute("aria-pressed", "false");
+                themeToggle.setAttribute("title", "Switch to dark mode");
+            }
         }
     };
 
@@ -129,12 +153,14 @@
         applyTheme(prefersDark ? "dark" : "light");
     }
 
-    themeToggle.addEventListener("click", () => {
-        const isDark = document.body.classList.contains("dark");
-        const nextTheme = isDark ? "light" : "dark";
-        localStorage.setItem("theme", nextTheme);
-        applyTheme(nextTheme);
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener("click", () => {
+            const isDark = document.body.classList.contains("dark");
+            const nextTheme = isDark ? "light" : "dark";
+            localStorage.setItem("theme", nextTheme);
+            applyTheme(nextTheme);
+        });
+    }
 </script>
 </body>
 </html>

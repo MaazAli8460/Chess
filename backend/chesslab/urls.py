@@ -1,6 +1,15 @@
 from django.urls import path
 
-from .views import AnalyzePositionApiView, CheckMoveApiView, EngineMoveApiView, analyzer_view, import_games_view, play_view
+from .views import (
+    AnalyzePositionApiView,
+    CheckMoveApiView,
+    EngineMoveApiView,
+    analyzer_view,
+    delete_game_view,
+    import_games_view,
+    play_view,
+    save_game_view,
+)
 
 app_name = "chesslab"
 
@@ -11,4 +20,6 @@ urlpatterns = [
     path("api/analyze/", AnalyzePositionApiView.as_view(), name="api-analyze"),
     path("api/check-move/", CheckMoveApiView.as_view(), name="api-check-move"),
     path("api/engine-move/", EngineMoveApiView.as_view(), name="api-engine-move"),
+    path("api/save-game/", save_game_view, name="api-save-game"),
+    path("api/delete-game/<int:game_id>/", delete_game_view, name="api-delete-game"),
 ]

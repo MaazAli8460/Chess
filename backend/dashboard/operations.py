@@ -133,7 +133,7 @@ def category_list(request):
         form.save()
         messages.success(request, "Course category added.")
         return redirect("dashboard:operations-categories")
-    return _page(request, "operations/categories.html", operation_section="courses", form=form, categories=Category.objects.all(), article_categories=ArticleCategory.objects.all())
+    return _page(request, "operations/categories.html", operation_section="categories", form=form, categories=Category.objects.all(), article_categories=ArticleCategory.objects.all())
 
 
 @staff_operation_required
@@ -162,7 +162,7 @@ def article_list(request):
     articles = Article.objects.select_related("author", "category").all()
     if query:
         articles = articles.filter(Q(title__icontains=query) | Q(body__icontains=query))
-    return _page(request, "operations/articles.html", operation_section="content", articles=articles, query=query)
+    return _page(request, "operations/articles.html", operation_section="articles", articles=articles, query=query)
 
 
 @staff_operation_required
@@ -180,7 +180,7 @@ def article_edit(request, article_id=None):
         article.save()
         messages.success(request, "Article saved.")
         return redirect("dashboard:operations-articles")
-    return _page(request, "operations/form.html", operation_section="content", form=form, title="Edit article" if article else "Write article", eyebrow="Content studio", back_url="dashboard:operations-articles")
+    return _page(request, "operations/form.html", operation_section="articles", form=form, title="Edit article" if article else "Write article", eyebrow="Content studio", back_url="dashboard:operations-articles")
 
 
 @staff_operation_required
@@ -198,28 +198,28 @@ def article_categories(request):
         form.save()
         messages.success(request, "Article category added.")
         return redirect("dashboard:operations-article-categories")
-    return _page(request, "operations/categories.html", operation_section="content", form=form, categories=Category.objects.none(), article_categories=ArticleCategory.objects.all(), article_mode=True)
+    return _page(request, "operations/categories.html", operation_section="article-categories", form=form, categories=Category.objects.none(), article_categories=ArticleCategory.objects.all(), article_mode=True)
 
 
 @staff_operation_required
 def testimonial_list(request):
-    form = TestimonialForm(request.POST or None)
+    form = TestimonialForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
         messages.success(request, "Testimonial saved.")
         return redirect("dashboard:operations-testimonials")
-    return _page(request, "operations/testimonials.html", operation_section="content", form=form, testimonials=Testimonial.objects.all())
+    return _page(request, "operations/testimonials.html", operation_section="testimonials", form=form, testimonials=Testimonial.objects.all())
 
 
 @staff_operation_required
 def testimonial_edit(request, testimonial_id):
     testimonial = get_object_or_404(Testimonial, id=testimonial_id)
-    form = TestimonialForm(request.POST or None, instance=testimonial)
+    form = TestimonialForm(request.POST or None, request.FILES or None, instance=testimonial)
     if form.is_valid():
         form.save()
         messages.success(request, "Testimonial updated.")
         return redirect("dashboard:operations-testimonials")
-    return _page(request, "operations/form.html", operation_section="content", form=form, title="Edit testimonial", eyebrow="Social proof", back_url="dashboard:operations-testimonials")
+    return _page(request, "operations/form.html", operation_section="testimonials", form=form, title="Edit testimonial", eyebrow="Social proof", back_url="dashboard:operations-testimonials")
 
 
 @staff_operation_required
@@ -254,4 +254,4 @@ def plan_edit(request, plan_id):
 @staff_operation_required
 def payment_list(request):
     payments = PaymentTransaction.objects.select_related("user").all()[:100]
-    return _page(request, "operations/payments.html", operation_section="billing", payments=payments)
+    return _page(request, "operations/payments.html", operation_section="payments", payments=payments)

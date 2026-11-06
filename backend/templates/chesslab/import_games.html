@@ -1,65 +1,122 @@
 {% extends 'base.html' %}
 
-{% block title %}Import Games | Chess Learning Platform{% endblock %}
+{% block page_title %}Import Games — Chess.com Vault Sync{% endblock %}
+{% block meta_description %}Sync recent rapid, blitz, and bullet matches directly from Chess.com and run automatic Stockfish move evaluations.{% endblock %}
 
 {% block content %}
-<section class="section-head reveal mb-3">
-    <div>
-        <h1 class="section-title">Import Chess.com Games</h1>
-        <p class="muted-copy mb-0">Link your Chess.com username and analyze the latest games in one click.</p>
+<!-- Top Sub-Navigation & Telemetry Strip -->
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2 px-3 mb-4 rounded-pill border bg-body-tertiary shadow-sm reveal">
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span>Academy</span>
+        <span class="text-secondary opacity-50">/</span>
+        <span>Workspace</span>
+        <span class="text-secondary opacity-50">/</span>
+        <strong class="text-primary">Chess.com Game Vault Sync</strong>
+    </div>
+    <div class="d-flex align-items-center gap-3 small text-muted">
+        <span class="d-inline-flex align-items-center gap-1">
+            <span class="telemetry-pulse"></span>
+            <span>Public API Sync</span>
+        </span>
+    </div>
+</div>
+
+<!-- Masthead Banner -->
+<section class="dashboard-masthead-stitch p-4 p-md-5 mb-4 reveal reveal-delay-1">
+    <div class="row align-items-center justify-content-between g-4">
+        <div class="col-lg-8">
+            <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="telemetry-chip primary">
+                    <span class="material-symbols-outlined fs-6 align-middle">cloud_sync</span>
+                    <span>Automated PGN Ingestion</span>
+                </span>
+                <span class="telemetry-chip">
+                    <span>Final Position Stockfish Audit</span>
+                </span>
+            </div>
+            <h1 class="display-5 fw-bold mb-2">Chess.com Archive Sync</h1>
+            <p class="text-muted fs-6 mb-0">Import your recent tournament games to identify inaccuracies, review tactical blunders, and import critical positions into the Chess Lab.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+            <a class="btn btn-brand-outline" href="{% url 'chesslab:analyzer' %}">
+                <span class="material-symbols-outlined fs-6 align-middle me-1">troubleshoot</span>
+                <span>Open FEN Analyzer</span>
+            </a>
+        </div>
     </div>
 </section>
 
-<div class="row g-4 reveal reveal-delay-1">
+<div class="row g-4 reveal reveal-delay-2">
+    <!-- Link Account Form -->
     <div class="col-lg-5">
-        <div class="card">
-            <div class="card-body p-4 form-shell">
-                <h2 class="h5">Link Account</h2>
-                <p class="muted-copy">Use your Chess.com username (public data, no password required).</p>
-                {% if linked_username %}
-                <div class="alert alert-success">Linked username: <strong>{{ linked_username }}</strong></div>
-                {% endif %}
-                <form method="post" novalidate>
-                    {% csrf_token %}
-                    <label class="form-label" for="username">Chess.com Username</label>
-                    <input class="form-control" id="username" name="username" value="{{ username }}" placeholder="your_chesscom_handle" />
-                    <button class="btn btn-brand mt-3" type="submit">Load latest games</button>
-                </form>
+        <div class="stat-card-stitch p-4">
+            <h2 class="h5 fw-bold mb-2">Connect Handle</h2>
+            <p class="small text-muted mb-4">Enter any public Chess.com username to fetch recent games (no password or OAuth token required).</p>
+
+            {% if linked_username %}
+            <div class="alert alert-success d-flex align-items-center gap-2 py-2 mb-3">
+                <span class="material-symbols-outlined fs-5">check_circle</span>
+                <span class="small fw-semibold">Linked Handle: <strong>@{{ linked_username }}</strong></span>
             </div>
+            {% endif %}
+
+            <form method="post" novalidate class="form-shell">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label class="form-label small text-muted fw-semibold" for="username">Username</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-body-tertiary">@</span>
+                        <input class="form-control font-monospace" id="username" name="username" value="{{ username }}" placeholder="hikaru" />
+                    </div>
+                </div>
+                <button class="btn btn-brand w-100 py-2.5" type="submit">
+                    <span class="material-symbols-outlined fs-6 align-middle me-1">sync</span>
+                    <span>Load &amp; Evaluate Games</span>
+                </button>
+            </form>
         </div>
     </div>
+
+    <!-- Latest Games List -->
     <div class="col-lg-7">
-        <div class="card">
-            <div class="card-body p-4">
-                <h2 class="h5">Latest Game Analysis</h2>
-                {% if games %}
-                <div class="d-grid gap-3">
-                    {% for game in games %}
-                    <div class="card">
-                        <div class="card-body p-3">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <strong>{{ game.white }} vs {{ game.black }}</strong>
-                                <span class="badge badge-soft">{{ game.result|default:'Result' }}</span>
-                            </div>
-                            <p class="muted-copy mb-2">Time control: {{ game.time_control|default:'n/a' }}</p>
-                            {% if game.analysis.best_move %}
-                            <div class="lesson-meta">
-                                <strong>Suggested move (final position)</strong>
-                                <div class="code-block">{{ game.analysis.best_move }}</div>
-                                <div class="muted-copy">Evaluation: {{ game.analysis.evaluation }}</div>
-                            </div>
-                            {% endif %}
-                            {% if game.url %}
-                            <a class="btn btn-sm btn-brand-outline mt-2" href="{{ game.url }}" target="_blank" rel="noreferrer">Open game on Chess.com</a>
-                            {% endif %}
-                        </div>
-                    </div>
-                    {% endfor %}
+        <div class="stat-card-stitch p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h2 class="h5 fw-bold mb-0">Synchronized Games</h2>
+                    <span class="small text-muted">Latest matches retrieved with automated evaluation</span>
                 </div>
-                {% else %}
-                <p class="muted-copy mb-0">No games loaded yet. Submit your username to fetch recent games.</p>
-                {% endif %}
+                <span class="badge bg-body-secondary text-muted rounded-pill">{{ games|length }} retrieved</span>
             </div>
+
+            {% if games %}
+            <div class="d-flex flex-column gap-3">
+                {% for game in games %}
+                <div class="course-progress-item p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <strong class="text-dark-emphasis">{{ game.white }} vs {{ game.black }}</strong>
+                        <span class="telemetry-chip primary">{{ game.result|default:'Result' }}</span>
+                    </div>
+                    <div class="small text-muted mb-2 d-flex gap-3">
+                        <span>Time: <strong>{{ game.time_control|default:'n/a' }}</strong></span>
+                        {% if game.analysis.evaluation %}
+                        <span>Eval: <strong class="font-monospace text-primary">{{ game.analysis.evaluation }}</strong></span>
+                        {% endif %}
+                    </div>
+                    {% if game.analysis.best_move %}
+                    <div class="p-2.5 rounded bg-body-tertiary border font-monospace small mb-2 d-flex justify-content-between align-items-center">
+                        <span>Stockfish Best Move: <strong class="text-primary">{{ game.analysis.best_move }}</strong></span>
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle font-monospace" style="font-size: 0.68rem;">{{ game.analysis.source }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="text-center py-5 text-muted">
+                <span class="material-symbols-outlined fs-1 mb-2">cloud_off</span>
+                <p class="small mb-0">No games loaded yet. Enter your handle on the left to begin.</p>
+            </div>
+            {% endif %}
         </div>
     </div>
 </div>

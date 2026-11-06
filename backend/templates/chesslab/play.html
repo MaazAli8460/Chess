@@ -1,129 +1,291 @@
 {% extends 'base.html' %}
 
-{% block page_title %}Play Chess — ChessLearn{% endblock %}
-{% block meta_description %}Play chess against the engine or a friend. Choose your difficulty and practice openings, tactics and endgames.{% endblock %}
+{% block page_title %}Play Chess — Interactive Board & Match Arena{% endblock %}
+{% block meta_description %}Play chess turn-by-turn from both sides or against offline bot. Interactive board with live eval bar, captured pieces, and move logs.{% endblock %}
 
 {% block extra_head %}
 <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
 <style>
     #board .square-55d63 { transition: background-color 0.15s; }
-    .piece-unicode { font-size: 1.1rem; line-height: 1; }
-    .move-list { max-height: 220px; overflow-y: auto; font-size: 0.85rem; }
+    .piece-unicode { font-size: 1.15rem; line-height: 1; }
+    .move-list { max-height: 220px; overflow-y: auto; font-size: 0.85rem; font-family: "JetBrains Mono", monospace; }
     .move-list table { width: 100%; border-collapse: collapse; }
-    .move-list td { padding: 3px 6px; }
-    .move-list tr:nth-child(even) td { background: rgba(37,99,235,0.07); }
-    .move-list td:first-child { color: var(--ink-soft); width: 2rem; }
-    .captured-row { display: flex; flex-wrap: wrap; gap: 1px; min-height: 1.5rem; font-size: 1.05rem; }
-    .engine-thinking { opacity: 0.5; pointer-events: none; }
+    .move-list td { padding: 4px 8px; border-bottom: 1px solid var(--border-light); }
+    .move-list tr:nth-child(even) td { background: rgba(0, 81, 213, 0.04); }
+    .move-list td:first-child { color: var(--ink-soft); width: 2.2rem; font-weight: 600; }
+    .captured-row { display: flex; flex-wrap: wrap; gap: 3px; min-height: 1.8rem; font-size: 1.25rem; align-items: center; }
+    .engine-thinking { opacity: 0.6; pointer-events: none; filter: grayscale(30%); }
     #game-over-banner { display: none; }
-    .side-btn { cursor: pointer; border: 2px solid var(--border); border-radius: 10px; padding: 0.5rem 1rem; transition: all 0.15s; background: var(--surface); }
-    .side-btn.active { border-color: var(--accent); background: var(--brand-soft); }
-    .diff-btn { cursor: pointer; border: 2px solid var(--border); border-radius: 10px; padding: 0.4rem 0.9rem; font-size: 0.85rem; transition: all 0.15s; background: var(--surface); }
-    .diff-btn.active { border-color: var(--accent); background: var(--brand-soft); }
-    .status-chip { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
-    .status-chip.white-turn { background: #f0f0f0; color: #222; border: 1px solid #ccc; }
-    .status-chip.black-turn { background: #333; color: #fff; border: 1px solid #555; }
-    .status-chip.check { background: rgba(239,68,68,0.15); color: #b91c1c; border: 1px solid rgba(239,68,68,0.3); }
-    .status-chip.game-over { background: var(--brand-soft); color: var(--brand); border: 1px solid var(--accent); }
+    
+    .mode-btn-group .btn {
+        flex: 1;
+        padding: 0.55rem 0.75rem;
+    }
+    
+    .status-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+    }
+    .status-badge.white-turn { background: #f1f5f9; color: #0f172a; border: 1px solid #cbd5e1; }
+    .status-badge.black-turn { background: #0f172a; color: #f8fafc; border: 1px solid #334155; }
+    .status-badge.check { background: rgba(239, 68, 68, 0.15); color: #dc2626; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .status-badge.game-over { background: rgba(16, 185, 129, 0.15); color: #059669; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+    .saved-game-item {
+        background: var(--surface-container-low);
+        border: 1px solid var(--border-light);
+        border-radius: var(--radius-sm);
+        padding: 0.65rem 0.85rem;
+        transition: all 0.15s ease;
+    }
+    .saved-game-item:hover {
+        background: var(--surface-container);
+        border-color: var(--border);
+    }
 </style>
 {% endblock %}
 
 {% block content %}
-<section class="lab-masthead reveal mb-4">
-    <div>
-        <p class="eyebrow">Practice board</p>
-        <h1 class="display-heading">Play the idea.</h1>
-        <p class="muted-copy mb-0">Test openings, tactics, and endgames against the engine or a friend.</p>
+<!-- Top Sub-Navigation & Telemetry Strip -->
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2 px-3 mb-4 rounded-3 border bg-body-tertiary shadow-sm reveal">
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span>Academy</span>
+        <span class="text-secondary opacity-50">/</span>
+        <span>Practice Board</span>
+        <span class="text-secondary opacity-50">/</span>
+        <strong class="text-primary">Interactive Arena</strong>
+    </div>
+    <div class="d-flex align-items-center gap-3 small text-muted">
+        <span class="d-inline-flex align-items-center gap-1">
+            <span class="telemetry-pulse"></span>
+            <span>Real-time Board Evaluation</span>
+        </span>
+        <span class="text-secondary opacity-25">|</span>
+        <span id="game-status-label" class="fw-semibold text-primary">Two-Player Mode</span>
+    </div>
+</div>
+
+{% if not user.is_authenticated %}
+<!-- Guest Banner for Unregistered Users -->
+<div class="alert alert-info border-info-subtle d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4 reveal">
+    <div class="d-flex align-items-center gap-2">
+        <span class="material-symbols-outlined fs-4 text-primary">info</span>
+        <div>
+            <strong class="d-block text-dark-emphasis">Guest Player Mode</strong>
+            <span class="small text-muted">You can play complete chess games from both sides freely. Create a free account to save your games, review past matches, and track tournament metrics.</span>
+        </div>
+    </div>
+    <div class="d-inline-flex gap-2">
+        <a class="btn btn-brand btn-sm" href="{% url 'users:signup' %}?next={% url 'chesslab:play' %}">Sign Up Free</a>
+        <a class="btn btn-brand-outline btn-sm" href="{% url 'login' %}?next={% url 'chesslab:play' %}">Log In</a>
+    </div>
+</div>
+{% endif %}
+
+<!-- Arena Masthead -->
+<section class="dashboard-masthead-stitch p-4 p-lg-5 mb-4 reveal reveal-delay-1">
+    <div class="row align-items-center justify-content-between g-4">
+        <div class="col-lg-8">
+            <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="telemetry-chip primary">
+                    <span class="material-symbols-outlined fs-6 align-middle">sports_esports</span>
+                    <span>Interactive Match Board</span>
+                </span>
+                <span class="telemetry-chip">
+                    <span>Play White &amp; Black Turn-by-Turn</span>
+                </span>
+                {% if user.is_authenticated %}
+                <span class="telemetry-chip warning">
+                    <span class="material-symbols-outlined fs-6 align-middle">save</span>
+                    <span>Auto-Save Enabled</span>
+                </span>
+                {% endif %}
+            </div>
+            <h1 class="display-5 fw-bold mb-2">Play the 64 Squares</h1>
+            <p class="text-muted fs-6 mb-0">Full-featured chess playing board. Move pieces for both sides, validate tournament moves, view live centipawn advantages, and save games to your personal dossier.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+            <div class="d-inline-flex gap-2">
+                <button class="btn btn-brand" onclick="newGame()">
+                    <span class="material-symbols-outlined fs-6 align-middle">restart_alt</span>
+                    <span>Reset Board</span>
+                </button>
+                {% if user.is_authenticated %}
+                <button class="btn btn-brand-outline" onclick="saveCurrentGame(false)" id="btnSaveGame">
+                    <span class="material-symbols-outlined fs-6 align-middle me-1">save</span>
+                    <span>Save Game</span>
+                </button>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </section>
 
-<div class="row g-4 play-shell reveal reveal-delay-1">
-    <!-- Board column -->
-    <div class="col-lg-7">
-        <div class="card">
-            <div class="card-body p-3 p-md-4">
-                <div id="board" style="width:100%;max-width:520px;margin:0 auto;"></div>
-                <div id="game-over-banner" class="alert alert-success mt-3 mb-0 text-center fw-semibold"></div>
+<div class="row g-4 play-shell reveal reveal-delay-2">
+    <!-- Board & Eval Bar Column (Col 7) -->
+    <div class="col-lg-7 col-xl-7">
+        <div class="stat-card-stitch p-3 p-md-4">
+            <!-- Player Tops / Black Bar -->
+            <div class="d-flex justify-content-between align-items-center p-2 px-3 mb-3 rounded-3 bg-body-tertiary border">
+                <div class="d-flex align-items-center gap-2">
+                    <div class="user-avatar-sm" id="black-avatar" style="background:#0f172a; color:#fff;">♚</div>
+                    <div>
+                        <strong class="d-block small lh-1 text-dark-emphasis" id="black-name">Black Player</strong>
+                        <small class="text-muted" id="black-sub">Pass &amp; Play / Opponent</small>
+                    </div>
+                </div>
+                <div class="captured-row" id="captured-by-white" title="Pieces captured by White"></div>
             </div>
+
+            <!-- The Board and Live Vertical Eval Bar Container -->
+            <div class="board-wrapper my-2">
+                <!-- Vertical Evaluation Gauge -->
+                <div class="eval-bar-container" id="eval-bar-wrapper" title="Real-time Centipawn Material & Positional Evaluation">
+                    <div class="eval-bar-centerline"></div>
+                    <div class="eval-bar-fill" id="eval-fill" style="height: 50%;"></div>
+                    <div class="eval-bar-score" id="eval-score">0.0</div>
+                </div>
+
+                <!-- Actual Interactive Chessboard -->
+                <div style="flex: 1; max-width: 520px;">
+                    <div id="board" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Player Bottoms / White Bar -->
+            <div class="d-flex justify-content-between align-items-center p-2 px-3 mt-3 rounded-3 bg-body-tertiary border">
+                <div class="d-flex align-items-center gap-2">
+                    <div class="user-avatar-sm" id="white-avatar" style="background:#e2e8f0; color:#0f172a; border:1px solid #cbd5e1;">♔</div>
+                    <div>
+                        <strong class="d-block small lh-1 text-dark-emphasis" id="white-name">
+                            {% if user.is_authenticated %}{{ user.first_name|default:user.username }}{% else %}White Player{% endif %}
+                        </strong>
+                        <small class="text-muted" id="white-sub">Pass &amp; Play / Initiator</small>
+                    </div>
+                </div>
+                <div class="captured-row" id="captured-by-black" title="Pieces captured by Black"></div>
+            </div>
+
+            <div id="game-over-banner" class="alert alert-success mt-3 mb-0 text-center fw-semibold"></div>
+            <div id="save-status-msg" class="alert alert-info py-2 px-3 mt-3 mb-0 text-center small d-none"></div>
         </div>
     </div>
 
-    <!-- Controls + info column -->
-    <div class="col-lg-5 d-flex flex-column gap-3">
+    <!-- Controls, Settings & Move Ledger Column (Col 5) -->
+    <div class="col-lg-5 col-xl-5 d-flex flex-column gap-3">
+        <!-- Match Control Box -->
+        <div class="stat-card-stitch p-4">
+            <h2 class="h6 fw-bold mb-3">Match Configuration</h2>
 
-        <!-- Game setup -->
-        <div class="card" id="setup-card">
-            <div class="card-body p-4">
-                <h2 class="h6 fw-semibold mb-3">Game Setup</h2>
-
-                <!-- Mode toggle -->
-                <div class="mb-3">
-                    <p class="small fw-semibold mb-2">Mode</p>
-                    <div class="d-flex gap-2">
-                        <button class="side-btn active" id="mode-engine" onclick="setMode('engine')">vs Engine</button>
-                        <button class="side-btn" id="mode-friend" onclick="setMode('friend')">vs Friend</button>
-                    </div>
+            <!-- Match mode picker -->
+            <div class="mb-3">
+                <label class="form-label small text-muted fw-semibold mb-1">Playing Style</label>
+                <div class="btn-group w-100 mode-btn-group" role="group">
+                    <button type="button" class="btn btn-brand btn-sm" id="mode-both" onclick="setMode('both')">
+                        <span class="material-symbols-outlined fs-6 align-middle me-1">people</span>
+                        <span>Play Both Sides</span>
+                    </button>
+                    <button type="button" class="btn btn-brand-outline btn-sm" id="mode-bot" onclick="setMode('bot')">
+                        <span class="material-symbols-outlined fs-6 align-middle me-1">smart_toy</span>
+                        <span>vs Offline Bot</span>
+                    </button>
                 </div>
+            </div>
 
-                <!-- Side picker (engine mode only) -->
-                <div id="side-picker" class="mb-3">
-                    <p class="small fw-semibold mb-2">Play as</p>
-                    <div class="d-flex gap-2">
-                        <button class="side-btn active" id="side-white" onclick="setSide('w')">&#9816; White</button>
-                        <button class="side-btn" id="side-black" onclick="setSide('b')">&#9822; Black</button>
-                    </div>
+            <!-- Side picker for bot mode -->
+            <div id="side-picker" class="mb-3 d-none">
+                <label class="form-label small text-muted fw-semibold mb-1">Your Side against Bot</label>
+                <div class="btn-group w-100 mode-btn-group" role="group">
+                    <button type="button" class="btn btn-brand btn-sm" id="side-white" onclick="setSide('w')">
+                        <span class="me-1">&#9816;</span>
+                        <span>Play White</span>
+                    </button>
+                    <button type="button" class="btn btn-brand-outline btn-sm" id="side-black" onclick="setSide('b')">
+                        <span class="me-1">&#9822;</span>
+                        <span>Play Black</span>
+                    </button>
                 </div>
+            </div>
 
-                <!-- Difficulty (engine mode only) -->
-                <div id="diff-picker" class="mb-4">
-                    <p class="small fw-semibold mb-2">Difficulty</p>
-                    <div class="d-flex gap-2">
-                        <button class="diff-btn" id="diff-easy" onclick="setDiff('easy')">Easy</button>
-                        <button class="diff-btn active" id="diff-medium" onclick="setDiff('medium')">Medium</button>
-                        <button class="diff-btn" id="diff-hard" onclick="setDiff('hard')">Hard</button>
-                    </div>
-                </div>
-
-                <button class="btn btn-brand w-100" id="newGameBtn" onclick="newGame()">New Game</button>
+            <!-- Action buttons -->
+            <div class="d-flex gap-2">
+                <button class="btn btn-brand flex-grow-1" id="newGameBtn" onclick="newGame()">
+                    <span class="material-symbols-outlined fs-6 align-middle me-1">play_arrow</span>
+                    <span>New Match</span>
+                </button>
+                <button class="btn btn-brand-outline px-3" onclick="flipBoard()" title="Flip Viewpoint">
+                    <span class="material-symbols-outlined fs-6 align-middle">swap_vert</span>
+                </button>
+                <button class="btn btn-brand-outline px-3" id="undoBtn" onclick="undoMove()" title="Take back move">
+                    <span class="material-symbols-outlined fs-6 align-middle">undo</span>
+                </button>
             </div>
         </div>
 
-        <!-- Status -->
-        <div class="card">
-            <div class="card-body p-4">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2 class="h6 fw-semibold mb-0">Status</h2>
-                    <span id="status-chip" class="status-chip white-turn">White to move</span>
+        <!-- Live Status and Move History Ledger -->
+        <div class="stat-card-stitch p-4 flex-grow-1 d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-light-subtle">
+                <div class="d-flex align-items-center gap-2">
+                    <h3 class="h6 fw-bold mb-0">Turn &amp; Ledger</h3>
                 </div>
+                <span id="status-chip" class="status-badge white-turn">White to move</span>
+            </div>
 
-                <!-- Captured pieces -->
-                <div class="mb-3">
-                    <p class="small fw-semibold mb-1">&#9822; Black's captures</p>
-                    <div class="captured-row" id="captured-by-black"></div>
-                </div>
-                <div class="mb-3">
-                    <p class="small fw-semibold mb-1">&#9816; White's captures</p>
-                    <div class="captured-row" id="captured-by-white"></div>
-                </div>
+            <div class="move-list flex-grow-1 mb-3" id="move-list">
+                <p class="text-muted small text-center py-4 mb-0">Drag a piece on the board to begin.</p>
+            </div>
 
-                <!-- Undo -->
+            <div class="pt-2 border-top border-light-subtle d-flex justify-content-between align-items-center small text-muted">
+                <span>FEN: <span id="current-fen-preview" class="font-monospace text-truncate d-inline-block align-middle" style="max-width: 170px;">start</span></span>
                 <div class="d-flex gap-2">
-                    <button class="btn btn-brand-outline btn-sm" id="undoBtn" onclick="undoMove()">Undo</button>
-                    <button class="btn btn-brand-outline btn-sm" onclick="board.flip()">Flip board</button>
+                    <button class="btn btn-link btn-sm p-0 text-decoration-none" onclick="copyFen()">Copy FEN</button>
+                    <span class="text-secondary opacity-25">|</span>
+                    <button class="btn btn-link btn-sm p-0 text-decoration-none" onclick="copyPgn()">Copy PGN</button>
                 </div>
             </div>
         </div>
 
-        <!-- Move history -->
-        <div class="card flex-grow-1">
-            <div class="card-body p-4">
-                <h2 class="h6 fw-semibold mb-2">Move History</h2>
-                <div class="move-list" id="move-list">
-                    <p class="text-muted small mb-0">No moves yet.</p>
+        {% if user.is_authenticated %}
+        <!-- Saved Matches Ledger (Registered Users Only) -->
+        <div class="stat-card-stitch p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined fs-5 text-primary">bookmark</span>
+                    <h3 class="h6 fw-bold mb-0">Saved Matches</h3>
                 </div>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill font-monospace" id="saved-count">{{ saved_games|length }}</span>
+            </div>
+
+            <div class="d-flex flex-column gap-2 overflow-auto" id="saved-games-list" style="max-height: 240px;">
+                {% for g in saved_games %}
+                <div class="saved-game-item d-flex justify-content-between align-items-center gap-2" id="saved-row-{{ g.id }}">
+                    <div class="d-flex flex-column min-w-0">
+                        <strong class="small text-truncate text-dark-emphasis">{{ g.title }}</strong>
+                        <span class="small text-muted" style="font-size:0.72rem;">
+                            {{ g.moves_count }} moves · <span class="text-primary">{{ g.result }}</span> · {{ g.created_at|date:"M j, H:i" }}
+                        </span>
+                    </div>
+                    <div class="d-flex align-items-center gap-1 shrink-0">
+                        <button class="btn btn-sm btn-brand-outline p-1 px-2" onclick="loadSavedGame('{{ g.fen|escapejs }}', '{{ g.pgn|escapejs }}', '{{ g.id }}')" title="Load into board">
+                            <span class="material-symbols-outlined" style="font-size:16px;">upload</span>
+                        </button>
+                        <button class="btn btn-sm btn-outline-danger p-1 px-2" onclick="deleteSavedGame({{ g.id }})" title="Delete record">
+                            <span class="material-symbols-outlined" style="font-size:16px;">delete</span>
+                        </button>
+                    </div>
+                </div>
+                {% empty %}
+                <p class="text-muted small text-center py-3 mb-0" id="no-saved-msg">No saved matches yet. Click "Save Game" after making moves.</p>
+                {% endfor %}
             </div>
         </div>
-
+        {% endif %}
     </div>
 </div>
 {% endblock %}
@@ -133,32 +295,68 @@
 <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 <script>
 (function () {
-    const ENGINE_MOVE_URL = "{% url 'chesslab:api-engine-move' %}";
+    const SAVE_GAME_URL = "{% url 'chesslab:api-save-game' %}";
     const CSRF_TOKEN = "{{ csrf_token }}";
     const IS_AUTH = {{ user.is_authenticated|yesno:"true,false" }};
 
     const PIECE_SYMBOLS = { p:'♟', r:'♜', n:'♞', b:'♝', q:'♛', k:'♚', P:'♙', R:'♖', N:'♘', B:'♗', Q:'♕', K:'♔' };
-    const DEPTH_MAP = { easy: 2, medium: 5, hard: 12 };
+    const PIECE_VALUES = { p: 1, n: 3.05, b: 3.3, r: 5, q: 9.5, k: 0 };
 
     let game = new Chess();
-    let mode = 'engine';       // 'engine' | 'friend'
+    let mode = 'both';          // 'both' (play White & Black) | 'bot' (vs offline bot)
     let playerSide = 'w';
-    let difficulty = 'medium';
-    let engineThinking = false;
+    let currentSavedId = null;
     let gameOver = false;
 
-    // ── Board ────────────────────────────────────────────────────────────────
+    // ── Simple Web Audio API Synthesizer (Move Click) ───────────────────────
+    let audioCtx = null;
+    function playMoveSound(isCapture) {
+        try {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            if (isCapture) {
+                osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(220, audioCtx.currentTime + 0.08);
+            } else {
+                osc.frequency.setValueAtTime(320, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(160, audioCtx.currentTime + 0.05);
+            }
+            
+            gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (isCapture ? 0.09 : 0.06));
+            osc.start();
+            osc.stop(audioCtx.currentTime + (isCapture ? 0.09 : 0.06));
+        } catch (e) {}
+    }
+
+    // ── Board Event Handlers ─────────────────────────────────────────────────
     function onDragStart(source, piece) {
-        if (gameOver || engineThinking) return false;
+        if (gameOver) return false;
         if (game.game_over()) return false;
-        if (mode === 'engine' && piece[0] !== playerSide) return false;
-        if (game.turn() !== piece[0]) return false;
+
+        // If mode is 'both', allow dragging whichever piece corresponds to the active turn
+        if (mode === 'both') {
+            return game.turn() === piece[0];
+        }
+
+        // If mode is 'bot', only allow player's side
+        if (mode === 'bot') {
+            if (piece[0] !== playerSide) return false;
+            return game.turn() === playerSide;
+        }
+
+        return false;
     }
 
     function onDrop(source, target) {
         const move = game.move({ from: source, to: target, promotion: 'q' });
         if (move === null) return 'snapback';
 
+        playMoveSound(move.captured ? true : false);
         updateUI();
 
         if (game.game_over()) {
@@ -166,8 +364,9 @@
             return;
         }
 
-        if (mode === 'engine') {
-            requestEngineMove();
+        // If playing against offline bot, trigger bot response
+        if (mode === 'bot' && game.turn() !== playerSide) {
+            setTimeout(makeBotMove, 280);
         }
     }
 
@@ -184,59 +383,111 @@
         pieceTheme: 'https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/img/chesspieces/wikipedia/{piece}.png',
     });
 
-    // ── Engine call ──────────────────────────────────────────────────────────
-    function requestEngineMove() {
-        if (!IS_AUTH) {
-            showBanner('Log in to play against the engine.', false);
-            return;
-        }
-        engineThinking = true;
-        document.getElementById('board').classList.add('engine-thinking');
-        document.getElementById('status-chip').textContent = 'Engine thinking…';
+    // ── Offline Bot Logic (Instant legal response, captures preferred) ───────
+    function makeBotMove() {
+        if (game.game_over() || gameOver) return;
+        const moves = game.moves({ verbose: true });
+        if (!moves.length) return;
 
-        fetch(ENGINE_MOVE_URL, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF_TOKEN },
-            body: JSON.stringify({ fen: game.fen(), depth: DEPTH_MAP[difficulty] }),
-        })
-        .then(r => r.json())
-        .then(data => {
-            engineThinking = false;
-            document.getElementById('board').classList.remove('engine-thinking');
-            if (data.error) { updateUI(); return; }
-            game.move({ from: data.move.slice(0,2), to: data.move.slice(2,4), promotion: data.move[4] || 'q' });
+        // Simple heuristic: prefer captures / checks, otherwise random legal move
+        let bestMove = moves[0];
+        const captures = moves.filter(m => m.captured);
+        if (captures.length > 0) {
+            // Sort by captured piece value
+            captures.sort((a,b) => (PIECE_VALUES[b.captured] || 1) - (PIECE_VALUES[a.captured] || 1));
+            bestMove = captures[0];
+        } else {
+            // Pick a move favoring center squares (d4, e4, d5, e5)
+            const centerMoves = moves.filter(m => ['d4','e4','d5','e5','c4','f4','c5','f5'].includes(m.to));
+            if (centerMoves.length > 0 && Math.random() > 0.4) {
+                bestMove = centerMoves[Math.floor(Math.random() * centerMoves.length)];
+            } else {
+                bestMove = moves[Math.floor(Math.random() * moves.length)];
+            }
+        }
+
+        const res = game.move(bestMove);
+        if (res) {
+            playMoveSound(res.captured ? true : false);
             board.position(game.fen());
             updateUI();
-            if (data.is_game_over) endGame();
-        })
-        .catch(() => {
-            engineThinking = false;
-            document.getElementById('board').classList.remove('engine-thinking');
-            updateUI();
-        });
+            if (game.game_over()) endGame();
+        }
     }
 
-    // ── UI updates ───────────────────────────────────────────────────────────
+    // ── Real-Time Evaluation Calculation (Material + Center Bonus) ───────────
+    function calculatePositionEvaluation() {
+        let whiteScore = 0;
+        let blackScore = 0;
+
+        const boardMatrix = game.board();
+        for (let r = 0; r < 8; r++) {
+            for (let c = 0; c < 8; c++) {
+                const sq = boardMatrix[r][c];
+                if (sq) {
+                    const val = PIECE_VALUES[sq.type] || 0;
+                    // Center proximity bonus
+                    const centerBonus = (r >= 2 && r <= 5 && c >= 2 && c <= 5) ? 0.15 : 0;
+                    if (sq.color === 'w') {
+                        whiteScore += val + centerBonus;
+                    } else {
+                        blackScore += val + centerBonus;
+                    }
+                }
+            }
+        }
+
+        const delta = whiteScore - blackScore;
+        updateEvalBar(delta);
+    }
+
+    function updateEvalBar(deltaNum) {
+        const fill = document.getElementById('eval-fill');
+        const score = document.getElementById('eval-score');
+        if (!fill || !score) return;
+
+        if (game.in_checkmate()) {
+            const isWhite = game.turn() === 'b';
+            fill.style.height = isWhite ? '98%' : '2%';
+            score.textContent = isWhite ? '+#M' : '-#M';
+            score.classList.toggle('black-lead', !isWhite);
+            return;
+        }
+
+        // Logistic sigmoid mapping: delta 0 => 50%, delta +3 => 75%
+        let percent = 50 + (2 / (1 + Math.exp(-0.35 * deltaNum)) - 1) * 50;
+        percent = Math.max(5, Math.min(95, percent));
+
+        fill.style.height = percent + '%';
+        score.textContent = (deltaNum >= 0 ? '+' : '') + deltaNum.toFixed(1);
+        score.classList.toggle('black-lead', deltaNum < 0);
+    }
+
+    // ── UI Updates ───────────────────────────────────────────────────────────
     function updateUI() {
         updateStatus();
         updateCaptured();
         updateMoveList();
+        calculatePositionEvaluation();
+        
+        const fenElem = document.getElementById('current-fen-preview');
+        if (fenElem) fenElem.textContent = game.fen();
     }
 
     function updateStatus() {
         const chip = document.getElementById('status-chip');
         if (game.game_over()) {
-            chip.textContent = 'Game over';
-            chip.className = 'status-chip game-over';
+            chip.textContent = 'Match concluded';
+            chip.className = 'status-badge game-over';
             return;
         }
         const turn = game.turn();
         if (game.in_check()) {
-            chip.textContent = (turn === 'w' ? 'White' : 'Black') + ' in check!';
-            chip.className = 'status-chip check';
+            chip.textContent = (turn === 'w' ? 'White' : 'Black') + ' is in check!';
+            chip.className = 'status-badge check';
         } else {
-            chip.textContent = (turn === 'w' ? 'White' : 'Black') + ' to move';
-            chip.className = 'status-chip ' + (turn === 'w' ? 'white-turn' : 'black-turn');
+            chip.textContent = (turn === 'w' ? 'White' : 'Black') + ' to play';
+            chip.className = 'status-badge ' + (turn === 'w' ? 'white-turn' : 'black-turn');
         }
     }
 
@@ -246,107 +497,227 @@
         game.board().forEach(row => row.forEach(sq => {
             if (sq) current[sq.color][sq.type] = (current[sq.color][sq.type]||0) + 1;
         }));
-        function capturedHtml(side) {
+        
+        function capturedPieces(byColor) {
+            const oppColor = byColor === 'w' ? 'b' : 'w';
             let html = '';
-            ['q','r','b','n','p'].forEach(t => {
-                const lost = start[t] - (current[side][t]||0);
-                const sym = side === 'w' ? PIECE_SYMBOLS[t.toUpperCase()] : PIECE_SYMBOLS[t];
-                for (let i = 0; i < lost; i++) html += `<span class="piece-unicode">${sym}</span>`;
-            });
-            return html || '<span class="text-muted small">—</span>';
+            for (let piece in start) {
+                const diff = start[piece] - (current[oppColor][piece] || 0);
+                for (let i = 0; i < diff; i++) {
+                    const symbolKey = oppColor === 'w' ? piece.toUpperCase() : piece;
+                    html += `<span class="piece-unicode text-secondary">${PIECE_SYMBOLS[symbolKey] || ''}</span>`;
+                }
+            }
+            return html;
         }
-        document.getElementById('captured-by-black').innerHTML = capturedHtml('w');
-        document.getElementById('captured-by-white').innerHTML = capturedHtml('b');
+
+        const elWhite = document.getElementById('captured-by-white');
+        const elBlack = document.getElementById('captured-by-black');
+        if (elWhite) elWhite.innerHTML = capturedPieces('w');
+        if (elBlack) elBlack.innerHTML = capturedPieces('b');
     }
 
     function updateMoveList() {
-        const history = game.history();
+        const history = game.history({ verbose: true });
+        const container = document.getElementById('move-list');
         if (!history.length) {
-            document.getElementById('move-list').innerHTML = '<p class="text-muted small mb-0">No moves yet.</p>';
+            container.innerHTML = '<p class="text-muted small text-center py-4 mb-0">Drag a piece on the board to begin.</p>';
             return;
         }
-        let rows = '';
+
+        let html = '<table><tbody>';
         for (let i = 0; i < history.length; i += 2) {
-            const num = Math.floor(i/2) + 1;
-            const white = history[i] || '';
-            const black = history[i+1] || '';
-            rows += `<tr><td>${num}.</td><td>${white}</td><td>${black}</td></tr>`;
+            const moveNum = Math.floor(i / 2) + 1;
+            const w = history[i] ? history[i].san : '';
+            const b = history[i+1] ? history[i+1].san : '';
+            html += `<tr><td>${moveNum}.</td><td><strong>${w}</strong></td><td>${b ? `<strong>${b}</strong>` : ''}</td></tr>`;
         }
-        const ml = document.getElementById('move-list');
-        ml.innerHTML = `<table><tbody>${rows}</tbody></table>`;
-        ml.scrollTop = ml.scrollHeight;
+        html += '</tbody></table>';
+        container.innerHTML = html;
+        container.scrollTop = container.scrollHeight;
     }
 
     function endGame() {
         gameOver = true;
-        let msg = 'Game over';
+        let msg = 'Game over. ';
+        let result = 'Draw';
         if (game.in_checkmate()) {
             const winner = game.turn() === 'w' ? 'Black' : 'White';
-            msg = `Checkmate — ${winner} wins!`;
-        } else if (game.in_stalemate()) {
-            msg = 'Stalemate — it\'s a draw.';
+            msg += `Checkmate! ${winner} is victorious.`;
+            result = winner === 'White' ? '1-0 (White won)' : '0-1 (Black won)';
         } else if (game.in_draw()) {
-            msg = 'Draw.';
+            msg += 'Game drawn by rule.';
+            result = '1/2-1/2 (Draw)';
+        } else if (game.in_stalemate()) {
+            msg += 'Stalemate reached.';
+            result = '1/2-1/2 (Stalemate)';
         }
-        showBanner(msg, true);
-        updateUI();
+
+        const banner = document.getElementById('game-over-banner');
+        if (banner) {
+            banner.textContent = msg;
+            banner.style.display = 'block';
+        }
+
+        // Auto-save if registered user
+        if (IS_AUTH) {
+            saveCurrentGame(true, result);
+        }
     }
 
-    function showBanner(msg, success) {
-        const el = document.getElementById('game-over-banner');
-        el.textContent = msg;
-        el.className = 'alert mt-3 mb-0 text-center fw-semibold ' + (success ? 'alert-success' : 'alert-warning');
-        el.style.display = 'block';
+    // ── Save Game API Communication ──────────────────────────────────────────
+    window.saveCurrentGame = function(isAuto, finalResult) {
+        if (!IS_AUTH) {
+            showSaveMsg('Please sign up or log in to save your matches.', 'warning');
+            return;
+        }
+
+        const moves = game.history();
+        if (!moves.length && !isAuto) {
+            showSaveMsg('Play at least one move before saving.', 'warning');
+            return;
+        }
+
+        let result = finalResult;
+        if (!result) {
+            if (game.in_checkmate()) result = game.turn() === 'w' ? '0-1 (Black Won)' : '1-0 (White Won)';
+            else if (game.game_over()) result = '1/2-1/2 (Draw)';
+            else result = `In Progress (${moves.length} moves)`;
+        }
+
+        const payload = {
+            id: currentSavedId,
+            fen: game.fen(),
+            pgn: game.pgn(),
+            result: result,
+            moves_count: moves.length,
+            title: `Match (${moves.length} moves, ${result})`
+        };
+
+        const btn = document.getElementById('btnSaveGame');
+        if (btn) btn.disabled = true;
+
+        fetch(SAVE_GAME_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'X-CSRFToken': CSRF_TOKEN },
+            body: JSON.stringify(payload)
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (btn) btn.disabled = false;
+            if (data.ok) {
+                currentSavedId = data.id;
+                showSaveMsg(data.message || 'Game saved to your profile!', 'success');
+            } else {
+                showSaveMsg(data.message || 'Unable to save game.', 'danger');
+            }
+        })
+        .catch(() => {
+            if (btn) btn.disabled = false;
+            showSaveMsg('Server error saving game.', 'danger');
+        });
+    };
+
+    function showSaveMsg(text, type) {
+        const el = document.getElementById('save-status-msg');
+        if (!el) return;
+        el.className = `alert alert-${type} py-2 px-3 mt-3 mb-0 text-center small`;
+        el.textContent = text;
+        el.classList.remove('d-none');
+        setTimeout(() => el.classList.add('d-none'), 4000);
     }
 
-    // ── Controls ─────────────────────────────────────────────────────────────
-    function newGame() {
-        game = new Chess();
+    // ── Game Management & Restoring ──────────────────────────────────────────
+    window.newGame = function() {
+        game.reset();
         gameOver = false;
-        engineThinking = false;
-        board.start();
+        currentSavedId = null;
         document.getElementById('game-over-banner').style.display = 'none';
-        updateUI();
-
-        // If engine mode and player chose black, engine goes first
-        if (mode === 'engine' && playerSide === 'b') {
-            if (playerSide === 'b') board.flip();
-            requestEngineMove();
-        } else if (playerSide === 'b') {
-            board.flip();
+        board.position('start');
+        if (mode === 'bot' && playerSide === 'b') {
+            board.orientation('black');
+            setTimeout(makeBotMove, 400);
+        } else {
+            board.orientation('white');
         }
-    }
+        updateUI();
+    };
 
-    window.undoMove = function () {
-        if (engineThinking || gameOver) return;
+    window.undoMove = function() {
+        if (gameOver) return;
         game.undo();
-        if (mode === 'engine') game.undo(); // undo engine move too
+        if (mode === 'bot') game.undo(); // Undo bot move as well
         board.position(game.fen());
         updateUI();
     };
 
-    window.setMode = function (m) {
+    window.flipBoard = function() {
+        board.flip();
+    };
+
+    window.setMode = function(m) {
         mode = m;
-        document.getElementById('mode-engine').classList.toggle('active', m === 'engine');
-        document.getElementById('mode-friend').classList.toggle('active', m === 'friend');
-        document.getElementById('side-picker').style.display = m === 'engine' ? '' : 'none';
-        document.getElementById('diff-picker').style.display = m === 'engine' ? '' : 'none';
+        document.getElementById('mode-both').className = (m === 'both') ? 'btn btn-brand btn-sm' : 'btn btn-brand-outline btn-sm';
+        document.getElementById('mode-bot').className = (m === 'bot') ? 'btn btn-brand btn-sm' : 'btn btn-brand-outline btn-sm';
+        
+        const sidePicker = document.getElementById('side-picker');
+        if (sidePicker) sidePicker.classList.toggle('d-none', m !== 'bot');
+
+        const statusLabel = document.getElementById('game-status-label');
+        if (statusLabel) statusLabel.textContent = (m === 'both') ? 'Pass & Play (Both Sides)' : 'Offline Bot Sparring';
+
+        const blackSub = document.getElementById('black-sub');
+        if (blackSub) blackSub.textContent = (m === 'both') ? 'Pass & Play / Opponent' : 'Offline AI Bot';
+
+        newGame();
     };
 
-    window.setSide = function (s) {
+    window.setSide = function(s) {
         playerSide = s;
-        document.getElementById('side-white').classList.toggle('active', s === 'w');
-        document.getElementById('side-black').classList.toggle('active', s === 'b');
+        document.getElementById('side-white').className = (s === 'w') ? 'btn btn-brand btn-sm' : 'btn btn-brand-outline btn-sm';
+        document.getElementById('side-black').className = (s === 'b') ? 'btn btn-brand btn-sm' : 'btn btn-brand-outline btn-sm';
+        newGame();
     };
 
-    window.setDiff = function (d) {
-        difficulty = d;
-        ['easy','medium','hard'].forEach(x =>
-            document.getElementById('diff-' + x).classList.toggle('active', x === d)
-        );
+    window.loadSavedGame = function(fen, pgn, id) {
+        currentSavedId = id;
+        game = new Chess();
+        if (pgn && pgn.trim()) {
+            game.load_pgn(pgn);
+        } else if (fen && fen.trim()) {
+            game.load(fen);
+        }
+        gameOver = game.game_over();
+        board.position(game.fen());
+        updateUI();
+        showSaveMsg(`Loaded saved match #${id} onto the board.`, 'success');
     };
 
-    // Init
+    window.deleteSavedGame = function(id) {
+        if (!confirm('Are you sure you want to delete this saved match?')) return;
+        fetch(`/chess/api/delete-game/${id}/`, {
+            method: 'POST',
+            headers: { 'X-CSRFToken': CSRF_TOKEN }
+        })
+        .then(r => r.json())
+        .then(data => {
+            if (data.ok) {
+                const row = document.getElementById(`saved-row-${id}`);
+                if (row) row.remove();
+                showSaveMsg('Match deleted.', 'info');
+            }
+        });
+    };
+
+    window.copyFen = function() {
+        navigator.clipboard.writeText(game.fen()).then(() => alert('FEN copied to clipboard!'));
+    };
+
+    window.copyPgn = function() {
+        navigator.clipboard.writeText(game.pgn()).then(() => alert('PGN copied to clipboard!'));
+    };
+
+    // Initial render
     updateUI();
 })();
 </script>

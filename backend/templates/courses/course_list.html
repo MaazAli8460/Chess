@@ -1,39 +1,83 @@
 {% extends 'base.html' %}
 
-{% block page_title %}Course Library — Chessflow{% endblock %}
-{% block meta_description %}Browse free and premium chess courses covering openings, tactics, middlegame strategy, and endgames for all skill levels.{% endblock %}
+{% block page_title %}Course Catalog & Structured Repertoires — Chessflow{% endblock %}
+{% block meta_description %}Browse grandmaster-vetted syllabi, structured chess courses, opening repertoires, tactics, and endgame mastery tracks.{% endblock %}
 
 {% block content %}
-<section class="catalog-header reveal mb-4">
-    <div>
-        <p class="eyebrow">The Chessflow library</p>
-        <h1 class="display-heading">Study with intention.</h1>
-        <p class="muted-copy mb-0">Structured courses for openings, tactics, strategy, and endgames.</p>
+<!-- Top Sub-Navigation & Breadcrumb Strip -->
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2 px-3 mb-4 rounded-pill border bg-body-tertiary shadow-sm reveal">
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span>Academy</span>
+        <span class="text-secondary opacity-50">/</span>
+        <strong class="text-primary">Course Catalog</strong>
     </div>
-    {% if user.is_authenticated and user.can_author_courses %}
-    <a class="btn btn-brand" href="{% url 'courses:create' %}">Create Course</a>
-    {% endif %}
+    <div class="d-flex align-items-center gap-3 small text-muted">
+        <span class="d-inline-flex align-items-center gap-1">
+            <span class="telemetry-pulse"></span>
+            <span>Stockfish 16.1 Curriculum Sync Active</span>
+        </span>
+    </div>
+</div>
+
+<!-- Catalog Masthead with Telemetry Strip -->
+<section class="dashboard-masthead-stitch p-4 p-lg-5 mb-4 reveal reveal-delay-1">
+    <div class="row align-items-end justify-content-between g-4">
+        <div class="col-xl-7">
+            <div class="d-flex gap-2 flex-wrap mb-2">
+                <span class="telemetry-chip primary">Curated Grandmaster Syllabi</span>
+                <span class="telemetry-chip">Interactive FEN Drills</span>
+            </div>
+            <h1 class="display-5 fw-bold mb-2">Mastery Curriculums &amp; Structured Repertoires</h1>
+            <p class="text-muted fs-6 mb-0">Grandmaster-vetted syllabi combining interactive FEN puzzles, deep Stockfish positional annotations, and spaced repetition drills engineered for systematic ELO growth.</p>
+        </div>
+        <div class="col-xl-5">
+            <div class="d-flex flex-wrap gap-2 justify-content-xl-end">
+                <div class="stat-card-stitch p-3 px-4 text-center rounded-3">
+                    <div class="small text-muted text-uppercase fw-semibold">Courses</div>
+                    <div class="h3 fw-bold mb-0 text-primary">{{ courses|length }}</div>
+                </div>
+                <div class="stat-card-stitch p-3 px-4 text-center rounded-3">
+                    <div class="small text-muted text-uppercase fw-semibold">Levels</div>
+                    <div class="h3 fw-bold mb-0 text-primary">All ELOs</div>
+                </div>
+                {% if user.is_authenticated and user.can_author_courses %}
+                <div class="d-flex align-items-center">
+                    <a class="btn btn-brand" href="{% url 'courses:create' %}">
+                        <span class="material-symbols-outlined fs-6 align-middle me-1">add_circle</span>
+                        <span>Author Course</span>
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </section>
 
-<form method="get" class="catalog-filter p-3 mb-4 reveal reveal-delay-1">
-    <div class="row g-2 align-items-end">
+<!-- Advanced Filter Panel -->
+<form method="get" class="stat-card-stitch p-4 mb-4 reveal reveal-delay-2">
+    <div class="row g-3 align-items-end">
         <div class="col-12 col-md-4">
-            <label class="form-label small fw-semibold mb-1" for="q">Search</label>
-            <input id="q" type="search" name="q" class="form-control form-control-sm"
-                   placeholder="Search courses…" value="{{ q }}">
+            <label class="form-label small fw-semibold text-muted mb-1" for="q">Search Repertoire or Topic</label>
+            <div class="input-group">
+                <span class="input-group-text bg-body-tertiary border-end-0">
+                    <span class="material-symbols-outlined fs-6 text-muted">search</span>
+                </span>
+                <input id="q" type="search" name="q" class="form-control border-start-0 ps-0"
+                       placeholder="Sicilian, Endgame, Tactics..." value="{{ q }}">
+            </div>
         </div>
         <div class="col-6 col-md-2">
-            <label class="form-label small fw-semibold mb-1" for="difficulty">Difficulty</label>
-            <select id="difficulty" name="difficulty" class="form-select form-select-sm">
+            <label class="form-label small fw-semibold text-muted mb-1" for="difficulty">Difficulty</label>
+            <select id="difficulty" name="difficulty" class="form-select">
                 <option value="">All levels</option>
                 {% for value, label in difficulty_choices %}
                 <option value="{{ value }}" {% if selected_difficulty == value %}selected{% endif %}>{{ label }}</option>
                 {% endfor %}
             </select>
         </div>
-        <div class="col-6 col-md-2">
-            <label class="form-label small fw-semibold mb-1" for="category">Category</label>
-            <select id="category" name="category" class="form-select form-select-sm">
+        <div class="col-6 col-md-3">
+            <label class="form-label small fw-semibold text-muted mb-1" for="category">Category</label>
+            <select id="category" name="category" class="form-select">
                 <option value="">All categories</option>
                 {% for cat in categories %}
                 <option value="{{ cat.slug }}" {% if selected_category == cat.slug %}selected{% endif %}>{{ cat.name }}</option>
@@ -41,59 +85,90 @@
             </select>
         </div>
         <div class="col-6 col-md-2">
-            <label class="form-label small fw-semibold mb-1" for="price">Price</label>
-            <select id="price" name="price" class="form-select form-select-sm">
-                <option value="">All prices</option>
+            <label class="form-label small fw-semibold text-muted mb-1" for="price">Tier</label>
+            <select id="price" name="price" class="form-select">
+                <option value="">All access</option>
                 <option value="free" {% if selected_price == "free" %}selected{% endif %}>Free</option>
-                <option value="premium" {% if selected_price == "premium" %}selected{% endif %}>Premium</option>
+                <option value="premium" {% if selected_price == "premium" %}selected{% endif %}>Premium Pro</option>
             </select>
         </div>
-        <div class="col-6 col-md-2 d-flex gap-2">
-            <button type="submit" class="btn btn-brand btn-sm w-100">Filter</button>
+        <div class="col-6 col-md-1 d-flex gap-1">
+            <button type="submit" class="btn btn-brand w-100" title="Apply filters">
+                <span class="material-symbols-outlined fs-6 align-middle">tune</span>
+            </button>
             {% if q or selected_difficulty or selected_category or selected_price %}
-            <a href="{% url 'courses:list' %}" class="btn btn-brand-outline btn-sm" title="Clear filters">&times;</a>
+            <a href="{% url 'courses:list' %}" class="btn btn-brand-outline" title="Clear filters">
+                <span class="material-symbols-outlined fs-6 align-middle">close</span>
+            </a>
             {% endif %}
         </div>
     </div>
 </form>
 
 {% if q or selected_difficulty or selected_category or selected_price %}
-<p class="text-muted small mb-3 reveal">
-    Showing {{ courses|length }} result{{ courses|length|pluralize }} {% if q %}for &ldquo;{{ q }}&rdquo;{% endif %}
-</p>
+<div class="d-flex align-items-center justify-content-between mb-3 reveal">
+    <p class="text-muted small mb-0">
+        Found <strong>{{ courses|length }}</strong> matching curriculum{{ courses|length|pluralize }} {% if q %}for &ldquo;{{ q }}&rdquo;{% endif %}
+    </p>
+    <a href="{% url 'courses:list' %}" class="small text-decoration-none">Clear all filters</a>
+</div>
 {% endif %}
 
-<div class="row g-3 reveal reveal-delay-1">
+<!-- Course Catalog Grid -->
+<div class="row g-4 reveal reveal-delay-3">
     {% for course in courses %}
     <div class="col-md-6 col-xl-4">
-        <article class="card course-card h-100">
-            <div class="card-body d-flex flex-column p-4">
-                <div class="d-flex justify-content-between align-items-start mb-2">
-                    <h2 class="h5 mb-0">{{ course.title }}</h2>
-                    <span class="badge badge-soft text-capitalize">{{ course.difficulty }}</span>
-                </div>
-                {% if course.category %}
-                <p class="text-muted small mb-1">{{ course.category.name }}</p>
+        <article class="stat-card-stitch h-100 d-flex flex-column p-4">
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
+                <span class="telemetry-chip {% if course.difficulty == 'beginner' %}primary{% elif course.difficulty == 'intermediate' %}warning{% else %}primary{% endif %} text-capitalize">
+                    {{ course.difficulty }}
+                </span>
+                {% if course.is_premium %}
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-2.5 py-1 fw-bold">
+                    ${{ course.price }}
+                </span>
+                {% else %}
+                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2.5 py-1 fw-bold">
+                    Free Track
+                </span>
                 {% endif %}
-                <p class="muted-copy">{{ course.description|truncatechars:130 }}</p>
-                <div class="d-flex justify-content-between align-items-center mt-auto pt-2">
-                    {% if course.is_premium %}
-                    <span class="badge price-pill">${{ course.price }}</span>
-                    {% else %}
-                    <span class="badge badge-soft">Free</span>
-                    {% endif %}
-                    <a class="btn btn-sm btn-brand" href="{% url 'courses:detail' course.slug %}">View</a>
+            </div>
+
+            <h2 class="h5 fw-bold mb-2">
+                <a href="{% url 'courses:detail' course.slug %}" class="text-decoration-none text-dark-emphasis hover-brand">
+                    {{ course.title }}
+                </a>
+            </h2>
+
+            {% if course.category %}
+            <div class="small text-muted mb-2 d-flex align-items-center gap-1">
+                <span class="material-symbols-outlined fs-6">category</span>
+                <span>{{ course.category.name }}</span>
+            </div>
+            {% endif %}
+
+            <p class="text-muted small mb-4 flex-grow-1">
+                {{ course.description|truncatechars:140 }}
+            </p>
+
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top border-light-subtle">
+                <div class="small text-muted">
+                    <span>By {{ course.created_by.first_name|default:course.created_by.username }}</span>
                 </div>
+                <a class="btn btn-sm btn-brand" href="{% url 'courses:detail' course.slug %}">
+                    <span>Explore Track</span>
+                    <span class="material-symbols-outlined fs-6 align-middle ms-1">arrow_forward</span>
+                </a>
             </div>
         </article>
     </div>
     {% empty %}
     <div class="col-12">
-        <div class="card">
-            <div class="card-body text-center py-5">
-                <p class="text-muted mb-2">No courses match your filters.</p>
-                <a href="{% url 'courses:list' %}" class="btn btn-brand-outline btn-sm">Clear filters</a>
-            </div>
+        <div class="stat-card-stitch text-center py-5 p-4">
+            <span class="material-symbols-outlined text-muted fs-1 mb-2">search_off</span>
+            <h3 class="h5 fw-bold">No curriculums found</h3>
+            <p class="text-muted mb-3">We couldn't find any courses matching your specific filter criteria.</p>
+            <a href="{% url 'courses:list' %}" class="btn btn-brand-outline">Reset Filter Settings</a>
         </div>
     </div>
     {% endfor %}

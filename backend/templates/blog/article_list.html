@@ -1,69 +1,118 @@
 {% extends "base.html" %}
 
-{% block page_title %}Chess Blog — ChessLearn{% endblock %}
-{% block meta_description %}Chess improvement articles, opening theory, tactics tips, and endgame guides from the ChessLearn team.{% endblock %}
+{% block page_title %}Theoretical Inquiries & Research Monographs — Chessflow Gazette{% endblock %}
+{% block meta_description %}Rigorous master-level essays, hypermodern opening deconstructions, and algorithmic engine investigations authored by resident FIDE Grandmasters.{% endblock %}
 
 {% block content %}
-<div class="mb-4 reveal">
-  <h1 class="section-title">Chess Blog</h1>
-  <p class="text-muted">Improvement articles, opening theory, and chess insights.</p>
+<!-- Top Sub-Navigation & Telemetry Strip -->
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2 px-3 mb-4 rounded-pill border bg-body-tertiary shadow-sm reveal">
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span>Academy</span>
+        <span class="text-secondary opacity-50">/</span>
+        <span>Editorial &amp; Research</span>
+        <span class="text-secondary opacity-50">/</span>
+        <strong class="text-primary">Chessflow Gazette</strong>
+    </div>
+    <div class="d-flex align-items-center gap-3 small text-muted">
+        <span class="d-inline-flex align-items-center gap-1">
+            <span class="telemetry-pulse"></span>
+            <span>Peer-Reviewed Monographs</span>
+        </span>
+    </div>
 </div>
 
+<!-- Editorial Masthead Header -->
+<section class="dashboard-masthead-stitch p-4 p-md-5 mb-4 reveal reveal-delay-1">
+    <div class="max-w-3xl">
+        <span class="telemetry-chip primary mb-2">The Grandmaster Gazette • Issue LXVIII</span>
+        <h1 class="display-4 fw-bold mb-3 tracking-tight">Theoretical Inquiries &amp; Neural Diagnostics</h1>
+        <p class="fs-6 text-muted mb-0 leading-relaxed">
+            Rigorous master-level essays, hypermodern opening deconstructions, and algorithmic engine investigations authored by resident FIDE Grandmasters and Chessflow computational theorists.
+        </p>
+    </div>
+</section>
+
+<!-- Category Filtering Bar -->
 {% if categories %}
-<div class="mb-4 d-flex flex-wrap gap-2 reveal">
-  <a href="{% url 'blog:list' %}"
-     class="badge {% if not active_category %}badge-soft bg-primary text-white{% else %}badge-soft text-secondary{% endif %} text-decoration-none px-3 py-2">
-    All
-  </a>
-  {% for cat in categories %}
-  <a href="{% url 'blog:list' %}?category={{ cat.slug }}"
-     class="badge {% if active_category.slug == cat.slug %}badge-soft bg-primary text-white{% else %}badge-soft text-secondary{% endif %} text-decoration-none px-3 py-2">
-    {{ cat.name }}
-  </a>
-  {% endfor %}
+<div class="d-flex flex-wrap align-items-center gap-2 mb-4 reveal reveal-delay-2">
+    <a href="{% url 'blog:list' %}"
+       class="btn btn-sm {% if not active_category %}btn-brand{% else %}btn-brand-outline{% endif %} rounded-pill px-3">
+        All Disciplines
+    </a>
+    {% for cat in categories %}
+    <a href="{% url 'blog:list' %}?category={{ cat.slug }}"
+       class="btn btn-sm {% if active_category.slug == cat.slug %}btn-brand{% else %}btn-brand-outline{% endif %} rounded-pill px-3">
+        {{ cat.name }}
+    </a>
+    {% endfor %}
 </div>
 {% endif %}
 
+<!-- Articles Grid -->
 {% if page_obj.object_list %}
-<div class="row g-4">
-  {% for article in page_obj %}
-  <div class="col-md-6 col-lg-4 reveal">
-    <article class="card h-100 shadow-sm border-0">
-      <div class="card-body d-flex flex-column">
-        {% if article.category %}
-        <span class="badge badge-soft text-secondary mb-2">{{ article.category.name }}</span>
-        {% endif %}
-        <h2 class="h5 mb-2">
-          <a href="{% url 'blog:detail' article.slug %}" class="text-decoration-none stretched-link">
-            {{ article.title }}
-          </a>
-        </h2>
-        <p class="text-muted small flex-grow-1">{{ article.meta_description|default:article.body|truncatechars:120 }}</p>
-        <div class="d-flex justify-content-between align-items-center mt-3 small text-muted">
-          <span>{{ article.author.get_full_name|default:article.author.username }}</span>
-          <span>{{ article.read_time_minutes }} min read</span>
-        </div>
-      </div>
-    </article>
-  </div>
-  {% endfor %}
+<div class="row g-4 mb-5 reveal reveal-delay-2">
+    {% for article in page_obj %}
+    <div class="col-md-6 col-lg-4">
+        <article class="stat-card-stitch p-4 h-100 d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
+                {% if article.category %}
+                <span class="telemetry-chip primary">{{ article.category.name }}</span>
+                {% else %}
+                <span class="telemetry-chip">Monograph</span>
+                {% endif %}
+                <span class="small text-muted font-monospace">{{ article.read_time_minutes }}m read</span>
+            </div>
+
+            <h2 class="h5 fw-bold mb-2">
+                <a href="{% url 'blog:detail' article.slug %}" class="text-decoration-none text-dark-emphasis">
+                    {{ article.title }}
+                </a>
+            </h2>
+
+            <p class="text-muted small mb-4 flex-grow-1">
+                {{ article.meta_description|default:article.body|truncatechars:130 }}
+            </p>
+
+            <div class="d-flex justify-content-between align-items-center pt-3 border-top border-light-subtle">
+                <div class="d-flex align-items-center gap-2">
+                    <div class="user-avatar-sm" style="width:24px; height:24px; font-size:0.75rem;">
+                        {{ article.author.username|make_list|first|upper }}
+                    </div>
+                    <span class="small text-muted">{{ article.author.get_full_name|default:article.author.username }}</span>
+                </div>
+                <a class="btn btn-sm btn-brand" href="{% url 'blog:detail' article.slug %}">
+                    <span>Read</span>
+                    <span class="material-symbols-outlined fs-6 align-middle ms-1">arrow_forward</span>
+                </a>
+            </div>
+        </article>
+    </div>
+    {% endfor %}
 </div>
 
+<!-- Pagination -->
 {% if page_obj.has_other_pages %}
-<nav class="mt-5 d-flex justify-content-center gap-2" aria-label="Blog pagination">
-  {% if page_obj.has_previous %}
-  <a href="?page={{ page_obj.previous_page_number }}{% if active_category %}&category={{ active_category.slug }}{% endif %}" class="btn btn-brand-outline btn-sm">&laquo; Previous</a>
-  {% endif %}
-  <span class="btn btn-sm disabled">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-  {% if page_obj.has_next %}
-  <a href="?page={{ page_obj.next_page_number }}{% if active_category %}&category={{ active_category.slug }}{% endif %}" class="btn btn-brand-outline btn-sm">Next &raquo;</a>
-  {% endif %}
+<nav class="d-flex justify-content-center align-items-center gap-2 mb-5" aria-label="Blog pagination">
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}{% if active_category %}&category={{ active_category.slug }}{% endif %}" class="btn btn-brand-outline btn-sm">
+        <span class="material-symbols-outlined fs-6 align-middle me-1">chevron_left</span>
+        <span>Previous</span>
+    </a>
+    {% endif %}
+    <span class="badge bg-body-tertiary text-dark border px-3 py-2 small">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}{% if active_category %}&category={{ active_category.slug }}{% endif %}" class="btn btn-brand-outline btn-sm">
+        <span>Next</span>
+        <span class="material-symbols-outlined fs-6 align-middle ms-1">chevron_right</span>
+    </a>
+    {% endif %}
 </nav>
 {% endif %}
 
 {% else %}
-<div class="text-center py-5 text-muted">
-  <p>No articles published yet. Check back soon!</p>
+<div class="stat-card-stitch text-center py-5">
+    <span class="material-symbols-outlined text-muted fs-1 mb-2">article</span>
+    <p class="text-muted mb-0">No essays published in this discipline yet.</p>
 </div>
 {% endif %}
 {% endblock %}

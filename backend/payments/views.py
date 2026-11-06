@@ -65,13 +65,14 @@ def _activate_subscription(user, plan: SubscriptionPlan, reference: str = "mock"
 	_send_payment_confirmation(request, user, plan, plan.price_monthly)
 
 
-@login_required
 def plan_list_view(request: HttpRequest) -> HttpResponse:
 	plans = SubscriptionPlan.objects.filter(is_active=True)
-	active_subscription = UserSubscription.objects.filter(
-		user=request.user,
-		status=UserSubscription.STATUS_ACTIVE,
-	).select_related("plan").first()
+	active_subscription = None
+	if request.user.is_authenticated:
+		active_subscription = UserSubscription.objects.filter(
+			user=request.user,
+			status=UserSubscription.STATUS_ACTIVE,
+		).select_related("plan").first()
 	return render(
 		request,
 		"payments/plan_list.html",

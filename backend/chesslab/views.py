@@ -13,7 +13,7 @@ from rest_framework import permissions, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import AnalysisHistory
+from .models import AnalysisHistory, SavedGame
 from .serializers import AnalyzeRequestSerializer, CheckMoveSerializer, EngineMoveSerializer
 from .services import analyze_position
 
@@ -105,7 +105,55 @@ def analyzer_view(request: HttpRequest) -> HttpResponse:
 
 
 def play_view(request: HttpRequest) -> HttpResponse:
-	return render(request, "chesslab/play.html")
+	saved_games = []
+	if request.user.is_authenticated:
+		saved_games = SavedGame.objects.filter(user=request.user)[:20]
+	return render(request, "chesslab/play.html", {"saved_games": saved_games})
+
+
+@login_required
+def save_game_view(request: HttpRequest) -> JsonResponse:
+	if request.method != "POST":
+		return JsonResponse({"ok": False, "message": "POST required"}, status=405)
+	try:
+		data = json.loads(request.body.decode("utf-8"))
+		fen = data.get("fen", "").strip() or chess.STARTING_FEN
+		pgn = data.get("pgn", "").strip()
+		result = data.get("result", "In Progress").strip()
+		moves_count = int(data.get("moves_count", 0))
+		title = data.get("title", "").strip() or f"Two-Player Match ({moves_count} moves)"
+		game_id = data.get("id")
+
+		if game_id:
+			saved_game = SavedGame.objects.filter(id=game_id, user=request.user).first()
+			if saved_game:
+				saved_game.fen = fen
+				saved_game.pgn = pgn
+				saved_game.result = result
+				saved_game.moves_count = moves_count
+				saved_game.title = title
+				saved_game.save()
+				return JsonResponse({"ok": True, "id": saved_game.id, "message": "Game updated successfully."})
+
+		saved_game = SavedGame.objects.create(
+			user=request.user,
+			title=title,
+			fen=fen,
+			pgn=pgn,
+			result=result,
+			moves_count=moves_count,
+		)
+		return JsonResponse({"ok": True, "id": saved_game.id, "message": "Game saved to your profile archive!"})
+	except Exception as e:
+		return JsonResponse({"ok": False, "message": str(e)}, status=400)
+
+
+@login_required
+def delete_game_view(request: HttpRequest, game_id: int) -> JsonResponse:
+	if request.method != "POST":
+		return JsonResponse({"ok": False, "message": "POST required"}, status=405)
+	deleted, _ = SavedGame.objects.filter(id=game_id, user=request.user).delete()
+	return JsonResponse({"ok": bool(deleted)})
 
 
 @login_required

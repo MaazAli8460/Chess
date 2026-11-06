@@ -1,123 +1,326 @@
 {% extends 'base.html' %}
 
 {% block page_title %}Scholar Cockpit — Chessflow{% endblock %}
-{% block meta_description %}Track your chess course progress and manage your learning journey.{% endblock %}
+{% block meta_description %}Track your chess course progress, review engine telemetry, and manage your learning journey.{% endblock %}
 
 {% block content %}
-<section class="dashboard-masthead reveal mb-4">
-    <div>
-        <p class="eyebrow">Scholar cockpit</p>
-        <h1 class="display-heading">Welcome back, {{ user.first_name|default:user.username }}.</h1>
-        <p class="muted-copy mb-0">Your next lesson, current form, and study momentum in one focused view.</p>
+<!-- Scholar Masthead Hero Banner -->
+<section class="dashboard-masthead-stitch p-4 p-lg-5 mb-4 reveal">
+    <!-- Decorative geometric board grid watermark from Stitch design -->
+    <div class="dashboard-hero-watermark">
+        <svg class="w-100 h-100" fill="currentColor" viewBox="0 0 100 100">
+            <rect height="12.5" width="12.5" x="0" y="0"></rect>
+            <rect height="12.5" width="12.5" x="25" y="0"></rect>
+            <rect height="12.5" width="12.5" x="50" y="0"></rect>
+            <rect height="12.5" width="12.5" x="75" y="0"></rect>
+            <rect height="12.5" width="12.5" x="12.5" y="12.5"></rect>
+            <rect height="12.5" width="12.5" x="37.5" y="12.5"></rect>
+            <rect height="12.5" width="12.5" x="62.5" y="12.5"></rect>
+            <rect height="12.5" width="12.5" x="87.5" y="12.5"></rect>
+            <rect height="12.5" width="12.5" x="0" y="25"></rect>
+            <rect height="12.5" width="12.5" x="25" y="25"></rect>
+            <rect height="12.5" width="12.5" x="50" y="25"></rect>
+            <rect height="12.5" width="12.5" x="75" y="25"></rect>
+        </svg>
     </div>
-    <a class="btn btn-brand" href="{% url 'courses:list' %}">Browse library →</a>
+
+    <div class="row align-items-center position-relative z-1">
+        <div class="col-lg-8">
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="telemetry-chip warning">
+                    <span class="material-symbols-outlined fs-6 align-middle">local_fire_department</span>
+                    <span>14-Day Study Streak</span>
+                </span>
+                <span class="telemetry-chip primary">
+                    <span class="material-symbols-outlined fs-6 align-middle">workspace_premium</span>
+                    <span>{% if active_subscription %}{{ active_subscription.plan.name }}{% else %}Scholar Standard{% endif %}</span>
+                </span>
+                <span class="telemetry-chip">
+                    <span>Target Goal: 2000 ELO</span>
+                </span>
+            </div>
+            <h1 class="display-5 fw-bold mb-2">Welcome back, {{ user.first_name|default:user.username }}.</h1>
+            <p class="text-muted fs-6 mb-0">Your curriculum velocity, active tactical drills, and engine position feedback in one focused cockpit.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+            <div class="d-inline-flex gap-2">
+                <a class="btn btn-brand" href="{% url 'courses:list' %}">Browse Curriculums &rarr;</a>
+                <a class="btn btn-brand-outline" href="{% url 'chesslab:analyzer' %}">Position Lab</a>
+            </div>
+        </div>
+    </div>
 </section>
 
-<div class="row g-3 mb-4 reveal reveal-delay-1">
-    <div class="col-md-4">
-        <div class="card stat-card metric-card h-100">
-            <div class="card-body p-4">
-                <h2 class="h6 text-muted">Courses Enrolled</h2>
-                <p class="display-6 mb-0">{{ total_courses }}</p>
-            </div>
-        </div>
+<!-- Sub Telemetry Ribbon -->
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2 px-3 mb-4 rounded-3 border bg-body-tertiary shadow-sm reveal reveal-delay-1">
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span>Academy</span>
+        <span class="text-secondary opacity-50">/</span>
+        <span>{{ user.username }}</span>
+        <span class="text-secondary opacity-50">/</span>
+        <strong class="text-primary">Scholar Cockpit</strong>
     </div>
-    <div class="col-md-4">
-        <div class="card stat-card metric-card h-100">
-            <div class="card-body p-4">
-                <h2 class="h6 text-muted">Average Progress</h2>
-                <p class="display-6 mb-0">{{ avg_progress }}%</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card stat-card metric-card h-100">
-            <div class="card-body p-4">
-                <h2 class="h6 text-muted">Subscription</h2>
-                {% if active_subscription %}
-                <p class="mb-1"><strong>{{ active_subscription.plan.name }}</strong></p>
-                <span class="badge badge-soft">Active</span>
-                {% else %}
-                <p class="mb-2">No active plan</p>
-                <a class="btn btn-sm btn-brand" href="{% url 'payments:plans' %}">View plans</a>
-                {% endif %}
-            </div>
-        </div>
+    <div class="d-flex align-items-center gap-3 small text-muted">
+        <span class="d-inline-flex align-items-center gap-1">
+            <span class="telemetry-pulse"></span>
+            <span>Stockfish 16.1 Cloud Sync Active</span>
+        </span>
+        <span class="text-secondary opacity-25">|</span>
+        <span>Role: <strong class="text-dark-emphasis">{{ user.role|default:"student"|capfirst }}</strong></span>
     </div>
 </div>
 
+<!-- KPI Telemetry Grid -->
 <div class="row g-3 mb-4 reveal reveal-delay-2">
-    <div class="col-md-4">
-        <div class="card stat-card metric-card h-100">
-            <div class="card-body p-4">
-                <h2 class="h6 text-muted">Lessons This Week</h2>
-                <p class="display-6 mb-1">{{ lessons_this_week }}</p>
-                {% if velocity_delta > 0 %}
-                <small class="text-success">&#9650; {{ velocity_delta }} vs last week</small>
-                {% elif velocity_delta < 0 %}
-                <small class="text-danger">&#9660; {{ velocity_delta|cut:"-" }} vs last week</small>
-                {% else %}
-                <small class="text-muted">Same as last week</small>
-                {% endif %}
+    <div class="col-sm-6 col-lg-3">
+        <div class="stat-card-stitch p-4 h-100 d-flex flex-column justify-content-between">
+            <div class="d-flex justify-content-between align-items-center text-muted mb-2">
+                <span class="small text-uppercase fw-semibold">Enrolled Tracks</span>
+                <span class="material-symbols-outlined text-primary fs-5">school</span>
             </div>
+            <div class="display-6 fw-bold mb-1">{{ total_courses }}</div>
+            <div class="small text-muted">Avg Completion: <strong class="text-primary">{{ avg_progress }}%</strong></div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card stat-card metric-card h-100">
-            <div class="card-body p-4">
-                <h2 class="h6 text-muted">Positions Analyzed (30d)</h2>
-                <p class="display-6 mb-1">{{ analyses_this_month }}</p>
-                <small class="text-muted"><a href="{% url 'chesslab:analyzer' %}" class="text-muted">Open Chess Lab &rarr;</a></small>
+
+    <div class="col-sm-6 col-lg-3">
+        <div class="stat-card-stitch p-4 h-100 d-flex flex-column justify-content-between">
+            <div class="d-flex justify-content-between align-items-center text-muted mb-2">
+                <span class="small text-uppercase fw-semibold">Weekly Velocity</span>
+                <span class="material-symbols-outlined text-primary fs-5">speed</span>
             </div>
+            <div class="display-6 fw-bold mb-1">{{ lessons_this_week }} <span class="fs-6 fw-normal text-muted">lessons</span></div>
+            {% if velocity_delta > 0 %}
+            <div class="small text-success fw-semibold">&#9650; +{{ velocity_delta }} vs last week</div>
+            {% elif velocity_delta < 0 %}
+            <div class="small text-danger fw-semibold">&#9660; {{ velocity_delta }} vs last week</div>
+            {% else %}
+            <div class="small text-muted">Consistent pace with last week</div>
+            {% endif %}
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card stat-card metric-card h-100">
-            <div class="card-body p-4">
-                <h2 class="h6 text-muted">Study Tip</h2>
-                {% if avg_progress < 25 %}
-                <p class="mb-0 small">Start strong — complete at least one lesson today to build momentum.</p>
-                {% elif avg_progress < 75 %}
-                <p class="mb-0 small">You're making great progress. Keep your streak going this week!</p>
-                {% else %}
-                <p class="mb-0 small">Almost there! Finish remaining lessons to complete your courses.</p>
-                {% endif %}
+
+    <div class="col-sm-6 col-lg-3">
+        <div class="stat-card-stitch p-4 h-100 d-flex flex-column justify-content-between">
+            <div class="d-flex justify-content-between align-items-center text-muted mb-2">
+                <span class="small text-uppercase fw-semibold">Engine Lab</span>
+                <span class="material-symbols-outlined text-primary fs-5">neurology</span>
             </div>
+            <div class="display-6 fw-bold mb-1">{{ analyses_this_month }} <span class="fs-6 fw-normal text-muted">analyses</span></div>
+            <div class="small text-muted"><a href="{% url 'chesslab:analyzer' %}" class="text-decoration-none">Analyze new position &rarr;</a></div>
+        </div>
+    </div>
+
+    <div class="col-sm-6 col-lg-3">
+        <div class="stat-card-stitch p-4 h-100 d-flex flex-column justify-content-between">
+            <div class="d-flex justify-content-between align-items-center text-muted mb-2">
+                <span class="small text-uppercase fw-semibold">Study Status</span>
+                <span class="material-symbols-outlined text-warning fs-5">lightbulb</span>
+            </div>
+            {% if active_subscription %}
+            <div class="h5 fw-bold mb-1 text-success">{{ active_subscription.plan.name }}</div>
+            <div class="small text-muted">Active tournament member</div>
+            {% else %}
+            <div class="h5 fw-bold mb-1">Scholar Standard</div>
+            <div class="small"><a href="{% url 'payments:plans' %}" class="text-primary text-decoration-none fw-semibold">Upgrade to Pro &rarr;</a></div>
+            {% endif %}
         </div>
     </div>
 </div>
 
-<div class="card dashboard-curriculum reveal reveal-delay-3">
-    <div class="card-body p-4">
-        <h2 class="h5 mb-3">Your Courses</h2>
+<!-- Primary Cockpit Section -->
+<div class="row g-4 reveal reveal-delay-3">
+    <!-- Left Column: Active Masterclass Showcase & Curriculums (Col 8) -->
+    <div class="col-lg-8 d-flex flex-column gap-4">
         {% if enrollment_data %}
-        <div class="list-group list-group-flush">
-            {% for item in enrollment_data %}
-            <div class="list-group-item px-0 py-3 border-0 border-bottom">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                    <strong>{{ item.enrollment.course.title }}</strong>
-                    {% if item.enrollment.completion_percent == 100 %}
-                    <span class="badge badge-soft text-success">Completed</span>
+        <!-- Active Masterclass Hero Showcase Card (from Stitch design) -->
+        {% with active_track=enrollment_data.0 %}
+        <div class="stat-card-stitch p-4 p-md-5 border-primary border-opacity-25 bg-body-tertiary">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-primary text-white rounded-pill px-2.5 py-1 text-uppercase fw-bold" style="font-size: 0.68rem;">
+                        Active Masterclass
+                    </span>
+                    <span class="small text-muted">Difficulty: <strong class="text-capitalize text-dark-emphasis">{{ active_track.enrollment.course.difficulty }}</strong></span>
+                </div>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill font-monospace px-2.5 py-1">
+                    {{ active_track.enrollment.completion_percent }}% Mastered
+                </span>
+            </div>
+
+            <h2 class="h4 fw-bold mb-2">{{ active_track.enrollment.course.title }}</h2>
+            <p class="small text-muted mb-3 leading-relaxed">
+                {{ active_track.enrollment.course.description|truncatechars:180 }}
+            </p>
+
+            <div class="progress-stitch my-3">
+                <div class="progress-bar-stitch" style="width: {{ active_track.enrollment.completion_percent }}%"></div>
+            </div>
+
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 pt-2">
+                <div class="small text-muted">
+                    {% if active_track.next_lesson %}
+                    <span>Next module: <strong class="text-dark-emphasis">{{ active_track.next_lesson.title }}</strong></span>
+                    <span> · ~{{ active_track.next_lesson.estimated_minutes|default:"15" }} mins</span>
                     {% else %}
-                    <span class="badge badge-soft">{{ item.enrollment.completion_percent }}%</span>
+                    <span class="text-success fw-semibold">&#10003; All modules in this track completed</span>
                     {% endif %}
                 </div>
-                <div class="progress mb-3" role="progressbar" aria-valuenow="{{ item.enrollment.completion_percent }}" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar" style="width: {{ item.enrollment.completion_percent }}%"></div>
+
+                <div>
+                    {% if active_track.next_lesson %}
+                    <a class="btn btn-brand" href="{% url 'courses:lesson' active_track.enrollment.course.slug active_track.next_lesson.id %}">
+                        <span>Resume Lesson</span>
+                        <span class="material-symbols-outlined fs-6 align-middle ms-1">arrow_forward</span>
+                    </a>
+                    {% else %}
+                    <a class="btn btn-brand-outline" href="{% url 'courses:detail' active_track.enrollment.course.slug %}">
+                        <span>Review Track</span>
+                    </a>
+                    {% endif %}
                 </div>
-                {% if item.enrollment.completion_percent == 100 %}
-                <a class="btn btn-sm btn-brand-outline" href="{% url 'courses:detail' item.enrollment.course.slug %}">Review</a>
-                {% elif item.next_lesson %}
-                <a class="btn btn-sm btn-brand" href="{% url 'courses:lesson' item.enrollment.course.slug item.next_lesson.id %}">Continue &rarr;</a>
-                {% else %}
-                <a class="btn btn-sm btn-brand-outline" href="{% url 'courses:detail' item.enrollment.course.slug %}">View course</a>
-                {% endif %}
             </div>
-            {% endfor %}
+        </div>
+        {% endwith %}
+
+        <!-- All Enrolled Curriculums Ledger -->
+        <div class="stat-card-stitch p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h3 class="h5 fw-bold mb-1">Enrolled Curriculums</h3>
+                    <p class="small text-muted mb-0">Active syllabi and tactical modules currently in progress</p>
+                </div>
+                <a class="btn btn-sm btn-brand-outline" href="{% url 'courses:list' %}">Explore More</a>
+            </div>
+
+            <div class="d-flex flex-column gap-3">
+                {% for item in enrollment_data %}
+                <div class="course-progress-item p-3 p-md-4">
+                    <div class="d-flex align-items-center justify-content-between gap-3 mb-2">
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="mini-chess-icon">♞</span>
+                            <div>
+                                <h4 class="h6 fw-bold mb-0 text-dark-emphasis">{{ item.enrollment.course.title }}</h4>
+                                <span class="small text-muted">
+                                    Difficulty: <span class="text-capitalize text-dark-emphasis">{{ item.enrollment.course.difficulty }}</span>
+                                    {% if item.next_lesson %} · Next: <strong>{{ item.next_lesson.title }}</strong>{% endif %}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge {% if item.enrollment.completion_percent == 100 %}bg-success{% else %}bg-primary{% endif %} rounded-pill px-2 py-1">
+                                {{ item.enrollment.completion_percent }}%
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="progress-stitch my-3">
+                        <div class="progress-bar-stitch" style="width: {{ item.enrollment.completion_percent }}%"></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center pt-1">
+                        <span class="small text-muted">
+                            {% if item.enrollment.completion_percent == 100 %}
+                            <span class="text-success fw-semibold">&#10003; Track completed</span>
+                            {% elif item.next_lesson %}
+                            Est. ~{{ item.next_lesson.estimated_minutes|default:"15" }} mins
+                            {% else %}
+                            Ready to continue
+                            {% endif %}
+                        </span>
+                        <div>
+                            {% if item.enrollment.completion_percent == 100 %}
+                            <a class="btn btn-sm btn-brand-outline" href="{% url 'courses:detail' item.enrollment.course.slug %}">Review Course</a>
+                            {% elif item.next_lesson %}
+                            <a class="btn btn-sm btn-brand" href="{% url 'courses:lesson' item.enrollment.course.slug item.next_lesson.id %}">Resume Lesson &rarr;</a>
+                            {% else %}
+                            <a class="btn btn-sm btn-brand-outline" href="{% url 'courses:detail' item.enrollment.course.slug %}">View Course</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
         {% else %}
-        <p class="mb-0">You have not enrolled in a course yet. Explore the catalog to start your first track.</p>
+        <!-- Empty State When Not Enrolled in Courses -->
+        <div class="stat-card-stitch text-center py-5 p-4">
+            <span class="material-symbols-outlined text-muted fs-1 mb-2">menu_book</span>
+            <h3 class="h5 fw-bold">You have not enrolled in any chess tracks yet</h3>
+            <p class="text-muted mb-4 max-w-md mx-auto">Explore grandmaster-vetted courses featuring interactive FEN puzzles, video lectures, and Stockfish positional feedback.</p>
+            <a class="btn btn-brand" href="{% url 'courses:list' %}">Explore Course Catalog &rarr;</a>
+        </div>
         {% endif %}
+    </div>
+
+    <!-- Right Side Insights & Practice Tools (Col 4) -->
+    <div class="col-lg-4 d-flex flex-column gap-4">
+        <!-- Daily Tactical Focus -->
+        <div class="stat-card-stitch p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <span class="small text-uppercase fw-semibold text-muted">Grandmaster Insight</span>
+                <span class="material-symbols-outlined text-primary fs-5">psychology</span>
+            </div>
+            <p class="small text-muted mb-3 fst-italic leading-relaxed">
+                "Tactics flow from a superior position. When your pieces coordinate and control key diagonals, sacrifices appear naturally."
+            </p>
+            <div class="small fw-semibold text-dark-emphasis">— Garry Kasparov</div>
+        </div>
+
+        <!-- Quick Launch Chess Lab -->
+        <div class="stat-card-stitch p-4">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <h3 class="h6 fw-bold mb-0">Quick Practice Board</h3>
+                <span class="material-symbols-outlined text-primary fs-5">sports_esports</span>
+            </div>
+            <p class="small text-muted mb-3">Test move variations against Stockfish or play a sparring partner game online.</p>
+            <div class="d-grid gap-2">
+                <a class="btn btn-brand btn-sm" href="{% url 'chesslab:play' %}">
+                    <span class="material-symbols-outlined fs-6 align-middle me-1">sports_esports</span>
+                    <span>Play Board &amp; Engine</span>
+                </a>
+                <a class="btn btn-brand-outline btn-sm" href="{% url 'chesslab:analyzer' %}">
+                    <span class="material-symbols-outlined fs-6 align-middle me-1">troubleshoot</span>
+                    <span>Analyze FEN</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Saved Matches & Sparring Archive -->
+        {% if recent_saved_games %}
+        <div class="stat-card-stitch p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h3 class="h6 fw-bold mb-0">Saved Sparring Games</h3>
+                <a class="small text-primary text-decoration-none fw-semibold" href="{% url 'chesslab:play' %}">Play Lab &rarr;</a>
+            </div>
+            <div class="d-flex flex-column gap-2">
+                {% for sg in recent_saved_games %}
+                <div class="p-2.5 rounded-3 border bg-body-subtle d-flex align-items-center justify-content-between gap-2">
+                    <div class="overflow-hidden">
+                        <div class="small fw-bold text-truncate text-dark-emphasis">{{ sg.title }}</div>
+                        <div class="small text-muted" style="font-size:0.75rem;">
+                            {{ sg.moves_count }} moves &bull; {{ sg.created_at|date:"M d, H:i" }}
+                        </div>
+                    </div>
+                    <span class="badge bg-secondary-subtle text-secondary-emphasis rounded-pill" style="font-size:0.7rem;">
+                        {{ sg.result|default:"In Progress" }}
+                    </span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Fast Track Opening Practice -->
+        <div class="stat-card-stitch p-4 bg-body-tertiary">
+            <span class="small text-uppercase fw-bold text-primary mb-2 d-block">Tournament Preparation</span>
+            <h4 class="h6 fw-bold mb-2">Synchronize Your Game Vault</h4>
+            <p class="small text-muted mb-3">Import your latest Chess.com or Lichess games to scan for blunders and improve positional accuracy.</p>
+            <a class="btn btn-brand-outline btn-sm w-100" href="{% url 'chesslab:import-games' %}">
+                <span class="material-symbols-outlined fs-6 align-middle me-1">sync</span>
+                <span>Import Games</span>
+            </a>
+        </div>
     </div>
 </div>
 {% endblock %}

@@ -10,16 +10,16 @@
             <a class="{% if operation_section == 'overview' %}active{% endif %}" href="{% url 'dashboard:operations' %}"><span>◈</span> Overview</a>
             <div class="operations-nav-label">Learning</div>
             <a class="{% if operation_section == 'courses' %}active{% endif %}" href="{% url 'dashboard:operations-courses' %}"><span>♞</span> Courses</a>
-            <a href="{% url 'dashboard:operations-categories' %}"><span>⌘</span> Categories</a>
+            <a class="{% if operation_section == 'categories' %}active{% endif %}" href="{% url 'dashboard:operations-categories' %}"><span>⌘</span> Categories</a>
             <div class="operations-nav-label">People</div>
             <a class="{% if operation_section == 'users' %}active{% endif %}" href="{% url 'dashboard:operations-users' %}"><span>◎</span> Users</a>
             <div class="operations-nav-label">Content</div>
-            <a class="{% if operation_section == 'content' %}active{% endif %}" href="{% url 'dashboard:operations-articles' %}"><span>▤</span> Articles</a>
-            <a href="{% url 'dashboard:operations-testimonials' %}"><span>✦</span> Testimonials</a>
-            <a href="{% url 'dashboard:operations-article-categories' %}"><span>⌘</span> Article categories</a>
+            <a class="{% if operation_section == 'articles' %}active{% endif %}" href="{% url 'dashboard:operations-articles' %}"><span>▤</span> Articles</a>
+            <a class="{% if operation_section == 'testimonials' %}active{% endif %}" href="{% url 'dashboard:operations-testimonials' %}"><span>✦</span> Testimonials</a>
+            <a class="{% if operation_section == 'article-categories' %}active{% endif %}" href="{% url 'dashboard:operations-article-categories' %}"><span>⌘</span> Article categories</a>
             <div class="operations-nav-label">Revenue</div>
             <a class="{% if operation_section == 'billing' %}active{% endif %}" href="{% url 'dashboard:operations-plans' %}"><span>◇</span> Plans</a>
-            <a href="{% url 'dashboard:operations-payments' %}"><span>↗</span> Payments</a>
+            <a class="{% if operation_section == 'payments' %}active{% endif %}" href="{% url 'dashboard:operations-payments' %}"><span>↗</span> Payments</a>
         </nav>
         <div class="operations-sidebar-footer">
             <a href="{% url 'admin-analytics' %}">View analytics ↗</a>

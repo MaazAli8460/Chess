@@ -29,6 +29,18 @@ ALLOWED_HOSTS = env("ALLOWED_HOSTS")
 CSRF_TRUSTED_ORIGINS = env("CSRF_TRUSTED_ORIGINS")
 VERCEL_URL = env("VERCEL_URL", default="")
 
+if DEBUG:
+    ALLOWED_HOSTS = ["*"]
+    CSRF_TRUSTED_ORIGINS = [
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "https://*.localhost.run",
+        "https://*.lhr.life",
+        "https://*.pinggy.link",
+        "https://*.ngrok-free.app",
+        "https://*.loca.lt",
+    ]
+
 if not DEBUG and SECRET_KEY == "change-me-in-production":
     raise ImproperlyConfigured("SECRET_KEY must be configured when DEBUG=False.")
 

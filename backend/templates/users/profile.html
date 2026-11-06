@@ -1,30 +1,116 @@
 {% extends 'base.html' %}
 
-{% block title %}Profile | Chess Learning Platform{% endblock %}
+{% block page_title %}Scholar Dossier & Profile — Chessflow{% endblock %}
+{% block meta_description %}Manage your Chessflow credentials, tournament profile, and Chess.com vault integration.{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center reveal">
-    <div class="col-md-8 col-lg-7">
-        <div class="card">
-            <div class="card-body p-4 form-shell">
-                <h1 class="h4 mb-1">Profile</h1>
-                <p class="muted-copy mb-3">Role: {{ user.get_role_display }}</p>
-                <form method="post" novalidate>
-                    {% csrf_token %}
-                    {% include 'partials/form_fields.html' with form=form %}
-                    <button class="btn btn-brand" type="submit">Save changes</button>
-                </form>
+<!-- Top Breadcrumb Strip -->
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2 px-3 mb-4 rounded-pill border bg-body-tertiary shadow-sm reveal">
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span>Academy</span>
+        <span class="text-secondary opacity-50">/</span>
+        <strong class="text-primary">Scholar Dossier</strong>
+    </div>
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span class="material-symbols-outlined fs-6 text-primary">verified_user</span>
+        <span>Role: <strong class="text-dark-emphasis">{{ user.get_role_display|default:user.role|capfirst }}</strong></span>
+    </div>
+</div>
+
+<!-- Profile Masthead Banner -->
+<section class="dashboard-masthead-stitch p-4 p-md-5 mb-4 reveal reveal-delay-1">
+    <div class="row align-items-center g-4">
+        <div class="col-md-8">
+            <div class="d-flex align-items-center gap-3">
+                <div class="user-avatar-sm" style="width: 58px; height: 58px; font-size: 1.5rem;">
+                    {{ user.username|make_list|first|upper }}
+                </div>
+                <div>
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <h1 class="h3 fw-bold mb-0 text-dark-emphasis">{{ user.first_name|default:user.username }}</h1>
+                        <span class="telemetry-chip primary text-capitalize">{{ user.get_role_display|default:user.role }}</span>
+                    </div>
+                    <span class="small text-muted font-monospace">@{{ user.username }} · Member joined {{ user.date_joined|date:"M Y" }}</span>
+                </div>
             </div>
         </div>
-        <div class="card mt-3">
-            <div class="card-body p-4">
-                <h2 class="h5">Chess.com Link</h2>
-                {% if user.chess_com_username %}
-                <p class="muted-copy">Linked username: <strong>{{ user.chess_com_username }}</strong></p>
-                <a class="btn btn-brand-outline" href="{% url 'chesslab:import-games' %}">Import games</a>
-                {% else %}
-                <p class="muted-copy">Add your Chess.com username above to link your account and load games.</p>
-                {% endif %}
+        <div class="col-md-4 text-md-end">
+            <a class="btn btn-brand-outline" href="{% url 'dashboard:student-dashboard' %}">
+                <span class="material-symbols-outlined fs-6 align-middle me-1">dashboard</span>
+                <span>Scholar Cockpit</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<div class="row g-4 reveal reveal-delay-2">
+    <!-- Account Settings Form -->
+    <div class="col-lg-7">
+        <div class="stat-card-stitch p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="h5 fw-bold mb-0">Identity &amp; Account Settings</h2>
+                <span class="material-symbols-outlined text-primary fs-5">badge</span>
+            </div>
+            
+            <form method="post" novalidate class="form-shell">
+                {% csrf_token %}
+                {% include 'partials/form_fields.html' with form=form %}
+                <div class="pt-3 border-top border-light-subtle d-flex justify-content-end">
+                    <button class="btn btn-brand px-4 py-2" type="submit">
+                        <span class="material-symbols-outlined fs-6 align-middle me-1">save</span>
+                        <span>Save Profile Changes</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Integrations and Chess.com Link -->
+    <div class="col-lg-5 d-flex flex-column gap-4">
+        <div class="stat-card-stitch p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="h6 fw-bold mb-0">Chess.com Game Vault</h2>
+                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill font-monospace">API Sync</span>
+            </div>
+            
+            {% if user.chess_com_username %}
+            <p class="small text-muted mb-3">
+                Linked handle: <strong class="text-dark-emphasis font-monospace">@{{ user.chess_com_username }}</strong>
+            </p>
+            <p class="small text-muted mb-4">
+                Sync recent rapid, blitz, and classical games into the Stockfish Analysis Lab to diagnose inaccuracies.
+            </p>
+            <a class="btn btn-brand w-100" href="{% url 'chesslab:import-games' %}">
+                <span class="material-symbols-outlined fs-6 align-middle me-1">cloud_download</span>
+                <span>Import Recent Games</span>
+            </a>
+            {% else %}
+            <p class="small text-muted mb-3">
+                Connect your Chess.com username in the profile form to enable automated PGN imports and opening repertoire sync.
+            </p>
+            <div class="p-3 rounded-3 bg-body-tertiary border text-center small text-muted">
+                <span class="material-symbols-outlined fs-4 text-muted mb-1 d-block">link_off</span>
+                <span>No handle connected yet</span>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Quick Access -->
+        <div class="stat-card-stitch p-4">
+            <h3 class="h6 fw-bold mb-2">Workspace Navigation</h3>
+            <div class="d-flex flex-column gap-2">
+                <a class="btn btn-brand-outline btn-sm justify-content-between" href="{% url 'courses:list' %}">
+                    <span>Browse Curriculums</span>
+                    <span class="material-symbols-outlined fs-6">arrow_forward</span>
+                </a>
+                <a class="btn btn-brand-outline btn-sm justify-content-between" href="{% url 'chesslab:play' %}">
+                    <span>Practice Board</span>
+                    <span class="material-symbols-outlined fs-6">arrow_forward</span>
+                </a>
+                <a class="btn btn-brand-outline btn-sm justify-content-between" href="{% url 'payments:plans' %}">
+                    <span>Membership &amp; Billing</span>
+                    <span class="material-symbols-outlined fs-6">arrow_forward</span>
+                </a>
             </div>
         </div>
     </div>

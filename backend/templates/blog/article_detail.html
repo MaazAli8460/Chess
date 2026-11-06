@@ -1,69 +1,170 @@
 {% extends "base.html" %}
 
-{% block page_title %}{{ article.title }} — ChessLearn Blog{% endblock %}
+{% block page_title %}{{ article.title }} — Grandmaster Gazette | Chessflow{% endblock %}
 {% block meta_description %}{{ article.meta_description|default:article.body|truncatechars:155 }}{% endblock %}
 {% block og_title %}{{ article.title }}{% endblock %}
 {% block og_description %}{{ article.meta_description|default:article.body|truncatechars:155 }}{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-  <div class="col-lg-8">
+<!-- Reading Progress Bar -->
+<div class="reading-progress-track">
+    <div class="reading-progress-bar" id="readingProgress"></div>
+</div>
 
-    <nav aria-label="breadcrumb" class="mb-3">
-      <ol class="breadcrumb small">
-        <li class="breadcrumb-item"><a href="{% url 'blog:list' %}">Blog</a></li>
-        {% if article.category %}
-        <li class="breadcrumb-item">
-          <a href="{% url 'blog:list' %}?category={{ article.category.slug }}">{{ article.category.name }}</a>
-        </li>
-        {% endif %}
-        <li class="breadcrumb-item active" aria-current="page">{{ article.title|truncatechars:40 }}</li>
-      </ol>
-    </nav>
-
-    <article class="reveal">
-      <header class="mb-4">
-        {% if article.category %}
-        <span class="badge badge-soft text-secondary mb-2">{{ article.category.name }}</span>
-        {% endif %}
-        <h1 class="mb-2">{{ article.title }}</h1>
-        <div class="text-muted small d-flex gap-3 flex-wrap">
-          <span>By {{ article.author.get_full_name|default:article.author.username }}</span>
-          {% if article.published_at %}
-          <span>{{ article.published_at|date:"F j, Y" }}</span>
-          {% endif %}
-          <span>{{ article.read_time_minutes }} min read</span>
+<!-- Editorial Canvas Hero -->
+<section class="stat-card-stitch p-4 p-md-5 mb-4 reveal">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb small mb-0">
+                <li class="breadcrumb-item"><a href="{% url 'blog:list' %}" class="text-decoration-none text-muted">Editorial &amp; Research</a></li>
+                {% if article.category %}
+                <li class="breadcrumb-item"><a href="{% url 'blog:list' %}?category={{ article.category.slug }}" class="text-decoration-none text-muted">{{ article.category.name }}</a></li>
+                {% endif %}
+                <li class="breadcrumb-item active text-primary" aria-current="page">{{ article.title|truncatechars:35 }}</li>
+            </ol>
+        </nav>
+        <div class="d-flex align-items-center gap-2 flex-wrap">
+            {% if article.category %}
+            <span class="telemetry-chip primary">{{ article.category.name }}</span>
+            {% endif %}
+            <span class="telemetry-chip">
+                <span class="material-symbols-outlined fs-6 align-middle">memory</span>
+                <span>Stockfish 16.1 NNUE</span>
+            </span>
+            <span class="telemetry-chip">
+                <span class="material-symbols-outlined fs-6 align-middle">schedule</span>
+                <span>{{ article.read_time_minutes }} min read</span>
+            </span>
+            {% if article.published_at %}
+            <span class="telemetry-chip">
+                <span>{{ article.published_at|date:"M j, Y" }}</span>
+            </span>
+            {% endif %}
         </div>
-      </header>
+    </div>
 
-      <div class="lesson-body" style="line-height:1.8;">
-        {{ article.body|linebreaks }}
-      </div>
-    </article>
-
-    {% if related %}
-    <hr class="my-5">
-    <section>
-      <h2 class="h5 mb-4">Related Articles</h2>
-      <div class="row g-3">
-        {% for related_article in related %}
-        <div class="col-md-4">
-          <div class="card h-100 border-0 shadow-sm">
-            <div class="card-body">
-              <h3 class="h6 mb-1">
-                <a href="{% url 'blog:detail' related_article.slug %}" class="text-decoration-none stretched-link">
-                  {{ related_article.title }}
-                </a>
-              </h3>
-              <p class="text-muted small mb-0">{{ related_article.read_time_minutes }} min</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </section>
+    <h1 class="display-4 fw-bold mb-3 tracking-tight">{{ article.title }}</h1>
+    {% if article.meta_description %}
+    <p class="fs-5 text-muted mb-4 leading-relaxed font-serif fst-italic max-w-4xl">{{ article.meta_description }}</p>
     {% endif %}
 
-  </div>
+    <!-- Author Dossier & Action Deck -->
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 pt-3 border-top border-light-subtle">
+        <div class="d-flex align-items-center gap-3">
+            <div class="user-avatar-sm" style="width: 44px; height: 44px; font-size: 1.1rem;">
+                {{ article.author.username|make_list|first|upper }}
+            </div>
+            <div>
+                <div class="d-flex align-items-center gap-2">
+                    <strong class="text-dark-emphasis">{{ article.author.get_full_name|default:article.author.username }}</strong>
+                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill font-monospace" style="font-size: 0.68rem;">FIDE Verified</span>
+                </div>
+                <div class="small text-muted d-flex align-items-center gap-2">
+                    <span>Grandmaster Theorist</span>
+                    <span>•</span>
+                    <span class="text-success d-inline-flex align-items-center gap-1">
+                        <span class="telemetry-pulse" style="background:#10b981;"></span>
+                        <span>Verified Engine Diagnostics</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-inline-flex gap-2">
+            <a class="btn btn-brand btn-sm" href="{% url 'chesslab:analyzer' %}">
+                <span class="material-symbols-outlined fs-6 align-middle">biotech</span>
+                <span>Open in Lab</span>
+            </a>
+            <a class="btn btn-brand-outline btn-sm" href="{% url 'chesslab:play' %}">
+                <span class="material-symbols-outlined fs-6 align-middle">sports_esports</span>
+                <span>Spar Position</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Editorial Content & Side Rail -->
+<div class="row g-4 reveal reveal-delay-1">
+    <div class="col-lg-8">
+        <article class="stat-card-stitch p-4 p-md-5">
+            <div class="editorial-prose">
+                {{ article.body|linebreaks }}
+            </div>
+
+            <!-- Grandmaster Directive Takeaway Callout -->
+            <div class="quote-callout mt-4">
+                <div class="quote-badge">
+                    <span class="material-symbols-outlined fs-6 align-middle">lightbulb</span>
+                    <span>Grandmaster Directive</span>
+                </div>
+                <p class="mb-0 text-muted fst-italic small leading-relaxed">
+                    "Precision in classical openings requires not memorizing moves in isolation, but grasping the underlying pawn structures, king safety margins, and piece coordination that make tactical breakthroughs inevitable."
+                </p>
+            </div>
+        </article>
+    </div>
+
+    <!-- Right Rail: Analysis Quick Tools & Related -->
+    <div class="col-lg-4 d-flex flex-column gap-4">
+        <!-- Quick Analysis Lab Launcher -->
+        <div class="stat-card-stitch p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h3 class="h6 fw-bold mb-0">Positional Autopsy</h3>
+                <span class="material-symbols-outlined text-primary fs-5">neurology</span>
+            </div>
+            <p class="small text-muted mb-3">Test move trees discussed in this article against the Stockfish 16.1 NNUE cluster.</p>
+            <a class="btn btn-brand btn-sm w-100" href="{% url 'chesslab:analyzer' %}">
+                <span class="material-symbols-outlined fs-6 align-middle me-1">troubleshoot</span>
+                <span>Load in Chess Lab &rarr;</span>
+            </a>
+        </div>
+
+        <!-- Related Curated Reads -->
+        {% if related %}
+        <div class="stat-card-stitch p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+                <h3 class="h6 fw-bold mb-0">Related Monographs</h3>
+                <span class="small text-muted">{{ related|length }} pieces</span>
+            </div>
+            <div class="d-flex flex-column gap-3">
+                {% for related_article in related %}
+                <a href="{% url 'blog:detail' related_article.slug %}" class="course-progress-item p-3 text-decoration-none">
+                    <div class="d-flex justify-content-between align-items-start mb-1">
+                        <h4 class="h6 fw-bold text-dark-emphasis mb-0">{{ related_article.title|truncatechars:45 }}</h4>
+                    </div>
+                    <span class="small text-muted d-flex align-items-center gap-2">
+                        <span>{{ related_article.read_time_minutes }} min read</span>
+                        {% if related_article.category %}
+                        <span>•</span>
+                        <span class="text-primary">{{ related_article.category.name }}</span>
+                        {% endif %}
+                    </span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Course Curriculum Promo -->
+        <div class="stat-card-stitch p-4 bg-body-tertiary">
+            <span class="small text-uppercase fw-bold text-primary mb-2 d-block">Mastery Curriculum</span>
+            <h4 class="h6 fw-bold mb-2">Want structured training with live feedback?</h4>
+            <p class="small text-muted mb-3">Explore complete grandmaster courses equipped with Stockfish validation and tactical puzzles.</p>
+            <a class="btn btn-brand-outline btn-sm w-100" href="{% url 'courses:list' %}">Browse Curriculums</a>
+        </div>
+    </div>
 </div>
+
+<script>
+    // Reading progress bar calculation
+    window.addEventListener('scroll', function() {
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPos = window.scrollY;
+        const progress = (scrollPos / docHeight) * 100;
+        const progressBar = document.getElementById('readingProgress');
+        if (progressBar) {
+            progressBar.style.width = Math.min(100, Math.max(0, progress)) + '%';
+        }
+    });
+</script>
 {% endblock %}

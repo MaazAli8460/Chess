@@ -1,119 +1,602 @@
 {% extends 'base.html' %}
 
-{% block page_title %}Chessflow — Learn Chess Online{% endblock %}
-{% block meta_description %}Structured chess courses for all levels. Learn openings, tactics, and endgames with Stockfish-powered analysis and progress tracking.{% endblock %}
+{% block page_title %}Chessflow — Grandmaster Chess Pedagogy & Computational Engine{% endblock %}
+{% block meta_description %}Master the 64 squares with computational elegance and grandmaster pedagogy. Structured chess
+courses, deep Stockfish evaluations, and interactive repertoires.{% endblock %}
 
 {% block content %}
-<section class="hero-grid reveal mb-4">
-    <div class="row g-4 align-items-center">
-        <div class="col-lg-7">
-            <span class="badge badge-soft mb-3">Structured Chess Growth</span>
-            <h1 class="display-6 fw-semibold">Learn Faster with Practical Lessons and Position Feedback</h1>
-            <p class="lead mb-4">Follow guided courses, test ideas in the analyzer, and track steady progress toward stronger tournament play.</p>
-            <div class="d-flex gap-2 flex-wrap">
-                <a class="btn btn-light" href="{% url 'courses:list' %}">Browse Courses</a>
-                <a class="btn btn-outline-light" href="{% url 'chesslab:play' %}">Play a game</a>
-                {% if not user.is_authenticated %}
-                <a class="btn btn-outline-light" href="{% url 'users:signup' %}">Create Account</a>
-                {% endif %}
+<!-- Top Cluster Status Sub-Bar -->
+<div
+    class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2 px-3 mb-4 rounded-pill border bg-body-tertiary shadow-sm reveal">
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span class="telemetry-pulse"></span>
+        <span class="text-dark-emphasis fw-semibold">Stockfish 16.1 NNUE + Syzygy 7-Man Cluster Integrated</span>
+        <span class="text-secondary opacity-50">•</span>
+        <span class="text-primary fw-medium">FIDE Standard 2800+ Depth</span>
+    </div>
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span class="material-symbols-outlined fs-6 text-primary">sync</span>
+        <span>Instant PGN &amp; FEN Analysis</span>
+    </div>
+</div>
+
+<!-- Hero Editorial Showcase -->
+<section class="dashboard-masthead-stitch p-4 p-md-5 mb-5 reveal reveal-delay-1">
+    <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+            <h1 class="display-4 fw-bold mb-3 tracking-tight">
+                Master the 64 Squares with <span class="font-serif text-primary fst-italic">Computational
+                    Elegance</span> &amp; Grandmaster Pedagogy.
+            </h1>
+            <p class="fs-5 text-muted mb-4 leading-relaxed" style="max-width: 680px;">
+                Architect bulletproof opening repertoires, diagnose recurring tactical tripwires, and drill master-level
+                endgames with algorithmic precision and zero sensory clutter.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+                <a class="btn btn-brand btn-lg px-4 py-2.5" href="{% url 'courses:list' %}">
+                    <span>Explore Master Tracks</span>
+                    <span class="material-symbols-outlined fs-5 align-middle ms-1">arrow_forward</span>
+                </a>
+                <a class="btn btn-brand-outline btn-lg px-4 py-2.5" href="{% url 'chesslab:analyzer' %}">
+                    <span class="material-symbols-outlined fs-5 align-middle me-1">troubleshoot</span>
+                    <span>Launch Engine Lab</span>
+                </a>
+                <a class="btn btn-light border btn-lg px-3 py-2.5" href="{% url 'chesslab:play' %}"
+                    title="Play a sparring game">
+                    <span class="material-symbols-outlined fs-5 align-middle">sports_esports</span>
+                </a>
             </div>
         </div>
-        <div class="col-lg-5">
-            <div class="hero-stats">
-                <div class="hero-pill reveal reveal-delay-1">
-                    <strong>{{ featured_courses|length }}</strong>
-                    <span>Featured tracks</span>
+
+        <div class="col-lg-4">
+            <div class="stat-card-stitch p-4 bg-body-tertiary border">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <span class="small text-uppercase fw-bold text-muted">Live Platform Telemetry</span>
+                    <span
+                        class="badge bg-success-subtle text-success border border-success-subtle rounded-pill">Optimal</span>
                 </div>
-                <div class="hero-pill reveal reveal-delay-1">
-                    <strong>100%</strong>
-                    <span>Web-based training</span>
-                </div>
-                <div class="hero-pill reveal reveal-delay-2">
-                    <strong>FEN</strong>
-                    <span>Interactive analysis support</span>
-                </div>
-                <div class="hero-pill reveal reveal-delay-2">
-                    <strong>Live</strong>
-                    <span>Progress dashboards</span>
+                <div class="d-flex flex-column gap-3">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="small text-muted">Curriculum Modules</span>
+                        <strong class="font-monospace text-primary fs-5">{{ featured_courses|length }} Tracks</strong>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="small text-muted">Engine Cloud Evaluation</span>
+                        <strong class="font-monospace text-dark-emphasis">Stockfish 16.1</strong>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="small text-muted">Move Validation</span>
+                        <strong class="font-monospace text-success">Active API</strong>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="small text-muted">Interactive Analysis</span>
+                        <strong class="font-monospace text-dark-emphasis">100% Web Native</strong>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="reveal reveal-delay-1">
-    <div class="section-head">
+<!-- Interactive Opening Explorer Section -->
+<section class="mb-5 reveal reveal-delay-2" id="opening-explorer">
+    <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
         <div>
-            <h2 class="section-title">Featured Courses</h2>
-            <p class="muted-copy mb-0">Start with fundamentals or jump into focused improvement paths.</p>
+            <span class="small text-uppercase fw-bold text-primary">Interactive Master Repertoires</span>
+            <h2 class="display-6 fw-bold mb-1">Grandmaster Opening Explorer</h2>
+            <p class="text-muted mb-0">Explore mainline move trees, master win distributions, and positional evaluations.</p>
         </div>
-        <a class="btn btn-sm btn-brand-outline" href="{% url 'courses:list' %}">View all</a>
+        <div class="d-flex flex-wrap gap-2 mt-3 mt-lg-0">
+            <button type="button" class="exp-preset-btn active" data-line="giuoco">Giuoco Piano</button>
+            <button type="button" class="exp-preset-btn" data-line="evans">Evans Gambit</button>
+            <button type="button" class="exp-preset-btn" data-line="twoknights">Two Knights</button>
+            <button type="button" class="exp-preset-btn" data-line="najdorf">Sicilian Najdorf</button>
+            <button type="button" class="exp-preset-btn" data-line="french">French Winawer</button>
+        </div>
     </div>
-    <div class="row g-3">
+
+    <div class="stat-card-stitch p-4 p-lg-5">
+        <div class="row g-4 align-items-stretch">
+            <!-- Left: Board & Evaluation -->
+            <div class="col-lg-6 d-flex flex-column justify-content-between">
+                <!-- Move Breadcrumbs -->
+                <div class="d-flex flex-wrap align-items-center gap-1.5 p-2 px-3 rounded-3 bg-body-tertiary border mb-3 small" id="exp-breadcrumbs">
+                    <!-- Populated dynamically -->
+                </div>
+
+                <div class="d-flex gap-3 justify-content-center align-items-center flex-grow-1 my-2">
+                    <!-- Vertical Eval Gauge -->
+                    <div class="exp-eval-bar-v" style="height: 320px;" title="Stockfish Position Balance">
+                        <div class="exp-eval-fill" id="exp-eval-fill" style="height: 54%;"></div>
+                    </div>
+
+                    <!-- 8x8 Board Container -->
+                    <div class="exp-board-wrapper">
+                        <div class="exp-board-grid" id="exp-board-grid">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Move Candidate Quick Buttons -->
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 pt-3 border-top border-light-subtle">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="small fw-semibold text-muted d-inline-flex align-items-center gap-1">
+                            <span class="material-symbols-outlined fs-6 text-primary">touch_app</span> Candidate:
+                        </span>
+                        <div id="exp-quick-moves" class="d-flex align-items-center gap-1 flex-wrap">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-sm btn-link text-decoration-none text-muted p-0" id="exp-reset-btn">
+                        <span class="material-symbols-outlined fs-6 align-middle">restart_alt</span> Reset
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: Statistics & Grandmaster Insights -->
+            <div class="col-lg-6 d-flex flex-column justify-content-between">
+                <div>
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <div>
+                            <span class="badge bg-primary text-white rounded-pill px-2.5 py-1 font-monospace me-2" id="exp-eco-badge">C53</span>
+                            <span class="small text-muted font-monospace" id="exp-total-games">312,850 Master Games</span>
+                        </div>
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill font-monospace px-2.5 py-1" id="exp-eval-tag">+0.35 eval</span>
+                    </div>
+
+                    <h3 class="h4 fw-bold mb-2 text-dark-emphasis" id="exp-title">Italian Game: Giuoco Piano</h3>
+                    <p class="small text-muted mb-4 leading-relaxed" id="exp-description">
+                        Classical struggle with 4. c3 preparing central d4 rupture. White maintains fluid center pawn majority while Black counters with active bishop on c5.
+                    </p>
+
+                    <!-- Win Rate Distribution Bar -->
+                    <div class="p-3 rounded-3 bg-body-tertiary border mb-4">
+                        <div class="d-flex justify-content-between small fw-semibold mb-2">
+                            <span>White: <strong class="text-primary" id="exp-pct-w">39%</strong></span>
+                            <span class="text-muted">Draw: <strong id="exp-pct-d">43%</strong></span>
+                            <span>Black: <strong class="text-dark-emphasis" id="exp-pct-b">18%</strong></span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" id="exp-bar-w" role="progressbar" style="width: 39%"></div>
+                            <div class="progress-bar bg-secondary" id="exp-bar-d" role="progressbar" style="width: 43%"></div>
+                            <div class="progress-bar bg-dark" id="exp-bar-b" role="progressbar" style="width: 18%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Continuations Table -->
+                    <div class="mb-4">
+                        <div class="small fw-bold text-uppercase text-muted mb-2">Master Continuations</div>
+                        <div class="list-group list-group-flush border rounded-3 overflow-hidden" id="exp-candidates-list">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grandmaster Pedagogy Note -->
+                <div class="p-3 rounded-3 border border-primary border-opacity-25 bg-body-tertiary">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="material-symbols-outlined text-primary fs-5">psychology</span>
+                        <span class="small fw-bold text-dark-emphasis">Grandmaster Directives</span>
+                    </div>
+                    <p class="small text-muted mb-2 fst-italic leading-relaxed" id="exp-pedagogy-text">
+                        "In the 4. c3 main line, White seeks to conquer d4 without committing early kingside castling. Delaying O-O retains tactical tension and prevents Black from easy counterstrikes via ...d5."
+                    </p>
+                    <div class="d-flex justify-content-between align-items-center pt-2 border-top border-light-subtle">
+                        <span class="small text-muted">Spaced repetition interval: 3 days</span>
+                        <a class="btn btn-sm btn-brand" href="{% url 'chesslab:play' %}">
+                            <span>Open in Chess Lab</span>
+                            <span class="material-symbols-outlined fs-6 align-middle ms-1">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Courses Section -->
+<section class="mb-5 reveal reveal-delay-2">
+    <div class="d-flex flex-wrap justify-content-between align-items-end mb-4">
+        <div>
+            <span class="small text-uppercase fw-bold text-primary">Structured Syllabi</span>
+            <h2 class="display-6 fw-bold mb-1">Featured Mastery Courses</h2>
+            <p class="text-muted mb-0">Engine-annotated repertoires and tactical training designed for serious
+                tournament aspirants.</p>
+        </div>
+        <a class="btn btn-brand-outline" href="{% url 'courses:list' %}">
+            <span>View All Tracks</span>
+            <span class="material-symbols-outlined fs-6 align-middle ms-1">arrow_forward</span>
+        </a>
+    </div>
+
+    <div class="row g-4">
         {% for course in featured_courses %}
-        <div class="col-md-6 col-xl-4">
-            <article class="card h-100">
-                <div class="card-body d-flex flex-column">
-                    <div class="d-flex justify-content-between align-items-start mb-2">
-                        <h3 class="h5 mb-0">{{ course.title }}</h3>
-                        <span class="badge text-capitalize badge-soft">{{ course.difficulty }}</span>
-                    </div>
-                    <p class="muted-copy">{{ course.description|truncatechars:125 }}</p>
-                    <div class="mt-auto d-flex justify-content-between align-items-center pt-2">
-                        {% if course.is_premium %}
-                        <span class="badge price-pill">${{ course.price }}</span>
-                        {% else %}
-                        <span class="badge badge-soft">Free</span>
-                        {% endif %}
-                        <a class="btn btn-sm btn-brand" href="{% url 'courses:detail' course.slug %}">Open</a>
-                    </div>
+        <div class="col-md-6 col-lg-4">
+            <article class="stat-card-stitch h-100 d-flex flex-column p-4">
+                <div class="d-flex justify-content-between align-items-start gap-2 mb-3">
+                    <span class="telemetry-chip primary text-capitalize">
+                        {{ course.difficulty }}
+                    </span>
+                    {% if course.is_premium %}
+                    <span
+                        class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-2.5 py-1 fw-bold">
+                        ${{ course.price }}
+                    </span>
+                    {% else %}
+                    <span
+                        class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-2.5 py-1 fw-bold">
+                        Free Track
+                    </span>
+                    {% endif %}
+                </div>
+
+                <h3 class="h5 fw-bold mb-2">
+                    <a href="{% url 'courses:detail' course.slug %}" class="text-decoration-none text-dark-emphasis">
+                        {{ course.title }}
+                    </a>
+                </h3>
+
+                <p class="text-muted small mb-4 flex-grow-1">
+                    {{ course.description|truncatechars:125 }}
+                </p>
+
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top border-light-subtle">
+                    <span class="small text-muted">{{ course.lessons.count }} modules</span>
+                    <a class="btn btn-sm btn-brand" href="{% url 'courses:detail' course.slug %}">
+                        <span>Open Syllabus</span>
+                        <span class="material-symbols-outlined fs-6 align-middle ms-1">arrow_forward</span>
+                    </a>
                 </div>
             </article>
         </div>
         {% empty %}
         <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <p class="mb-0">No courses are published yet. Add your first course in admin to bring the catalog live.</p>
-                </div>
+            <div class="stat-card-stitch text-center py-5">
+                <p class="text-muted mb-2">No featured courses published yet.</p>
+                <a href="{% url 'courses:list' %}" class="btn btn-brand">Explore Library</a>
             </div>
         </div>
         {% endfor %}
     </div>
 </section>
 
-<section class="reveal reveal-delay-2 mt-5">
-    <div class="section-head">
-        <div>
-            <h2 class="section-title">Success Stories</h2>
-            <p class="muted-copy mb-0">Real progress from players using the platform.</p>
-        </div>
+<!-- Testimonials Strip -->
+{% if testimonials %}
+<section class="mb-5 reveal reveal-delay-3">
+    <div class="text-center mb-4">
+        <span class="small text-uppercase fw-bold text-primary">Master Recommendations</span>
+        <h2 class="h3 fw-bold">Praised by Titled Players &amp; Tournament Scholars</h2>
     </div>
-    <div class="row g-3">
-        {% for item in testimonials %}
-        <div class="col-md-6 col-xl-4">
-            <div class="card h-100">
-                <div class="card-body p-4">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <strong>{{ item.name }}</strong>
-                        <span class="badge badge-soft">{{ item.rating }}/5</span>
-                    </div>
-                    {% if item.title %}
-                    <p class="muted-copy mb-2">{{ item.title }}</p>
+    <div class="row g-4">
+        {% for t in testimonials %}
+        <div class="col-md-6 col-lg-4">
+            <div class="stat-card-stitch p-4 h-100 d-flex flex-column justify-content-between">
+                <p class="text-muted small fst-italic mb-3 leading-relaxed">&ldquo;{{ t.quote }}&rdquo;</p>
+                <div class="d-flex align-items-center gap-2 pt-2 border-top border-light-subtle">
+                    {% if t.image %}
+                    <img src="{{ t.image.url }}" alt="{{ t.name }}" class="user-avatar-sm rounded-circle" style="width:34px;height:34px;object-fit:cover;">
+                    {% else %}
+                    <div class="user-avatar-sm">{{ t.name|make_list|first|upper }}</div>
                     {% endif %}
-                    <p class="mb-0">"{{ item.quote }}"</p>
-                </div>
-            </div>
-        </div>
-        {% empty %}
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <p class="mb-0">Add testimonials in the admin portal to show social proof here.</p>
+                    <div>
+                        <strong class="small d-block text-dark-emphasis">{{ t.name }}</strong>
+                        <span class="text-muted" style="font-size: 0.72rem;">{{ t.title|default:"Competitive Player" }}</span>
+                    </div>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
 </section>
+{% endif %}
+
+<!-- Bottom Call to Action -->
+<section class="stat-card-stitch p-4 p-md-5 text-center reveal">
+    <h2 class="display-6 fw-bold mb-2">Elevate Your Tournament Trajectory</h2>
+    <p class="text-muted mb-4 max-w-lg mx-auto">Get full access to all structured master curriculums, engine telemetry,
+        and deep endgame databases.</p>
+    <div class="d-inline-flex gap-2">
+        {% if user.is_authenticated %}
+        <a class="btn btn-brand btn-lg px-4" href="{% url 'dashboard:student-dashboard' %}">Go to Cockpit</a>
+        {% else %}
+        <a class="btn btn-brand btn-lg px-4" href="{% url 'users:signup' %}">Create Account</a>
+        <a class="btn btn-brand-outline btn-lg px-4" href="{% url 'payments:plans' %}">View Plans</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+    const OPENINGS = {
+        giuoco: {
+            name: "Italian Game: Giuoco Piano",
+            eco: "C53",
+            games: "312,850 Master Games",
+            eval: "+0.35",
+            evalPct: 54,
+            desc: "Classical struggle with 4. c3 preparing central d4 rupture. White maintains fluid center pawn majority while Black counters with active bishop on c5.",
+            pedagogy: "In the 4. c3 main line, White seeks to conquer d4 without committing early kingside castling. Delaying O-O retains tactical tension and prevents Black from easy counterstrikes via ...d5.",
+            whiteWin: 39,
+            draw: 43,
+            blackWin: 18,
+            breadcrumbs: ["1. e4", "e5", "2. Nf3", "Nc6", "3. Bc4", "Bc5", "4. c3"],
+            candidateMoves: [
+                { move: "4... Nf6", games: "142,910", wWin: 36, draw: 46, bWin: 18, eval: "+0.28", type: "Main Line", note: "Direct counter-pressure on e4" },
+                { move: "4... Qe7", games: "58,220", wWin: 42, draw: 40, bWin: 18, eval: "+0.45", type: "Solid", note: "Defends e5 pawn directly" },
+                { move: "4... d6", games: "41,180", wWin: 44, draw: 39, bWin: 17, eval: "+0.52", type: "Classical", note: "Solidifies center pawn structure" }
+            ],
+            board: [
+                ['r', null, 'b', 'q', 'k', null, 'n', 'r'],
+                ['p', 'p', 'p', 'p', null, 'p', 'p', 'p'],
+                [null, null, 'n', null, null, null, null, null],
+                [null, null, 'b', null, 'p', null, null, null],
+                [null, null, 'B', null, 'P', null, null, null],
+                [null, null, 'P', null, null, 'N', null, null],
+                ['P', 'P', null, 'P', null, 'P', 'P', 'P'],
+                ['R', 'N', 'B', 'Q', 'K', null, null, 'R']
+            ]
+        },
+        evans: {
+            name: "Evans Gambit Accepted",
+            eco: "C51",
+            games: "64,120 Master Games",
+            eval: "+0.55",
+            evalPct: 58,
+            desc: "A bold Romantic sacrifice with 4. b4! White offers the b-pawn to gain rapid queenside expansion, opening diagonals for Ba3 and c3+d4 thrusts.",
+            pedagogy: "Favored by Kasparov and Morphy. In exchange for the b4 pawn, White gains 2 tempi in the center and pins Black's uncastled king under heavy crossfire.",
+            whiteWin: 46,
+            draw: 31,
+            blackWin: 23,
+            breadcrumbs: ["1. e4", "e5", "2. Nf3", "Nc6", "3. Bc4", "Bc5", "4. b4!"],
+            candidateMoves: [
+                { move: "4... Bxb4", games: "44,800", wWin: 45, draw: 32, bWin: 23, eval: "+0.52", type: "Accepted", note: "Clash into 5. c3 Ba5 6. d4" },
+                { move: "4... Bb6", games: "16,210", wWin: 48, draw: 30, bWin: 22, eval: "+0.68", type: "Declined", note: "Safe but grants White spatial initiative" },
+                { move: "4... Be7", games: "1,940", wWin: 52, draw: 28, bWin: 20, eval: "+0.95", type: "Sideline", note: "Loss of tempo in defense" }
+            ],
+            board: [
+                ['r', null, 'b', 'q', 'k', null, 'n', 'r'],
+                ['p', 'p', 'p', 'p', null, 'p', 'p', 'p'],
+                [null, null, 'n', null, null, null, null, null],
+                [null, null, 'b', null, 'p', null, null, null],
+                [null, 'P', 'B', null, 'P', null, null, null],
+                [null, null, null, null, null, 'N', null, null],
+                ['P', null, 'P', 'P', null, 'P', 'P', 'P'],
+                ['R', 'N', 'B', 'Q', 'K', null, null, 'R']
+            ]
+        },
+        twoknights: {
+            name: "Two Knights Defense",
+            eco: "C55",
+            games: "188,400 Master Games",
+            eval: "+0.20",
+            evalPct: 52,
+            desc: "Dynamic counter-attack with 3... Nf6. Black invites 4. Ng5 (Fried Liver territory) in exchange for ruthless initiative via ...d5.",
+            pedagogy: "The sharpest response to 1. e4 e5 2. Nf3 Nc6 3. Bc4. Steer into the Polerio defense after 4. Ng5 d5 5. exd5 Na5! White's bishop gets chased.",
+            whiteWin: 38,
+            draw: 42,
+            blackWin: 20,
+            breadcrumbs: ["1. e4", "e5", "2. Nf3", "Nc6", "3. Bc4", "Nf6"],
+            candidateMoves: [
+                { move: "4. d3", games: "88,320", wWin: 37, draw: 46, bWin: 17, eval: "+0.22", type: "Modern Quiet", note: "Positional solidity & restraint" },
+                { move: "4. Ng5", games: "54,200", wWin: 42, draw: 32, bWin: 26, eval: "+0.15", type: "Fried Liver", note: "Direct tactical assault on f7" },
+                { move: "4. d4", games: "36,810", wWin: 40, draw: 41, bWin: 19, eval: "+0.31", type: "Scotch Gambit", note: "Immediate central rupture" }
+            ],
+            board: [
+                ['r', null, 'b', 'q', 'k', 'b', null, 'r'],
+                ['p', 'p', 'p', 'p', null, 'p', 'p', 'p'],
+                [null, null, 'n', null, null, 'n', null, null],
+                [null, null, null, null, 'p', null, null, null],
+                [null, null, 'B', null, 'P', null, null, null],
+                [null, null, null, null, null, 'N', null, null],
+                ['P', 'P', 'P', 'P', null, 'P', 'P', 'P'],
+                ['R', 'N', 'B', 'Q', 'K', null, null, 'R']
+            ]
+        },
+        najdorf: {
+            name: "Sicilian Defense: Najdorf",
+            eco: "B90",
+            games: "420,110 Master Games",
+            eval: "+0.18",
+            evalPct: 52,
+            desc: "The gold standard of asymmetrical king battles. 5... a6 prepares ...e5 or ...b5 while preventing knight incursions on b5 and d5.",
+            pedagogy: "Weapon of choice for Bobby Fischer and Garry Kasparov. Black accepts small spatial concession to create devastating queenside counterplay.",
+            whiteWin: 37,
+            draw: 39,
+            blackWin: 24,
+            breadcrumbs: ["1. e4", "c5", "2. Nf3", "d6", "3. d4", "cxd4", "4. Nxd4", "Nf6", "5. Nc3", "a6"],
+            candidateMoves: [
+                { move: "6. Be3", games: "148,220", wWin: 38, draw: 38, bWin: 24, eval: "+0.24", type: "English Attack", note: "Prepares f3 + g4 king assault" },
+                { move: "6. Bg5", games: "112,400", wWin: 39, draw: 36, bWin: 25, eval: "+0.22", type: "Classical Sharp", note: "Direct pin & early f4 push" },
+                { move: "6. Be2", games: "68,110", wWin: 35, draw: 44, bWin: 21, eval: "+0.15", type: "Karpov System", note: "Positional clamp & prophylaxis" }
+            ],
+            board: [
+                ['r', 'n', 'b', 'q', 'k', 'b', null, 'r'],
+                [null, 'p', null, null, 'p', 'p', 'p', 'p'],
+                ['p', null, null, 'p', null, 'n', null, null],
+                [null, null, null, null, null, null, null, null],
+                [null, null, null, 'N', 'P', null, null, null],
+                [null, null, 'N', null, null, null, null, null],
+                ['P', 'P', 'P', null, null, 'P', 'P', 'P'],
+                ['R', null, 'B', 'Q', 'K', 'B', null, 'R']
+            ]
+        },
+        french: {
+            name: "French Defense: Winawer",
+            eco: "C18",
+            games: "96,440 Master Games",
+            eval: "+0.42",
+            evalPct: 56,
+            desc: "Hyper-tense confrontation: 3... Bb4 pins White's c3 knight. White gains bishop pair and king-side spatial bind, while Black fractures White's c-pawns.",
+            pedagogy: "Strategic battle par excellence. White storms on the kingside with Qg4, while Black systematically pummels the doubled c4-c3 pawn chain.",
+            whiteWin: 41,
+            draw: 38,
+            blackWin: 21,
+            breadcrumbs: ["1. e4", "e6", "2. d4", "d5", "3. Nc3", "Bb4", "4. e5", "c5"],
+            candidateMoves: [
+                { move: "5. a3", games: "58,100", wWin: 42, draw: 37, bWin: 21, eval: "+0.45", type: "Main Line", note: "Forces 5... Bxc3+ 6. bxc3" },
+                { move: "5. Bd2", games: "18,400", wWin: 38, draw: 40, bWin: 22, eval: "+0.32", type: "Solid", note: "Breaks pin safely with quiet dev" },
+                { move: "5. Qg4", games: "9,850", wWin: 44, draw: 33, bWin: 23, eval: "+0.48", type: "Aggressive", note: "Direct pressure on g7 pawn" }
+            ],
+            board: [
+                ['r', 'n', 'b', 'q', 'k', null, 'n', 'r'],
+                ['p', 'p', null, null, null, 'p', 'p', 'p'],
+                [null, null, null, null, 'p', null, null, null],
+                [null, null, 'p', 'p', 'P', null, null, null],
+                [null, 'b', null, 'P', null, null, null, null],
+                [null, null, 'N', null, null, null, null, null],
+                ['P', 'P', 'P', null, null, 'P', 'P', 'P'],
+                ['R', null, 'B', 'Q', 'K', 'B', 'N', 'R']
+            ]
+        }
+    };
+
+    const PIECES_UNICODE = {
+        'k': '♚', 'q': '♛', 'r': '♜', 'b': '♝', 'n': '♞', 'p': '♟',
+        'K': '♔', 'Q': '♕', 'R': '♖', 'B': '♗', 'N': '♘', 'P': '♙'
+    };
+
+    let activeKey = 'giuoco';
+
+    function renderBoard(matrix) {
+        const grid = document.getElementById('exp-board-grid');
+        if (!grid) return;
+        grid.innerHTML = '';
+
+        for (let r = 0; r < 8; r++) {
+            for (let c = 0; c < 8; c++) {
+                const isDark = (r + c) % 2 === 1;
+                const sq = document.createElement('div');
+                sq.className = 'exp-sq ' + (isDark ? 'sq-dark' : 'sq-light');
+
+                if (c === 0) {
+                    const rank = document.createElement('span');
+                    rank.className = 'coord-rank';
+                    rank.textContent = 8 - r;
+                    sq.appendChild(rank);
+                }
+                if (r === 7) {
+                    const file = document.createElement('span');
+                    file.className = 'coord-file';
+                    file.textContent = String.fromCharCode(97 + c);
+                    sq.appendChild(file);
+                }
+
+                const piece = matrix[r][c];
+                if (piece) {
+                    const isWhite = piece === piece.toUpperCase();
+                    const pSpan = document.createElement('span');
+                    pSpan.className = 'exp-piece ' + (isWhite ? 'piece-white' : 'piece-black');
+                    pSpan.textContent = PIECES_UNICODE[piece] || piece;
+                    sq.appendChild(pSpan);
+                }
+                grid.appendChild(sq);
+            }
+        }
+    }
+
+    function loadLine(key) {
+        activeKey = key;
+        const d = OPENINGS[key];
+        if (!d) return;
+
+        // Button state
+        document.querySelectorAll('.exp-preset-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-line') === key);
+        });
+
+        // Meta tags
+        const ecoBadge = document.getElementById('exp-eco-badge');
+        if (ecoBadge) ecoBadge.textContent = d.eco;
+        const totalGames = document.getElementById('exp-total-games');
+        if (totalGames) totalGames.textContent = d.games;
+        const evalTag = document.getElementById('exp-eval-tag');
+        if (evalTag) evalTag.textContent = d.eval + " eval";
+        const evalFill = document.getElementById('exp-eval-fill');
+        if (evalFill) evalFill.style.height = d.evalPct + "%";
+
+        const title = document.getElementById('exp-title');
+        if (title) title.textContent = d.name;
+        const desc = document.getElementById('exp-description');
+        if (desc) desc.textContent = d.desc;
+        const pedagogy = document.getElementById('exp-pedagogy-text');
+        if (pedagogy) pedagogy.textContent = '"' + d.pedagogy + '"';
+
+        // Distribution Bar
+        const pctW = document.getElementById('exp-pct-w');
+        const pctD = document.getElementById('exp-pct-d');
+        const pctB = document.getElementById('exp-pct-b');
+        if (pctW) pctW.textContent = d.whiteWin + "%";
+        if (pctD) pctD.textContent = d.draw + "%";
+        if (pctB) pctB.textContent = d.blackWin + "%";
+
+        const barW = document.getElementById('exp-bar-w');
+        const barD = document.getElementById('exp-bar-d');
+        const barB = document.getElementById('exp-bar-b');
+        if (barW) barW.style.width = d.whiteWin + "%";
+        if (barD) barD.style.width = d.draw + "%";
+        if (barB) barB.style.width = d.blackWin + "%";
+
+        // Breadcrumbs
+        const bc = document.getElementById('exp-breadcrumbs');
+        if (bc) {
+            bc.innerHTML = '<span class="text-muted d-inline-flex align-items-center gap-1"><span class="material-symbols-outlined fs-6 text-primary">alt_route</span> Branch:</span>' +
+                d.breadcrumbs.map((mv, i) => {
+                    const isLast = i === d.breadcrumbs.length - 1;
+                    return '<span class="badge ' + (isLast ? 'bg-primary text-white' : 'bg-body-secondary text-dark-emphasis border') + ' font-monospace">' + mv + '</span>';
+                }).join('<span class="text-muted">&rarr;</span>');
+        }
+
+        // Quick candidate buttons
+        const qm = document.getElementById('exp-quick-moves');
+        if (qm) {
+            qm.innerHTML = d.candidateMoves.map(c => 
+                '<button type="button" class="btn btn-sm btn-outline-secondary py-0 px-2 font-monospace" style="font-size:0.75rem;" title="' + c.note + '">' + c.move + '</button>'
+            ).join('');
+        }
+
+        // Continuations Table
+        const list = document.getElementById('exp-candidates-list');
+        if (list) {
+            list.innerHTML = d.candidateMoves.map(c => `
+                <div class="list-group-item d-flex justify-content-between align-items-center py-2 px-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <strong class="font-monospace text-dark-emphasis">${c.move}</strong>
+                        <span class="badge bg-body-secondary text-muted border font-sans" style="font-size:0.68rem;">${c.type}</span>
+                        <span class="small text-muted d-none d-sm-inline" style="font-size:0.75rem;">${c.note}</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 font-monospace small">
+                        <span class="text-muted">${c.games}</span>
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle">${c.eval}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render Board
+        renderBoard(d.board);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.exp-preset-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                loadLine(this.getAttribute('data-line'));
+            });
+        });
+
+        const resetBtn = document.getElementById('exp-reset-btn');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', function() {
+                loadLine(activeKey);
+            });
+        }
+
+        // Initial render
+        loadLine('giuoco');
+    });
+})();
+</script>
 {% endblock %}

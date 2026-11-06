@@ -1,4 +1,4 @@
----
+<!-- ---
 name: ui-design
 description: "Use when designing, redesigning, polishing, or reviewing a website or application UI; triggered by requests such as UI design, visual redesign, frontend polish, design system, responsive layout, animations, UI revamp, or web design inspiration research."
 ---
@@ -157,4 +157,4 @@ When completing a UI task, report:
 1. The visual direction and the main interaction improvements.
 2. The files or components changed.
 3. The responsive and accessibility considerations handled.
-4. The validation performed, including the URL used for visual review when applicable.
+4. The validation performed, including the URL used for visual review when applicable. -->

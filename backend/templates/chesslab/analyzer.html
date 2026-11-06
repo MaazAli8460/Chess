@@ -1,67 +1,145 @@
 {% extends 'base.html' %}
 
-{% block page_title %}Chess Position Analyzer — ChessLearn{% endblock %}
-{% block meta_description %}Analyze any chess position using FEN notation. Get engine evaluations and best-move suggestions powered by Stockfish.{% endblock %}
+{% block page_title %}Chess Lab — Stockfish Engine Analysis{% endblock %}
+{% block meta_description %}High-precision chess engine telemetry, FEN position analysis, and grandmaster move annotations powered by Stockfish.{% endblock %}
 
 {% block content %}
-<section class="lab-masthead reveal mb-4">
-    <div>
-        <p class="eyebrow">Chess Lab</p>
-        <h1 class="display-heading">Read the position.</h1>
-        <p class="muted-copy mb-0">Turn a FEN into a precise next move, then build your understanding around it.</p>
+<!-- Top Sub-Navigation & Telemetry Strip -->
+<div class="d-flex flex-wrap align-items-center justify-content-between gap-2 p-2 px-3 mb-4 rounded-pill border bg-body-tertiary shadow-sm reveal">
+    <div class="d-flex align-items-center gap-2 small text-muted">
+        <span>Academy</span>
+        <span class="text-secondary opacity-50">/</span>
+        <span>Workspace</span>
+        <span class="text-secondary opacity-50">/</span>
+        <strong class="text-primary">Chess Lab</strong>
     </div>
-    <a class="btn btn-brand" href="{% url 'chesslab:play' %}">Open board →</a>
-</section>
+    <div class="d-flex align-items-center gap-3 small text-muted">
+        <span class="d-inline-flex align-items-center gap-1">
+            <span class="telemetry-pulse"></span>
+            <span>Stockfish 16.1 NNUE (Active)</span>
+        </span>
+        <span class="text-secondary opacity-25">|</span>
+        <span class="font-monospace">MultiPV: 3 Lines</span>
+    </div>
+</div>
 
-<div class="row g-4 reveal">
-    <div class="col-lg-7">
-        <div class="card lab-panel">
-            <div class="card-body p-4 form-shell">
-                <div class="section-head mb-2">
-                    <div>
-                        <h1 class="h4 mb-1">Position Analyzer</h1>
-                        <p class="muted-copy mb-0">Paste a FEN position and get a suggested move with evaluation feedback.</p>
-                    </div>
-                    <a class="btn btn-sm btn-brand-outline" href="{% url 'chesslab:import-games' %}">Import games</a>
-                </div>
-                <form method="post" novalidate class="mb-0">
-                    {% csrf_token %}
-                    <label class="form-label" for="fen">FEN Position</label>
-                    <textarea class="form-control code-block mb-3" id="fen" name="fen" rows="3">{{ fen }}</textarea>
-                    <button class="btn btn-brand" type="submit">Analyze</button>
-                </form>
-
-                {% if result %}
-                <hr />
-                <h2 class="h5">Result</h2>
-                <div class="lesson-meta lab-result mb-2">
-                    <strong>Best move</strong>
-                    <div class="code-block">{{ result.best_move|default:'n/a' }}</div>
-                </div>
-                <p><strong>Evaluation:</strong> {{ result.evaluation }}</p>
-                <p class="mb-0"><strong>Engine source:</strong> <span class="badge badge-soft">{{ result.source }}</span></p>
-                {% endif %}
+<!-- Chess Lab Masthead -->
+<section class="dashboard-masthead-stitch p-4 p-lg-5 mb-4 reveal reveal-delay-1">
+    <div class="row align-items-center justify-content-between g-4">
+        <div class="col-lg-8">
+            <div class="d-flex flex-wrap gap-2 mb-2">
+                <span class="telemetry-chip primary">
+                    <span class="material-symbols-outlined fs-6 align-middle">neurology</span>
+                    <span>Grandmaster Engine Evaluation</span>
+                </span>
+                <span class="telemetry-chip">
+                    <span>Centipawn Depth &amp; Best Line</span>
+                </span>
+            </div>
+            <h1 class="display-5 fw-bold mb-2">Deep Positional Analysis</h1>
+            <p class="text-muted fs-6 mb-0">Evaluate any FEN configuration, calculate engine best moves, identify tactical tripwires, and review telemetry history.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+            <div class="d-inline-flex gap-2">
+                <a class="btn btn-brand" href="{% url 'chesslab:play' %}">
+                    <span class="material-symbols-outlined fs-6 align-middle me-1">sports_esports</span>
+                    <span>Interactive Board</span>
+                </a>
+                <a class="btn btn-brand-outline" href="{% url 'chesslab:import-games' %}">
+                    <span class="material-symbols-outlined fs-6 align-middle me-1">upload_file</span>
+                    <span>Import PGN</span>
+                </a>
             </div>
         </div>
     </div>
+</section>
 
-    <div class="col-lg-5">
-        <div class="card lab-panel reveal reveal-delay-1">
-            <div class="card-body p-4">
-                <h2 class="h5">Recent Analyses</h2>
-                <ul class="list-group list-group-flush">
-                    {% for item in history %}
-                    <li class="list-group-item px-0 py-3 border-0 border-bottom">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <strong class="code-block">{{ item.best_move|default:'n/a' }}</strong>
-                            <span class="badge badge-soft">{{ item.evaluation }}</span>
+<div class="row g-4 reveal reveal-delay-2">
+    <!-- FEN Input & Evaluation Console -->
+    <div class="col-lg-7">
+        <div class="stat-card-stitch p-4 h-100 d-flex flex-column">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="h5 fw-bold mb-0">Position Input (FEN)</h2>
+                <span class="small text-muted font-monospace">Forsyth-Edwards Notation</span>
+            </div>
+
+            <form method="post" novalidate class="mb-4">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <textarea class="form-control font-monospace p-3 bg-body-tertiary" id="fen" name="fen" rows="3" placeholder="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1" style="font-size: 0.88rem; resize: none;">{{ fen }}</textarea>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <button class="btn btn-brand px-4 py-2" type="submit">
+                        <span class="material-symbols-outlined fs-6 align-middle me-1">tune</span>
+                        <span>Evaluate Position</span>
+                    </button>
+                    <a class="btn btn-sm btn-brand-outline" href="{% url 'chesslab:analyzer' %}">Clear / Reset</a>
+                </div>
+            </form>
+
+            {% if result %}
+            <div class="p-4 rounded-3 border bg-body-tertiary mt-auto">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="small text-uppercase fw-bold text-muted">Stockfish Positional Telemetry</span>
+                    <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill font-monospace px-2.5 py-1">
+                        {{ result.source }}
+                    </span>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-sm-6">
+                        <div class="stat-card-stitch p-3">
+                            <span class="small text-muted d-block mb-1">Recommended Best Move</span>
+                            <span class="h4 font-monospace fw-bold text-primary mb-0">{{ result.best_move|default:'n/a' }}</span>
                         </div>
-                        <div class="small text-muted">{{ item.created_at }}</div>
-                    </li>
-                    {% empty %}
-                    <li class="list-group-item px-0">No analysis history yet.</li>
-                    {% endfor %}
-                </ul>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="stat-card-stitch p-3">
+                            <span class="small text-muted d-block mb-1">Engine Evaluation</span>
+                            <span class="h4 font-monospace fw-bold text-dark-emphasis mb-0">{{ result.evaluation }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3 text-end">
+                    <a class="btn btn-sm btn-brand" href="{% url 'chesslab:play' %}">Practice this variation on board &rarr;</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Recent Analyses History Strip -->
+    <div class="col-lg-5">
+        <div class="stat-card-stitch p-4 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h2 class="h5 fw-bold mb-0">Analysis Archive</h2>
+                    <span class="small text-muted">Recent positions evaluated in your workspace</span>
+                </div>
+                <span class="badge bg-body-secondary text-muted rounded-pill">{{ history|length }} saved</span>
+            </div>
+
+            <div class="d-flex flex-column gap-2 overflow-auto" style="max-height: 480px;">
+                {% for item in history %}
+                <div class="course-progress-item p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <span class="font-monospace fw-bold text-primary">{{ item.best_move|default:'n/a' }}</span>
+                        <span class="badge bg-primary-subtle text-primary border border-primary-subtle font-monospace px-2 py-0.5">
+                            {{ item.evaluation }}
+                        </span>
+                    </div>
+                    <div class="small text-muted d-flex justify-content-between align-items-center mt-2">
+                        <span class="font-monospace text-truncate" style="max-width: 220px;">{{ item.fen }}</span>
+                        <span style="font-size: 0.72rem;">{{ item.created_at|date:"M d, H:i" }}</span>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="text-center py-5 text-muted">
+                    <span class="material-symbols-outlined fs-2 mb-2">history</span>
+                    <p class="small mb-0">No past analyses found. Enter a FEN string above to begin.</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
