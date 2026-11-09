@@ -4,7 +4,7 @@
 {% block meta_description %}Play chess turn-by-turn from both sides or against offline bot. Interactive board with live eval bar, captured pieces, and move logs.{% endblock %}
 
 {% block extra_head %}
-<link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css">
 <style>
     #board .square-55d63 { transition: background-color 0.15s; }
     .piece-unicode { font-size: 1.15rem; line-height: 1; }
@@ -291,8 +291,9 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="https://unpkg.com/chess.js@0.10.3/chess.js"></script>
-<script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
 <script>
 (function () {
     const SAVE_GAME_URL = "{% url 'chesslab:api-save-game' %}";
@@ -380,7 +381,7 @@
         onDragStart,
         onDrop,
         onSnapEnd,
-        pieceTheme: 'https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/img/chesspieces/wikipedia/{piece}.png',
+        pieceTheme: 'https://chessboardjs.com/img/chesspieces/wikipedia/{piece}.png',
     });
 
     // ── Offline Bot Logic (Instant legal response, captures preferred) ───────
