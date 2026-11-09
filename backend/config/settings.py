@@ -36,6 +36,7 @@ if DEBUG:
         "http://127.0.0.1:8000",
         "https://*.localhost.run",
         "https://*.lhr.life",
+        "https://*.trycloudflare.com",
         "https://*.pinggy.link",
         "https://*.ngrok-free.app",
         "https://*.loca.lt",
